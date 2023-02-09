@@ -147,27 +147,42 @@ export PATH=$PATH:/path/to/dir
 If TypeDB doesn't have a distribution you need, please open an issue 
 [on GitHub](https://github.com/vaticle/typedb/issues).
 
-Having installed or downloaded TypeDB, we can now start the [Server](#start-the-typedb-server) and interact with the 
-[Console](../02-console/01-console.md).
-
 [tab:end]
 
 [tab:MacOS]
 
-#### Using Homebrew
+### Homebrew
+
+Install [Homebrew](https://brew.sh/).
+
+Use Homebrew to install typedb:
+
 ```sh
 brew install typedb
 ```
 
-To upgrade an existing installation via brew:
-```sh
-brew upgrade typedb
+### Manual Install
+
+#### Download
+
+Download the [latest release](https://vaticle.com/download#typedb) of TypeDB.
+
+#### Extract
+
+Copy the archive to any desired location and extract the downloaded archive by double clicking on it.
+
+#### Update PATH environment variable
+
+To be able to launch TypeDB from anywhere without addressing the full path to the bin file we should set the
+environment variable `PATH` to look for bin file in the extracted folder. To do so we can edit the `~/.zshrc` file 
+in any available editor to add this text as a separate line at the end:
+
+```bash
+export PATH=$PATH:/path/to/dir
 ```
 
-#### Manual Download
-Download the [latest release](https://github.com/vaticle/typedb/releases), unzip it in a location on your machine that is easily accessible via terminal.
-
-Having installed or downloaded TypeDB, we can now start the [Server](#start-the-typedb-server) and interact with the [Console](../02-console/01-console.md).
+`/path/to/dir` — is the desired location of the archive plus the name of the extracted folder. There should be a
+`typedb` file at that location.
 
 [tab:end]
 
@@ -190,6 +205,10 @@ please try to install the "C++ redistributable" by following the instructions [h
 [tab:end]
 
 </div>
+
+Having installed or downloaded TypeDB, we can now start the [Server](#start-the-typedb-server) and interact with the
+[TypeDB Studio](../02-dev/clients/01-studio.md), [TypeDB Console](../02-dev/clients/02-console.md) or any other 
+[client](../02-dev/04-clients.md).
 
 ## Start the TypeDB Server
 If you have installed TypeDB using a package manager, you can start the TypeDB Server by using the `typedb server` 
