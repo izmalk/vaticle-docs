@@ -139,8 +139,7 @@ environment variable `PATH` to look for bin file in the extracted folder. To do 
 export PATH=$PATH:/path/to/dir
 ```
 
-`/path/to/dir` — is the desired location of the archive plus the name of the extracted folder. There should be a 
-`typedb` file at that location.
+`/path/to/dir` — is the path to and the name of the extracted folder. There should be a `typedb` file at that location.
 
 ### Other package managers
 
@@ -181,41 +180,62 @@ in any available editor to add this text as a separate line at the end:
 export PATH=$PATH:/path/to/dir
 ```
 
-`/path/to/dir` — is the desired location of the archive plus the name of the extracted folder. There should be a
-`typedb` file at that location.
+`/path/to/dir` — is the path to and the name of the extracted folder. There should be a `typedb` file at that location.
 
 [tab:end]
 
 [tab:Windows]
 
-#### Manual Download
-Download the [latest release](https://github.com/vaticle/typedb/releases), unzip it in a location on your machine that is easily accessible via command prompt.
+### Manual Install
 
-Having downloaded TypeDB, we can now start the [Server](#start-the-typedb-server) and interact with the [Console](../02-console/01-console.md).
+#### Download
 
-**NOTE**: If you are experiencing the following error,
+Download the [latest release](https://vaticle.com/download#typedb) of TypeDB.
+
+#### Extract
+
+Copy the archive to any desired location and extract the downloaded archive.
+
+#### Update PATH environment variable
+
+To be able to launch TypeDB from anywhere without addressing the full path to the bin file we should set the
+environment variable `PATH` to look for bin file in the extracted folder. To do so we can use GUI or console. 
+
+For instructions on how to do it with GUI — follow [these instructions](https://www.java.com/en/download/help/path.html) 
+minding the OS version. 
+
+For console approach run:
+
+```powershell
+setx /M path "%path%;C:\path\to\dir"
+```
+
+`C:\path\to\dir` — is the path to and the name of the extracted folder. There should be a `typedb` file at that 
+location.
+
+<div class="note">
+[Note]
+If the following error occurs, please try to install the "C++ redistributable" by following the instructions 
+[here](https://developers.google.com/optimization/install/python/windows#microsoft-visual-c-redistributable).
 
 ```
 Exception in thread "main" java.lang.UnsatisfiedLinkError: 
 C:\Users\Vaticle\AppData\Local\Temp\ortools-java\win32-x86-64\jniortools.dll: Can't find dependent libraries
 ```
 
-please try to install the "C++ redistributable" by following the instructions [here](https://developers.google.com/optimization/install/python/windows#microsoft-visual-c-redistributable).
+</div>
 
 [tab:end]
 
 </div>
 
-Having installed or downloaded TypeDB, we can now start the [Server](#start-the-typedb-server) and interact with the
+Having installed or downloaded TypeDB, we can now [start the Server](#start-the-typedb-server) and interact with the
 [TypeDB Studio](../02-dev/clients/01-studio.md), [TypeDB Console](../02-dev/clients/02-console.md) or any other 
 [client](../02-dev/04-clients.md).
 
 ## Start the TypeDB Server
-If you have installed TypeDB using a package manager, you can start the TypeDB Server by using the `typedb server` 
-command.
 
-Otherwise, if you have manually downloaded TypeDB, navigate into the folder with unzipped TypeDB and run it by issuing
-`./typedb server` command.
+Now we can start the TypeDB Server by using the `typedb server` command in local terminal.
 
 If you have used the Docker to run a TypeDB container: TypeDB server should work while the Docker container is active.
 
