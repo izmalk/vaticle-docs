@@ -25,13 +25,13 @@ top.
 
 We can also use the `define` keyword in the interactive mode of the: 
 
-- [TypeDB Console](clients/02-console.md)
+- [TypeDB Console](../../02-clients/02-console.md)
 - TypeDB drivers:
-  - [Java](clients/03-java.md). 
-  - [Python](clients/04-python.md).
-  - [Node.js](clients/05-nodejs.md).
+  - [Java](../../02-clients/03-java.md). 
+  - [Python](../../02-clients/04-python.md).
+  - [Node.js](../../02-clients/05-nodejs.md).
 
-We recommend using [TypeDB Studio](clients/01-studio.md) for experimenting with TypeDB, schemas and queries.
+We recommend using [TypeDB Studio](../../02-clients/01-studio.md) for experimenting with TypeDB, schemas and queries.
 
 <div class="note">
 [Important]

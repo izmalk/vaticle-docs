@@ -25,7 +25,7 @@ TypeDB and TypeDB Studio of the same versions.
 The TypeDB Server is expected to be running on port `1729` on your machine in a docker container.
 
 You can connect to this instance with TypeDB Studio or any other instrument via address `127.0.0.1:1729`.
-To interact with the local [TypeDB Console](../02-dev/clients/01-studio.md), run:
+To interact with the local [TypeDB Console](../../02-clients/01-studio.md), run:
 
 ```
 docker exec -ti typedb bash -c '/opt/typedb-all-linux/typedb console'
@@ -285,7 +285,7 @@ To stop the TypeDB Server, press Ctrl-C in the terminal, where you started it in
 </div>
 
 Having installed or downloaded TypeDB, we can now [start the Server](#start-the-typedb-server) and interact with the
-[TypeDB Studio](../02-dev/clients/01-studio.md), [TypeDB Console](../02-dev/clients/02-console.md) or any other 
+[TypeDB Studio](../../02-clients/01-studio.md), [TypeDB Console](../../02-clients/02-console.md) or any other 
 [client](../02-dev/04-clients.md).
 
 
