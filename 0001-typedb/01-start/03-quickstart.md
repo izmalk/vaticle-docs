@@ -62,7 +62,20 @@ At the Address field insert or type in the address of the TypeDB server. Press c
 
 Now TypeDB Studio is connected to your TypeDB instance.
 
-### Third step: Create a database
+### Third step: Open Project Folder
+
+Studio will store queries you save in a project folder on you local machine, so you don't need to rewrite all your
+queries each time you open Studio. To open a project folder click on the Open Folder icon in the top left corner or the
+Open Project button in the Project section on the left (under the database icon).
+
+![Project Interface empty](../../images/quickstart/studio-projects-empty.png)
+
+This is the project view. Here we see files and folders inside the selected Project folder. Unsaved queries saved in a
+hidden folder inside Project folder.
+
+![Project Interface With Open Folder](../../images/studio/project-interface-created-folder.png)
+
+### Fourth step: Create a database
 
 Let's create a new database. To do so, go to the databases manager by clicking on the database icon in the top left-hand 
 corner. It is located directly left from the "Select Database" dropdown menu.
@@ -75,21 +88,10 @@ In the database manager window locate single line input field at the bottom, typ
 
 Now we've successfully created a database named `iam`!
 
-### Fourth step: Prepare a Schema
+### Fifth step: Prepare a Schema
 
-A [TypeDB schema](../02-dev/05-schema.md) is the blueprint of a TypeDB database. 
+A [TypeDB schema](../02-dev/05-schema.md) is the blueprint of a TypeDB database.
 We use [TypeQL](../../11-query) to define all concepts of a data model.
-
-Studio will store queries you save in a project folder on you local machine, so you don't need to rewrite all your
-queries each time you open Studio. To open a project folder click on the Open Folder icon in the top left corner or the 
-Open Project button in the Project section on the left (under the database icon).
-
-![Project Interface empty](../../images/quickstart/studio-projects-empty.png)
-
-This is the project view. Here we see files and folders inside the selected Project folder. Unsaved queries saved in a 
-hidden folder inside Project folder.
-
-![Project Interface With Open Folder](../../images/studio/project-interface-created-folder.png)
 
 To load a schema we can use one of the files in a project folder, or we can create one. To create a new request/file 
 just click the plus (`+`) icon immediately right from the Project folder section tite. In the newly opened text editor 
@@ -267,7 +269,7 @@ rule add-view-access:
     
 ```
 
-### Fifth step: Load a Schema
+### Sixth step: Load a Schema
 
 To load a schema we need to execute our first transaction to the `iam` database. To do that correctly we need to make 
 sure the session and transaction types are set to `schema` and `write` respectively. These can be found to the right of 
@@ -432,3 +434,4 @@ respectively. Click the green play button to start the transaction. As a result 
 visualization of the response data. In this case — all our inserted data from the miniature dataset.
 
 ![IAM data graph](../../images/quickstart/studio-iam-data.png)
+
