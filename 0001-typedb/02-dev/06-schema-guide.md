@@ -5,7 +5,7 @@ longTailKeywords: typeql schema, typeql define query, typeql type hierarchy, typ
 Summary: A comprehensive guide on defining Schema Concepts in TypeDB.
 ---
 
-# Schema creation practical guide
+# Schema Creation Practical Guide
 
 <!---
 #todo ConceptAPI positioning as a common principle.

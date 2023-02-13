@@ -6,3 +6,5 @@ summary: A simple example with a prototype application to run against a TypeDB d
 toc: false
 ---
 
+# Sample Application
+
