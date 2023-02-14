@@ -22,6 +22,38 @@ pattern. The match clause is then executed as a part of other types of queries:
 
 In the case of a Get query, what we expect to be returned is the tuples of instances fulfilling the specified pattern.
 
+## Query pattern anatomy
+
+At the core of each query sits a query pattern that describes a subset of data of our particular interest. Here we
+examine the structure of query patterns closer. In general, patterns can be thought of as different arrangements of
+statement collections. TypeQL statements constitute the smallest building blocks of queries. Let's have a close
+look at the constructs of a basic match clause.
+
+![Statement structure](../../images/query/statement-structure.png)
+
+- Most statements start with a **variable** (`V`) providing a concept reference. We can reference both data and schema
+  concepts via variables. A TypeQL variable is prefixed with a dollar sign `$`.
+
+- The variable is followed by a comma-separated list of **properties** (`P1`, `P2`, `P3`) describing the concepts the
+  variable refers to. Here we can see that all the concepts that variable `$p` refers to, must be of type `person`.
+  The matched instances are expected to own an attribute of type `name` with the value of `"Bob"`. Additionally, we
+  require the concepts to own an attribute of type `phone-number` with any value. We signal that we want to fetch the
+  owned `phone-number`s as well by defining an extra `$phone` variable. Consequently, after performing a match on
+  this statement, we should obtain pairs of concepts that satisfy our
+  statement.
+
+- We mark the end of the statement with a semi-colon `;`.
+
+There is some freedom in forming and composing our statements. For example, as shown below, we could write our 
+single statement with three properties as three combined statements.
+
+<!-- test-ignore -->
+```typeql
+$p isa person;
+$p has name 'Masako Holley';
+$p has email $email;
+```
+
 ## Schema and Data
 
 We can send queries to read or write schema or data. So the match clause can be used with both data and schema concepts.
@@ -30,7 +62,7 @@ We can send queries to read or write schema or data. So the match clause can be 
 
 We can use the `match` keyword to find types in the schema of a TypeDB database. 
 
-### Match everything
+### Match Everything
 
 We can request everything from a schema. To do that we would use `Thing` concept. As every schema concept is a 
 subtype of `Thing` we can do it like that: 
@@ -41,8 +73,8 @@ match $s sub thing;
 
 <div class="note">
 [Important]
-Be default, if we send `match` query without stating what we want to do with matched pattern (without the get 
-statement in the example above) it is processed as `match ... get`, so it returns all mentioned variables.
+By default, if we send `match` query without stating what we want to do with matched pattern (without the get 
+statement in the example above) it is processed as `match ... get` query, so it returns all mentioned variables.
 </div>
 
 ### Direct and Indirect Subtypes of a Given Type
@@ -61,16 +93,16 @@ match $o sub object;
 ```java
 TypeQLMatch.Filtered query_a = TypeQL.match(
   var("o").sub("object")
-).get("o");
+);
 ```
 [tab:end]
 </div>
 
-<!--- #todo Think on removing get from Java statement -->
-
 Running the above query on the `iam` [schema](../01-start/03-quickstart.md#fifth-step--prepare-a-schema), returns  
 the `object` concept type itself, as well as all concept types that are subtypes of `object`, directly (i.e. 
 `resource` and `resource-collection`) and indirectly (i.e. `file`, `interface`, `directory` and `application`).
+
+<!--- #todo Think of Adding query result illustration -->
 
 ### Direct Subtypes of a Given Type
 
@@ -80,7 +112,7 @@ To match the schema concepts that are **direct subtypes** of a given type, we us
 
 [tab:TypeQL]
 ```typeql
-match $o sub! object; get $o;
+match $o sub! object;
 ```
 [tab:end]
 
@@ -88,7 +120,7 @@ match $o sub! object; get $o;
 ```java
 TypeQLMatch.Filtered query_a = TypeQL.match(
   var("o").subX("object")
-).get("o");
+);
 ```
 [tab:end]
 </div>
@@ -104,7 +136,7 @@ To match only the given type and not any of its subtypes, we use the `type` keyw
 
 [tab:TypeQL]
 ```typeql
-match $o type object; get $o;
+match $o type object;
 ```
 [tab:end]
 
@@ -113,38 +145,42 @@ match $o type object; get $o;
 ```java
 TypeQLMatch.Filtered query_a = TypeQL.match(
   var("o").type("object")
-).get("o");
+);
 ```
 [tab:end]
 </div>
 
 Running the above query, returns only the concept type that has the label `object`.
 
+### Roles of a Given Relation
 
-### Roles of a given relation
 Given a particular relation, we can use the `relates` keyword to match all roles related to the given relation type.
 
 <div class="tabs dark">
 
 [tab:TypeQL]
 ```typeql
-match employment relates $x; get $x;
+match permission relates $x;
 ```
 [tab:end]
 
 [tab:Java]
 ```java
 TypeQLMatch.Filtered query = TypeQL.match(
-  type("employment").relates(var("x"))
-).get("x");
+  type("permission").relates(var("x"))
+);
 ```
 [tab:end]
 </div>
 
-This matches all roles of the `employment` relation - `employer` and `employee`.
+This matches all roles of the `permission` relation — `permission:permitted-access` and `permission:permitted-subject`.
 
-#### Subroles of a given role in a super-relation
-When we learned about [subtyping relations](../09-schema/01-concepts.md#subtype-a-relation), we saw that a role related to a sub-relation is linked to a corresponding parent's role using the `as` keyword. We can use the same keyword in a `match` clause to match the corresponding role in the given sub-relation.
+#### Subroles of a Given Role
+
+<!--- Revisit this one ====================================================================================== -->
+
+Role related to a sub-relation is linked to a corresponding parent's role using the `as` keyword. We can use the 
+same keyword in a `match` clause to match the corresponding role in the given sub-relation.
 
 <div class="tabs dark">
 
@@ -167,55 +203,57 @@ TypeQLMatch.Filtered query = TypeQL.match(
 
 This matches all the roles that correspond to the `subject` role of the relation which `friend-request` subtypes. In this case, the super-relation being `request` and the matched role being `friendship`.
 
-### Role players of a given role
-Given a role, we can match the concept types that play the given role by using the `plays` keyword.
+### Role Players of a Given Role
+
+We can match the concept types that play the given role by using the `plays` keyword.
 
 <div class="tabs dark">
 
 [tab:TypeQL]
 ```typeql
-match $x plays employment:employee; get $x;
+match $x plays permission:permitted-subject;
 ```
 [tab:end]
 
 [tab:Java]
 ```java
 TypeQLMatch.Filtered query = TypeQL.match(
-  var("x").plays("employment", "employee")
-).get("x");
+  var("x").plays("permission", "permitted-subject")
+);
 ```
 [tab:end]
 </div>
 
-This matches all concept types that play the role `employee` in any relation.
+This matches all concept types that play the role `permitted-subject` in any relation.
 
-### Owners of a given attribute
+### Owners of a Given Attribute
+
 Given an attribute type, we can match the concept types that own the given attribute type by using the `owns` keyword.
 
 <div class="tabs dark">
 
 [tab:TypeQL]
 ```typeql
-match $x owns title; get $x;
+match $x owns name;
 ```
 [tab:end]
 
 [tab:Java]
 ```java
 TypeQLMatch.Filtered query = TypeQL.match(
-  var("x").owns("title")
-).get("x");
+  var("x").owns("name")
+);
 ```
 [tab:end]
 </div>
 
-This matches all concept types that own `title` as their attribute.
+This matches all concept types that own `name` as their attribute.
 
 ## Match Data
 
 We can use the `match` keyword to find instances of types or data in a TypeDB database.
 
-### Match everything
+### Match Everything
 
 We can request every instance of data from a database. To do that we would use `Thing` concept. As every schema concept 
 is a subtype of `Thing` we can do it like that:
@@ -224,14 +262,22 @@ is a subtype of `Thing` we can do it like that:
 match $t isa thing; get $t;
 ```
 
-### Match instances of an entity
-Matching instances of an entity type is easy. We do so by using a variable followed by the `isa` keyword and the label of the entity type.
+### Match Instances of an Entity
+
+Matching instances of an entity type is easy. We do so by using a variable followed by the `isa` keyword and the 
+label of the entity type.
+
+<div class="note">
+[Warning]
+Using `isa` will return all direct and indirect instances (instances of all subtypes of the given type). To limit 
+results to only direct instances of the given type use `isa!` instead. See the [Example](#instances-of-a-direct-type).
+</div>
 
 <div class="tabs dark">
 
 [tab:TypeQL]
 ```typeql
-match $p isa person; get $p;
+match $p isa person;
 ```
 [tab:end]
 
@@ -239,74 +285,84 @@ match $p isa person; get $p;
 ```java
 TypeQLMatch.Filtered query = TypeQL.match(
   var("p").isa("person")
-).get("p");
+);
 ```
 [tab:end]
 </div>
 
-The example above, for every person, assigns the person (entity) instance to the variable `$p`.
+The example above will return all instance of the person type and any of it's sub-types.
 
 #### Instances of an entity with particular attributes
-To only match the instances of entities that own a specific attribute, we use the `has` keyword, followed by the attribute's label and a variable.
+
+To only match the instances of entities that own a specific attribute, we use the `has` keyword, followed by the 
+attribute's label and a variable.
 
 <div class="tabs dark">
 
 [tab:TypeQL]
 ```typeql
-match $p isa person, has full-name $n; get $p;
+match $p isa person, has name $n;
 ```
 [tab:end]
 
 [tab:Java]
 ```java
 TypeQLMatch.Filtered query = TypeQL.match(
-  var("p").isa("person").has("full-name", var("n"))
-).get("p");
+  var("p").isa("person").has("name", var("n"))
+);
 ```
 [tab:end]
 </div>
 
-
-We soon learn [how to target attributes of a specific value](#match-instances-of-an-attribute).
+We soon learn [how to target attributes of a specific value](#owners-with-attributes-of-given-values).
 
 ### Match instances of a relation
-Because of the [dependent nature of relations](../09-schema/01-concepts.md#define-a-relation), matching them is slightly different to matching entities and attributes.
+
+Because of the [dependent nature of relations](../02-dev/05-schema.md#relation), matching them is slightly different to 
+matching entities and attributes as we usually need to add some details of the participants of the relation.
 
 <div class="tabs dark">
 
 [tab:TypeQL]
 ```typeql
-match $emp (employer: $x, employee: $y) isa employment; get $emp;
+match $p isa person, has name "Kevin Morrison";
+$pe (permitted-subject: $p, permitted-access: $ac) isa permission; get $pe;
 ```
 [tab:end]
 
 [tab:Java]
 ```java
 TypeQLMatch.Filtered query = TypeQL.match(
-  var("emp").rel("employer", "x").rel("employee", "y").isa("employment")
-).get("emp");
+var(p).isa("person").has("name", "Kevin Morrison"), var("pe").rel("permitted-subject", var("p")).
+rel("permitted-access", var("ac")).isa("permission)).get(var("pe")
+);
 ```
 [tab:end]
 </div>
 
-The example above, for every employment, assigns the instance of the employment (relation) type to the variable `$emp`, the instance of the employer organisation (entity) type to the variable `$x` and the instance of the employee person (entity) type to the variable `$y`.
+In the example above, for given instance of `person` type that has `name` attribute with a value of `Kevin Morrison` 
+we look for every permission, where this instance of `person` plays role `permitted-subject`. And we get all the 
+resulted permissions as a result.
 
 #### Instances of a relation with particular attributes
-To only match the instances of relations that own a specific attribute, we use the `has` keyword followed by the attribute's label and a variable.
+
+To only match the instances of relations that own a specific attribute, we use the `has` keyword followed by the 
+attribute's label and a variable.
 
 <div class="tabs dark">
 
 [tab:TypeQL]
 ```typeql
-match $emp (employer: $x, employee: $y) isa employment, has reference-id $ref; get $emp;
+match $pe (permitted-subject: $p, permitted-access: $ac) isa permission, has validity "True"; get $pe;
 ```
 [tab:end]
 
 [tab:Java]
 ```java
 TypeQLMatch.Filtered query = TypeQL.match(
-  var("emp").rel("employer", "x").rel("employee", "y").has("reference-id", var("ref")).isa("employment")
-).get("emp");
+var("pe").rel("permitted-subject", var("p")).rel("permitted-access", var("ac")).isa("permission)).has("validity",
+True").get(var("pe"))
+);
 ```
 [tab:end]
 </div>
@@ -314,13 +370,15 @@ TypeQLMatch.Filtered query = TypeQL.match(
 We soon learn [how to target attributes of a specific value](#match-instances-of-an-attribute).
 
 #### Leave the relation instance unassigned
-Assigning a relation to a variable is optional. We may only be interested in the role players of a certain relation. In such a case, we would write the above match clause like so:
+
+Assigning a relation to a variable is optional. We may only be interested in the role players of a certain relation. 
+In such a case, we would write the above match clause like so:
 
 <div class="tabs dark">
 
 [tab:TypeQL]
 ```typeql
-match (employer: $x, employee: $y) isa employment;
+match (permitted-subject: $p, permitted-access: $ac) isa permission;
 ```
 [tab:end]
 
@@ -335,21 +393,23 @@ match (employer: $x, employee: $y) isa employment;
 </div>
 
 #### Leave the roles out
-We can always choose to not include the label of roles when matching a relation. This, especially, makes sense when matching a relation that relates to only one role.
+
+We can always choose to not include the label of roles when matching a relation. This, especially, makes sense when 
+matching a relation that relates to only one role.
 
 <div class="tabs dark">
 
 [tab:TypeQL]
 ```typeql
-match $fr ($x, $y) isa friendship; get $fr;
+match $sp ($x, $y) isa segragation-policy; get $sp;
 ```
 [tab:end]
 
 [tab:Java]
 ```java
 TypeQLMatch.Filtered query = TypeQL.match(
-  var("fr").rel("x").rel("y").isa("friendship")
-).get("fr");
+  var("sp").rel("x").rel("y").isa("segragation-policy")
+).get("sp");
 ```
 [tab:end]
 </div>
@@ -531,7 +591,9 @@ TypeQLMatch.Filtered query = TypeQL.match(
 </div>
 
 ### Instances of a direct type
-The type that an instance belongs to may be a subtype of another. This means when we use `isa`, we are matching all direct and indirect instances of the given type. To only match the direct instances, we use `isa!` instead. 
+
+The type that an instance belongs to may be a subtype of another. This means when we use `isa`, we are matching all 
+direct and indirect instances of the given type. To only match the direct instances, we use `isa!` instead. 
 
 <div class="tabs dark">
 
@@ -602,27 +664,76 @@ TypeQLMatch query = TypeQL.match(
 ### Comparators
 When matching an instance of an attribute type based on its value or simply comparing two variables, the following comparators may be used: `=`, `!=`, `>`, `>=`, `<` and `<=`.
 
-## Examples
-To see some `get` queries powered by complex and expressive `match` clauses, check out the [examples of querying a sample knowledge graph](../08-examples/05-phone-calls-queries.md).
+## Complex queries
 
-## Clients Guide
+By arranging statements together, we can express more complex pattern scenarios and their corresponding data.
 
-<div class = "note">
-[Note]
-**For those developing with Client [Java](../03-client-api/01-java.md)**: Executing a query that contains a `match` clause, is as simple as calling the [`query().match()`](../03-client-api/01-java.md) method on a transaction and passing the query object to it.
-</div>
+![Pattern structure](../../images/query/pattern-structure.png)
 
-<div class = "note">
-[Note]
-**For those developing with Client [Node.js](../03-client-api/03-nodejs.md)**: Executing a query that contains a `match` clause, is as simple as passing the TypeQL(string) query to the `query().match()` function available on the [`transaction`](../03-client-api/03-nodejs.md#transaction) object.
-</div>
+1. **Statement**: simplest possible arrangement — a single basic building block
+   as [explained above](#query-pattern-anatomy).
+2. **Conjunction**: a set of patterns where to satisfy a match, **all** patterns must be matched. We use
+   conjunctions by default just by separating the partaking patterns with semi-colons `;`.
+3. **Disjunction**: a set of patterns where to satisfy a match, **at least one** pattern must be matched. We form  
+   disjunctions by enclosing the partaking patterns within curly braces `{}` and interleaving them with
+   the `or` keyword.
+4. **Negation**: defines a conjunctive pattern that explicitly defines conditions **not** to be met. We form
+   negations by defining the pattern of interest inside a `not {};` block.
 
-<div class = "note">
-[Note]
-**For those developing with Client [Python](../03-client-api/02-python.md)**: Executing a query that contains a `match` clause, is as simple as passing the TypeQL(string) query to the `query().match()` method available on the [`transaction`](../03-client-api/02-python.md#transaction) object.
-</div>
+To better illustrate the possibilities, we will now look at an example of a more complex pattern.
 
-## Summary
-We learned how to use the `match` clause to write intuitive statements that describe a desired pattern in the knowledge graph and fill in the variables that hold the data we would like to acquire.
+![Example pattern](../../images/query/example-pattern.png)
 
-Next, we learn how to use the `match` clause in conjunction with TypeQL queries to carry out instructions - starting with the [get query](../11-query/02-get-query.md).
+The pattern above describes pairs of instances of `person` who are both have permission to access the same file with
+a filepath of `README.md`.
+The pattern additionally specifies the access to be either `modify_file` or `view_file`, and any of them to not be
+named `Masako Holley`.
+Additionally, the pattern asks to fetch the `name` of each of the people in the pair.
+
+The pattern is a conjunction of four different pattern types:
+- **Conjunction 1** specifies the variables for people, their names, action and file that has filepath `README.md`,
+  specifies their types.
+- **Disjunction** specifies that the actions of interest are either `modify_file` or `view_file`.
+- **Negation 1** specifies that person 1 shall not have name `Masako Holley`.
+- **Negation 2** specifies that person 2 shall not have name `Masako Holley`.
+- **Conjunction 2** defines the pattern requiring the file to have access that we specified earlier, and both
+  person to have a permission to this access type of this file.
+
+<!---
+```typeql
+match
+
+$p1 isa person, has name $pn1;
+$p2 isa person, has name $pn2;
+$ac isa action;
+$f isa file, has filepath "README.md";
+{$ac has name "modify_file";} or {$ac has name "view_file";};
+not {$p1 has name "Masako Holley";};
+not {$p2 has name "Masako Holley";};
+$a($f, $ac) isa access;
+$pe1($p1, $a) isa permission;
+$pe2($p2, $a) isa permission;
+```
+-->
+
+## How to Send a Query
+
+The easiest way to send a query to the TypeDB server is to use TypeDB Studio to 
+[do so](../../02-clients/01-studio.md#write--read-data).
+
+Alternatively, you can use any other [client](../02-dev/04-clients.md) to handle server connection, sessions, 
+transactions, etc.
+
+Among the list of clients there are TypeDB drivers for different programming languages. Sending a query in one of those
+should be as easy as calling a function. But it might require additional efforts to control session and transaction.
+For example, let's see how to send a query in some of the most popular programming languages:
+
+- [Java](../../02-clients/03-java.md): Executing a query that contains a `match` clause, is as simple as calling the 
+  [`query().match()`](../../02-clients/03-java.md#api-reference) method on a transaction and passing the query object 
+  to it.
+- [Node.js](../../02-clients/05-nodejs.md): Executing a query that contains a `match` clause, is as simple as 
+  passing the TypeQL(string) query to the `query().match()` function available on the 
+  [`transaction`](../../02-clients/05-nodejs.md#api-reference) object.
+- [Python](../../02-clients/04-python.md): Executing a query that contains a `match` clause, is as simple as  
+  passing the TypeQL(string) query to the `query().match()` method available on the
+  [`transaction`](../../02-clients/04-python.md#api-reference) object.
