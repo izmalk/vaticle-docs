@@ -36,7 +36,7 @@ We can request everything from a schema. To do that we would use `Thing` concept
 subtype of `Thing` we can do it like that: 
 
 ```typeql
-match $s sub thing; get $s;
+match $s sub thing;
 ```
 
 <div class="note">
@@ -45,7 +45,7 @@ Be default, if we send `match` query without stating what we want to do with mat
 statement in the example above) it is processed as `match ... get`, so it returns all mentioned variables.
 </div>
 
-### Direct and indirect subtypes of a given type
+### Direct and Indirect Subtypes of a Given Type
 
 To match all schema concepts of a given type, **all the way down the type hierarchy**, we use the `sub` keyword.
 
@@ -53,7 +53,7 @@ To match all schema concepts of a given type, **all the way down the type hierar
 
 [tab:TypeQL]
 ```typeql
-match $o sub object; get $o;
+match $o sub object;
 ```
 [tab:end]
 
@@ -66,37 +66,45 @@ TypeQLMatch.Filtered query_a = TypeQL.match(
 [tab:end]
 </div>
 
-Running the above query on the `iam` [schema](../01-start/03-quickstart.md#fourth-step--prepare-a-schema), returns the `post` 
-concept type itself, as well as all concept types that are subtypes of `post`, directly (i.e. `media`, `comment`, `album` and `status-update`) and indirectly (i.e. `photo` and `video`).
+<!--- #todo Think on removing get from Java statement -->
 
-### Direct subtypes of a given type
+Running the above query on the `iam` [schema](../01-start/03-quickstart.md#fifth-step--prepare-a-schema), returns  
+the `object` concept type itself, as well as all concept types that are subtypes of `object`, directly (i.e. 
+`resource` and `resource-collection`) and indirectly (i.e. `file`, `interface`, `directory` and `application`).
+
+### Direct Subtypes of a Given Type
+
 To match the schema concepts that are **direct subtypes** of a given type, we use the `sub!` keyword.
 
 <div class="tabs dark">
+
 [tab:TypeQL]
 ```typeql
-match $x sub! post; get $x;
+match $o sub! object; get $o;
 ```
 [tab:end]
 
 [tab:Java]
 ```java
 TypeQLMatch.Filtered query_a = TypeQL.match(
-  var("x").subX("post")
-).get("x");
+  var("o").subX("object")
+).get("o");
 ```
 [tab:end]
 </div>
 
-Running the above query on the `social_network` [knowledge graph](../08-examples/01-phone-calls-schema.md), returns direct subtypes of the `post` type itself (i.e. `media`, `comment`, `album` and `status-update`).
+Running the above query on the `iam` [schema](../01-start/03-quickstart.md#fifth-step--prepare-a-schema), returns direct 
+subtypes of the `object` type itself (i.e. `resource` and `resource-collection`).
 
-### A given type
+### Given Type Only
+
 To match only the given type and not any of its subtypes, we use the `type` keyword.
 
 <div class="tabs dark">
+
 [tab:TypeQL]
 ```typeql
-match $x type post; get $x;
+match $o type object; get $o;
 ```
 [tab:end]
 
@@ -104,13 +112,13 @@ match $x type post; get $x;
 <!-- test-delay -->
 ```java
 TypeQLMatch.Filtered query_a = TypeQL.match(
-  var("x").type("post")
-).get("x");
+  var("o").type("object")
+).get("o");
 ```
 [tab:end]
 </div>
 
-Running the above query, returns only the concept type that has the label `post`.
+Running the above query, returns only the concept type that has the label `object`.
 
 
 ### Roles of a given relation
