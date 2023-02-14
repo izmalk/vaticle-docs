@@ -386,7 +386,7 @@ match (permitted-subject: $p, permitted-access: $ac) isa permission;
 ```java
 // FIXME(vmax): anonymous variables are not allowed 
 //TypeQL.Filtered query = TypeQL.match(
-//  var().isa("employment").rel("employer", "x").rel("employee", "y")
+//  var().isa("permission").rel("permitted-subject", "p").rel("permitted-access", "ac")
 //).get();
 ```
 [tab:end]
@@ -415,175 +415,190 @@ TypeQLMatch.Filtered query = TypeQL.match(
 </div>
 
 ### Match instances of an attribute
+
 We can match instances of attribute types in various ways depending on our use case.
 
 #### Independent of label
+
 We can match instances of attribute types based on their value regardless of their label.
 
 <div class="tabs dark">
 
 [tab:TypeQL]
 ```typeql
-match $x "law"; get $x;
+match $x "Masako Holley";
 ```
 [tab:end]
 
 [tab:Java]
 ```java
 TypeQLMatch.Filtered query = TypeQL.match(
-  var("x").eq("law")
-).get("x");
+  var("x").eq("Masako Holley")
+);
 ```
 [tab:end]
 </div>
 
-This matches instances of any attribute type whose value is `"law"` (for instance, a profession and a university course) 
-and assigns each to variable `$x`.
+This matches instances of any attribute type whose value is `Masako Holley` (for instance, a person, user-group, 
+action or user-role) and assigns each to variable `$x`.
 
 #### Independent of owner
+<!--- Consider removing this example -->
+
 We can match instances of attributes based on their value regardless of what concept type they belong to.
 
 <div class="tabs dark">
 
 [tab:TypeQL]
 ```typeql
-match $n isa nickname; $n "Mitzi"; get $n;
+match $n isa name; $n "Masako Holley"; get $n;
 ```
 [tab:end]
 
 [tab:Java]
 ```java
 TypeQLMatch.Filtered query = TypeQL.match(
-  var("x").eq("Mitzi").isa("nickname")
-).get("x");
+  var("x").eq("Masako Holley").isa("name")
+);
 ```
 [tab:end]
 </div>
 
-This matches instances of the attribute with the label of `nickname` and value of `"Mitzi"`, regardless of what owns the attribute `nickname`.
+This matches instances of the attribute with the label of `name` and value of `Masako Holley`, regardless of what 
+owns the attribute `name`.
 
-#### With a given subset
+#### Contains string
+
 To match all instances of attribute types that contain a substring, we use the `contains` keyword.
 
 <div class="tabs dark">
 
 [tab:TypeQL]
 ```typeql
-match $phone-number contains "+44"; get $phone-number;
+match $name contains "Masako"; get $name;
 ```
 [tab:end]
 
 [tab:Java]
 ```java
 TypeQLMatch.Filtered query = TypeQL.match(
-  var("phone-number").contains("+44")
-).get("phone-number");
+  var("name").contains("Masako")
+).get("name");
 ```
 [tab:end]
 </div>
 
-This matches instances of any attribute type whose value contains the substring `"+44"`.
+This matches instances of any attribute type whose value contains the substring `Masako`.
 
 #### With a given regex
-The value of an attribute can also be matched using a regex. We allow the range of [Java Regex Patterns](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html).
+
+The value of an attribute can also be matched using a regular expression or regex. We allow the range of 
+[Java Regex Patterns](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html).
 
 <div class="tabs dark">
 
 [tab:TypeQL]
 ```typeql
-match $x like "(Miriam Morton|Solomon Tran)"; get $x;
+match $x like "(Masako Holley|Kevin Morrison)";
 ```
 [tab:end]
 
 [tab:Java]
 ```java
 TypeQLMatch.Filtered query = TypeQL.match(
-  var("phone-number").regex("(Miriam Morton|Solomon Tran)")
-).get("phone-number");
+  var("x").regex("(Masako Holley|Kevin Morrison)")
+);
 ```
 [tab:end]
 </div>
 
-This matches the instances of any attribute type whose value matches the given regex - `"Miriam Morton"` or `"Solomon Tran"`.
+This matches the instances of any attribute type whose value matches the given regex - `Masako Holley` or 
+`Kevin Morrison`.
 
 #### Owners with multiple attributes
-To match instances of a concept type that owns multiple attributes, we can simply chain triples of `has`, label and variable.
+
+To match instances of a concept type that owns multiple attributes, we can simply chain statements of `has`, label and 
+variable.
 
 <div class="tabs dark">
 
 [tab:TypeQL]
 ```typeql
-match $p isa person, has nickname $nn, has full-name $fn; get $p;
+match $p isa person, has name $n, has email $email, has credential $cr; get $p;
 ```
 [tab:end]
 
 [tab:Java]
 ```java
 TypeQLMatch.Filtered query = TypeQL.match(
-  var("p").isa("person").has("nickname", var("nn")).has("full-name", var("fn"))
-).get("p");
+  var("p").isa("person").has("name", var("n")).has("email", var("email")).has("credential", var("credential"))
+);
 ```
 [tab:end]
 </div>
 
 #### Owners with attributes of given values
+
 We can also match instances that own an attribute with a specific value or range of values.
 
 <div class="tabs dark">
 
 [tab:TypeQL]
 ```typeql
-match $s isa school, has ranking < 100; get $s;
+match $r isa record, has number < 100; get $r;
 ```
 [tab:end]
 
 [tab:Java]
 ```java
 TypeQLMatch.Filtered query = TypeQL.match(
-  var("s").isa("school").has("ranking", TypeQL.lt(100))
-).get("s");
+  var("r").isa("record").has("number", TypeQL.lt(100))
+).get("r");
 ```
 [tab:end]
 </div>
 
-But if in this example, we still want to know the ranking of each matched school, we split the variable assignment and the condition like so.
+But if in this example, we still want to know the ranking of each record, we split the variable assignment and 
+the condition like so.
 
 <div class="tabs dark">
 
 [tab:TypeQL]
 ```typeql
-match $s isa school, has ranking $r; $r < 100; get $s;
+match $r isa record, has number $n; $n < 100; get $r, $n;
 ```
 [tab:end]
 
 [tab:Java]
 ```java
 TypeQLMatch.Filtered query = TypeQL.match(
-  var("s").isa("school").has("ranking", var("r")),
-  var("r").lt(100)
-).get("s");
+  var("r").isa("record").has("number", var("n")),
+  var("n").lt(100)
+).get("r", "n");
 ```
 [tab:end]
 </div>
 
 ### Disjunction of patterns
-By default, a collection of patterns in a `match` clause constructs conjunction of patterns. To include patterns in the form of a disjunction, we need to wrap each pattern in `{}` and place the `or` keyword in between them.
+
+By default, a collection of patterns in a `match` clause constructs conjunction of patterns. To include patterns in 
+the form of a disjunction, we need to wrap each pattern in `{}` and place the `or` keyword in between them.
 
 <div class="tabs dark">
 
 [tab:TypeQL]
 ```typeql
-match $p isa person, has full-name $fn; { $fn contains "Miriam"; } or { $fn contains "Solomon"; }; get $p;
+match $p isa person, has name $n; { $n contains "Masako"; } or { n contains "Kevin"; }; get $p;
 ```
 [tab:end]
 
 [tab:Java]
 ```java
 TypeQLMatch.Filtered query = TypeQL.match(
-  var("p").isa("person").has("full-name", var("fn")),
+  var("p").isa("person").has("name", var("n")),
   or(
-    var("fn").contains("Miriam"),
-    var("fn").contains("Solomon")
+    var("n").contains("Masako"),
+    var("n").contains("Kevin")
   )
 ).get("p");
 ```
@@ -599,23 +614,26 @@ direct and indirect instances of the given type. To only match the direct instan
 
 [tab:TypeQL]
 ```typeql
-match $rr isa! romantic-relationship; get $rr;
+match $u isa! user;
 ```
 [tab:end]
 
 [tab:Java]
 ```java
 TypeQLMatch.Filtered query = TypeQL.match(
-  var("rr").isa("romantic-relationship")
-).get("rr");
+  var("u").isa("user")
+);
 ```
 [tab:end]
 </div>
+<!--- Double-check the Java query isa! -->
 
-This query matches only the direct instances of `romantic-relationship`. That means the instances of `open-relation`, `domestic-relation` and `complicated-relation` (which all subtype `romantic-relationship`) would not be included.
+This query matches only the direct instances of `user`. That means the instances of `person` would not be included.
 
 ### One particular instance
-TypeDB assigns an auto-generated id to each instance. Although this id is generated by TypeDB solely for internal use, it is indeed possible to find an instance with its TypeDB id.
+
+TypeDB assigns an auto-generated id to each instance. Although this id is generated by TypeDB solely for internal use, 
+it is indeed possible to find an instance with its TypeDB id.
 To do so, we use the `iid` keyword followed by the `iid` assigned to the instance by TypeDB.
 
 <div class="tabs dark">
@@ -642,6 +660,7 @@ TypeQL allows exact concept equality using the `is` keyword. This is commonly co
 concepts are not equal:
 
 <div class="tabs dark">
+
 [tab:TypeQL]
 <!-- test-ignore -->
 ```typeql
@@ -662,7 +681,9 @@ TypeQLMatch query = TypeQL.match(
 </div>
 
 ### Comparators
-When matching an instance of an attribute type based on its value or simply comparing two variables, the following comparators may be used: `=`, `!=`, `>`, `>=`, `<` and `<=`.
+
+When matching an instance of an attribute type based on its value or simply comparing two variables, the following 
+comparators may be used: `=`, `!=`, `>`, `>=`, `<` and `<=`.
 
 ## Complex queries
 
