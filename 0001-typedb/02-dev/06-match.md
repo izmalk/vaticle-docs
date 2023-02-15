@@ -1,11 +1,11 @@
 ---
-pageTitle: Match and patterns
+pageTitle: Match query
 keywords: typeql, query, match, pattern, statement, variable
 longTailKeywords: typeql match, match get, query patterns, match clause, typeql variables
 Summary: Targeting instances of data or schema types that match expressive patterns in TypeDB.
 ---
 
-# Match and patterns
+# Match query
 
 We use `match` keyword to retrieve data instances and schema types that follow a particular pattern. Using `match` 
 statement forms the basis of our data retrieval or even data modification query. By defining the [schema](05-schema.md),
@@ -38,11 +38,10 @@ look at the constructs of a basic match clause.
 
 - The variable is followed by a comma-separated list of **properties** (`P1`, `P2`, `P3`) describing the concepts the
   variable refers to. Here we can see that all the concepts that variable `$p` refers to, must be of type `person`.
-  The matched instances are expected to own an attribute of type `name` with the value of `"Bob"`. Additionally, we
-  require the concepts to own an attribute of type `phone-number` with any value. We signal that we want to fetch the
-  owned `phone-number`s as well by defining an extra `$phone` variable. Consequently, after performing a match on
-  this statement, we should obtain pairs of concepts that satisfy our
-  statement.
+  The matched instances are expected to own an attribute of type `name` with the value of `"Masako Holley"`.  
+  Additionally, we require the concepts to own an attribute of type `email` with any value. We signal that 
+  we want to fetch the owned `email`s as well by defining an extra `$email` variable. Consequently, after 
+  performing a match on this statement, we should obtain pairs of concepts that satisfy our statement.
 
 - We mark the end of the statement with a semi-colon `;`.
 
@@ -56,10 +55,13 @@ $p has name 'Masako Holley';
 $p has email $email;
 ```
 
+Lastly, to create a viable query from that statement, we need to add `match` keyword at the beginning. After that it 
+is ready to be sent to the TypeDB server in a data read transaction.
+
 <div class="note">
 [Important]
 We can send queries to read or write schema or data of a database. So the `match` keyword can be used with both data 
-and schema concepts.
+and schema concepts. But to write into the schema we shall use `define` or `undefine`.
 </div>
 
 ## Match Schema Concepts
