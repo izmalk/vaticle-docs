@@ -20,7 +20,7 @@ toc: false
    docker version
    ```
 
-2. Pull the latest TypeDB Docker image
+2. Pull the latest TypeDB Docker image:
 
    ```bash
    docker pull vaticle/typedb:latest
@@ -46,9 +46,9 @@ The `--platform linux/amd64` parameter is required to run the TypeDB container o
 
 The following variables should be noted and can be modified:
 
-`try-typedb` – the name of the container,
-`try-typedb-data` – the name of the volume to persist data,
-`latest` – the version of TypeDB.
+- `try-typedb` – the name of the container,
+- `try-typedb-data` – the name of the volume to persist data,
+- `latest` – the version of TypeDB.
 
 ## Stop
 
@@ -100,6 +100,8 @@ typedb server
 TypeDB will run in the foreground. If the terminal running TypeDB is closed, TypeDB will be shut down. We recommend 
 opening a new terminal to run TypeDB Console.
 </div>
+
+
 
 <div class="note">
 [Note]
@@ -180,13 +182,13 @@ Press Ctrl-C in the terminal running TypeDB.
    sudo apt install typedb-server=2.15.0 typedb-console=2.15.0 typedb-bin=2.12.0
    ```
 
-   <div class="note">
-   [Note]
-   The `typedb-server` and `typedb-console` packages are updated more often than `typedb-bin` that is why their version 
-   numbers might differ. By default, APT will look for the exact same version of `typedb-bin` and that will result in an 
-   error. To prevent this we use apt show as shown above to display the dependencies of `typedb-server`, take note of 
-   the `typedb-bin` version required and invoke an `apt install` command with the specific version of every package.
-   </div>
+<div class="note">
+[Note]
+The `typedb-server` and `typedb-console` packages are updated more often than `typedb-bin` that is why their version 
+numbers might differ. By default, APT will look for the exact same version of `typedb-bin` and that will result in an 
+error. To prevent this we use apt show as shown above to display the dependencies of `typedb-server`, take note of 
+the `typedb-bin` version required and invoke an `apt install` command with the specific version of every package.
+</div>
 
 ### Manual
 
