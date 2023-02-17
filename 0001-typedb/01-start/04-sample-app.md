@@ -13,7 +13,7 @@ Let's create a simple application that interacts with TypeDB database that we cr
 
 The following Python script executes 4 requests to the `iam` database located at the `0.0.0.0:1729` address. 
 
-You can save it locally and run it with the Python v.3.9+.
+You can save it locally and run it with the [Python](https://www.python.org/downloads/) v.3.9+.
 
 After the script below you can find [simple explanation](#explanation) of 4 requests performed in the script.
 
