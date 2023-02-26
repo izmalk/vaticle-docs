@@ -11,9 +11,8 @@ toc: false
 ## Overview
 
 This quickstart goes through the step-by-step process of creating and interacting with a TypeDB database designed for an
-[Identity and Access Management](https://en.wikipedia.org/wiki/Identity_management) solution.
-
-<!--- #todo Make IAM link to the page explaining IAM schema-->
+[Identity and Access Management](https://en.wikipedia.org/wiki/Identity_management) solution that will be described 
+[later](04-iam-schema.md).
 
 IMPORTANT: 
 <div class="note">
@@ -91,7 +90,7 @@ The [**Project**] panel will now display the root directory and a nested hidden 
 
 ### Prepare a TQL file
 
-A [TypeDB schema](../02-dev/05-schema.md) contains entity, relation, and attribute type definitions that make up the 
+A [TypeDB schema](../02-dev/02-schema.md) contains entity, relation, and attribute type definitions that make up the 
 data model, as well as rules which may be applied to it – all of which are expressed in [TypeQL](../../11-query), 
 TypeDB’s query language.
 
@@ -488,7 +487,7 @@ The Types panel will now display the entity, relation, and attribute types withi
 
 Data can now be inserted.
 
-## Query examples
+## First important queries
 
 ### Read the schema
 
