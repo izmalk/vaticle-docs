@@ -5,7 +5,7 @@ chapters:
     pages:
       -
         title: Documentation overview
-        url: ../general/docs
+        url: /docs/typedb/docs
   -
     title: TypeDB
     baseUrl: /docs/typedb/
