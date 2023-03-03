@@ -90,7 +90,7 @@ Use American.
   - h2 (`##`)
   - h3 (`###`)
   - h4 (`####`)
-- Use Title Case.
+- Use sentence case.
 - `####` always comes after a `###` which always comes after a `##`.
 
 **Verbs and Pronouns**
