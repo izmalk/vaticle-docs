@@ -10,12 +10,14 @@ toc: false
 
 ## Clients
 
-[TypeDB Client](04-clients.md) handles remote connection to the TypeDB Server.
-We then use this connection to manage [databases](#databases) and open [sessions](#sessions).
+TypeDB server accepts remote connections from a number of [TypeDB clients](../../02-clients/00-clients.md) via 
+[gRPC](https://en.wikipedia.org/wiki/GRPC) protocol.
+
+Once connected, TypeDB clients can manage [databases](#databases) and [sessions](#sessions).
 
 <div class="note">
 [Note]
-Best practice is to use one client per application process.
+It’s recommended to instantiate a single client per application.
 </div>
 
 ## Databases
@@ -34,12 +36,12 @@ TypeDB server.
 Databases are isolated from one another. Even when running on the same TypeDB Server, it is not possible to connect to
 one database but perform operations on another one. But you can connect to multiple databases simultaneously.
 
-A database is made of [schema](../../09-schema/00-overview.md), and [data](../../11-query/00-overview.md).
+A database is made of [schema](02-schema.md), and [data](05-read.md).
 
 ## Sessions
 
 A session holds a connection to a particular database. This connection then allows opening 
-[transactions](02-transactions.md) to carry out [queries](../../11-query/00-overview.md).
+[transactions](#transactions) to carry out [queries](04-write.md).
 
 There are two types of session:
 
@@ -54,3 +56,9 @@ Because of intermittent network failures, it is recommended to keep sessions rel
 
 A good principle is that sessions group logically coherent transactions. For example, when loading a web page, one
 session should be used to open one or more transactions to load the page data.
+
+## Transactions
+
+
+## ACID guarantees
+
