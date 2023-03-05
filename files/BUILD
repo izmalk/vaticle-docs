@@ -14,8 +14,8 @@ filegroup(
     visibility = ["//visibility:public"]
 )
 
-filegroup(
-    name = "iam-kg",
-    srcs = ["iam/iam-schema.tql"] + ["iam/iam-schema.tql"],
-    visibility = ["//visibility:public"]
-)
+#filegroup(
+#    name = "iam-kg",
+#    srcs = ["iam/iam-schema.tql"] + ["iam/iam-schema.tql"],
+#    visibility = ["//visibility:public"]
+#)
