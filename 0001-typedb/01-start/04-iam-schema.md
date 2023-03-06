@@ -48,7 +48,7 @@ The main entity types in the IAM schema:
 
 - Subject — Active entity in the [system] that performs operations on objects. 
   - User — Human or IT entity possibly interacting with the [system] from outside of the [system] boundary.
-    - Person — User with credentials, email, and full-name.
+    - Person — User with `credentials`, `email`, and `full-name` attributes.
   - User-group — A group of users that share the same role.
 - Object — Passive entity in the [system], that contains or receives information, and upon which subjects perform
   operations. 
@@ -56,7 +56,7 @@ The main entity types in the IAM schema:
     - File — File in some filesystem with path [to the file] and size (in KB) attributes.
   - Resource-collection — A collection of resources on which the same operations can be performed.
 - Action — An operation or operation set that can be performed on a specific type of object. Its name is stored in
-  the "action-name" attribute.
+  the `action-name` attribute.
 
 <div class="note">
 [Note]
@@ -86,16 +86,16 @@ There are two relation types involved:
 - permission
 - access
 
-Permission relation connects the subject (e.g. person) via the permitted-subject role and access relation via 
-permitted-access role.
+Permission relation connects a `subject` (e.g. `person`) via a `permitted-subject` role and access relation via 
+`permitted-access` role.
 
-Access relation connects the object (e.g. file) via the accessed-object role, action (e.g. view_file) via the 
-valid-action role, and plays a role of permitted-access in a permission relation.
+Access relation connects an `object` (e.g. `file`) via an `accessed-object` role, `action` (e.g. `view_file`) via the 
+`valid-action` role, and plays a role of `permitted-access` in a `permission` relation.
 
 ![Permission and access relations](../../images/iam/permission-access.png)
 
-Taken together, a subject has permission to perform a specific action on a specific object. For example, John Smith 
-has permission to read the README.md file.
+Taken together, a `subject` has permission to perform a specific action on a specific object. For example, John Smith 
+has permission to read the `README.md` file.
 
 ## Object subtypes
 
@@ -235,19 +235,24 @@ $ac_view (accessed-object: $obj, valid-action: $view) isa access;
 ```
 
 The when section defines the following conditions:
-An action entity with action-name “modify_file”, assigned $modify variable.
-An action entity with action-name “view_file”, assigned $view variable.
-An access relation, that relates some object $obj to $modify as valid-action role, assigned $ac_modify variable.
-The similar relation but with $view instead and assigned $ac_view variable.
-A permission relation, that relates some subject $subj as permitted-subject to the $ac_modify as permitted-access.
+
+1. An `action` entity with `action-name` "modify_file", assigned `$modify` variable.
+2. An `action` entity with `action-name` "view_file", assigned `$view` variable.
+3. An `access` relation, that relates some `object` (`$obj`) to `$modify` as `valid-action` role, assigned `$ac_modify` 
+   variable.
+4. The similar relation but with `$view` instead and assigned `$ac_view` variable.
+5. A `permission` relation, that relates some `subject` (`$subj`) as `permitted-subject` to the `$ac_modify` as 
+   `permitted-access`.
 
 The then section defines the data to infer:
-A new permission relation, that relates the subject $subj as permitted-subject to $ac_view as permitted access.
+
+1. A new permission relation, that relates the subject $subj as permitted-subject to $ac_view as permitted access.
 
 <div class="note">
 [Note]
-This new permission relation will not be persisted as it will be created inside read transaction with inference option 
-enabled. It will influence the result of the transaction but not the database data.
+These new permission relations, created by the rule, will not be persisted as they will be created inside a **read** 
+transaction with inference option enabled. They will influence the result of the transaction but not the persisted 
+database data.
 </div>
 
 #### Explanation
@@ -266,6 +271,8 @@ This is the TypeDB Studio visualization of the full IAM schema:
 
 ![Full schema in studio graph visualizer](../../images/iam/full-schema-studio.png)
 
+And this is the same schema but without all attributes and streamlined a bit:
+
 ![Full schema visualization](../../images/iam/full-schema.png)
 
 ## Miniature dataset
@@ -282,7 +289,7 @@ The miniature dataset that we have loaded in the Quickstart guide consists of th
   - All 10 objects set to have "modify_file" operation as valid-action.
   - All 10 objects set to have "view_file" operation as valid-action.
 - Permissions:
-  - Subject with `name` attribute `Kevin Morrison` set to have permission to “modify_file” action for all 10 subjects.
-  - Subject with `name` attribute `Pearle Goodman` set to have some random permissions to “modify_file” or “view_file” 
+  - Subject with `name` attribute `Kevin Morrison` set to have permission to "modify_file" action for all 10 subjects.
+  - Subject with `name` attribute `Pearle Goodman` set to have some random permissions to "modify_file" or "view_file" 
     actions for some of the subjects.
   - Subject with `name` attribute `Masako Holley` doesn't have any permissions.
