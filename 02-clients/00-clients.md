@@ -87,7 +87,7 @@ When a transaction is committed or closed, all of its asynchronous queries are c
 
 Depending on the type of the query carried out by a transaction, we retrieve different forms of answers. These answers, 
 regardless of their type, all contain concepts. We can then use the methods introduced by the 
-[Concept API](../0001-typedb/02-dev/07-api.md) to obtain more information about the retrieved concept and its 
+[Concept API](../0001-typedb/02-dev/08-api.md) to obtain more information about the retrieved concept and its 
 surroundings. Furthermore, the Concept API allows us to traverse the neighbours of a specific concept instance to obtain 
 more insights.
 
