@@ -97,7 +97,9 @@ Use American.
 
 - With rare exceptions, the consistent tense used should be the present tense. (eg: _It returns_ as opposed to _It will return_).
 - In most cases, the consistent pronoun is `we`. In special cases, `you` may better convey the message. Never use `I`.
-- When speaking of the characteristics or capabilities of TypeDB and TypeQL or any of their components, the subject pronoun, if used, should be within the terminology, as opposed to `we`. (eg: _Graql_ has three types of statements, as opposed to _We_ have three types of statements)
+- When speaking of the characteristics or capabilities of TypeDB and TypeQL or any of their components, the subject 
+  pronoun, if used, should be within the terminology, as opposed to `we`. (eg: _TypeQL_ has three types of statements, 
+  as opposed to _We_ have three types of statements)
 
 **Lists (Bullet points)**
 
