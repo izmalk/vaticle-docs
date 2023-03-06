@@ -110,9 +110,9 @@ class LinksTest(unittest.TestCase):
                 "../query/aggregate-query": "11-query/06-aggregate-query.md",
             }
             client_page_mapping = {
-                "java": "01-java.md",
-                "python": "02-python.md",
-                "javascript": "03-nodejs.md",
+                "java": "03-java.md",
+                "python": "04-python.md",
+                "javascript": "05-nodejs.md",
             }
 
             with open(autolink_keywords_path, encoding='utf-8') as autolink_keywords_file:
