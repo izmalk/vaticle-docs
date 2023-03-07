@@ -209,7 +209,7 @@ some other quality of life addons.
 Use the source code below or the [explanation](#explanation) section to explore 4 requests performed in the sample app.
 
 <!--- #todo Add tabs! -->
-
+<!-- test-ignore -->
 ```java
 package org.example2;
 
