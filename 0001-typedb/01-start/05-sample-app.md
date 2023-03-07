@@ -22,6 +22,7 @@ Use the source code below or the [explanation](#explanation) section to explore 
 
 <!--- #todo Add tabs! -->
 
+<!-- test-ignore -->
 ```python
 from typedb.client import TypeDB, SessionType, TransactionType, TypeDBOptions
 from datetime import datetime
@@ -95,6 +96,7 @@ with TypeDB.core_client("0.0.0.0:1729") as client:  # Connect to TypeDB server
 
 TypeQL query used:
 
+<!-- test-ignore -->
 ```typeql
 match $u isa user, has full-name $n, has email $e;
 ```
@@ -118,6 +120,7 @@ Additionally, those having multiple full-names or emails can be mentioned more t
 
 TypeQL query used:
 
+<!-- test-ignore -->
 ```typeql
 match $u isa user, has full-name 'Kevin Morrison'; $p($u, $pa) isa permission; 
       $o isa object, has path $fp; $pa($o, $va) isa access; get $fp;
@@ -140,6 +143,7 @@ Note that users and files don't have a singular relation that connects them dire
 
 TypeQL query used:
 
+<!-- test-ignore -->
 ```typeql
 match $u isa user, has full-name 'Kevin Morrison'; $p($u, $pa) isa permission; 
       $o isa object, has path $fp; $pa($o, $va) isa access;
@@ -173,6 +177,7 @@ compact format and `.log` ending.
 
 TypeQL query used #1:
 
+<!-- test-ignore -->
 ```typeql
 insert $f isa file, has path '" + path + "';
 ```
@@ -181,6 +186,7 @@ Simple explanation: we insert `file` entity that has an attribute `path` with th
 
 TypeQL query used #2:
 
+<!-- test-ignore -->
 ```typeql
 match $f isa file, has path '" + path + "'; $vav isa action, has action-name 'view_file'; insert ($vav, $f) isa access;
 ```
@@ -397,7 +403,8 @@ builder syntax.
 
 TypeQL query used:
 
-```typeql
+<!-- test-ignore -->
+```java
 match $u isa user, has full-name $n, has email $e;
 ```
 
@@ -423,6 +430,7 @@ Additionally, those having multiple full-names or emails can be mentioned more t
 
 TypeQL query builder clause used:
 
+<!-- test-ignore -->
 ```java
 TypeQLMatch.Filtered getQuery = TypeQL.match(
         var("u").isa("user").has("full-name", "Kevin Morrison"),
@@ -449,7 +457,8 @@ Note that users and files don't have a singular relation that connects them dire
 
 TypeQL query builder clause #1 used:
 
-```typeql
+<!-- test-ignore -->
+```java
 TypeQLMatch.Limited getQuery = TypeQL.match(
         var("u").isa("user").has("full-name", "Kevin Morrison"),
         var("p").rel("u").rel("pa").isa("permission"),
@@ -486,7 +495,8 @@ time in compact format and `.log` ending.
 
 TypeQL query builder clause #1 used:
 
-```typeql
+<!-- test-ignore -->
+```java
 TypeQLInsert insertQuery = TypeQL.insert(var("f").isa("file").has("path", filepath));
 ```
 
@@ -494,7 +504,8 @@ Simple explanation: we insert `file` entity that has an attribute `path` with th
 
 TypeQL query builder clause #2 used:
 
-```typeql
+<!-- test-ignore -->
+```java
 TypeQLInsert matchInsertQuery = TypeQL.match(
         var("f").isa("file").has("path", filepath),
         var("vav").isa("action").has("action-name", "view_file")
