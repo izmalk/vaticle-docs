@@ -49,7 +49,7 @@ at the constructs of a basic match clause.
 - A TypeQL variable is prefixed with a dollar sign `$`. Most statements start with a variable (`V`) providing a concept
   reference. For more information on variables please see Variables section.
 
-- The variable is followed by a comma-separated list of properties (`P1`, `P2`, `P3`) describing the concepts the 
+- The variable is followed by a comma-separated list of properties (`p1`, `p2`, `p3`) describing the concepts the 
   variable refers to. Here we can see that all the concepts that variable `$p` refers to, must be of type person. The 
   matched instances are expected to own an attribute of type `full-name` with the value of `Masako Holley`. Additionally, 
   we require the concepts to own an attribute of type `email` with any value. We assign an extra `$email` variable to 
@@ -153,9 +153,9 @@ By arranging statements together, we can express more complex pattern scenarios 
 - Conjunction: a set of patterns where to satisfy a match, all patterns must be matched. We use conjunctions by default 
   just by separating the partaking patterns with semicolons `;`.
 - Disjunction: a set of patterns where to satisfy a match, at least one pattern must be matched. We form
-  disjunctions by enclosing the partaking patterns within curly braces {} and interleaving them with the or keyword.
+  disjunctions by enclosing the partaking patterns within curly braces `{}` and interleaving them with the `or` keyword.
 - Negation: defines a conjunctive pattern that explicitly defines conditions not to be met. We form negations by 
-  defining the pattern of interest inside a not {}; block.
+  defining the pattern of interest inside a `not {};` block.
 
 ## Match clause
 
