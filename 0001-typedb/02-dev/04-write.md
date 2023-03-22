@@ -32,31 +32,33 @@ Insert queries are written in TypeQL with the following syntax:
 
 ```typeql
 [match <pattern> [(, <pattern>)...]] 
-insert <pattern>
+insert <pattern> [(, <pattern>)...] 
 ```
 
 The optional `match` clause uses one or more patterns to find existing data which is needed to insert new data. 
 For example, to insert a new relation, we need to match every entity, attribute, and/or other relation that will 
 play a role in it to be able to address them in the `insert` clause. 
 
-The `insert` clause uses a single pattern to specify the data to be inserted and may include existing data found by 
+The `insert` clause uses patterns to specify the data to be inserted and may include existing data found by 
 the `match` clause.
 
 <div class="note">
 [Note]
 Patterns consist of variables and properties for data instances. For more information see the 
-[Query pattern anatomy](03-match.md#query-pattern-anatomy) section.
+[Patterns overview](03-match.md#query-pattern-anatomy) section.
 </div>
 
 <div class="note">
 [Note]
-The `insert` clause must have exactly one pattern. However, the pattern can result in multiple inserts. 
-For example, an insert pattern can make an entity the owner of multiple attributes, or multiple entities (that were 
-matched by a `match` clause) the owners of an attribute.
-</div>
+The `insert` clause can have multiple patterns to insert in one query. But it can’t insert types (use 
+[define](02-schema.md#define) to insert new types) and can’t have the following:
 
-If inserting data requires multiple insert patterns, run multiple queries in a single transaction. 
-Such is life in Arstotzka.
+- Conjunction
+- Disjunction
+- Negation
+- `is` keyword
+
+</div>
 
 #### Example insert query
 
@@ -292,7 +294,7 @@ Delete queries are written in TypeQL with the following syntax:
 
 ```typeql
 match <pattern> [(, <pattern>)...] 
-delete <pattern>
+delete <pattern> [(, <pattern>)...]
 ```
 
 The `match` clause uses patterns to find existing data/references which may be removed. The `delete` clause uses a 
@@ -301,14 +303,19 @@ pattern to specify which data/references found by the `match` clause should be r
 <div class="note">
 [Note]
 Patterns consist of variables and properties for data instances. For more information see the 
-[Query pattern anatomy](03-match.md#query-pattern-anatomy) section.
+[Patterns overview](03-match.md#query-pattern-anatomy) section.
 </div>
 
 <div class="note">
 [Note]
-The `delete` clause must have exactly one pattern, but the pattern can result in multiple removals. 
-For example, a delete pattern can remove multiple matched instances or remove references to multiple attributes owned 
-by an entity, relation, or another attribute.
+The `delete` clause can have multiple patterns to delete in one query. But it can’t delete types (use 
+[undefine](02-schema.md#undefine) to delete types) and can’t have the following:
+
+- Conjunction
+- Disjunction
+- Negation
+- `is` keyword
+
 </div>
 
 If multiple patterns are needed to delete data, run multiple queries in the same transaction.
@@ -460,8 +467,8 @@ Updates are written in TypeQL with the following syntax:
 
 ```typeql
 match <pattern> [(, <pattern>)...]
-delete <pattern>
-insert <pattern>
+delete <pattern> [(, <pattern>)...]
+insert <pattern> [(, <pattern>)...]
 ```
 
 The `match` clause uses patterns to find existing data/references to be changed. The `delete` clause uses a pattern 
@@ -471,21 +478,31 @@ to specify the data/references which will replace it.
 <div class="note">
 [Note]
 Patterns consist of variables and properties for data instances. For more information see the 
-[Query pattern anatomy](03-match.md#query-pattern-anatomy) section.
+[Patterns overview](03-match.md#query-pattern-anatomy) section.
 </div>
 
 <div class="note">
 [Note]
-The `delete` clause must have exactly one pattern, but the pattern can result in multiple removals. 
-For example, a delete pattern can remove multiple matched instances or remove references to multiple attributes owned 
-by an entity, relation, or another attribute.
+The `delete` clause can have multiple patterns to delete in one query. But it can’t delete types (use 
+[undefine](02-schema.md#undefine) to delete types) and can’t have the following:
+
+- Conjunction
+- Disjunction
+- Negation
+- `is` keyword
+- 
 </div>
 
 <div class="note">
 [Note]
-The `insert`clause must have exactly one pattern. However, the pattern can result in multiple inserts. 
-For example, an insert pattern can make an entity the owner of multiple attributes, or multiple entities the owners 
-of a single attribute.
+The `insert` clause can have multiple patterns to insert in one query. But it can’t insert types (use 
+[define](02-schema.md#define) to insert new types) and can’t have the following:
+
+- Conjunction
+- Disjunction
+- Negation
+- `is` keyword
+- 
 </div> 
 
 If multiple patterns are needed to update data, run multiple queries in the same transaction.
