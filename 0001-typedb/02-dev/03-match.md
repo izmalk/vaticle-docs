@@ -216,7 +216,7 @@ The above query returns the `object` type, and none of its nested subtypes (dire
 
 ##### Players of a specific role
 
-Use a `players types in a relation` pattern to find all types that place a specific role in a specific relation type.
+Use a "players types in a relation" pattern to find all types that place a specific role in a specific relation type.
 
 ```typeql
 match $p plays permission:permitted-subject;

@@ -254,7 +254,7 @@ one transaction can read data while another is writing it.
 
 ### Durability
 
-TypeDB writes transactions to a write-ahead-log upon commit, ensuring they can be recovered if an unexpected failure 
+TypeDB writes transactions to a write-ahead log upon commit, ensuring they can be recovered if an unexpected failure 
 (e.g., power outage) occurs before the data is modified.
 
 <div class="note">

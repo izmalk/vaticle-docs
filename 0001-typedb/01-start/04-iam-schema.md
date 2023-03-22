@@ -128,7 +128,7 @@ It has all the attributes the Object supertype has and two attributes of its own
 
 ## Subject subtypes
 
-The subject is a subtype of the built-in entity type with multiple subtypes of its own:
+The `subject` is a subtype of the built-in `entity` type with multiple subtypes of its own:
 
 - Subject
   - User
