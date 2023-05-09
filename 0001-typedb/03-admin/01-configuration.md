@@ -203,6 +203,10 @@ cluster will not accept connections from servers that are not in the list.
 Changes to the server configuration require a server restart to take effect.
 </div>
 
+<!--
+
+#todo Check the procedure description and uncomment
+
 ### Add or remove cluster's servers
 
 To add or remove a server to/from a cluster:
@@ -210,6 +214,8 @@ To add or remove a server to/from a cluster:
 1. Stop all TypeDB servers in the cluster.
 2. Update the configuration files of all (both new and old) TypeDB servers.
 3. Start all TypeDB servers of the new cluster.
+
+--->
 
 ## Host machine requirements
 
