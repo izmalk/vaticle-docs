@@ -105,10 +105,10 @@ methods:
         - String
   - method:
     common: &method-close
-      title: Close a session
+      title: Close the session
       description: |
         Closes the session.
-        **Before opening a new session, the session currently open should first be closed.**
+        **Before opening a new session, the session currently open should be closed.**
     java:
       <<: *method-close
       method: session.close();
