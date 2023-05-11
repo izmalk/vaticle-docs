@@ -87,6 +87,9 @@ chapters:
           -
             title: Data migration
             url: data-migration
+          -
+            title: How to build a new client
+            url: new-client
   -
     title: TypeDB Clients
     baseUrl: /docs/clients/
