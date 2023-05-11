@@ -7,6 +7,10 @@ Summary: Tutorial on how to build a new TypeDB Client.
 
 # How to create a new TypeDB Client
 
+This tutorial can guide us through the very beginning of creating a new TypeDB Client. We strongly recommend 
+using one of the existing TypeDB Clients first to gain some experience with the TypeDB. See the list of available 
+Clients on the [Clients overview](../../02-clients/00-clients.md) page.
+
 There are many places we could start building a TypeDB Client. 
 In this tutorial, we start by attempting to make a single gRPC call to a TypeDB server to create a database.
 
@@ -531,7 +535,9 @@ def typedb_client_test():
 
 </div>
 
-We can verify that the database was created successfully using 
+Run the test function.
+
+Now we can verify that the database was created successfully using 
 [TypeDB Console](../../02-clients/02-console.md#database-management-commands) `database list` command, or 
 by running the test again (which will throw an error saying that the database already exists).
 
