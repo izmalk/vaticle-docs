@@ -112,7 +112,7 @@ chapters:
             title: Community Drivers
             url: other-languages
           -
-            title: How to build a new Client
+            title: Developing a new TypeDB Client
             url: new-client
 #      -
 #        title: Rust

@@ -19,7 +19,11 @@ In this tutorial, we start by attempting to make a single gRPC call to a TypeDB 
 Create a `TypeDB` source file in the root of the project, which should expose a function named `coreClient`, 
 taking `address` as a parameter.
 
-<!-- #todo add the imports! --->
+<!-- #todo add the imports! 
+
+// TypeDB.java
+# moved it outside the next code block. To test whether it will fix the indentation
+--->
 
 <div class="note">
 [Important]
@@ -30,15 +34,17 @@ TypeDB protobuf definitions.
 <div class="tabs dark">
 
 [tab:Java]
+
 <!-- test-ignore -->
 ```java
-// TypeDB.java
+
 public class TypeDB {
     public static TypeDBClient coreClient(String address) {
         return new CoreClient(address);
     }
 }
 ```
+
 [tab:end]
 
 [tab:Node.js]
