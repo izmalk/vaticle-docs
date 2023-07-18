@@ -13,4 +13,15 @@ Open the Teams page from the main navigation menu on the left. Click on the btn:
 
 == Join a Team
 
+To join a team a user must be invited to it.
+
+== Invite to a team
+
+// tag::invite_into_organization[]
+To invite a user to join a team complete the following steps:
+
+1. Open the Users page from the navigation menu on the left.
+2. Click the btn:[Add] button in the top menu.
+3. Enter the username of the user and click the btn:[Submit] button.
+// end::invite_into_organization[]
 
