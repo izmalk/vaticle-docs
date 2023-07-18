@@ -1,0 +1,32 @@
+= Quickstart guide
+:keywords: start, typedb, cloud, quickstart, tutorial, registration
+:longTailKeywords: getting started, get started with typedb cloud, typedb cloud tutorial, typedb cloud quickstart
+:pageTitle: Quickstart guide
+:summary: How to start using TypeDB Cloud.
+
+== Overview
+
+In this Quickstart guide we will find out how to start using TypeDB Cloud:
+
+* Get an account
+* Log In
+* Create a deployment
+* Connect to a TypeDB Enterprise cluster
+
+== Get an account
+
+include::account.adoc[tag=create-account]
+
+== Log in
+
+include::account.adoc[tag=log-in]
+
+== Create a deployment
+
+
+
+== Connect to a TypeDB Enterprise cluster
+
+== Learn more
+
+

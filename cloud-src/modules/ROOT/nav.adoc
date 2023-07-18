@@ -1,0 +1,38 @@
+// TypeDB Cloud
+
+* xref:overview.adoc[]
+* xref:introduction.adoc[]
+* xref:quickstart.adoc[]
+* xref:account.adoc[]
+
+* Deployment management
+** xref:deployments/life-cycle.adoc[]
+** xref:deployments/connect.adoc[]
+** xref:deployments/projects.adoc[]
+
+* User management
+** xref:user-management/user.adoc[]
+** xref:user-management/team.adoc[]
+** xref:user-management/organization.adoc[]
++
+// User grouping page
+// Resource grouping page
++
+** _Access management (soon)_
+** _Backups (soon)_
+
+* _Billing (soon)_
+
+////
+** Tariffs & Charges
+** Balance and bills
+** Payment methods
+** Questions and answers
+////
+
+
+// ** xref:billing/rates.adoc[]
+
+////
+* xref:reference.adoc[]
+////

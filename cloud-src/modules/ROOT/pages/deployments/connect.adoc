@@ -1,0 +1,6 @@
+= Connect to a deployment
+:keywords: typedb, deployment, cluster, cloud, connect, connection, query
+:longTailKeywords: connect to a deployment, connect to a cluster
+:pageTitle: Deployment management
+:summary: How to manage deployments in TypeDB Cloud.
+:experimental:

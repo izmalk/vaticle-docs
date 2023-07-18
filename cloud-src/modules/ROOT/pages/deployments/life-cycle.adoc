@@ -1,0 +1,42 @@
+= Life-cycle
+:keywords: typedb, deployment, cluster, cloud, management, create, destroy, suspend, resume, lifecycle, life cycle
+:longTailKeywords: create deployment in typedb cloud, destroy deployment, stop deployment, resume deployment
+:pageTitle: Life-cycle
+:summary: How to manage deployments in TypeDB Cloud.
+
+A TypeDB Cloud deployment is a TypeDB Enterprise cluster that is managed by TypeDB Cloud.
+
+image::cloud::cloud.png[TypeDB Cloud web interface,width = 70%, link=self]
+
+A deployment can be created and destroyed in the TypeDB Cloud. While it exists it can be suspended and resumed.
+
+== Create a deployment
+
+Navigate to the Deployments page and push the btn:[Create] button in the top toolbar.
+
+Use the *Create new deployment* form to provide requested information:
+
+* Deployment ID -- enter a unique (in the scope of the project) name of the new deployment.
+* Select location -- select the zone to deploy. Each zone named after respective cloud provider and geographic location
+(E.g., AWS EU West 2).
+* Select project -- select one of the projects, that are available to you to deploy to.
+* Select servers -- select number of servers in the TypeDB Enterprise cluster for this deployment.
+
+
+//#todo - drop-down in the nav menu - is not for projects, but organization!
+
+
+
+
+
+== Suspend a deployment
+
+
+
+== Resume a deployment
+
+
+
+== Destroy a deployment
+
+

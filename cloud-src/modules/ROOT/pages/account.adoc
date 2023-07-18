@@ -1,0 +1,88 @@
+= Account
+:keywords: typedb, cloud, account, password, profile, settings
+:longTailKeywords: typedb cloud account, account settings, password change
+:pageTitle: Account
+:summary: Personal account management.
+:experimental:
+
+== Account registration
+
+// tag::create-account[]
+During the alpha-testing period access to the TypeDB Cloud is restricted by invite-only policy.
+
+To send a request to join alpha-test of TypeDB Cloud, use the following
+https://typedb.com/deploy?dialog=cloud-waitlist[form].
+// end::create-account[]
+
+== Log In
+
+// tag::log-in[]
+Head to the https://cloud.typedb.com/[main page] of TypeDB CLoud and use credential, provided by Vaticle to log in.
+// end::log-in[]
+
+[#_log_out]
+== Log out
+
+On any page of the TypeDB Cloud web-portal click on the gear icon in the top right corner and click on the *Log out*
+option in the drop-down menu.
+
+== Account settings
+
+To open setting for current account on any page of the TypeDB Cloud web-portal click on the gear icon in
+the top right corner and click on the *Settings* option.
+
+=== Change password
+
+To change the password of an account make sure to <<_log_out,log out>> of the TypeDB to get to the Log in page. Use the
+*Forget password* link there and follow the instructions on screen.
+
+== Join an organization, team, or project
+
+=== Organization
+
+An organization combines all users and resources of your company.
+
+By default, all users are created as the only member of their personal organization, named after their username.
+
+[#_select]
+==== Select an active organization
+
+A user can be a member of multiple organizations.
+
+To select an active one to work with at the moment, use the drop-down menu on top of the main navigation menu on the
+left edge.
+
+==== Create a new organization
+
+To create a new organization open settings by clicking on the gear icon in the top right corner of any page of
+TypeDB Cloud.
+
+In the Settings page click on the btn:[New organization] button, set the new organization's visible name and unique id, and
+click btn:[Submit].
+
+==== Join an organization
+
+The only way to join an existing organization is to be invited by one of its members.
+
+For information on how to invite a user to join an organization, see the <<_invite>> section below.
+
+[#_invite]
+==== Invite a user
+
+To invite a user to join an organization complete the following steps:
+
+1. <<_select,Select>> the organization as active.
+2. Open the Users page from the navigation menu on the left.
+3. Click the btn:[Add] button in the top menu.
+4. Enter the username of the user and click the btn:[Submit] button.
+
+=== Team
+
+
+
+
+=== Project
+
+
+
+
