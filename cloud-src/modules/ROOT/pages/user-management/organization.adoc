@@ -1,1 +1,65 @@
 = Organizations
+:keywords: typedb, cloud, organization
+:longTailKeywords: typedb cloud organization, organization management, create organization
+:pageTitle: Organizations
+:summary: Organization management details.
+:experimental:
+
+// tag::intro[]
+An organization combines all users and resources of your company.
+
+By default, all users are created as the only member of their personal organization, named after their username.
+// end::intro[]
+
+[#_select]
+== Select an active organization
+
+// tag::select_organization[]
+A user can be a member of multiple organizations.
+
+To select an active one to work with at the moment, use the drop-down menu on top of the main navigation menu on the
+left edge.
+// end::select_organization[]
+
+== Create a new organization
+
+// tag::create_organization[]
+To create a new organization open settings by clicking on the gear icon in the top right corner of any page of
+TypeDB Cloud.
+
+In the Settings page click on the btn:[New organization] button, set the new organization's visible name and unique id, and
+click btn:[Submit].
+// end::create_organization[]
+
+== Join an organization
+
+// tag::join_organization[]
+The only way to join an existing organization is to be invited by one of its members.
+
+For information on how to invite a user to join an organization, see the
+xref:cloud::user-management/organization.adoc#_invite[Invite a user] section.
+// end::join_organization[]
+
+[#_invite]
+== Invite a user
+
+// tag::invite_into_organization[]
+To invite a user to join an organization complete the following steps:
+
+1. <<_select,Select>> the organization as active.
+2. Open the Users page from the navigation menu on the left.
+3. Click the btn:[Add] button in the top menu.
+4. Enter the username of the user and click the btn:[Submit] button.
+// end::invite_into_organization[]
+
+[#_show]
+== Show or edit details of an organization
+
+// tag::details[]
+Click on the btn:[Settings] in the main navigation menu on the left.
+
+A page with details of the currently xref:cloud::user-management/organization.adoc#_select[selected] organization
+will appear.
+
+To edit details click on the btn:[Edit] button, edit details in the opened window, and click the btn:[Submit] button.
+// end::details[]

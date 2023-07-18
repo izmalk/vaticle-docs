@@ -1,1 +1,16 @@
 = Teams
+:keywords: typedb, cloud, organization
+:longTailKeywords: typedb cloud organization, organization management, create organization
+:pageTitle: Organizations
+:summary: Organization management details.
+:experimental:
+
+== Create a Team
+
+// tag::create[]
+Open the Teams page from the main navigation menu on the left. Click on the btn:[Create] button.
+// end::create[]
+
+== Join a Team
+
+
