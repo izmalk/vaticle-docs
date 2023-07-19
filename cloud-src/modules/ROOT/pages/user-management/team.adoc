@@ -5,23 +5,44 @@
 :summary: Organization management details.
 :experimental:
 
-== Create a Team
+Teams are used to provide access to Projects for a group of users.
+
+[#_create]
+== Create a team
 
 // tag::create[]
-Open the Teams page from the main navigation menu on the left. Click on the btn:[Create] button.
+1. Open the Teams page from the main navigation menu on the left.
+2. Click on the btn:[Create] button.
+3. Enter Team ID and click on the btn:[Submit] button.
 // end::create[]
 
-== Join a Team
+[#_join]
+== Join a team
 
-To join a team a user must be invited to it.
+To join a team a user must be xref:cloud::user-management/team.adoc#_invite[invited] to it.
 
-== Invite to a team
+[#_invite]
+== Invite a user to a team
 
-// tag::invite_into_organization[]
+// tag::invite[]
 To invite a user to join a team complete the following steps:
 
-1. Open the Users page from the navigation menu on the left.
-2. Click the btn:[Add] button in the top menu.
-3. Enter the username of the user and click the btn:[Submit] button.
-// end::invite_into_organization[]
+1. xref:user-management/organization.adoc#_select[Select] the Organization that both the user and the team are members of.
+2. Open the Teams page from the navigation menu on the left.
+3. Select the team to invite to from the list and click on it.
+4. Click on the btn:[Add user to team] button.
+5. Enter the User ID of the user to invite and click the btn:[Submit] button.
+// end::invite[]
 
+[#_project]
+== Add access for a team
+
+To add a Project access to a team, use the xref:cloud::deployments/projects.adoc#_team[Project] page.
+
+[#_delete]
+== Delete a team
+
+1. Open the Teams page from the main navigation menu on the left.
+2. Select the team to delete by clicking on it in the list.
+3. Click on the btn:[Delete] button at the bottom.
+   Confirm deletion by clicking on the btn:[Delete] button in the confirmation window.

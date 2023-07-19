@@ -32,10 +32,20 @@ option in the drop-down menu.
 To open setting for current account on any page of the TypeDB Cloud web-portal click on the gear (⚙) icon in
 the top right corner and click on the *Settings* option.
 
-=== Edit user details
+The page includes User Details and Organizations blocks.
 
-Open an xref:cloud::account.adoc#_settings[Account settings]. In the User Details section click on the btn:[Edit]
-button. Apply changes and click on the btn:[Submit] button.
+=== Show/Edit user details
+
+Open the xref:cloud::account.adoc#_settings[Account settings] page.
+
+.User details
+* User ID -- the username of the user.
+* Email -- the email address to send notifications and password reset requests to the user.
+* First Name
+* Last Name
+
+To edit the user details in the User Details section of the page click on the btn:[Edit] button.
+Apply changes and click on the btn:[Submit] button.
 
 === Change password
 
@@ -52,8 +62,7 @@ include::cloud::user-management/organization.adoc[tag=join_organization]
 
 === Team
 
-
-
+include::cloud::user-management/team.adoc[tag=invite]
 
 === Project
 
