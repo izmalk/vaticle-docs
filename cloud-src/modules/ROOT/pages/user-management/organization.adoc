@@ -28,7 +28,7 @@ left edge.
 To create a new organization open settings by clicking on the gear (⚙) icon in the top right corner of any page of
 TypeDB Cloud https://cloud.typedb.com[web portal].
 
-In the Settings page click on the btn:[New organization] button, set the new organization's visible name and unique id, and
+In the Settings page click the btn:[New organization] button, set the new organization's visible name and unique id, and
 click btn:[Submit].
 // end::create_organization[]
 
@@ -68,7 +68,7 @@ To invite a user to join an organization complete the following steps:
 
 // tag::details[]
 1. xref:cloud::user-management/organization.adoc#_select[Select] an active organization.
-2. Click on the btn:[Settings] in the main navigation menu on the left.
+2. Click the btn:[Settings] in the main navigation menu on the left.
 
 [caption=""]
 .Alternatively
@@ -81,5 +81,5 @@ To invite a user to join an organization complete the following steps:
 [start=3]
 1. A page with the details of the selected organization will appear.
 
-To edit details click on the btn:[Edit] button, edit details in the opened window, and click the btn:[Submit] button.
+To edit details click the btn:[Edit] button, edit details in the opened window, and click the btn:[Submit] button.
 // end::details[]

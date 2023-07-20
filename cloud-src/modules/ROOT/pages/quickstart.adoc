@@ -3,6 +3,7 @@
 :longTailKeywords: getting started, get started with typedb cloud, typedb cloud tutorial, typedb cloud quickstart
 :pageTitle: Quickstart guide
 :summary: How to start using TypeDB Cloud.
+:experimental:
 
 == Overview
 
@@ -15,18 +16,62 @@ In this Quickstart guide we will find out how to start using TypeDB Cloud:
 
 == Get an account
 
-include::account.adoc[tag=create-account]
+include::cloud::account.adoc[tag=create-account]
 
 == Log in
 
-include::account.adoc[tag=log-in]
+include::cloud::account.adoc[tag=log-in]
 
 == Create a deployment
 
-
+include::cloud::deployments/life-cycle.adoc[tag=create]
 
 == Connect to a TypeDB Enterprise cluster
 
+To connect to a TypeDB Cloud deployment we can use any TypeDB Client: see the xref:deployments/connect.adoc[] page.
+
+For example, to connect via TypeDB Console:
+
+// tag::console-connect[]
+[,bash]
+----
+./typedb console --cluster=<address> --username=admin --password=password --tls-enabled=false
+----
+
+where:
+
+*  `<address>` -- is the address of a server in the TypeDB Cloud installation we are connecting to,
+including the port number. +
+For example, `a242676f5710e462e9eed7a78d795ecb-1969767772.eu-west-2.elb.amazonaws.com:1729`.
+* `admin` -- is the default username for the default user in any deployment of TypeDB Cloud during alpha-testing stage.
+* `password` -- is the default password for the default user.
+* `false` -- is the TLS encryption setting. It's false (disabled) by default for now, but that can change soon as
+TypeDB Cloud is in alpha-testing stage.
+
+As a result we get a welcome message from TypeDB Console, and if the connection was successful,
+it's followed by a command line prompt.
+
+[,bash]
+----
+Welcome to TypeDB Console. You are now in TypeDB Wonderland!
+Copyright (C) 2022 Vaticle
+
+>
+----
+// end::console-connect[]
+
 == Learn more
 
+Check the current account details on the xref:cloud::account.adoc[] page.
 
+Find out how to manage deployments in the *Deployment management* section:
+
+* xref:cloud::deployments/life-cycle.adoc[] -- how to create, destroy, suspend, and resume deployments.
+* xref:cloud::deployments/connect.adoc[] -- how to connect to a server in a deployment with TypeDB Clients.
+* xref:cloud::deployments/projects.adoc[] -- how to group deployments for easier management.
+
+Explore the user management options in the *User management* section:
+
+* xref:cloud::user-management/user.adoc[] -- how to create, delete, and see details of a user.
+* xref:cloud::user-management/team.adoc[] -- how to group users in teams for easier management.
+* xref:cloud::user-management/organization.adoc[] -- how to manage an organization.

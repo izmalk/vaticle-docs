@@ -35,5 +35,6 @@ include::cloud::user-management/team.adoc[tag=invite]
 [#_project]
 == Invite to a Project
 
+include::cloud::deployments/projects.adoc[tag=user]
 
-
+See the xref:cloud::user-management/user.adoc#_team[Invite to a Team] section above.

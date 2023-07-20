@@ -1,6 +1,144 @@
 = Connect to a deployment
-:keywords: typedb, deployment, cluster, cloud, connect, connection, query
-:longTailKeywords: connect to a deployment, connect to a cluster
-:pageTitle: Deployment management
-:summary: How to manage deployments in TypeDB Cloud.
+:keywords: typedb, deployment, cloud, connect, connection, query
+:longTailKeywords: connect to a deployment, connect to a cluster, typedb cloud connection
+:pageTitle: Connect to a deployment
+:summary: How to connect to a TypeDB Cloud deployment.
 :experimental:
+
+TypeDB Cloud deployment is a cluster of TypeDB Enterprise servers.
+As such it can receive connections from xref:clients::clients.adoc[TypeDB Clients]:
+
+* TypeDB Studio
+* TypeDB Console
+* TypeDB Drivers:
+** Java
+** Python
+** Node.js
+
+To connect to a TypeDB Cloud deployment we need the following information:
+
+* *Address* of any server in the deployment:
+** Ip-address or domain name -- generated for every server in a deployment upon creation.
+** Port number that the server is configured to listen to -- by default it's `1729`.
+* *Credentials* of any user to authenticate on the server:
+** Username -- by default it's `admin`.
+** Password -- by default it's `password`.
+
+////
+* Whether the encryption is enabled or not.
+** If the encryption is enabled - whether to use the default certificate or a custom one.
+////
+[IMPORTANT]
+====
+Connection to a TypeDB Enterprise server requires valid credentials of a user existing on that server.
+
+It is not the same user as the user on TypeDB Cloud web portal that created or has access to the deployment.
+====
+
+To get the *address* of the server in a deployment use the following steps:
+
+* Open the xref:deployments/life-cycle.adoc#_details[deployment details] page.
+* Find the `Address` column in the table in the `Machines` section.
+
+We can change the *credentials* with:
+
+* xref:clients::console.adoc[TypeDB Console]
+* Driver API:
+** xref:clients::java/java-api-ref.adoc#_set_a_users_password[Java]
+** xref:clients::python/python-api-ref.adoc#_set_a_users_password[Python]
+** xref:clients::node-js/node-js-api-ref.adoc#_set_a_users_password[Node.js]
+
+
+== Connection
+
+[tabs]
+====
+TypeDB Studio::
++
+--
+To connect to a TypeDB Cloud deployment with TypeDB Studio we can use the
+xref:clients::studio.adoc#_connect_to_typedb_server[basic connection guide], but we need to select the TypeDB Cluster
+option in the drop-down menu at the Connect to TypeDB window. That will display additional options to set addresses for
+multiple servers in a cluster, username, password, and TLS encryption switch.
+
+image::studio-connect.png[Connect to Studio window, width = 70%, link=self]
+
+Use the btn:[Manage cluster addresses] button to set the address of a server to connect.
+
+image::studio-manage-cluster-address.png[Connect to Studio window, width = 70%, link=self]
+
+Insert the TypeDB Cloud deployment server address (including the port number, for example, `127.0.0.1:1729` or rather
+`a242676f5710e462e9eed7a78d795ecb-1969767772.eu-west-2.elb.amazonaws.com:1729`) to the text field and press
+the btn:[Add] button.
+--
+
+TypeDB Console::
++
+--
+include::cloud::quickstart.adoc[tag=console-connect]
+--
+
+TypeDB Java Driver::
++
+--
+[,java]
+----
+TypeDBClient client = TypeDB.coreClient("0.0.0.0:1729");
+----
+
+//#todo Update the code snippet with cluster version
+
+For more information explore the TypeDB Java Driver API
+xref:clients::java/java-api-ref.adoc#_instantiating_a_typedb_cluster_client[reference].
+--
+
+TypeDB Python Driver::
++
+--
+[,python]
+----
+credentials = TypeDBCredential("admin", "password",
+                               "/server/conf/encryption/ext-root-ca.pem")
+client = TypeDB.cluster_client("127.0.0.1:1729", credentials)
+----
+
+For more information explore the TypeDB Python Driver API
+xref:clients::python/python-api-ref.adoc#_instantiating_a_typedb_cluster_client[reference].
+--
+
+TypeDB Node.js Driver::
++
+--
+[,js]
+----
+client = TypeDB.coreClient("0.0.0.0:1729");
+----
+
+//#todo Update the code snippet with cluster version
+
+For more information explore the TypeDB Node.js Driver API
+xref:clients::node-js/node-js-api-ref.adoc#_instantiating_a_typedb_cluster_client[reference].
+--
+====
+
+[IMPORTANT]
+====
+Ideally, we want to set all servers of the cluster to connect to. But if we set address for only one server,
+upon connection, TypeDB Client will get information of all servers in the cluster.
+====
+
+==  What to do next?
+
+Upon successful connection to a server in a TypeDB Cloud deployment we can use the TypeDB Client we have used
+to connect to send some queries to the server.
+
+For example, establish a `schema` xref:typedb::development/connect.adoc#_sessions[session],
+open a `write` xref:typedb::development/connect.adoc#_transactions[transaction],
+send a `define` xref:typedb::fundamentals/queries.adoc[query] and commit the transaction.
+
+For more information, see the:
+
+* xref:typedb::overview.adoc[TypeDB documentation] for general understanding of how to use TypeDB server,
+* xref:clients::clients.adoc[TypeDB Clients documentation] for information on how to use Driver API methods,
+TypeDB Studio GUI, or TypeDB Console CLI,
+* xref:typeql::overview.adoc[TypeQL documentation] for advanced understanding of how to build a query.

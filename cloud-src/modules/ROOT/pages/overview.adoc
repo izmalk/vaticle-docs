@@ -57,6 +57,6 @@ To find out how to create an account and try TypeDB Cloud, see the xref:quicksta
 
 There are also separate documentation portal sections for:
 
-* xref:typedb::overview.adoc[TypeDB]
-* xref:clients::clients.adoc[TypeDB Clients]
-* xref:typeql::overview.adoc[TypeQL]
+* xref:typedb::overview.adoc[TypeDB] -- the main section about the TypeDB server.
+* xref:clients::clients.adoc[TypeDB Clients] -- all about TypeDB Studio, TypeDB Console, and TypeDB Drivers.
+* xref:typeql::overview.adoc[TypeQL] -- the query language used by TypeDB.

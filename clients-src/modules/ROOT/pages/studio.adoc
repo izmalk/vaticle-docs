@@ -104,12 +104,12 @@ label of the `Connect to TypeDB` button.
 
 At the top right-hand corner click the button with the server address in it.
 
-In the `Connect to TypeDB` window click on the btn:[Disconnect] button.
+In the `Connect to TypeDB` window click the btn:[Disconnect] button.
 
 [#_create_a_database]
 === Create a database
 
-To create a new database make sure TypeDB Studio is connected to a TypeDB server and click on the
+To create a new database make sure TypeDB Studio is connected to a TypeDB server and click the
 btn:[Manage Databases] button (with a database icon) as shown below.
 
 image::studio/studio-database.png[Database icon]
@@ -145,7 +145,7 @@ hierarchy of the selected database in the <<_types_browser_capabilities,Type bro
 
 TypeDB Studio stores queries we save on a local machine in a project directory, so we don't need to rewrite all queries
 each time we open Studio. To select a project directory click on the open folder icon left of the database icon or
-click on the btn:[Open Project] button in the *Projects* panel on the left (under the database icon).
+click the btn:[Open Project] button in the *Projects* panel on the left (under the database icon).
 
 image::studio/project-interface-open.png[Project Interface Prompt to Open]
 
@@ -447,7 +447,7 @@ In TypeDB Studio we can rename a type in two ways:
 
 * Open the type editor window by double-clicking on the type. At the very top click on the pencil icon immediately
 right from the type name. Edit the name in the Label field and press btn:[Rename] button to finalize.
-* Right-click on the type in the *Type browser* list. Click on the *Rename Type* option. Edit the name in the Label
+* Right-click on the type in the *Type browser* list. Click the *Rename Type* option. Edit the name in the Label
 field and press btn:[Rename] button to finalize.
 
 [NOTE]
@@ -466,7 +466,7 @@ the `write` options first.
 
 In TypeDB Studio we can delete a type in two ways:
 
-* Open the type editor window by double-clicking on the type. At the very bottom click on the btn:[Delete] button and
+* Open the type editor window by double-clicking on the type. At the very bottom click the btn:[Delete] button and
 press btn:[Confirm] button. Commit the transaction with the green tick at the top of the Studio window.
 * Right-click on the type in the *Type browser* list. Click on the Delete option and press btn:[Confirm] button. Commit
 the transaction with the green tick at the top of the Studio window.

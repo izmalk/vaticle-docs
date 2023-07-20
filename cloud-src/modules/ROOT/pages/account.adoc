@@ -44,8 +44,8 @@ Open the xref:cloud::account.adoc#_settings[Account settings] page.
 * First Name
 * Last Name
 
-To edit the user details in the User Details section of the page click on the btn:[Edit] button.
-Apply changes and click on the btn:[Submit] button.
+To edit the user details in the User Details section of the page click the btn:[Edit] button.
+Apply changes and click the btn:[Submit] button.
 
 === Change password
 
@@ -62,10 +62,14 @@ include::cloud::user-management/organization.adoc[tag=join_organization]
 
 === Team
 
+include::cloud::user-management/team.adoc[tag=intro]
+
 include::cloud::user-management/team.adoc[tag=invite]
 
 === Project
 
+include::cloud::deployments/projects.adoc[tag=intro]
 
+include::cloud::deployments/projects.adoc[tag=user]
 
-
+See the xref:cloud::account.adoc#_team[Team] section above.

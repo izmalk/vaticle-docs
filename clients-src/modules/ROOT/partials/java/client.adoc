@@ -261,6 +261,7 @@ Deletes a user with the given name.
 
 * void
 
+[#_set_a_users_password]
 == Set a user's password
 
 === Syntax

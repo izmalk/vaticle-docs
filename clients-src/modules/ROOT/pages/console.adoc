@@ -58,6 +58,7 @@ Copyright (C) 2022 Vaticle
 >
 ----
 
+[#_typedb_cloud_typedb_enterprise]
 === TypeDB Cloud / TypeDB Enterprise
 
 There is a slight difference when accessing TypeDB cluster (TypeDB Cloud or TypeDB Enterprise) as it requires

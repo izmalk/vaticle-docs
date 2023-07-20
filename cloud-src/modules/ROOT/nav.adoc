@@ -19,8 +19,7 @@
 // Resource grouping page
 +
 ** _Access management (soon)_
-** _Backups (soon)_
-
+* _Backups (soon)_
 * _Billing (soon)_
 
 ////
