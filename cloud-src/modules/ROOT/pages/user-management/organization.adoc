@@ -55,7 +55,7 @@ xref:cloud::user-management/organization.adoc#_invite[Invite a user] section.
 == Invite a user
 
 // tag::invite_into_organization[]
-To invite a user to join an organization complete the following steps:
+To invite a user to join an organization, complete the following steps:
 
 1. <<_select,Select>> the organization as active.
 2. Open the Users page from the navigation menu on the left.

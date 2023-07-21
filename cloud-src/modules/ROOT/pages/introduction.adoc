@@ -8,22 +8,22 @@ TypeDB Cloud is a DBaaS (Database as a service) specific for the TypeDB DBMS. Sp
 
 For more information on the difference between TypeDB editions, see the https://typedb.com/deploy[Deploy] page.
 
-At the moment TypeDB Cloud is in alpha-testing stage. User registration is limited to invite-only participants.
-
-To request an invite for the test use the following link:
-https://typedb.com/deploy?dialog=cloud-waitlist[Join TypeDB Cloud Waitlist].
-
 include::cloud::overview.adoc[tag=alpha-test-warning]
 
-TypeDB Cloud manages infrastructure and TypeDB clusters to provide a user-friendly web-interface for controlling
-using TypeDB deployments with minimum efforts.
+During the alpha test stage, user registration is limited to invite-only participants.
 
-Fully automated cluster deployment and management lets us create, suspend, resume and destroy a TypeDB Enterprise
-cluster with a click of a button.
+To request aт invite, use the following link:
+https://typedb.com/deploy?dialog=cloud-waitlist[Join TypeDB Cloud Waitlist].
 
-Automatic failover and replication ensures the data to be safe and accessible.
+TypeDB Cloud manages infrastructure and TypeDB clusters to provide a user-friendly web interface for controlling
+using TypeDB deployments with minimum effort..
 
-End-to-end encryption ensures security of operations.
+Fully automated cluster deployment and management lets us create, suspend, resume, and destroy a TypeDB Enterprise
+cluster with a button click.
+
+Automatic failover and replication ensure the data is safe and accessible.
+
+End-to-end encryption ensures the security of operations.
 
 Grouping of users in teams and organizations, as well as resources in projects provide scalability of processes and
-billing detalization.
+billing details.

@@ -6,7 +6,7 @@
 :experimental:
 
 TypeDB Cloud deployment is a cluster of TypeDB Enterprise servers.
-As such it can receive connections from xref:clients::clients.adoc[TypeDB Clients]:
+As such, it can receive connections from xref:clients::clients.adoc[TypeDB Clients]:
 
 * TypeDB Studio
 * TypeDB Console
@@ -15,38 +15,38 @@ As such it can receive connections from xref:clients::clients.adoc[TypeDB Client
 ** Python
 ** Node.js
 
-To connect to a TypeDB Cloud deployment we need the following information:
+To connect to a TypeDB Cloud deployment, we need the following information:
 
 * *Address* of any server in the deployment:
-** Ip-address or domain name -- generated for every server in a deployment upon creation.
-** Port number that the server is configured to listen to -- by default it's `1729`.
+** IP or domain name -- generated for every server in a deployment by TypeDB Cloud.
+** Port number that the server is configured to listen to -- by default, it's `1729`.
 * *Credentials* of any user to authenticate on the server:
-** Username -- by default it's `admin`.
-** Password -- by default it's `password`.
+** Username -- by default, it's `admin`.
+** Password -- by default, it's `password`.
 
 ////
 * Whether the encryption is enabled or not.
 ** If the encryption is enabled - whether to use the default certificate or a custom one.
 ////
-[IMPORTANT]
-====
-Connection to a TypeDB Enterprise server requires valid credentials of a user existing on that server.
 
-It is not the same user as the user on TypeDB Cloud web portal that created or has access to the deployment.
-====
-
-To get the *address* of the server in a deployment use the following steps:
+To get the *address* of the server in a deployment, use the following steps:
 
 * Open the xref:deployments/life-cycle.adoc#_details[deployment details] page.
 * Find the `Address` column in the table in the `Machines` section.
 
-We can change the *credentials* with:
+Connection to a TypeDB Enterprise server requires valid *credentials* of a user existing on that server.
 
-* xref:clients::console.adoc[TypeDB Console]
-* Driver API:
-** xref:clients::java/java-api-ref.adoc#_set_a_users_password[Java]
-** xref:clients::python/python-api-ref.adoc#_set_a_users_password[Python]
-** xref:clients::node-js/node-js-api-ref.adoc#_set_a_users_password[Node.js]
+[IMPORTANT]
+====
+The user to connect to a TypeDB server/cluster is not the same user as a user on the TypeDB Cloud web portal.
+====
+
+include::cloud::quickstart.adoc[tag=default-credentials]
+
+We can configure users on in a TypeDB Enterprise server/cluster with TypeDB Console or with Driver API methods
+for xref:clients::java/java-api-ref.adoc#_users[Java],
+xref:clients::python/python-api-ref.adoc#_users[Python], and
+xref:clients::node-js/node-js-api-ref.adoc#_users[Node.js].
 
 [#_connection]
 == Connection
@@ -56,10 +56,11 @@ We can change the *credentials* with:
 TypeDB Studio::
 +
 --
-To connect to a TypeDB Cloud deployment with TypeDB Studio we can use the
-xref:clients::studio.adoc#_connect_to_typedb_server[basic connection guide], but we need to select the TypeDB Cluster
-option in the drop-down menu at the Connect to TypeDB window. That will display additional options to set addresses for
-multiple servers in a cluster, username, password, and TLS encryption switch.
+We can use the xref:clients::studio.adoc#_connect_to_typedb_server[basic connection guide] to connect to a TypeDB Cloud
+deployment with TypeDB Studio, but we need to select the *TypeDB Cluster* option in the drop-down menu at the
+*Connect to TypeDB* window.
+That will display additional options to set addresses for multiple servers in a cluster, username, password,
+and TLS encryption switch.
 
 image::studio-connect.png[Connect to Studio window, width = 70%, link=self]
 
@@ -90,8 +91,6 @@ Set<String> addresses = new HashSet<>(Arrays.asList("127.0.0.1:1729"));
 TypeDBCredential credentials = new TypeDBCredential("admin", "password", Path.of("/server/conf/encryption/ext-root-ca.pem"));
 try (TypeDBClient.Cluster client = TypeDB.clusterClient(addresses, credentials)) { ... }
 ----
-
-//#todo Update the code snippet with cluster version
 
 For more information on the *cluster client* methods explore the TypeDB Java Driver API
 xref:clients::java/java-api-ref.adoc#_instantiating_a_typedb_cluster_client[reference].
@@ -126,8 +125,6 @@ const client = await TypeDB.clusterClient(
     );
 ----
 
-//#todo Update the code snippet with cluster version
-
 For more information on the *cluster client* methods explore the TypeDB Node.js Driver API
 xref:clients::node-js/node-js-api-ref.adoc#_instantiating_a_typedb_cluster_client[reference].
 
@@ -137,22 +134,22 @@ See the xref:clients::node-js/node-js-tutorial.adoc[] page to learn more about u
 
 [IMPORTANT]
 ====
-Ideally, we want to use all servers of the deployments cluster to connect to in a TypeDB Client.
+Ideally, we want to use all servers of the deployments cluster to connect to with a TypeDB Client.
 
-But if we set the address for only one server, upon connection, TypeDB Client will get information
-of all servers in the cluster.
+But if we set the address for only one server, TypeDB Client will get information on all servers in the
+cluster upon connection.
 ====
 
 ==  What to do next?
 
-Upon successful connection to a server in a TypeDB Cloud deployment we can use the TypeDB Client we have used
+Upon successful connection to a server in a TypeDB Cloud deployment, we can use the TypeDB Client we have used
 to send some xref:typedb::fundamentals/queries.adoc[queries] to the server.
 
 For example, complete our xref:typedb::quickstart.adoc[] with TypeDB Cloud deployment.
 
-For more information, see the:
+For more information, see the following:
 
-* xref:typedb::overview.adoc[TypeDB documentation] for general understanding of how to use TypeDB server,
+* xref:typedb::overview.adoc[TypeDB documentation] for a general understanding of how to use TypeDB server,
 * xref:clients::clients.adoc[TypeDB Clients documentation] for information on how to use Driver API methods,
 TypeDB Studio GUI, or TypeDB Console CLI,
-* xref:typeql::overview.adoc[TypeQL documentation] for advanced understanding of how to build a query and use patterns.
+* xref:typeql::overview.adoc[TypeQL documentation] for an advanced understanding of building a query and using patterns.

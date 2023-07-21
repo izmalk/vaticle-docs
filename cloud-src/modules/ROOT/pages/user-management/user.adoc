@@ -13,7 +13,7 @@ include::cloud::account.adoc[tag=create-account]
 [#_delete]
 == Delete a user
 
-This feature is not active in the alpha-testing stage of the TypeDB Cloud.
+This feature is not active in the alpha testing stage of the TypeDB Cloud.
 
 [#_details]
 == Show details for a user
