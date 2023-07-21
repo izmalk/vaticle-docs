@@ -33,21 +33,26 @@ This is the TypeDB Cloud documentation portal. It has the following pages:
 ** xref:user-management/user.adoc[] -- create, delete, and manage users.
 ** xref:user-management/team.adoc[] -- group users in teams.
 ** xref:user-management/organization.adoc[] -- group users in organizations.
+** Access management (soon)
 
+////
 * Configuration
 ** xref:configuration/overview.adoc[] -- organization-wise settings.
+////
 
-The following features are still under development:
+//The following features are still under development:
 
-* Administration
-** Access management
-** Backups
+* Backups (soon)
 
-* Billing
+* Billing (soon)
+
+////
 ** Tariffs & Charges
 ** Balance and bills
 ** Payment methods
 ** Questions and answers
+////
+
 
 == Where to go from here?
 

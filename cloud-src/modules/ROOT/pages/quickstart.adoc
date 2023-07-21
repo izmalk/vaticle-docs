@@ -26,24 +26,40 @@ include::cloud::account.adoc[tag=log-in]
 
 include::cloud::deployments/life-cycle.adoc[tag=create]
 
-== Connect to a TypeDB Enterprise cluster
+Now that the deployment is being created all we need is to wait for the status of the deployment to become
+`Fully available`.
 
-To connect to a TypeDB Cloud deployment we can use any TypeDB Client: see the xref:deployments/connect.adoc[] page.
+== Connect to a deployment
+
+To work with the TypeDB servers of the deployment we need to set up a TypeDB Client and connect it to the deployment
+cluster.
+
+[NOTE]
+====
+At this stage of alpha-testing, all TypeDB Cloud deployments are created with the listening port of `1729`
+and a default user with the following credentials:
+
+Username: `admin` +
+Password: `password`
+====
+
+To connect to a TypeDB Cloud deployment we can use any TypeDB Client: see the xref:deployments/connect.adoc[] page
+for more options.
 
 For example, to connect via TypeDB Console:
 
 // tag::console-connect[]
 [,bash]
 ----
-./typedb console --cluster=<address> --username=admin --password=password --tls-enabled=false
+typedb console --cluster=<address> --username=admin --password=password --tls-enabled=false
 ----
 
 where:
 
 *  `<address>` -- is the address of a server in the TypeDB Cloud installation we are connecting to,
 including the port number. +
-For example, `a242676f5710e462e9eed7a78d795ecb-1969767772.eu-west-2.elb.amazonaws.com:1729`.
-* `admin` -- is the default username for the default user in any deployment of TypeDB Cloud during alpha-testing stage.
+For example, `a242676f5710e462e9eed7a78d795ecb-196767772.eu-west-2.elb.amazonaws.com:1729`.
+* `admin` -- is the default username for the default user.
 * `password` -- is the default password for the default user.
 * `false` -- is the TLS encryption setting. It's false (disabled) by default for now, but that can change soon as
 TypeDB Cloud is in alpha-testing stage.
@@ -58,7 +74,12 @@ Copyright (C) 2022 Vaticle
 
 >
 ----
+
+For more information on how to use TypeDB Console, see the xref:clients::console.adoc[] page.
 // end::console-connect[]
+
+For more information on how to connect with other TypeDB Clients, see the
+xref:cloud::deployments/connect.adoc#_connection[Connect to a deployment] page.
 
 == Learn more
 
