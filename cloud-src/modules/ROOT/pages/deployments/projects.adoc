@@ -1,4 +1,4 @@
-= Projects
+= Project management
 :keywords: typedb, cloud, projects
 :longTailKeywords: typedb cloud projects, resource groups, create project
 :pageTitle: Projects

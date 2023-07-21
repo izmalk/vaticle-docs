@@ -5,8 +5,8 @@
 * xref:quickstart.adoc[]
 * xref:account.adoc[]
 
-* Deployment management
-** xref:deployments/life-cycle.adoc[]
+* Deployments
+** xref:deployments/management.adoc[]
 ** xref:deployments/connect.adoc[]
 ** xref:deployments/projects.adoc[]
 
@@ -18,9 +18,9 @@
 // User grouping page
 // Resource grouping page
 +
-** _Access management (soon)_
-* _Backups (soon)_
-* _Billing (soon)_
+** _Access management_ (*soon*)
+* _Backups_ (*soon*)
+* _Billing_ (*soon*)
 
 ////
 ** Tariffs & Charges

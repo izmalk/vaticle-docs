@@ -31,7 +31,7 @@ To connect to a TypeDB Cloud deployment, we need the following information:
 
 To get the *address* of the server in a deployment, use the following steps:
 
-* Open the xref:deployments/life-cycle.adoc#_details[deployment details] page.
+* Open the xref:deployments/management.adoc#_details[deployment details] page.
 * Find the `Address` column in the table in the `Machines` section.
 
 Connection to a TypeDB Enterprise server requires valid *credentials* of a user existing on that server.

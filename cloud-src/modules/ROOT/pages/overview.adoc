@@ -21,11 +21,11 @@ https://discord.gg/aNsmBKrk[community].
 This is the TypeDB Cloud documentation portal. It has the following pages:
 
 * xref:introduction.adoc[] -- a birds-eye view of TypeDB Cloud.
-* xref:quickstart.adoc[] -- a quicks guide to log in, create a TypeDB deployment and connect to it.
+* xref:quickstart.adoc[] -- a quick guide on how to log in, create a TypeDB deployment and connect to it.
 * xref:account.adoc[] -- register an account, log in/out, change password, and manage settings.
 
-* Deployment management
-** xref:deployments/life-cycle.adoc[] -- create, destroy, suspend, and resume deployments of TypeDB.
+* Deployments
+** xref:deployments/management.adoc[] -- create, destroy, suspend, and resume deployments of TypeDB.
 ** xref:deployments/connect.adoc[] -- connect to a TypeDB Enterprise cluster/deployment.
 ** xref:deployments/projects.adoc[] -- group deployments together.
 
@@ -33,7 +33,7 @@ This is the TypeDB Cloud documentation portal. It has the following pages:
 ** xref:user-management/user.adoc[] -- create, delete, and manage users.
 ** xref:user-management/team.adoc[] -- group users in teams.
 ** xref:user-management/organization.adoc[] -- group users in organizations.
-** Access management (soon)
+** _Access management_ (*soon*)
 
 ////
 * Configuration
@@ -42,9 +42,8 @@ This is the TypeDB Cloud documentation portal. It has the following pages:
 
 //The following features are still under development:
 
-* Backups (soon)
-
-* Billing (soon)
+* _Backups_ (*soon*)
+* _Billing_ (*soon*)
 
 ////
 ** Tariffs & Charges

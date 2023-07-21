@@ -24,7 +24,7 @@ include::cloud::account.adoc[tag=log-in]
 
 == Create a deployment
 
-include::cloud::deployments/life-cycle.adoc[tag=create]
+include::cloud::deployments/management.adoc[tag=create]
 
 Now that the deployment is being created all we need is to wait for the status of the deployment to become
 `Fully available`.
@@ -89,7 +89,7 @@ Check the current account details on the xref:cloud::account.adoc[] page.
 
 Find out how to manage deployments in the *Deployment management* section:
 
-* xref:cloud::deployments/life-cycle.adoc[] -- how to create, destroy, suspend, and resume deployments.
+* xref:cloud::deployments/management.adoc[] -- how to create, destroy, suspend, and resume deployments.
 * xref:cloud::deployments/connect.adoc[] -- how to connect to a server in a deployment with TypeDB Clients.
 * xref:cloud::deployments/projects.adoc[] -- how to group deployments for easier management.
 

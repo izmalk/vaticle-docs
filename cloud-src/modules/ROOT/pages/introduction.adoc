@@ -15,11 +15,11 @@ During the alpha test stage, user registration is limited to invite-only partici
 To request aт invite, use the following link:
 https://typedb.com/deploy?dialog=cloud-waitlist[Join TypeDB Cloud Waitlist].
 
-TypeDB Cloud manages infrastructure and TypeDB clusters to provide a user-friendly web interface for controlling
-using TypeDB deployments with minimum effort..
+TypeDB Cloud manages infrastructure and TypeDB Enterprise clusters to provide a user-friendly web interface for
+controlling and using deployments with minimum effort.
 
 Fully automated cluster deployment and management lets us create, suspend, resume, and destroy a TypeDB Enterprise
-cluster with a button click.
+cluster with a click of a button.
 
 Automatic failover and replication ensure the data is safe and accessible.
 

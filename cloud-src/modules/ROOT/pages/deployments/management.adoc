@@ -1,7 +1,7 @@
-= Life-cycle
+= Deployment management
 :keywords: typedb, deployment, cluster, cloud, management, create, destroy, suspend, resume, lifecycle, life cycle
 :longTailKeywords: create deployment in typedb cloud, destroy deployment, stop deployment, resume deployment
-:pageTitle: Life-cycle
+:pageTitle: Deployment management
 :summary: How to manage deployments in TypeDB Cloud.
 :experimental:
 
