@@ -4,7 +4,7 @@
 
 [source,python]
 ----
-attributeType.get_value_type()
+attribute_type.get_value_type()
 ----
 
 === Description
@@ -21,7 +21,7 @@ Retrieves the valuetype of this AttributeType.
 
 [source,python]
 ----
-attributeType.as_remote(tx).set_supertype(attribute_type)
+attribute_type.as_remote(tx).set_supertype(attribute_type)
 ----
 
 === Description
@@ -46,7 +46,7 @@ Sets the supplied AttributeType as the supertype of the current AttributeType
 
 [source,python]
 ----
-attributeType.as_remote(tx).get_subtypes()
+attribute_type.as_remote(tx).get_subtypes()
 ----
 
 === Description
@@ -63,7 +63,7 @@ Retrieves all direct and indirect subtypes of the AttributeType.
 
 [source,python]
 ----
-attributeType.as_remote(tx).get_instances()
+attribute_type.as_remote(tx).get_instances()
 ----
 
 === Description
@@ -150,13 +150,13 @@ To be able to do that, don't forget to import `Annotations`:
 
 * Iterator of [`Thing`] 
 
-== Get a Remote version of the AttributeType.
+== Get a Remote version of the AttributeType
 
 === Syntax
 
 [source,python]
 ----
-attributeType.as_remote(tx)
+attribute_type.as_remote(tx)
 ----
 
 === Description
@@ -181,7 +181,7 @@ The remote version uses the given transaction to execute every method call.
 
 [source,python]
 ----
-attributeType.is_boolean()
+attribute_type.is_boolean()
 ----
 
 === Description
@@ -194,7 +194,7 @@ Returns true if the value for attributes of this type is of type boolean. Otherw
 
 [source,python]
 ----
-attributeType.is_long()
+attribute_type.is_long()
 ----
 
 === Description
@@ -207,7 +207,7 @@ Returns true if the value for attributes of this type is of type long. Otherwise
 
 [source,python]
 ----
-attributeType.is_double()
+attribute_type.is_double()
 ----
 
 === Description
@@ -220,7 +220,7 @@ Returns true if the value for attributes of this type is of type double. Otherwi
 
 [source,python]
 ----
-attributeType.is_string()
+attribute_type.is_string()
 ----
 
 === Description
@@ -233,7 +233,7 @@ Returns true if the value for attributes of this type is of type string. Otherwi
 
 [source,python]
 ----
-attributeType.is_datetime()
+attribute_type.is_datetime()
 ----
 
 === Description
