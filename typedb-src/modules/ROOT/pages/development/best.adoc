@@ -4,26 +4,54 @@
 :longTailKeywords: TypeDB best practice, query design, schema design
 :pageTitle: Best practices
 
+This page combines some of the best practices for
+<<_schema_modeling,schema modelling>> and
+<<_developing_a_query,query design>>,
+as well as tips for <<_common_pitfalls_troubleshooting,troubleshooting>>.
+
+[#_schema_modeling]
 == Schema modeling
 
-There are only three root types:
+//Basic? Consider moving from Best practices.
+There are only three built-in (root) types in any database and all user-defined types are subtypes of them
+(direct or nested subtypes):
 
-  * `entity`
-  * `relation`
-  * `attribute`
+* `entity`
+* `relation`
+* `attribute`
 
-An *attribute type* (a subtype of the `attribute` root type) is a single concept with a fixed value in a given domain.
-That attribute is a property of the domain rather than of its owners and so is not uniquely defined by any concepts
+An *entity type* (a subtype of the `entity` root type) is a type used to model classification of independently
+existing objects in a business domain.
+
+For example, `vehicle` can be a subtype of `entity`, `car` subtype of `vehicle`,
+`sedan` subtype `car`, and all of them are entity types. An instance of a `car` entity type would be the particular car.
+
+It might practically require other entities to exist, such as a car that cannot exist without its parts but can be
+conceptualized without a reference to those other entities: a car can be imagined without considering its parts.
+
+A *relation type* (a subtype of the `relation` root type) is a type to model relationships between objects in a
+business domain. Relation types have at least one role. A schema defines what types can play what roles.
+
+For example, `ownership` relation type can relate `owner` and `owned` roles.
+Let's say `ownership:owner` can be played by `person` and `organization` types, including all of their subtypes.
+Then `ownership:owned` can be played by `vehicle` type, including its subtype `car` and car's subtype `sedan`.
+An instance of `ownership` relation type would be this instance of `car` type owned by this instance of `person` type.
+
+An existence of a relation type instance depends on at least one other instance (playing its role).
+It cannot be conceptualized without those concepts: imagining a marriage without considering
+its spouses is impossible. We can create such a relation (a marriage with only one instance playing role of spouse),
+but that would represent an incomplete data state.
+
+An *attribute type* (a subtype of the `attribute` root type) is a type to model properties in business domain.
+An instance of an attribute type has a value, which is immutable. Hence, an attribute type has value type, e.g., `long`
+or `string`. A schema defines what types can own an attribute.
+
+For example, `vehicle` entity type can have a `color` attribute type with value type `string`.
+An instance of a `color` attribute type can have a value of `red` and can be owned by this particular red car.
+
+Attribute instance is a property of the domain rather than of its owners and so is not uniquely defined by any concepts
 that might own it, nor does it require any owners to exist: a name of value "Bob" can be owned by either no one, one
 particular person, or multiple people.
-
-An *entity type* (a subtype of the `entity` root type) is a single concept with an independent existence. It might
-practically require other entities to exist, such as a car that cannot exist without its parts but can be
-conceptualized without reference to those other entities: a car can be imagined without considering its parts.
-
-A *relation type* (a subtype of the `relation` root type) is a single concept with an existence that depends on at
-least one other concept. It cannot be conceptualized without those concepts: it is impossible to imagine a marriage
-without considering its spouses.
 
 === Tips for beginners
 
@@ -86,6 +114,7 @@ other products: parts, add-ons, and extended warranties, etc.), it might be safe
 `product`; however, this then means that the database cannot scale to consider cars in contexts other than being a
 product. This could be a worthwhile trade-off in very well specified models.
 
+[#_developing_a_query]
 == Developing a query
 
 TypeDB query engine will try to retrieve/process all required concepts in the most optimal and efficient way.
@@ -125,8 +154,8 @@ When a transaction is committed or closed, all of its asynchronous queries are c
 === API
 
 Data retrieved from a TypeDB database consists of concepts and is delivered in the form of
-xref:development/response.adoc#_conceptmap[ConceptMaps]. Use the methods introduced by the TypeDB Driver API to obtain more
-information about the retrieved concept. To explore the concept's surroundings, the API has methods to traverse the
+xref:development/response.adoc#_conceptmap[ConceptMaps]. Use the methods introduced by the TypeDB Driver API to obtain
+more information about the retrieved concept. To explore the concept's surroundings, the API has methods to traverse the
 neighbors of a specific concept instance to obtain more insights.
 
 [IMPORTANT]
@@ -134,6 +163,7 @@ neighbors of a specific concept instance to obtain more insights.
 When retrieving a large number of concepts, it is more efficient to do that with a TypeQL query.
 ====
 
+[#_common_pitfalls_troubleshooting]
 == Common pitfalls & troubleshooting
 //Common pitfalls, tricky examples, and their explanations
 

@@ -10,3 +10,5 @@ bazel-testlogs
 bazel-*
 .ijwb
 .idea
+*.html
+*.iml
