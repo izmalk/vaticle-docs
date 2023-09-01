@@ -59,22 +59,30 @@ particular person, or multiple people.
 
 === Tips for beginners
 
-The following tips might be useful for inexperienced users:
+The following tips might be useful for new users:
 
-* The best way to start modeling a database schema is to model entity types first. +
-Then proceed with connecting them with relation types and assigning ownership of attribute types.
-* The schema defines the vocabulary for queries to a particular database. +
-Try naming types with short but precise names.
-Type labels are used in queries.
-Simple and meaningful type labels make queries easier to develop and read. +
+* A database's schema defines a vocabulary for queries.
++
+Type labels are used in queries. Try naming types with short but precise names.
+Simple and meaningful type labels make queries ease to read and develop.
++
 Consider putting extra effort into the following aspects of designing a DB schema:
 ** an intuitive hierarchy of subtypes,
 ** accurate type labels and names,
 ** meaningfully designed relations.
 
-* Creating a complex schema is an iterative process. +
+* If you have a problem with starting the design of a new database schema, try the following order:
+** Define main entity types and hierarchy between them.
+** Define relations with roles and what types can play what roles.
+** Define attribute types, set their values types and assign ownership over these attributes.
+** Iterate by updating, testing, and refactoring your schema.
+
+* Creating a complex schema is an iterative process.
++
 A schema of a database can be updated even after database has some data inserted.
-* Implementing drastic changes to a database schema is possible by undefining old types/rules and defining new ones. +
+
+* Implementing drastic changes to a database schema is possible by undefining old types/rules and defining new ones.
++
 To undefine a type we need to undefine all its subtypes and delete all instances of the type inserted into a
 database.
 Driver API and TypeDB Studio can rename types without deleting them.
@@ -84,21 +92,29 @@ However, it might be easier to create a new database to upload updated schema an
 
 The following tips might be useful to create more sophisticated schemas:
 
-* In an n-ary relation, every combination of (*n-1*)-ary relation between its role players should also be valid. +
+* In an n-ary relation, every combination of (*n-1*)-ary relation between its role players should also be valid.
++
 For example, if a ternary relation between an actor, a film, and a role is valid, then the following binary
 relations are valid (they might not exist in a schema, but they should make sense in a data model):
  ** actor and film,
  ** actor and role,
  ** film and role.
-* When inserting instances of a relation type, it is not necessary to insert all of its *role players*. +
-But this represents an incomplete information state. For example, a marriage in which only one of the spouses is known.
+
+* When inserting instances of a relation type, it is not necessary to insert all of its *role players*.
+But this represents an incomplete information state.
++
+For example, a marriage in which only one of the spouses is known.
++
 While a relation can be instantiated with only one role player, and sometimes a relation can logically exist without
 some of its role players, it's not always the case. An instance of a relation can imply the existence of its missing
 role players.
 
 * A *composition* (using role names to describe the functions that entities/relations perform) is generally preferred
-over *inheritance* (using subtyping to describe those functions). This is because a type `a` should be a subtype of
-`b` if every instance of `a` is necessarily also an instance of `b` (within the domain). +
+over *inheritance* (using subtyping to describe those functions).
++
+This is because a type `a` should be a subtype of `b` only if every instance of `a` is necessarily also an instance
+of `b` (within the domain).
++
 For example, making the `car` type a subtype of the `product` type should be avoided as not every car is necessarily
 a product. The most general approach would be to make the `car` a subtype of the `vehicle` and then have the `car`
 play the role of the `product` in, for instance, the `purchase` relation type.
@@ -113,22 +129,30 @@ product. This could be a worthwhile trade-off in very well specified models.
 
 === Tips for beginners
 
-The following tips might be helpful for beginners:
+The following tips might be helpful for new users:
 
-* Use TypeDB Studio to test and debug queries. +
+* Use TypeDB Studio to test and debug queries.
++
 If there is any problem with a query, try using xref:clients::studio.adoc[TypeDB Studio]
 (or xref:clients::console.adoc[TypeDB Console]) to see whether
-the problem lies within the query itself or other parts of the application logic, like connection control.
-TypeDB Studio is thoroughly tested, can visualize query results, and manage connections (sessions and transactions).
+the problem lies within the query itself or other parts of your application's logic, e.g., connection control.
+TypeDB Studio is thoroughly tested, can visualize query results, and manages a DB connection (sessions and transactions).
+
 * TypeQL extends the relational functionality of SQL and strongly types it, by separating entities, relations, and
-attributes. +
+attributes.
++
 Relational tables (SQL) are homogeneous in that they can be used both to represent a list of relation's role players
 (a join table) or a list of entity's attributes (a regular table). These two types of tables are indistinguishable
 from the perspective of an SQL database engine without additional context or constraints.
-* Query patterns describe constraints on data to retrieve/process, but not the way to retrieve it. +
+
+* A query pattern describes constraints on data to retrieve/process, but not the way to retrieve it.
++
 TypeDB query engine will try to retrieve/process all required concepts in the most optimal and efficient way.
-Each schema construct incurs a computational cost when traversed as part of a query. Sorted in the order of
-*increasing* cost, the constructs are:
+But the same result can be achieved with different sets of constraints.
+Each schema construct incurs a computational cost when traversed as part of a query.
++
+Sorted in the order of
+*increasing* cost, the schema constructs are:
 +
     . Attributes
     . Entities
@@ -139,12 +163,17 @@ Each schema construct incurs a computational cost when traversed as part of a qu
 +
 Thus, it is important to consider the value of employing a rule, as the gain in query simplicity can be offset by
 the computational cost.
-* TypeDB Studio output can differ from TypeDB Driver output. +
-TypeDB Studio processes TypeDB responses automatically and provide refined, sometimes even enriched data as output.
+
+* TypeDB Studio and TypeDB Console output differs from TypeDB Driver output.
++
+Both Studio and Console provide not a direct literal TypeDB response, but processed, refined, sometimes even enriched
+data as output.
+TypeDB Studio's `Log` tab output should be the same as TypeDB Console output.
++
 For example, if we query for an instance of a relation type it will add information on all its role-players.
-TypeDB Drivers require more accurate and manual approach to handle TypeDB responses.
-Textual form of TypeDB Studio output can be seen on the `Log` tab in the output section should be the same as in
-TypeDB Console.
++
+TypeDB Drivers require more accurate and manual approach to handle TypeDB responses. With the same query it will provide
+only the data that was requested.
 
 === Advanced tips
 
