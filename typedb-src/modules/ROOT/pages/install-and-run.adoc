@@ -6,6 +6,10 @@
 :tabs-sync-option:
 :experimental:
 
+== TypeDB Cloud
+
+
+
 [#_install]
 
 [#_package]

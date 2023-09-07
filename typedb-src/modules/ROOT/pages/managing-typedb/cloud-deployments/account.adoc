@@ -36,7 +36,7 @@ The page includes User Details and Organizations blocks.
 
 === Show/Edit user details
 
-Open the xref:cloud::account.adoc#_settings[Account settings] page.
+Open the xref:cloud:ROOT:account.adoc#_settings[Account settings] page.
 
 .User details
 * User ID -- the username of the user.
@@ -56,20 +56,20 @@ Use the *Forget password* link there and follow the instructions on the screen.
 
 === Organization
 
-include::cloud::user-management/organization.adoc[tag=intro]
+include::cloud:ROOT:user-management/organization.adoc[tag=intro]
 
-include::cloud::user-management/organization.adoc[tag=join_organization]
+include::cloud:ROOT:user-management/organization.adoc[tag=join_organization]
 
 === Team
 
-include::cloud::user-management/team.adoc[tag=intro]
+include::cloud:ROOT:user-management/team.adoc[tag=intro]
 
-include::cloud::user-management/team.adoc[tag=invite]
+include::cloud:ROOT:user-management/team.adoc[tag=invite]
 
 === Project
 
-include::cloud::deployments/projects.adoc[tag=intro]
+include::cloud:ROOT:deployments/projects.adoc[tag=intro]
 
-include::cloud::deployments/projects.adoc[tag=user]
+include::cloud:ROOT:deployments/projects.adoc[tag=user]
 
-See the xref:cloud::account.adoc#_team[Team] section above.
+See the xref:cloud:ROOT:account.adoc#_team[Team] section above.

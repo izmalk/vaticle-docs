@@ -17,17 +17,18 @@
 ** xref:development/best.adoc[]
 
 * Managing TypeDB
-** Managing Databases
-** Migrating a Database
-** Configuring a Server
-** Upgrading a Server
-** Managing Users
-** Migrating from TypeDB
-** Configuring a Cluster
-** Deploying a Cluster
-** Managing a Cluster
-** Managing Encryption
+** xref:managing-typedb/self-hosted-deployments/configuration.adoc[Managing Databases]
+** xref:managing-typedb/self-hosted-deployments/configuration.adoc[Migrating a Database]
+** xref:managing-typedb/self-hosted-deployments/configuration.adoc[Configuring a Server]
+** xref:managing-typedb/self-hosted-deployments/configuration.adoc[Upgrading a Server]
+** xref:managing-typedb/self-hosted-deployments/configuration.adoc[Managing Users]
+** xref:managing-typedb/self-hosted-deployments/configuration.adoc[Migrating from TypeDB]
+** xref:managing-typedb/self-hosted-deployments/configuration.adoc[Configuring a Cluster]
+** xref:managing-typedb/self-hosted-deployments/configuration.adoc[Deploying a Cluster]
+** xref:managing-typedb/self-hosted-deployments/configuration.adoc[Managing a Cluster]
+** xref:managing-typedb/self-hosted-deployments/configuration.adoc[Managing Encryption]
 
+////
 * Cloud deployments
 ** xref:cloud-deployments/account.adoc[]
 ** xref:cloud-deployments/connect.adoc[]
@@ -41,6 +42,7 @@
 ** xref:self-hosted-deployments/update.adoc[]
 ** xref:self-hosted-deployments/ha.adoc[]
 ** xref:self-hosted-deployments/security.adoc[]
+////
 
 * Tutorials
 ** xref:tutorials/iam-schema.adoc[]

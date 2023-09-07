@@ -34,7 +34,7 @@ click btn:[Submit].
 
 == Delete an organization
 
-Open the xref:cloud::user-management/organization.adoc#_show[Organization details] page and click the
+Open the xref:cloud:ROOT:user-management/organization.adoc#_show[Organization details] page and click the
 btn:[Delete organization] button at the end.
 
 [NOTE]
@@ -48,7 +48,7 @@ To delete an organization there needs to be no Projects added to it.
 The only way to join an existing organization is to be invited by one of its members.
 
 For information on how to invite a user to join an organization, see the
-xref:cloud::user-management/organization.adoc#_invite[Invite a user] section.
+xref:cloud:ROOT:user-management/organization.adoc#_invite[Invite a user] section.
 // end::join_organization[]
 
 [#_invite]
@@ -67,7 +67,7 @@ To invite a user to join an organization, complete the following steps:
 == Show or edit details of an organization
 
 // tag::details[]
-1. xref:cloud::user-management/organization.adoc#_select[Select] an active organization.
+1. xref:cloud:ROOT:user-management/organization.adoc#_select[Select] an active organization.
 2. Click the btn:[Settings] in the main navigation menu on the left.
 
 [caption=""]

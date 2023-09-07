@@ -21,7 +21,7 @@ Teams are used to provide access to Projects for a group of users.
 [#_join]
 == Join a team
 
-To join a team a user must be xref:cloud::user-management/team.adoc#_invite[invited] to it.
+To join a team a user must be xref:cloud:ROOT:user-management/team.adoc#_invite[invited] to it.
 
 [#_invite]
 == Invite a user to a team
@@ -39,7 +39,7 @@ To invite a user to join a team, complete the following steps:
 [#_project]
 == Add access for a team
 
-To add a Project access to a team, use the xref:cloud::deployments/projects.adoc#_team[Project] page.
+To add a Project access to a team, use the xref:cloud:ROOT:deployments/projects.adoc#_team[Project] page.
 
 [#_delete]
 == Delete a team

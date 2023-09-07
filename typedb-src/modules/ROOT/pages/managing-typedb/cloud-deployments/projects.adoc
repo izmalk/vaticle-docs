@@ -39,7 +39,7 @@ To create a new project, complete the following steps:
 // tag::user[]
 Users are added to projects via teams.
 // end::user[]
-See the xref:cloud::deployments/projects.adoc#_team[Add a Team] section below.
+See the xref:cloud:ROOT:deployments/projects.adoc#_team[Add a Team] section below.
 
 [#_team]
 == Add a Team
