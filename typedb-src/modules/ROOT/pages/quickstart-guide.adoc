@@ -7,45 +7,39 @@
 
 == Overview
 
-In this Quickstart guide we will learn how to do the following basic TypeDB operations with TypeDB Studio:
-
-- Connect to a TypeDB server,
-- Create a new database,
-- Prepare a TypeQL file (`.tql`),
-- Define a schema of a database,
-- Load data into a database,
-- Retrieve schema types and/or data from a database.
-
-For this guide, we will use the sample schema and dataset designed for an
-https://en.wikipedia.org/wiki/Identity_management[Identity and Access Management,window=_blank] solution that will be
-described xref:tutorials/iam-schema.adoc[later].
+This Quickstart guide shows you how to set up minimal environment for further exploration and development with TypeDB.
 
 [IMPORTANT]
 ====
-We highly recommend completing this guide.
-
-Its goal is to prepare an environment for TypeDB exploration and development.
-The resulting database (schema and data) will be needed for example queries throughout the documentation.
+Make sure to complete this guide. We are using the resulted database for many examples in our documentation.
 ====
+
+Quickstart guide includes instructions for the following steps:
+
+- Connect to a TypeDB server
+- Create a new database
+- Define a schema of a database
+- Load data into a database
+- Try some queries
+
+This guide covers both TypeDB Console and TypeDB Studio, which are two of the TypeDB Clients available for TypeDB.
+We recommend familiarizing yourself with at least one of these two Clients, before trying to start developing with
+your own application with language specific TypeDB Drivers.
 
 ////
-.Fast track
-[caption=""]
-====
-For a faster result you can use <<#_console_quickstart,TypeDB Console commands>> instead of using TypeDB Studio.
-====
+For this guide, we will use the sample schema and dataset designed for an
+https://en.wikipedia.org/wiki/Identity_management[Identity and Access Management,window=_blank] solution that will be
+described xref:tutorials/iam-schema.adoc[later].
 ////
 
 == Prerequisites
 
-This Quickstart guide takes advantage of TypeDB Studio. It is an integrated development environment (IDE) for TypeDB.
-It was specifically designed to connect to TypeDB servers (Core and Enterprise), and use TypeQL.
+=== Install TypeDB
 
-To proceed, please install both TypeDB and TypeDB Studio:
+To proceed, please make sure you have TypeDB server (or cluster) xref:install-and-run.adoc#_install[installed].
+//* xref:clients:ROOT:studio.adoc#_download_install[Install TypeDB Studio]
 
-* xref:install-and-run.adoc#_install[Install TypeDB]
-* xref:clients:ROOT:studio.adoc#_download_install[Install TypeDB Studio]
-
+////
 [IMPORTANT]
 ====
 Use the same version numbers for TypeDB and TypeDB Studio to ensure compatibility.
@@ -56,8 +50,20 @@ xref:clients:ROOT:studio.adoc#_version_compatibility[Version compatibility] tabl
 
 Alternatively, we can <<#_console_quickstart,use>> any other TypeDB Client to achieve the same results.
 But we recommend trying TypeDB Studio first.
+////
 
-== Initialize database
+=== Download schema and data files for a database
+
+For the purpose of this Quickstart guide we will use the following files:
+
+* xref:attachment$iam-schema.tql[iam-schema.tql] -- contains a TypeQL define query for IAM schema used in docs.
+* xref:attachment$iam-data.tql[iam-data.tql] -- contains TypeQL insert queries of minimalistic dataset for the IAM schema.
+
+== TypeDB Console
+
+
+
+== TypeDB Studio
 
 === Start TypeDB
 
@@ -170,7 +176,7 @@ image::studio-type-browser-iam.png[Type browser with IAM schema, width = 75%, li
 
 Data can now be inserted.
 
-== First important queries
+== Try some queries
 
 === Read the schema
 
