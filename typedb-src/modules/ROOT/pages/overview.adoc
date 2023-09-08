@@ -1,14 +1,12 @@
 = Overview
-:keywords: typedb, typeql, documentation, overview, introduction
+:keywords: typedb, typeql, documentation, overview
 :longTailKeywords: documentation overview, learn typedb, learn typeql, typedb schema, typedb data model
 :pageTitle: Documentation overview
-:summary: A birds-eye view of TypeQL and TypeDB
+:summary: TypeDB's documentation overview
 
-This is the TypeDB server documentation section. It has the following subsections:
+This is TypeDB's technical documentation that we have to offer for both experienced and new developers.
 
-This is an overview of TypeDB technical documentation that we have to offer for both experienced and new developers.
-
-We also have to offer TypeQL and TypeDB Clients documentation.
+We also have xref:typeql::overview.adoc[TypeQL] and xref:clients::clients.adoc[TypeDB Clients] documentation.
 
 == Getting started
 
@@ -86,15 +84,17 @@ page.
 
 To set up your first TypeDB database environment, use the
 xref:install-and-run.adoc[installation guide]
-to install a local server or deploy to TypeDB Cloud, then use our
+to install a local server or deploy to TypeDB Cloud.
+
+Then use our
 xref:quickstart-guide.adoc[]
-to connect to it and deploy a sample database schema and data.
+for hands-on experience: create your first database and try some queries.
 
 Upon setting up a working TypeDB environment, we recommend to explore the following documentation subsections:
 
 * xref:fundamentals.adoc[] -- compressed essential knowledge about TypeDB;
 * <<_developing_with_typedb,Developing with TypeDB>> section -- how-to guides to database connection, queries and best practice;
-* <<_managing_typedb,Managing TypeDB>> section -- configuring local and TypeDB Cloud deployments
+* <<_managing_typedb,Managing TypeDB>> section -- configuring local and TypeDB Cloud deployments;
 * <<_tutorials,Tutorials>> section -- tutorials, how-to guides, and the xref:tutorials/iam-schema.adoc[].
 
 Check our documentation for xref:clients::clients.adoc[TypeDB Clients] and xref:typeql::overview.adoc[TypeQL].

@@ -2,7 +2,7 @@
 :keywords: typedb, database, documentation, introduction, overview
 :longTailKeywords: typedb introduction, typedb overview, learn typedb, learn typeql, typedb schema, typedb data model
 :pageTitle: TypeDB introduction
-:summary: A birds-eye view of TypeDB.
+:summary: An intriduction for TypeDB's documentation
 
 TypeDB is a strongly typed database management system (DBMS) with an intelligent reasoning engine
 to infer new data and a declarative query language based on composable patterns to find it easily.
@@ -38,6 +38,8 @@ Some examples of what TypeDB is not:
 * It’s not a graph database, but it utilizes the power of hypergraphs without asking developers to understand the
   implementation details;
 * It’s not an object-oriented database, but it uses types with subtyping and inheritance to model data.
+
+//#todo Consider adding some of the content from the website
 
 For more information on comparison with other types of databases, see the
 https://typedb.com/introduction[Introduction to TypeDB] page of our website.
@@ -281,29 +283,8 @@ Windows, Linux and macOS builds.
 
 == Learn more
 
-1. First, use the xref:install-and-run.adoc[installation guide] to install TypeDB on the local machine.
-
-2. The TypeDB journey starts with our xref:quickstart-guide.adoc[Quickstart guide].
-+
-It goes through the step-by-step process of creating a new database, applying schema, loading sample data,
-   and querying. The resulting environment is suitable for executing most examples in our documentation.
-   On top of that it familiarizes users with TypeDB Studio — IDE, specifically designed for TypeDB
-   database management and development.
-
-3. Fundamentals -- essential knowledge of how TypeDB works:
-
-    * xref:fundamentals/types.adoc[]
-    * xref:fundamentals/queries.adoc[]
-    * xref:fundamentals/patterns.adoc[]
-    * xref:fundamentals/inference.adoc[]
-
-4. xref:development/connect.adoc[Connect] page: Connect to TypeDB using databases, sessions, transactions, and ACID
-   guarantees.
-
-5. xref:development/schema.adoc#_schema[Define schema] page: Find out how to define, undefine, and modify types and rules
-   in a TypeDB database.
-
-6. xref:typedb::development/write.adoc[Writing data] and xref:typedb::development/read.adoc[Reading data] pages: How to perform Insert,
-   Delete, Update, and Get queries.
-
-7. xref:development/response.adoc[Response interpretation] page: How to use responses from TypeDB.
+. Install TypeDB locally or deploy it in Cloud with xref:install-and-run.adoc[Installation guide].
+. Create a database and try some queries with xref:quickstart-guide.adoc[Quickstart guide].
+. Learn only essentials about TypeDB with xref:fundamentals.adoc[] page.
+. Learn more about connecting to a database, querying, and troubleshooting in our *Developing with TypeDB* subsection.
+. Prepare a production environment with *Managing TypeDB* subsection.

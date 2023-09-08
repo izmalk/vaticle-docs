@@ -81,6 +81,7 @@ include::partial$macos.adoc[tag=install-manual]
 --
 ====
 
+[#_start_the_server]
 === Start the server
 
 [tabs]
