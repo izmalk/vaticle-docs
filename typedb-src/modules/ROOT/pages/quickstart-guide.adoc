@@ -50,45 +50,204 @@ For more information on how to use it, see the xref:clients::console.adoc[,windo
 
 TypeDB Console quickstart guide includes the following steps:
 
-- Connect to a TypeDB server
-- Create a new database
-- Define a schema of a database
-- Load data into a database
-- Try some queries
+- <<_connect_to_a_typedb_server>>
+- <<_create_a_new_database>>
+- <<_define_a_schema_of_a_database>>
+- <<_load_data_into_a_database>>
+- <<_try_some_data_queries>>
+- <<_try_some_queries_with_inference>>
 
+[#_connect_to_a_typedb_server]
 === Connect to a TypeDB server
 
-Use the following command to Run TypeDB Console and connect to a server, located at the default address of
-`localhost:1729`:
+Use the following command to Run TypeDB Console and connect to a server,
+located at the default address of `localhost:1729`:
 
 [,bash]
 ----
 typedb console
 ----
 
-Upon establishing a connection to a database, TypeDB Console shows a command prompt with `>` symbol.
+.See the command to connect to non-default address
+[%collapsible]
+====
+[,bash]
+----
+typedb console --server 127.0.0.1:1729
+----
+`127.0.0.1` -- IP address of the TypeDB server;
+`1729` -- port to connect to.
 
+To connect to a cluster of TypeDB Enterprise of TypeDB Cloud, use the following command:
+
+[,bash]
+----
+typedb console --cluster=127.0.0.1:1729 --username=<username> --password --tls-enabled=<true|false>
+----
+`127.0.0.1` -- IP address of the TypeDB server;
+`1729` -- port to connect to.
+====
+
+Upon connection, TypeDB Console shows a command prompt with `>` symbol.
+
+[#_create_a_new_database]
 === Create a new database
 
-To create a new database with name `try-iam` use the following command with TypeDB Console prompt:
+To create a new database with the name `try-iam` use the following command in TypeDB Console prompt:
 
 [,bash]
 ----
 database create try-iam
 ----
 
+[#_define_a_schema_of_a_database]
 === Define a schema of a database
 
+1. Open a `write` transaction to the new database with a `schema` session:
++
+[,bash]
+----
+transaction test-iam-db schema write
+----
 
+2. Define schema, by executing queries from the downloaded `iam-schema.tql` file:
++
+[,bash]
+----
+source iam-schema.tql
+----
 
+3. Commit the changes:
++
+[,bash]
+----
+commit
+----
 
+[#_load_data_into_a_database]
 === Load data into a database
 
+1. Open a `write` transaction to the new database with a `data` session:
++
+[,bash]
+----
+transaction test-iam-db data write
+----
 
-=== Try some queries
+2. Load data, by executing queries from the downloaded `iam-data.tql` file:
++
+[,bash]
+----
+source iam-data.tql
+----
+
+3. Commit the changes:
++
+[,bash]
+----
+commit
+----
+
+[#_try_some_data_queries]
+=== Try some data queries
+
+To try the following queries, open a `write` transaction with a `data` session first:
+
+[,typeql]
+----
+transaction test-iam-db data write
+----
+
+[NOTE]
+====
+To send a query to TypeDB Console, press btn:[Enter] twice.
+
+Pressing it once will provide a line break instead of query execution.
+====
+
+==== Retrieve all data
+
+[,typeql]
+----
+match $t isa thing;
+----
+
+==== Get all files and their paths
+
+[,typeql]
+----
+match $f isa file, has path $p;
+----
+
+==== Get all files that Kevin has access to view
+
+//view
+
+==== Get all files that Kevin has access to modify
+
+[,typeql]
+----
+match
+$p isa person, has full-name $fn;
+$o isa object, has path $op;
+$a isa action, has name "modify_file";
+$ac(object: $o, action: $a) isa access;
+$pe(subject: $p, access: $ac) isa permission;
+$fn contains "Kevin";
+----
+
+==== Insert some new files that Kevin has access to
+
+//match
+//insert
+
+==== Delete access for Kevin to the new file
+
+==== Delete the path of the new file
+
+==== Delete all files without a path
+
+==== Update an email for Kevin
+
+
+[#_try_some_queries_with_inference]
+=== Try some queries with inference
+
+//read transaction with inference
+
+==== Get all files that Kevin has access to view
+
+//view
 
 
 
+
+////
+==== Schema queries
+//#todo revise or delete schema queries
+===== Define new types and rules
+
+[,typeql]
+----
+include::attachment$new-types-and-rules.tql[]
+----
+
+===== Test new types and rules
+
+1. Open a `read` transaction with a `data` session and inference option enabled:
+
+[,bash]
+----
+transaction test-iam-db data read --infer true
+----
+
+2. Query for new types:
+
+
+
+===== Undefine new types and rules
+
+////
 
 [#_console_quickstart]
 .TypeDB Console commands
