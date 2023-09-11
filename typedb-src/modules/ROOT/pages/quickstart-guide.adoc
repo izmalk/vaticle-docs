@@ -3,391 +3,293 @@
 :longTailKeywords: get started with typedb, typedb tutorial, typedb quickstart, learn typedb
 :pageTitle: Quickstart guide
 :summary: Learn how to create a TypeDB database, load schema and data, perform queries.
+:tabs-sync-option:
 :experimental:
 
-== Overview
-
-This Quickstart guide shows you how to set up minimal environment for further exploration and development with TypeDB.
-
-[IMPORTANT]
-====
-Make sure to complete this guide. We are using the resulted database for many examples in our documentation.
-====
-
-This guide covers both TypeDB Console (CLI) and TypeDB Studio (GUI),
-which are two most popular clients available for TypeDB.
-
-We recommend familiarizing yourself with at least one of these two Clients, before trying to start developing with
-your own application with language specific TypeDB Drivers.
-
-////
-For this guide, we will use the sample schema and dataset designed for an
-https://en.wikipedia.org/wiki/Identity_management[Identity and Access Management,window=_blank] solution that will be
-described xref:tutorials/iam-schema.adoc[later].
-////
+This Quickstart guide shows how to set up a TypeDB database and execute queries with it.
 
 == Prerequisites
 
+[#_download_sample_database_schema_and_data_typeql_files]
 === Download sample database schema and data TypeQL files
 
-For the purpose of this Quickstart guide we will use the following files:
+For the purpose of this Quickstart guide, we will use the following files:
 
-* xref:attachment$iam-schema.tql[iam-schema.tql] -- contains a TypeQL define query for IAM schema used in docs.
-* xref:attachment$iam-data.tql[iam-data.tql] -- contains TypeQL insert queries of minimalistic dataset for the IAM schema.
+* xref:attachment$iam-schema.tql[iam-schema.tql] -- a define query for the IAM schema used in docs.
+* xref:attachment$iam-data.tql[iam-data.tql] -- insert queries of minimalistic dataset for the IAM schema.
 
 === Install and run TypeDB
 
-To proceed, please make sure you have TypeDB server (or cluster) xref:install-and-run.adoc#_install[installed] and
-xref:install-and-run.adoc#_start_the_server[running].
+To proceed, please make sure you have TypeDB server (or cluster)
+xref:install-and-run.adoc#_install[installed,window=_blank] and
+xref:install-and-run.adoc#_start_the_server[running,window=_blank].
 
-== TypeDB Console
+[#_typedb_console]
+== Select a TypeDB Client to proceed with the Quickstart guide
 
-TypeDB Console is a TypeDB Client with CLI.
+Choose either TypeDB Console (CLI) or TypeDB Studio (GUI) in the tabs below and complete all the steps.
 
-TypeDB Console usually installed with TypeDB server, in the same directory.
+We recommend familiarizing yourself with at least one of these two Clients, before trying to start developing with
+your own application with language-specific TypeDB Drivers.
+
+[IMPORTANT]
+====
+The IAM database schema and data from this Quickstart guide are widely used in examples throughout the documentation.
+====
+
+[tabs]
+====
+TypeDB Console::
++
+--
+TypeDB Console is a CLI TypeDB Client.
+
+image::typedb::quickstart-console.png[TypeDB Console, width = 100%, link=self]
+
+TypeDB Console is usually installed together with TypeDB server and in the same directory.
 
 For more information on how to use it, see the xref:clients::console.adoc[,window=_blank] page.
+--
+TypeDB Studio::
++
+--
+TypeDB Studio is a GUI TypeDB Client.
 
-TypeDB Console quickstart guide includes the following steps:
+image::typedb::quickstart-studio.png[TypeDB Studio, width = 100%, link=self]
 
-- <<_connect_to_a_typedb_server>>
-- <<_create_a_new_database>>
-- <<_define_a_schema_of_a_database>>
-- <<_load_data_into_a_database>>
-- <<_try_some_data_queries>>
-- <<_try_some_queries_with_inference>>
+TypeDB Studio needs to be
+xref:clients:ROOT:studio.adoc#_download_install[installed]
+and launched separately from TypeDB.
 
-[#_connect_to_a_typedb_server]
-=== Connect to a TypeDB server
-
-Use the following command to Run TypeDB Console and connect to a server,
-located at the default address of `localhost:1729`:
-
-[,bash]
-----
-typedb console
-----
-
-.See the command to connect to non-default address
-[%collapsible]
+For more information on how to use it, see the xref:clients::studio.adoc[,window=_blank] page.
+--
 ====
+
+== Connect to TypeDB
+
+[tabs]
+====
+TypeDB Console::
++
+--
+By default, TypeDB Console will try to connect to the default server address of `localhost:1729`.
+
+[#_console_change_addr]
+.See examples of how to connect to a non-default address
+[%collapsible]
+=====
+.Server connection example
 [,bash]
 ----
 typedb console --server 127.0.0.1:1729
 ----
-`127.0.0.1` -- IP address of the TypeDB server;
-`1729` -- port to connect to.
 
-To connect to a cluster of TypeDB Enterprise of TypeDB Cloud, use the following command:
-
+.Cluster connection example (TLS encryption enabled)
 [,bash]
 ----
-typedb console --cluster=127.0.0.1:1729 --username=<username> --password --tls-enabled=<true|false>
+typedb console --cluster=i0.deployment-a4fa2444.cloud.typedb.com:1729 --username=admin --password --tls-enabled --tls-root-ca="/Users/username/typedb-cloud/typedb-cloud-root-ca.pem"
 ----
-`127.0.0.1` -- IP address of the TypeDB server;
-`1729` -- port to connect to.
-====
+=====
 
-Upon connection, TypeDB Console shows a command prompt with `>` symbol.
-
-[#_create_a_new_database]
-=== Create a new database
-
-To create a new database with the name `try-iam` use the following command in TypeDB Console prompt:
-
-[,bash]
-----
-database create try-iam
-----
-
-[#_define_a_schema_of_a_database]
-=== Define a schema of a database
-
-1. Open a `write` transaction to the new database with a `schema` session:
-+
-[,bash]
-----
-transaction test-iam-db schema write
-----
-
-2. Define schema, by executing queries from the downloaded `iam-schema.tql` file:
-+
-[,bash]
-----
-source iam-schema.tql
-----
-
-3. Commit the changes:
-+
-[,bash]
-----
-commit
-----
-
-[#_load_data_into_a_database]
-=== Load data into a database
-
-1. Open a `write` transaction to the new database with a `data` session:
-+
-[,bash]
-----
-transaction test-iam-db data write
-----
-
-2. Load data, by executing queries from the downloaded `iam-data.tql` file:
-+
-[,bash]
-----
-source iam-data.tql
-----
-
-3. Commit the changes:
-+
-[,bash]
-----
-commit
-----
-
-[#_try_some_data_queries]
-=== Try some data queries
-
-To try the following queries, open a `write` transaction with a `data` session first:
-
-[,typeql]
-----
-transaction test-iam-db data write
-----
+To exit TypeDB Console press kbd:[Ctrl+C].
 
 [NOTE]
+=====
+The fastest way to go through all the steps is to use
+xref:clients::console.adoc#_non_interactive_mode[non-interactive]
+mode by issuing the following commands directly in a local terminal (not in a TypeDB Console prompt).
+=====
+--
+TypeDB Studio::
++
+--
+Connect to TypeDB:
+
+. Click the btn:[Connect to TypeDB] button  on the right side of the toolbar.
+. Enter TypeDB server address (e.g., `localhost:1729`) in the *Address* field and click the btn:[Connect] button.
+
+[#_studio_connect_cluster]
+.See how to connect to a cluster of TypeDB
+[%collapsible]
+=====
+1. Select `TypeDB Cluster` option in the *Server* field.
+2. Click the btn:[Manage Cluster Addresses] button and add all known addresses for TypeDB servers on the cluster you
+   are connecting.
+3. Fill all other fields with appropriate information and click the btn:[Connect] button.
+=====
+
+*Selecting the project folder*
+
+Select the folder with the <<_download_sample_database_schema_and_data_typeql_files,downloaded TypeQL files>> as
+xref:clients::studio.adoc#_open_a_project_directory[project directory,window=_blank] by using one of the following
+buttons:
+
+* btn:[Open Project] button in the *Project* panel (upper left);
+* btn:[Open Project Directory] button with a folder icon, leftmost on the top toolbar.
+--
 ====
-To send a query to TypeDB Console, press btn:[Enter] twice.
 
-Pressing it once will provide a line break instead of query execution.
+== Create a new database
+
+[tabs]
 ====
-
-==== Retrieve all data
-
-[,typeql]
-----
-match $t isa thing;
-----
-
-==== Get all files and their paths
-
-[,typeql]
-----
-match $f isa file, has path $p;
-----
-
-==== Get all files that Kevin has access to view
-
-//view
-
-==== Get all files that Kevin has access to modify
-
-[,typeql]
-----
-match
-$p isa person, has full-name $fn;
-$o isa object, has path $op;
-$a isa action, has name "modify_file";
-$ac(object: $o, action: $a) isa access;
-$pe(subject: $p, access: $ac) isa permission;
-$fn contains "Kevin";
-----
-
-==== Insert some new files that Kevin has access to
-
-//match
-//insert
-
-==== Delete access for Kevin to the new file
-
-==== Delete the path of the new file
-
-==== Delete all files without a path
-
-==== Update an email for Kevin
-
-
-[#_try_some_queries_with_inference]
-=== Try some queries with inference
-
-//read transaction with inference
-
-==== Get all files that Kevin has access to view
-
-//view
-
-
-
-
-////
-==== Schema queries
-//#todo revise or delete schema queries
-===== Define new types and rules
-
-[,typeql]
-----
-include::attachment$new-types-and-rules.tql[]
-----
-
-===== Test new types and rules
-
-1. Open a `read` transaction with a `data` session and inference option enabled:
+TypeDB Console::
++
+--
+Use the following command in a local terminal:
 
 [,bash]
 ----
-transaction test-iam-db data read --infer true
+typedb console --command="database create try-iam"
 ----
+--
+TypeDB Studio::
++
+--
 
-2. Query for new types:
-
-
-
-===== Undefine new types and rules
-
-////
-
-[#_console_quickstart]
-.TypeDB Console commands
-[,bash]
-----
-# create database
-typedb console --command="database create test-iam-db"
-
-# load schema into the new database from a file
-typedb console --command="transaction test-iam-db schema write" --command="source iam-schema.tql" --command="commit"
-
-# load data into the new database from a file
-typedb console --command="transaction test-iam-db data write" --command="source iam-data.tql" --command="commit"
-
-# check the data loaded (single quotes for bash syntax compatibility with the variables like $t)
-typedb console --command="transaction test-iam-db data read" --command='match $t isa thing; get $t;'
-----
-
-== TypeDB Studio
-
-//* xref:clients:ROOT:studio.adoc#_download_install[Install TypeDB Studio]
-
-=== Connect to TypeDB
-
-Launch TypeDB Studio, and connect to TypeDB:
-
-. Click the btn:[Connect to TypeDB] button (right side of the toolbar).
-. Enter `localhost:1729` in the *Address* field.
-. Click the btn:[Connect] button (the dialog will close after a successful connection).
-
-image::studio-connection-connected.png[Connection Manager: Connected, width = 75%, link=self]
-
-=== Choose a project directory
-
-TypeDB Studio project directory is set to allow us to organize and save related queries for future reuse.
-
-The files and folders in the current project directory are shown in the Project panel on the left side of the window.
-
-image::studio-project-empty.png[Project Interface empty, width = 75%, link=self]
-
-To select a project directory:
-
-. Click the btn:[Open Project] button in the *Project* panel (upper left).
-. Choose a directory for the project files.
-. Click the btn:[Open] button.
-
-The *Project* panel will now display the contents of the selected directory and a hidden subdirectory for
-unsaved files.
-
-image::studio-project-iam.png[Project Interface With Open Folder, width = 250, link=self]
-
-[#_create_a_database]
-=== Create a database
-
-. Click the database icon to open the *Manage Databases* dialog (left side of the toolbar).
+. Open the *Manage Databases* dialog by clicking the database icon on the left side of the toolbar.
 +
 image::studio-database.png[Database Manager button, width = 75%, link=self]
+. Enter `try-iam` in the text field, and click the btn:[Create] button next to it.
+. Now select `try-iam` from the database dropdown (next to the database icon).
+--
+====
 
-. Enter `iam` in the text field, and click the btn:[Create] button next to it.
-. Click the btn:[Close] button in the bottom right.
+== Define a schema from a file
+
+[tabs]
+====
+TypeDB Console::
 +
-image::studio-database-manager-iam.png[Database Manager With Phone Calls Database, width = 60%, link=self]
+--
+Use the following command in a local terminal:
 
-. Select `iam` from the database dropdown (next to the database icon).
-
-[#_prepare_a_tql_file]
-=== Prepare a TypeQL file
-
-// #todo Change the link to TypeQL -
-
-A xref:development/schema.adoc[TypeDB schema] contains entity, relation, and attribute type definitions that make up the
-data model, as well as rules which may be applied to it -- all of which are expressed in
-xref:typeql:ROOT:overview.adoc[TypeQL], TypeDB's query language.
-
-To prepare the schema definition file:
-
-. Click the `+` icon in the top left corner of the *Text editor* panel (directly right from the *Project* panel).
-. Copy the `iam-schema.tql` file listing below inside the new tab.
+[,bash]
+----
+typedb console --command="transaction try-iam schema write" --command="source iam-schema.tql" --command="commit"
+----
+--
+TypeDB Studio::
 +
+--
+Open the xref:typedb::attachment$iam-schema.tql[iam-schema.tql,window=_blank] file from the project panel on the top left.
+
 [#_iam_schema]
 .See the full listing of the `iam-schema.tql` file
 [%collapsible]
-====
+=====
 [,typeql]
 ----
 include::typedb::attachment$iam-schema.tql[lines=17..]
 ----
+=====
+
+Define the schema for the database selected earlier, by executing the define query from the file:
+
+. Ensure the btn:[Session type] (`schema` / `data`) is set to the `schema` and the
+  btn:[Transaction type] (`write` / `read`) is set to the `write` in the toolbar.
+. Execute the query by clicking the btn:[Run Query] button.
+. Commit the changes in transaction by clicking the btn:[Commit Transaction] button.
+--
 ====
-. Click the save icon on the left side of the toolbar.
-. Enter `iam-schema.tql` in the *Save As* field.
-. Click the btn:[Save] button.
 
-[NOTE]
+Schema is defined. The database is ready to insert some data.
+
+== Load data from a file
+
+[tabs]
 ====
-Find the `iam-schema.tql` file listing expandable <<_iam_schema,above>> or download the file:
-xref:typedb::attachment$iam-schema.tql[iam-schema.tql,window=_blank].
-====
-
-=== Upload the schema
-
-To execute the TypeQL statements in the opened file and send them as queries:
-
-. Ensure the btn:[Session type] (`schema` / `data`) switch (next to the database dropdown) is set to the `schema`.
-. Ensure the btn:[Transaction type] (`write` / `read`) switch is set to the `write`.
+TypeDB Console::
 +
-image::quickstart-studio-select-transaction-type.png[Select transaction type, width = 100%, link=self]
+--
+Use the following command in a local terminal:
 
-. Click the btn:[Run Query] button (with a "play" symbol, in the middle of the toolbar) to start the transaction.
-. Click the btn:[Commit Transaction] button (with a "checkmark" symbol, left of the btn:[Run Query] button) to commit
-  the changes.
+[,bash]
+----
+typedb console --command="transaction try-iam data write" --command="source iam-data.tql" --command="commit"
+----
+--
+TypeDB Studio::
++
+--
+Open the xref:attachment$iam-data.tql[iam-data.tql] file from the project panel.
 
-The transaction has been committed, and the `iam` database now has a schema.
+[#_iam_microdataset]
+.See the full listing of the `iam-data.tql` file
+[%collapsible]
+=====
+[,typeql]
+----
+include::typedb::attachment$iam-data.tql[lines=17..]
+----
+=====
 
-The Types panel will now display the entity, relation, and attribute types within a type hierarchy of the IAM schema.
+Load the data into the database selected earlier, by executing the insert queries from the file:
 
-image::studio-type-browser-iam.png[Type browser with IAM schema, width = 75%, link=self]
+. Ensure the btn:[Session type] (`schema` / `data`) is set to the `data` and the btn:[Transaction type]
+  (`write` / `read`) is set to the `write` in the toolbar.
+. Execute all queries from the file by clicking the btn:[Run Query] button.
+. Commit the changes in transaction by clicking the btn:[Commit Transaction] button.
+--
+====
 
-Data can now be inserted.
+The data is persisted in the database. The database is ready for some queries.
 
 == Try some queries
 
-=== Read the schema
+=== Get query -- Retrieve all data
 
-TypeQL can be used to query schema types.
+[tabs]
+====
+TypeDB Console::
++
+--
+Use the following command in a local terminal:
+[,bash]
+----
+typedb console --command="transaction try-iam data read" --command='match $t isa thing;'
+----
+--
+TypeDB Studio::
++
+--
+. Select `data` session and `read` transaction
+. Open a new tab and insert the following TypeQL query
++
+[,typeql]
+----
+match $t isa thing;
+----
+. Execute the query
+--
+====
 
-To execute a simple schema query:
+=== Get query -- Retrieve all schema types
 
-. Ensure the btn:[Session type] (`schema` / `data`) switch is set to the `schema` (next to the database dropdown).
-. Ensure the btn:[Transaction type] (`write` / `read`) switch is set to the `read`.
-. Click the `+` icon right from the *Project* panel next to the `iam-schema.tql` tab in the *Text editor* panel.
-. Copy the TypeQL statement below.
-. Click the btn:[Run Query] button (with a "play" symbol)
-
+[tabs]
+====
+TypeDB Console::
++
+--
+Use the following command in a local terminal:
+[,bash]
+----
+typedb console --command="transaction try-iam data read" --command='match $t sub thing;'
+----
+--
+TypeDB Studio::
++
+--
+. Select `data` session and `read` transaction
+. Open a new tab and insert the following TypeQL query
++
 [,typeql]
 ----
 match $t sub thing;
 ----
-
-The above query returns all types in the schema of the current database.
-By default, the results in TypeDB Studio are visualized as a graph.
+. Execute the query
+--
+====
 
 // tag::thing_deprecation[]
 [WARNING]
@@ -396,7 +298,7 @@ The `thing` internal type will be deprecated in one of the upcoming versions and
 
 Consider using `entity`, `attribute`, or `relation` built-in types instead.
 
-To produce the same result as the above example, use the following query:
+To produce the same result as the above example (except for the `thing` type), use the following query:
 
 [,typeql]
 ----
@@ -405,90 +307,173 @@ match $s sub $t; {$t type entity;} or {$t type relation;} or {$t type attribute;
 ====
 // end::thing_deprecation[]
 
-image::iam-full-schema-studio.png[IAM schema graph, width = 600, link=self]
+=== Get query -- Get all emails of Kevin
 
-[#_insert_data]
-=== Insert data
-
-We will insert data the same way we created the schema, by creating a `.tql` file in our project and executing it.
-
-To create the file:
-
-. Click the `+` icon right from the *Project* panel in the top of the *Text editor* panel, to create a new tab.
-. Copy the `iam-data.tql` file listing below inside the new tab.
+[tabs]
+====
+TypeDB Console::
 +
-[#_iam_microdataset]
-.See the full listing of the `iam-data.tql` file
+--
+Use the following command in a local terminal:
+[,bash]
+----
+typedb console --command="transaction try-iam data read" --command='match $p isa person, has full-name $fn; $fn contains "Kevin"; $p has email $e; get $e;'
+----
+--
+TypeDB Studio::
++
+--
+. Select `data` session and `read` transaction
+. Open a new tab and insert the following TypeQL query
++
+[,typeql]
+----
+match
+    $p isa person,
+        has full-name $fn;
+    $fn contains "Kevin";
+    $p has email $e;
+get $e;
+----
+. Execute the query
+--
+====
+
+=== Insert query -- Add a new email for Kevin
+
+[tabs]
+====
+TypeDB Console::
++
+--
+Use the following command in a local terminal:
+[,bash]
+----
+typedb console --command="transaction try-iam data write" --command='match $p isa person, has full-name $fn; $fn contains "Kevin"; insert $p has email "kevin@gmail.com";' --command="commit"
+----
+--
+TypeDB Studio::
++
+--
+. Select `data` session and `write` transaction
+. Open a new tab and insert the following TypeQL query
++
+[,typeql]
+----
+match
+    $p isa person,
+        has full-name $fn;
+    $fn contains "Kevin";
+insert                         `
+    $p has email "kevin@gmail.com";
+----
+. Execute the query
+--
+====
+
+=== Update query -- Change the newly added email for Kevin
+
+[tabs]
+====
+TypeDB Console::
++
+--
+Use the following command in a local terminal:
+[,bash]
+----
+typedb console --command="transaction try-iam data write" --command='match $p isa person, has full-name $fn, has email $e; $fn contains "Kevin"; $e = "kevin@gmail.com"; delete $p has $e; insert $p has email "kevin2@gmail.com";' --command="commit"
+----
+--
+TypeDB Studio::
++
+--
+. Select `data` session and `write` transaction
+. Open a new tab and insert the following TypeQL query
++
+[,typeql]
+----
+match
+    $p isa person,
+        has full-name $fn,
+        has email $e;
+    $fn contains "Kevin";
+    $e = "kevin@gmail.com";
+delete $p has $e;
+insert $p has email "kevin2@gmail.com";
+----
+. Execute the query
+--
+====
+
+=== Additional query examples
+
+[#_console_more_queries]
+.See more query examples
 [%collapsible]
+=====
+
+*Get query* -- retrieve all data:
+[tabs]
 ====
+TypeDB Console::
++
+--
+Use the following command in a local terminal:
+[,bash]
+----
+typedb console --command="transaction try-iam data read" --command='match $t isa thing;'
+----
+--
+TypeDB Studio::
++
+--
+. Select `data` session and `read` transaction
+. Open a new tab and insert the following TypeQL query
++
 [,typeql]
 ----
-include::typedb::attachment$iam-data.tql[lines=17..]
+match $t isa thing;
 ----
-====
-. Click the save icon (left side of the toolbar).
-. Enter `iam-data.tql` in the *Save As* field.
-. Click the btn:[Save] button.
-
-[NOTE]
-====
-Find the `iam-data.tql` file listing expandable <<_iam_microdataset,above>> or download the file:
-xref:typedb::attachment$iam-data.tql[iam-data.tql,window=_blank].
-
-To insert this data to a TypeDB database we need to <<_prepare_a_tql_file,define>> the correct
-<<_iam_schema,schema>> first.
+. Execute the query
+--
 ====
 
-To execute the TypeQL statements copied from the code block above:
+*Insert query* -- insert a new file entity with the path "iam-data.tql" and assign a view_file access permission for Kevin:
 
-. Ensure the btn:[Session type] (`schema` / `data`) switch (next to the database dropdown) is set to the `data`.
-. Ensure the btn:[Transaction type] (`write` / `read`) switch is set to the `write`.
-. Click the btn:[Run Query] button (with a "play" symbol).
-. Click the btn:[Commit Transaction] button (with a "checkmark" symbol).
-
-The transaction has been committed, and the data can now be queried.
-
-=== Read data
-
-To retrieve data from a database:
-
-. Click the `+` icon right from the *Project* panel next to the `iam-data.tql` tab in the *Text editor* panel.
-. Ensure the btn:[Session type] (`schema` / `data`) switch (next to the database dropdown) is set to the `data`.
-. Ensure the btn:[Transaction type] (`write` / `read`) switch is set to the `read`.
-. Replace the TypeQL statement in the *Text editor* panel with the one below.
-. Click the btn:[Run Query] button (with a "play" symbol).
-
-[,typeql]
+[,bash]
 ----
-match $f isa file, has path $fp;
+typedb console --command="transaction try-iam data write" --command='match $p isa person, has full-name $fn; $fn contains "Kevin"; $a isa action, has name "view_file"; insert $f isa file, has path "iam-data.tql"; $ac(object: $f, action: $a) isa access; $pe(subject: $p, access: $ac) isa permission;' --command="commit"
 ----
 
-The above query returns all `file` entities with their `path` attributes. By default, TypeDB Studio displays the
-results as shown in the image below.
+For more information on the IAM schema, see the xref:typedb::tutorials/iam-schema.adoc[] page.
 
-image::studio-iam-data.png[IAM data example, width = 55%, link=self, window=_blank]
+*Delete query* -- delete Kevin's permission to view newly added file:
 
-== Summary
+[,bash]
+----
+typedb console --command="transaction try-iam data write" --command='match $p isa person, has full-name $fn; $fn contains "Kevin"; $a isa action, has name "view_file"; $f isa file, has path "iam-data.tql"; $ac(object: $f, action: $a) isa access; $pe(subject: $p, access: $ac) isa permission; delete $pe isa permission;' --command="commit"
+----
 
-The Quickstart guide above provides a fast and easy way to set up the minimum IAM database environment:
-a TypeDB database with IAM schema and a small dataset. It can be used for examples in this documentation
-or for independent exploration of TypeDB features.
+*Get query* with *inference* enabled -- Get all Kevin's permissions with inference:
 
-Here are the files used in the guide above:
+[,bash]
+----
+typedb console --command="transaction try-iam data read --infer true" --command='match $p isa person, has full-name $fn; $o isa object, has path $o-path; $a isa action, has name "view_file"; $ac(object: $o, action: $a) isa access; $pe(subject: $p, access: $ac) isa permission; $fn = "Kevin Morrison";'
+----
 
-* xref:attachment$iam-schema.tql[iam-schema.tql,window=_blank] -- TypeQL script for the IAM schema definition.
-* xref:attachment$iam-data.tql[iam-data.tql,window=_blank] -- TypeQL script to load a sample dataset into a database with the
-  IAM schema.
+For comparison -- Get all Kevin's permissions without inference:
+
+[,bash]
+----
+typedb console --command="transaction try-iam data read" --command='match $p isa person, has full-name $fn; $o isa object, has path $o-path; $a isa action, has name "view_file"; $ac(object: $o, action: $a) isa access; $pe(subject: $p, access: $ac) isa permission; $fn = "Kevin Morrison";'
+----
+=====
 
 == Learn more
 
-After completing this guide we can recommend the following order of topics to continue exploring TypeDB:
+After completing this guide we recommend the following order of topics to continue exploring TypeDB:
 
-1. Explore the Fundamentals section for essential information of how TypeDB works:
-    * xref:fundamentals/types.adoc[]
-    * xref:fundamentals/queries.adoc[]
-    * xref:fundamentals/patterns.adoc[]
-    * xref:fundamentals/inference.adoc[]
+1. Explore the xref:./fundamentals.adoc[] page to learn essentials about using TypeDB.
 2. Find out more about how to xref:development/connect.adoc[connect] to TypeDB, and use databases, sessions,
    and transactions.
 3. Learn how to define a xref:development/schema.adoc[schema] of a database.

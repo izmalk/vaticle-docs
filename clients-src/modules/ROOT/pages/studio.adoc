@@ -64,6 +64,8 @@ bash brew tap vaticle/tap brew install --cask vaticle/tap/typedb-studio
 ----
 ====
 
+//#todo add section on starting Studio
+
 == Prepare for work
 
 Right after starting TypeDB Studio we can see its main window as it is shown below.
