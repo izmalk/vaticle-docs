@@ -65,11 +65,11 @@ deployment with TypeDB Studio, but we need to select the *TypeDB Cluster* option
 That will display additional options to set addresses for multiple servers in a cluster, username, password,
 and TLS encryption switch.
 
-image::studio-connect.png[Connect to Studio window, width = 70%, link=self]
+image::typedb::studio-connect-cluster.png[Connect to Studio window, width = 70%, link=self]
 
 Use the btn:[Manage cluster addresses] button to set the address of a server to connect.
 
-image::studio-manage-cluster-address.png[Connect to Studio window, width = 70%, link=self]
+image::typedb::studio-manage-cluster-address.png[Connect to Studio window, width = 70%, link=self]
 
 Insert the TypeDB Cloud deployment server address (including the port number, for example, `127.0.0.1:1729` or rather
 `a242676f5710e462e9eed7a78d795ecb-1969767772.eu-west-2.elb.amazonaws.com:1729`) to the text field and press

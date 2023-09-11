@@ -18,23 +18,23 @@ This feature is not active in the alpha testing stage of the TypeDB Cloud.
 [#_details]
 == Show details for a user
 
-1. xref:cloud:ROOT:user-management/organization.adoc#_select[Select] an active organization in the drop-down menu.
+1. xref:./organization.adoc#_select[Select] an active organization in the drop-down menu.
 2. Open the Users page from the main navigation menu on the left.
 3. Select the user by clicking on it in the list.
 
 [#_organization]
 == Invite to an Organization
 
-include::cloud:ROOT:user-management/organization.adoc[tag=invite_into_organization]
+include::./organization.adoc[tag=invite_into_organization]
 
 [#_team]
 == Invite to a Team
 
-include::cloud:ROOT:user-management/team.adoc[tag=invite]
+include::./team.adoc[tag=invite]
 
 [#_project]
 == Invite to a Project
 
-include::cloud:ROOT:deployments/projects.adoc[tag=user]
+include::./projects.adoc[tag=user]
 
-See the xref:cloud:ROOT:user-management/user.adoc#_team[Invite to a Team] section above.
+See the xref:./user.adoc#_team[Invite to a Team] section above.

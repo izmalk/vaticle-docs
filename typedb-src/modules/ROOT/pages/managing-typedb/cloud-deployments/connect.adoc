@@ -26,7 +26,7 @@ To connect to a TypeDB Cloud deployment, we need the following information:
 
 To get the *address* of the server in a deployment, use the following steps:
 
-* Open the xref:deployments/management.adoc#_details[deployment details] page.
+* Open the xref:./deploy.adoc#_details[deployment details] page.
 * Find the `Address` column in the table in the `Machines` section.
 
 [NOTE]
@@ -65,7 +65,7 @@ deployment with TypeDB Studio, but we need to select the *TypeDB Cluster* option
 That will display additional options to set addresses for multiple servers in a cluster, username, password,
 and TLS encryption switch.
 
-image::studio-connect.png[Connect to Studio window, width = 70%, link=self]
+image::studio-connect-cluster.png[Connect to Studio window, width = 70%, link=self]
 
 Use the btn:[Manage cluster addresses] button to set the address of a server to connect.
 

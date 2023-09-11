@@ -20,7 +20,7 @@ Every new organization is created with the default project in it by default.
 
 To create a new project, complete the following steps:
 
-1. xref:user-management/organization.adoc#_select[Select] an Organization to create a project in.
+1. xref:./organization.adoc#_select[Select] an Organization to create a project in.
 2. Open the Projects page from the navigation menu on the left.
 3. Click the btn:[Create] button in the top toolbar.
 4. Enter a new project ID for the new project and click btn:[Submit].
@@ -44,7 +44,7 @@ See the xref:cloud:ROOT:deployments/projects.adoc#_team[Add a Team] section belo
 [#_team]
 == Add a Team
 
-1. xref:user-management/organization.adoc#_select[Select] an Organization with the project we add a team to.
+1. xref:./organization.adoc#_select[Select] an Organization with the project we add a team to.
 2. Open the Projects page from the navigation menu on the left.
 3. Click the btn:[Add Team] button in the top Teams section.
 4. Enter the Team ID for the team and click btn:[Submit].
@@ -55,7 +55,7 @@ See the xref:cloud:ROOT:deployments/projects.adoc#_team[Add a Team] section belo
 // tag::deployment[]
 We can add a deployment from the Projects page. To do that, complete the following tasks:
 
-1. xref:user-management/organization.adoc#_select[Select] an Organization with the project we add a team to.
+1. xref:./organization.adoc#_select[Select] an Organization with the project we add a team to.
 2. Open the Projects page from the navigation menu on the left.
 3. Click the btn:[New Deployment] button.
 4. Edit the form with the Deployment ID, Location, and number of servers in the cluster. Click the btn:[Submit] button.

@@ -29,7 +29,7 @@ To join a team a user must be xref:cloud:ROOT:user-management/team.adoc#_invite[
 // tag::invite[]
 To invite a user to join a team, complete the following steps:
 
-1. xref:user-management/organization.adoc#_select[Select] the Organization that both the user and the team are members of.
+1. xref:./organization.adoc#_select[Select] the Organization that both the user and the team are members of.
 2. Open the Teams page from the navigation menu on the left.
 3. Select the team to invite the user to from the list and click on it.
 4. Click the btn:[Add user to team] button.

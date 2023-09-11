@@ -309,7 +309,7 @@ image::studio-database.png[Database Manager button, width = 75%, link=self]
 . Enter `iam` in the text field, and click the btn:[Create] button next to it.
 . Click the btn:[Close] button in the bottom right.
 +
-image::database-manager-iam.png[Database Manager With Phone Calls Database, width = 60%, link=self]
+image::studio-database-manager-iam.png[Database Manager With Phone Calls Database, width = 60%, link=self]
 
 . Select `iam` from the database dropdown (next to the database icon).
 
