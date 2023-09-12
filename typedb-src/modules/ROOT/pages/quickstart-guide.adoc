@@ -537,7 +537,7 @@ match
 --
 ====
 
-For comparison -- Get all Kevin's permissions without inference:
+For comparison -- Get all Kevin's permissions without the inference:
 
 [tabs]
 ====

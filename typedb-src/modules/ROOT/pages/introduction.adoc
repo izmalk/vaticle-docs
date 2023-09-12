@@ -12,7 +12,7 @@ to infer new data and a declarative query language based on composable patterns 
 TypeDB is a transactional (OLTP) DBMS with xref:development/acid-guarantees.adoc[] that is strongly-typed and
 has the following features:
 
-* TypeDB uses enhanced Entity-Relationship model, extended with Attributes as first-class citizens;
+* TypeDB uses an enhanced Entity-Relationship model, extended with Attributes as first-class citizens;
 * TypeDB has its own special static type system, supporting user-defined types with subtyping and inheritance,
   like OOP languages;
 * TypeDB can use rule-based logic embedded into a database schema to infer new data from patterns found in existing data;
@@ -55,11 +55,11 @@ between logical and physical data models.
 A strict hierarchy of types, expandable by adding new types. Every new type should be a subtype of exactly one
 supertype -- either a built-in type or another user-defined type.
 
-Any TypeDB database have the following built-in types:
+Any TypeDB database has the following built-in types:
 
-* `entity` -- a root types for all entities. An entity represents a self-sufficient object.
-* `relation` -- a root type for all relations. A relation represents n-ary relationship between other types.
-* `attribute` -- a root type for all attributes. An attribute represents a property with a value.
+* `entity` -- A root type for all entities. An entity represents a self-sufficient object.
+* `relation` -- A root type for all relations. A relation represents an n-ary relationship between other types.
+* `attribute` -- A root type for all attributes. An attribute represents a property with a value.
 
 An accurate type hierarchy can add context and constraints to data using strong typing and inheritance.
 
@@ -114,7 +114,7 @@ Rules represent logic embedded in a schema.
 Inference is a logical deduction based on a set of rules defined in a schema.
 
 When a READ type transactions are running with the _inference_ option enabled,
-TypeDB can deduce new (virtual) attribute ownerships and relations, if they influence the query results.
+TypeDB can deduce new (virtual) attribute ownerships and relations if they influence the query results.
 
 Virtual (inferred) data is not persisted and will be lost upon closing the transaction.
 
@@ -148,8 +148,8 @@ define
 user-group plays group-membership:member;
 ----
 
-Now, we can add a new rule, to enable group membership being transitive, so we can include Group A into Group B,
-so that every member of Group A, will become a member of Group B through transitivity of membership:
+Now, we can add a new rule to enable group membership being transitive, so we can include Group A in Group B,
+so that every member of Group A will become a member of Group B through transitivity of membership:
 
 `person` -> Group A -> Group B.
 
@@ -172,7 +172,7 @@ For example, if we insert data of group-membership according to the following:
 
 `person` -> Group A -> Group B -> Group C -> Group D -> Group E
 
-where `->` -- means `group-membership` relation with entity on the left from -> playing role of `member`
+where `->` -- means a `group-membership` relation with an entity on the left from the -> playing the role of `member`
 and entity on the right playing the role of `group`. Then the transitivity, implemented by
 the `transitive-group-memmbership` rule will make `person` a member of all groups from A to E.
 ====
@@ -186,8 +186,9 @@ TypeQL is designed specifically for expressing what data looks like, not how to 
 There are no joins, no unions and no need for ordered query logic.
 
 Data queries based on powerful yet simple patterns, using types, defined in a schema of a database.
-Those patterns are easily readable and composable. We can add new statements to ane place of a pattern,
-even combine multiple patterns together, to retrieve all matching data in just one query.
+Those patterns are easily readable and composable.
+We can add new statements to any place of a pattern, even combine multiple patterns,
+to retrieve all matching data in just one query.
 
 .See data queries examples
 [%collapsible]
@@ -218,8 +219,8 @@ $m (member: $p1, group: $g1) isa group-membership;
 ----
 
 The following query retrieves data of all instances of `user` type (which is a supertype for the `person` type) that
-have ownership over any attributes and returns instances of all matched instances of `user` type or its subtypes and
-with the attributes they own.
+have ownership over any attribute.
+It returns all matched instances of `user` type or its subtypes and the attributes they own.
 
 [,typeql]
 ----
@@ -253,8 +254,8 @@ There are three editions of TypeDB:
 * <<_typedb_enterprise,TypeDB Enterprise>>
 * <<_typedb_core,TypeDB Core>>
 
-For more information on availability of features in all editions, see the https://typedb.com/deploy[Deploy] page of our
-website.
+For more information on the availability of features in all editions,
+see the https://typedb.com/deploy[Deploy] page of our website.
 
 [#_typedb_cloud]
 === TypeDB Cloud
@@ -262,14 +263,14 @@ website.
 TypeDB Cloud is our DBaaS solution.
 
 TypeDB Cloud is built on Kubernetes and makes it easy to run and manage TypeDB deployments across multiple teams
-and projects in AWS, Azure and GCP.
+and projects in AWS, Azure, and GCP.
 
 //Your TypeDB databases run in clusters managed by us and deployed in cloud powered by https://aws.amazon.com/[AWS] or https://cloud.google.com/[GCP].
 
 [#_typedb_enterprise]
 === TypeDB Enterprise
 
-TypeDB Enterprise extends TypeDB Core with advanced security and high availability features for running in production,
+TypeDB Enterprise extends TypeDB Core with advanced security and high-availability features for running in production,
 including active-active clustering and authentication with roles.
 
 Self-hosted, self-managed on-premise TypeDB clusters with our technical support.
@@ -283,7 +284,8 @@ Windows, Linux and macOS builds.
 
 == Learn more
 
-. Install TypeDB locally or deploy it in Cloud with xref:install-and-run.adoc[Installation guide].
+. Install TypeDB locally with the xref:install-and-run.adoc[Installation guide] or deploy it in the
+  https://cloud.typedb.com/[TypeDB Cloud].
 . Create a database and try some queries with xref:quickstart-guide.adoc[Quickstart guide].
 . Learn only essentials about TypeDB with xref:fundamentals.adoc[] page.
 . Learn more about connecting to a database, querying, and troubleshooting in our *Developing with TypeDB* subsection.

@@ -142,10 +142,11 @@ include::partial$macos.adoc[tag=stop]
 
 === After installation
 
-After the very first installation of TypeDB we recommend using our xref:quickstart-guide.adoc[Quickstart guide]
-to set up a database and try different types of queries with xref:clients:ROOT:studio.adoc[TypeDB Studio].
+After the first installation of TypeDB, we recommend using our xref:quickstart-guide.adoc[Quickstart guide]
+to set up a database and to try different types of queries.
 
 Alternatively, any other xref:clients:ROOT:clients.adoc[TypeDB Client] can be used to connect to a TypeDB server.
 
-To learn more about TypeDB check the Fundamentals section, starting from the
-xref:fundamentals/types.adoc[Type system] page.
+To find out only essential information about TypeDB, check the xref:typedb::fundamentals.adoc[] page.
+
+To learn more about connecting to TypeDB and querying it, see the *Developing with TypeDB* section.
