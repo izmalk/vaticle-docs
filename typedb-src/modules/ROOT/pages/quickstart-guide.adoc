@@ -13,7 +13,7 @@ This Quickstart guide shows how to set up a TypeDB database and execute queries 
 [#_download_sample_database_schema_and_data_typeql_files]
 === Download sample database schema and data TypeQL files
 
-For the purpose of this Quickstart guide, we will use the following files:
+For the purpose of this Quickstart guide, use the following files:
 
 * xref:attachment$iam-schema.tql[iam-schema.tql] -- a define query for the IAM schema used in docs.
 * xref:attachment$iam-data.tql[iam-data.tql] -- insert queries of minimalistic dataset for the IAM schema.
@@ -237,7 +237,23 @@ The data is persisted in the database. The database is ready for some queries.
 
 == Try some queries
 
-=== Get query -- Retrieve all data
+Try sending some queries to the database. We have prepared a few examples below.
+
+For more TypeQL query examples, check the xref:typeql::overview.adoc[TypeQL] documentation.
+
+=== Basic examples
+
+Check the following queries against the IAM schema and dataset:
+
+* <<#_get_query__retrieve_all_data>>
+* <<#_get_query__retrieve_all_schema_types>>
+* <<#_get_query__get_all_emails_of_kevin>>
+* <<#_insert_query__add_a_new_email_for_kevin>>
+* <<#_update_query__change_the_newly_added_email_for_kevin>>
+* <<#_delete_query__delete_ownership_of_the_newly_updated_email_from_kevin>>
+
+[#_get_query__retrieve_all_data]
+==== Get query -- Retrieve all data
 
 [tabs]
 ====
@@ -253,18 +269,19 @@ typedb console --command="transaction try-iam data read" --command='match $t isa
 TypeDB Studio::
 +
 --
-. Select `data` session and `read` transaction
-. Open a new tab and insert the following TypeQL query
+. Select `data` session and `read` transaction.
+. Open a new tab and insert the following TypeQL query:
 +
 [,typeql]
 ----
 match $t isa thing;
 ----
-. Execute the query
+. Execute the query.
 --
 ====
 
-=== Get query -- Retrieve all schema types
+[#_get_query__retrieve_all_schema_types]
+==== Get query -- Retrieve all schema types
 
 [tabs]
 ====
@@ -274,20 +291,20 @@ TypeDB Console::
 Use the following command in a local terminal:
 [,bash]
 ----
-typedb console --command="transaction try-iam data read" --command='match $t sub thing;'
+typedb console --command="transaction try-iam schema read" --command='match $t sub thing;'
 ----
 --
 TypeDB Studio::
 +
 --
-. Select `data` session and `read` transaction
-. Open a new tab and insert the following TypeQL query
+. Select `data` session and `read` transaction.
+. Open a new tab and insert the following TypeQL query:
 +
 [,typeql]
 ----
 match $t sub thing;
 ----
-. Execute the query
+. Execute the query.
 --
 ====
 
@@ -307,7 +324,8 @@ match $s sub $t; {$t type entity;} or {$t type relation;} or {$t type attribute;
 ====
 // end::thing_deprecation[]
 
-=== Get query -- Get all emails of Kevin
+[#_get_query__get_all_emails_of_kevin]
+==== Get query -- Get all emails of Kevin
 
 [tabs]
 ====
@@ -323,8 +341,8 @@ typedb console --command="transaction try-iam data read" --command='match $p isa
 TypeDB Studio::
 +
 --
-. Select `data` session and `read` transaction
-. Open a new tab and insert the following TypeQL query
+. Select `data` session and `read` transaction.
+. Open a new tab and insert the following TypeQL query:
 +
 [,typeql]
 ----
@@ -335,11 +353,12 @@ match
     $p has email $e;
 get $e;
 ----
-. Execute the query
+. Execute the query.
 --
 ====
 
-=== Insert query -- Add a new email for Kevin
+[#_insert_query__add_a_new_email_for_kevin]
+==== Insert query -- Add a new email for Kevin
 
 [tabs]
 ====
@@ -355,8 +374,8 @@ typedb console --command="transaction try-iam data write" --command='match $p is
 TypeDB Studio::
 +
 --
-. Select `data` session and `write` transaction
-. Open a new tab and insert the following TypeQL query
+. Select `data` session and `write` transaction.
+. Open a new tab and insert the following TypeQL query:
 +
 [,typeql]
 ----
@@ -364,14 +383,16 @@ match
     $p isa person,
         has full-name $fn;
     $fn contains "Kevin";
-insert                         `
+insert
     $p has email "kevin@gmail.com";
 ----
-. Execute the query
+. Execute the query.
+. Commit the transaction.
 --
 ====
 
-=== Update query -- Change the newly added email for Kevin
+[#_update_query__change_the_newly_added_email_for_kevin]
+==== Update query -- Change the newly added email for Kevin
 
 [tabs]
 ====
@@ -387,8 +408,8 @@ typedb console --command="transaction try-iam data write" --command='match $p is
 TypeDB Studio::
 +
 --
-. Select `data` session and `write` transaction
-. Open a new tab and insert the following TypeQL query
+. Select `data` session and `write` transaction.
+. Open a new tab and insert the following TypeQL query:
 +
 [,typeql]
 ----
@@ -401,7 +422,43 @@ match
 delete $p has $e;
 insert $p has email "kevin2@gmail.com";
 ----
-. Execute the query
+. Execute the query.
+. Commit the transaction.
+--
+====
+
+[#_delete_query__delete_ownership_of_the_newly_updated_email_from_kevin]
+==== Delete query -- Delete ownership of the newly updated email from Kevin
+
+[tabs]
+====
+TypeDB Console::
++
+--
+Use the following command in a local terminal:
+[,bash]
+----
+typedb console --command="transaction try-iam data write" --command='match $p isa person, has full-name $fn, has email $e; $fn contains "Kevin"; $e = "kevin2@gmail.com"; delete $p has $e;' --command="commit"
+----
+--
+TypeDB Studio::
++
+--
+. Select `data` session and `write` transaction.
+. Open a new tab and insert the following TypeQL query:
++
+[,typeql]
+----
+match
+    $p isa person,
+        has full-name $fn,
+        has email $e;
+    $fn contains "Kevin";
+    $e = "kevin2@gmail.com";
+delete $p has $e;
+----
+. Execute the query.
+. Commit the transaction.
 --
 ====
 
@@ -412,7 +469,8 @@ insert $p has email "kevin2@gmail.com";
 [%collapsible]
 =====
 
-*Get query* -- retrieve all data:
+*Get query* -- Count the number of emails for all people that have emails
+
 [tabs]
 ====
 TypeDB Console::
@@ -421,57 +479,184 @@ TypeDB Console::
 Use the following command in a local terminal:
 [,bash]
 ----
-typedb console --command="transaction try-iam data read" --command='match $t isa thing;'
+typedb console --command="transaction try-iam data read" --command='match $p isa person, has full-name $fn, has email $e; get $fn, $e; group $fn; count;'
 ----
 --
 TypeDB Studio::
 +
 --
-. Select `data` session and `read` transaction
-. Open a new tab and insert the following TypeQL query
+. Select `data` session and `read` transaction.
+. Open a new tab and insert the following TypeQL query:
 +
 [,typeql]
 ----
-match $t isa thing;
+match
+    $p isa person,
+        has full-name $fn,
+        has email $e;
+get $fn, $e; group $fn; count;
 ----
-. Execute the query
+. Execute the query.
 --
 ====
 
-*Insert query* -- insert a new file entity with the path "iam-data.tql" and assign a view_file access permission for Kevin:
+*Get query* with *inference* enabled -- Get all Kevin's permissions with inference:
 
+[tabs]
+====
+TypeDB Console::
++
+--
+Use the following command in a local terminal:
+[,bash]
+----
+typedb console --command="transaction try-iam data read --infer true" --command='match $p isa person, has full-name $fn; $o isa object, has path $o-path; $a isa action, has name "view_file"; $ac(object: $o, action: $a) isa access; $pe(subject: $p, access: $ac) isa permission; $fn = "Kevin Morrison";'
+----
+--
+TypeDB Studio::
++
+--
+. Select `data` session and `read` transaction.
+. Make sure to enable the `infer` switch in the top toolbar.
+. Open a new tab and insert the following TypeQL query:
++
+[,typeql]
+----
+match
+    $p isa person,
+        has full-name $fn;
+    $o isa object,
+        has path $o-path;
+    $a isa action,
+        has name "view_file";
+    $ac(object: $o, action: $a) isa access;
+    $pe(subject: $p, access: $ac) isa permission;
+    $fn = "Kevin Morrison";
+----
+. Execute the query.
+--
+====
+
+For comparison -- Get all Kevin's permissions without inference:
+
+[tabs]
+====
+TypeDB Console::
++
+--
+Use the following command in a local terminal:
+[,bash]
+----
+typedb console --command="transaction try-iam data read" --command='match $p isa person, has full-name $fn; $o isa object, has path $o-path; $a isa action, has name "view_file"; $ac(object: $o, action: $a) isa access; $pe(subject: $p, access: $ac) isa permission; $fn = "Kevin Morrison";'
+----
+--
+TypeDB Studio::
++
+--
+. Select `data` session and `read` transaction.
+. Make sure to *disable* the `infer` switch in the top toolbar.
+. Open a new tab and insert the following TypeQL query:
++
+[,typeql]
+----
+match
+    $p isa person,
+        has full-name $fn;
+    $o isa object,
+        has path $o-path;
+    $a isa action,
+        has name "view_file";
+    $ac(object: $o, action: $a) isa access;
+    $pe(subject: $p, access: $ac) isa permission;
+    $fn = "Kevin Morrison";
+----
+. Execute the query.
+--
+====
+
+*Insert query* -- Insert a new file entity with the path "iam-data.tql" and assign a "view_file" access permission for Kevin:
+
+[tabs]
+====
+TypeDB Console::
++
+--
+Use the following command in a local terminal:
 [,bash]
 ----
 typedb console --command="transaction try-iam data write" --command='match $p isa person, has full-name $fn; $fn contains "Kevin"; $a isa action, has name "view_file"; insert $f isa file, has path "iam-data.tql"; $ac(object: $f, action: $a) isa access; $pe(subject: $p, access: $ac) isa permission;' --command="commit"
 ----
+--
+TypeDB Studio::
++
+--
+. Select `data` session and `write` transaction.
+. Open a new tab and insert the following TypeQL query:
++
+[,typeql]
+----
+match
+    $p isa person,
+        has full-name $fn;
+    $fn contains "Kevin";
+    $a isa action,
+        has name "view_file";
+insert
+    $f isa file,
+        has path "iam-data.tql";
+    $ac(object: $f, action: $a) isa access;
+    $pe(subject: $p, access: $ac) isa permission;
+----
+. Execute the query.
+. Commit the transaction.
+--
+====
 
 For more information on the IAM schema, see the xref:typedb::tutorials/iam-schema.adoc[] page.
 
 *Delete query* -- delete Kevin's permission to view newly added file:
 
+[tabs]
+====
+TypeDB Console::
++
+--
+Use the following command in a local terminal:
 [,bash]
 ----
 typedb console --command="transaction try-iam data write" --command='match $p isa person, has full-name $fn; $fn contains "Kevin"; $a isa action, has name "view_file"; $f isa file, has path "iam-data.tql"; $ac(object: $f, action: $a) isa access; $pe(subject: $p, access: $ac) isa permission; delete $pe isa permission;' --command="commit"
 ----
-
-*Get query* with *inference* enabled -- Get all Kevin's permissions with inference:
-
-[,bash]
+--
+TypeDB Studio::
++
+--
+. Select `data` session and `write` transaction.
+. Open a new tab and insert the following TypeQL query:
++
+[,typeql]
 ----
-typedb console --command="transaction try-iam data read --infer true" --command='match $p isa person, has full-name $fn; $o isa object, has path $o-path; $a isa action, has name "view_file"; $ac(object: $o, action: $a) isa access; $pe(subject: $p, access: $ac) isa permission; $fn = "Kevin Morrison";'
+match
+    $p isa person,
+        has full-name $fn;
+    $fn contains "Kevin";
+    $a isa action,
+        has name "view_file";
+    $f isa file,
+        has path "iam-data.tql";
+    $ac(object: $f, action: $a) isa access;
+    $pe(subject: $p, access: $ac) isa permission;
+delete $pe isa permission;
 ----
+. Execute the query.
+. Commit the transaction.
+--
+====
 
-For comparison -- Get all Kevin's permissions without inference:
-
-[,bash]
-----
-typedb console --command="transaction try-iam data read" --command='match $p isa person, has full-name $fn; $o isa object, has path $o-path; $a isa action, has name "view_file"; $ac(object: $o, action: $a) isa access; $pe(subject: $p, access: $ac) isa permission; $fn = "Kevin Morrison";'
-----
 =====
 
 == Learn more
 
-After completing this guide we recommend the following order of topics to continue exploring TypeDB:
+After completing this guide, we recommend the following order of topics to continue exploring TypeDB:
 
 1. Explore the xref:./fundamentals.adoc[] page to learn essentials about using TypeDB.
 2. Find out more about how to xref:development/connect.adoc[connect] to TypeDB, and use databases, sessions,
@@ -479,7 +664,7 @@ After completing this guide we recommend the following order of topics to contin
 3. Learn how to define a xref:development/schema.adoc[schema] of a database.
 4. Discover how to xref:development/write.adoc[write] or xref:development/read.adoc[read] data from a TypeDB database.
 5. Check out how to interpret a TypeDB xref:development/response.adoc[responses] to a query.
-6. Explore all xref:clients:ROOT:clients.adoc[TypeDB Clients] to find the most suitable one.
+6. Explore xref:clients:ROOT:clients.adoc[TypeDB Clients] to find the most suitable for your use case.
 7. (Optional) Learn more about the xref:tutorials/iam-schema.adoc[IAM sample schema] that will be used in the
    majority of examples throughout this documentation.
 8. (Optional) Explore the xref:tutorials/sample-app.adoc[Sample application] written in Java, Python, or Node.js.
