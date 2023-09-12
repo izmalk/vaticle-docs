@@ -17,16 +17,12 @@
 ** xref:development/best.adoc[]
 
 * Managing TypeDB
-** xref:managing-typedb/configuration.adoc[Managing Databases]
-** xref:managing-typedb/configuration.adoc[Migrating a Database]
-** xref:managing-typedb/configuration.adoc[Configuring a Server]
-** xref:managing-typedb/configuration.adoc[Upgrading a Server]
-** xref:managing-typedb/configuration.adoc[Managing Users]
-** xref:managing-typedb/configuration.adoc[Migrating from TypeDB]
-** xref:managing-typedb/configuration.adoc[Configuring a Cluster]
-** xref:managing-typedb/configuration.adoc[Deploying a Cluster]
-** xref:managing-typedb/configuration.adoc[Managing a Cluster]
-** xref:managing-typedb/configuration.adoc[Managing Encryption]
+* xref:managing-typedb/configuration.adoc[]
+* xref:managing-typedb/user-management.adoc[]
+* xref:managing-typedb/version-update.adoc[]
+* xref:managing-typedb/export-import.adoc[]
+* xref:managing-typedb/high-availability.adoc[]
+* xref:managing-typedb/security.adoc[]
 
 ////
 * Cloud deployments
