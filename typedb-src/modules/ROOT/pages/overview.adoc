@@ -18,28 +18,35 @@ We also have xref:typeql::overview.adoc[TypeQL] and xref:clients::clients.adoc[T
 [#_developing_with_typedb]
 ==  Developing with TypeDB
 
-* xref:development/connect.adoc[] -- connection management, databases, and transactions
-* xref:development/schema.adoc[] -- Define & Undefine queries usage guide
-* xref:development/write.adoc[Insert data] -- Insert query usage guide
-* xref:development/write.adoc[Delete data] -- Delete query usage guide
-* xref:development/write.adoc[Update data] -- Update query usage guide
-* xref:development/read.adoc[] -- Get query usage guide
+* xref:development/connect.adoc[] -- DB connection management, sessions, and transactions
+* xref:development/define-schema.adoc[] -- Define & Undefine queries usage guide
+* xref:development/write-data.adoc[] -- Insert, Delete, and Update queries usage guide
+* xref:development/read-data.adoc[] -- Get query usage guide
 * xref:development/infer.adoc[] -- inference usage guide
 * xref:development/best.adoc[] -- schema and query designing tips, troubleshooting
 
 [#_managing_typedb]
 == Managing TypeDB
 
-* xref:managing-typedb/self-hosted-deployments/configuration.adoc[Managing Databases]
-* xref:managing-typedb/self-hosted-deployments/configuration.adoc[Migrating a Database]
-* xref:managing-typedb/self-hosted-deployments/configuration.adoc[Configuring a Server]
-* xref:managing-typedb/self-hosted-deployments/configuration.adoc[Upgrading a Server]
-* xref:managing-typedb/self-hosted-deployments/configuration.adoc[Managing Users]
-* xref:managing-typedb/self-hosted-deployments/configuration.adoc[Migrating from TypeDB]
-* xref:managing-typedb/self-hosted-deployments/configuration.adoc[Configuring a Cluster]
-* xref:managing-typedb/self-hosted-deployments/configuration.adoc[Deploying a Cluster]
-* xref:managing-typedb/self-hosted-deployments/configuration.adoc[Managing a Cluster]
-* xref:managing-typedb/self-hosted-deployments/configuration.adoc[Managing Encryption]
+* xref:managing-typedb/configuration.adoc[] -- configuring a TypeDB server or cluster
+* xref:managing-typedb/user-management.adoc[] -- creation and management of users
+* xref:managing-typedb/version-update.adoc[] -- migrating to a newer version of TypeDB
+* xref:managing-typedb/export-import.adoc[] -- exporting and importing database schema and data
+* xref:managing-typedb/high-availability.adoc[] -- replication, clustering, failover, and other high availability features
+* xref:managing-typedb/security.adoc[] -- encryption, authentication, and access control
+
+////
+* xref:managing-typedb/configuration.adoc[Managing Databases]
+* xref:managing-typedb/configuration.adoc[Migrating a Database]
+* xref:managing-typedb/configuration.adoc[Configuring a Server]
+* xref:managing-typedb/configuration.adoc[Upgrading a Server]
+* xref:managing-typedb/configuration.adoc[Managing Users]
+* xref:managing-typedb/configuration.adoc[Migrating from TypeDB]
+* xref:managing-typedb/configuration.adoc[Configuring a Cluster]
+* xref:managing-typedb/configuration.adoc[Deploying a Cluster]
+* xref:managing-typedb/configuration.adoc[Managing a Cluster]
+* xref:managing-typedb/configuration.adoc[Managing Encryption]
+////
 
 ////
 * *Cloud deployments*
@@ -52,8 +59,8 @@ We also have xref:typeql::overview.adoc[TypeQL] and xref:clients::clients.adoc[T
 * *Self-hosted deployments*
  ** xref:managing-typedb/self-hosted-deployments/configuration.adoc[] -- TypeDB server configuration parameters and host machine requirements
  ** xref:managing-typedb/self-hosted-deployments/export-import.adoc[] -- exporting and importing database schema and data
- ** xref:managing-typedb/self-hosted-deployments/update.adoc[] -- how to migrate to a newer version of TypeDB
- ** xref:managing-typedb/self-hosted-deployments/ha.adoc[] -- description of TypeDB high availability features
+ ** xref:managing-typedb/self-hosted-deployments/version-update.adoc[] -- how to migrate to a newer version of TypeDB
+ ** xref:managing-typedb/self-hosted-deployments/high-availability.adoc[] -- description of TypeDB high availability features
  ** xref:managing-typedb/self-hosted-deployments/security.adoc[] -- description of TypeDB security features
 ////
 

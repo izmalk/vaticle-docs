@@ -110,7 +110,7 @@ xref:typeql::schema/define-types.adoc#_define_attribute_types[attribute types] b
 ////
 [IMPORTANT]
 ====
-The following examples define parts of the xref:typedb:ROOT:tutorials/iam-schema.adoc[IAM schema] that will be used throughout
+The following examples define parts of the xref:typedb:ROOT:tutorials/iam-define-schema.adoc[IAM schema] that will be used throughout
 the rest of the documentation. However, some queries on this page result in modification of the original IAM schema
 used in the Quickstart guide. These occasional modifications are needed to demonstrate what TypeQL is capable of.
 

@@ -223,7 +223,7 @@ It collects all requests in a 1ms time window, bundles them into a single gRPC m
 See the xref:typedb::development/response.adoc[Response interpretation] page to find information of possible
 response to different query types.
 
-The `ConceptMap` objects returned by a xref:typedb::development/read.adoc#_get[Get query] can contain
+The `ConceptMap` objects returned by a xref:typedb::development/read-data.adoc#_get[Get query] can contain
 any type of `Concept`. This `Concept` class hierarchy is reflected in a TypeDB Driver implementation and class
 structure.
 

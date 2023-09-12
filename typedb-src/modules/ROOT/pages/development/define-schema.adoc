@@ -355,8 +355,8 @@ commit.
 
 == Learn more
 
-After we define the schema of our database we can try xref:typedb::development/write.adoc[writing] and
-xref:typedb::development/read.adoc[reading] data from the database.
+After we define the schema of our database we can try xref:typedb::development/write-data.adoc[writing] and
+xref:typedb::development/read-data.adoc[reading] data from the database.
 
 In case there is no database schema ready yet, we can use the xref:attachment$iam-schema.tql[IAM schema,window=_blank]
 to try all the queries.

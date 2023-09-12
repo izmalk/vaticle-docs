@@ -8,25 +8,25 @@
 
 * Developing with TypeDB
 ** xref:development/connect.adoc[]
-** xref:development/schema.adoc[]
-** xref:development/write.adoc[Insert data]
-** xref:development/write.adoc[Delete data]
-** xref:development/write.adoc[Update data]
-** xref:development/read.adoc[]
+** xref:development/define-schema.adoc[]
+** xref:development/write-data.adoc[Insert data]
+** xref:development/write-data.adoc[Delete data]
+** xref:development/write-data.adoc[Update data]
+** xref:development/read-data.adoc[]
 ** xref:development/infer.adoc[]
 ** xref:development/best.adoc[]
 
 * Managing TypeDB
-** xref:managing-typedb/self-hosted-deployments/configuration.adoc[Managing Databases]
-** xref:managing-typedb/self-hosted-deployments/configuration.adoc[Migrating a Database]
-** xref:managing-typedb/self-hosted-deployments/configuration.adoc[Configuring a Server]
-** xref:managing-typedb/self-hosted-deployments/configuration.adoc[Upgrading a Server]
-** xref:managing-typedb/self-hosted-deployments/configuration.adoc[Managing Users]
-** xref:managing-typedb/self-hosted-deployments/configuration.adoc[Migrating from TypeDB]
-** xref:managing-typedb/self-hosted-deployments/configuration.adoc[Configuring a Cluster]
-** xref:managing-typedb/self-hosted-deployments/configuration.adoc[Deploying a Cluster]
-** xref:managing-typedb/self-hosted-deployments/configuration.adoc[Managing a Cluster]
-** xref:managing-typedb/self-hosted-deployments/configuration.adoc[Managing Encryption]
+** xref:managing-typedb/configuration.adoc[Managing Databases]
+** xref:managing-typedb/configuration.adoc[Migrating a Database]
+** xref:managing-typedb/configuration.adoc[Configuring a Server]
+** xref:managing-typedb/configuration.adoc[Upgrading a Server]
+** xref:managing-typedb/configuration.adoc[Managing Users]
+** xref:managing-typedb/configuration.adoc[Migrating from TypeDB]
+** xref:managing-typedb/configuration.adoc[Configuring a Cluster]
+** xref:managing-typedb/configuration.adoc[Deploying a Cluster]
+** xref:managing-typedb/configuration.adoc[Managing a Cluster]
+** xref:managing-typedb/configuration.adoc[Managing Encryption]
 
 ////
 * Cloud deployments
@@ -39,8 +39,8 @@
 * Self-hosted deployments
 ** xref:self-hosted-deployments/configuration.adoc[]
 ** xref:self-hosted-deployments/export-import.adoc[]
-** xref:self-hosted-deployments/update.adoc[]
-** xref:self-hosted-deployments/ha.adoc[]
+** xref:self-hosted-deployments/version-update.adoc[]
+** xref:self-hosted-deployments/high-availability.adoc[]
 ** xref:self-hosted-deployments/security.adoc[]
 ////
 

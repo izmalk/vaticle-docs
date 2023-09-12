@@ -54,7 +54,7 @@ transaction is not successful, all changes are rolled back.
 
 For TypeDB Enterprise and TypeDB Cloud installations, transaction acknowledgment is sent to the client after a majority
 of replicas replicated the transaction results.
-See xref:managing-typedb/self-hosted-deployments/ha.adoc#_replication[Replication] for details.
+See xref:managing-typedb/high-availability.adoc#_replication[Replication] for details.
 
 [#_schema_integrity]
 == Schema integrity enforcement

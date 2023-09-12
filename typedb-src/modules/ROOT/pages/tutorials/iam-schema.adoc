@@ -45,7 +45,7 @@ As with any TypeDB schema, the IAM schema consists of:
 
 [NOTE]
 ====
-The xref:development/schema.adoc[schema] page provides more information to better understand the terminology of
+The xref:development/define-schema.adoc[schema] page provides more information to better understand the terminology of
 TypeDB schemas.
 ====
 
