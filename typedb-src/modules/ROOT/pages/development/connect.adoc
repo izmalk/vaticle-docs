@@ -338,8 +338,20 @@ For more information, see the xref:development/acid-guarantees.adoc[] page.
 
 There are two types of transactions in TypeDB:
 
-* READ transactions
-* WRITE transactions
+* Read
+* Write
+
+.See more details
+[%collapsible]
+====
+TypeDB Clients should use *READ* transactions for retrieving data or types.
+No data changes are possible with read transactions.
+Inference is possible only with read transactions.
+
+TypeDB Clients should use *WRITE* transactions for modifying data, but it is possible to retrieve data in them.
+All changes must be committed, or they will be lost upon closing the transaction.
+
+Choose an appropriate session type and queries to write schema or data:
 
 [cols="^,^,^,^,^",options="header"]
 |===
@@ -358,9 +370,109 @@ There are two types of transactions in TypeDB:
 | Yes
 |===
 
+////
+Write transactions are strict to a session type:
+
+* data can't be modified in a `schema` session;
+* schema can't be modified in a `data session`.
+////
+
+Use write transactions with:
+
+* `schema` session type to use Define and Undefine queries.
+* `data` session type to use Insert, Delete, and Update queries.
+
+While Get queries can be used in a write transaction, it's not recommended.
+For more information on write transactions blocks, read the
+xref:typedb::development/acid-guarantees.adoc#_schema_integrity[schema integrity] section on the
+xref:typedb::development/acid-guarantees.adoc[] page.
+
+To use inference, the `infer` transaction option should be enabled in a read transaction.
+
+You can open multiple transactions within the same session (except to a write transaction with a schema session).
+====
+
 Transactions must be explicitly opened and closed by a TypeDB Client.
 
-.See how to manage a transaction and send a query
+.See how to manage a transaction
+[%collapsible]
+====
+
+[tabs]
+=====
+TypeDB Console::
++
+--
+Open a transaction:
+[,bash]
+----
+transaction try-iam data write
+----
+
+Commit changes and close transaction:
+[,bash]
+----
+commit
+----
+
+Close transaction (without committing the changes):
+[,bash]
+----
+close
+----
+--
+
+Java::
++
+--
+[,java]
+----
+// start transaction
+TypeDBTransaction transaction = session.transaction(TypeDBTransaction.Type.WRITE);
+
+// commit changes and close transaction
+transaction.commit();
+
+// close transaction
+transaction.close();
+----
+--
+
+Python::
++
+--
+[,python]
+----
+# start transaction
+transaction = session.transaction(TransactionType.WRITE)
+
+# commit changes and close transaction
+transaction.commit()
+
+# close transaction
+transaction.close()
+----
+--
+
+Node.js::
++
+--
+[,js]
+----
+// start transaction
+const transaction = await session.transaction(TransactionType.WRITE);
+
+// commit changes and close transaction
+transaction.commit();
+
+// close transaction
+transaction.close();
+----
+--
+=====
+====
+
+.See querying example
 [%collapsible]
 ====
 
@@ -403,14 +515,12 @@ Java::
 [,java]
 ----
 // prepare queries
-String insertQuery1 = 'insert $x isa person, has full-name "Bob", has email "bob@vaticle.com";';
-String insertQuery2 = 'insert $x isa person, has full-name "Alex", has email "alex@vaticle.com";';
-String insertQueryN = 'insert $x isa person, has full-name "Charlie", has email "char@vaticle.com";';
+String insertQuery = 'insert $x isa person, has full-name "Bob", has email "bob@vaticle.com";';
+
 // start transaction
 TypeDBTransaction transaction = session.transaction(TypeDBTransaction.Type.WRITE);
-transaction.query().insert(insertQuery1);
-transaction.query().insert(insertQuery2);
-transaction.query().insert(insertQueryN);
+transaction.query().insert(insertQuery);
+
 // commit changes
 transaction.commit();
 ----
@@ -422,14 +532,12 @@ Python::
 [,python]
 ----
 # prepare queries
-insertQuery1 = 'insert $x isa person, has full-name "Bob", has email "bob@vaticle.com";'
-insertQuery2 = 'insert $x isa person, has full-name "Alex", has email "alex@vaticle.com";'
-insertQueryN = 'insert $x isa person, has full-name "Charlie", has email "char@vaticle.com";'
+insert_query = 'insert $x isa person, has full-name "Bob", has email "bob@vaticle.com";'
+
 # start transaction
 transaction = session.transaction(TransactionType.WRITE)
-transaction.query().insert(insert_query1)
-transaction.query().insert(insert_query2)
-transaction.query().insert(insert_queryN)
+transaction.query().insert(insert_query)
+
 # commit changes
 transaction.commit()
 ----
@@ -441,14 +549,12 @@ Node.js::
 [,js]
 ----
 // prepare queries
-let insertQuery1 = 'insert $x isa person, has full-name "Bob", has email "bob@vaticle.com";';
-let insertQuery2 = 'insert $x isa person, has full-name "Alex", has email "alex@vaticle.com";';
-let insertQueryN = 'insert $x isa person, has full-name "Charlie", has email "char@vaticle.com";';
+let InsertQuery = 'insert $x isa person, has full-name "Bob", has email "bob@vaticle.com";';
+
 // start transaction
 const transaction = await session.transaction(TransactionType.WRITE);
-transaction.query().insert(InsertQuery1);
-transaction.query().insert(InsertQuery2);
-transaction.query().insert(InsertQueryN);
+transaction.query().insert(InsertQuery);
+
 // commit changes
 transaction.commit();
 ----
