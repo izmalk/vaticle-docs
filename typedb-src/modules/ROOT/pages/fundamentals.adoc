@@ -38,7 +38,7 @@ image::clients::client-server-comms.png[client-server]
 //database data separation
 TypeDB stores data in databases.
 
-Every database has a name, schema, and data.
+Every database has a name and consists of schema and data.
 
 For more information on how to create a database, see the xref:development/connect.adoc#_databases[Databases] section
 on the xref:development/connect.adoc[] page.
