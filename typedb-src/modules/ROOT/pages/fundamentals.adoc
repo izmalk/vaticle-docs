@@ -149,6 +149,8 @@ include::typeql::queries.adoc[tag=queries_table]
 
 For more information on query types, read the xref:typeql::queries.adoc[] page.
 
+There are different ways to send a query to a TypeDB database, depending on what TypeDB Client is used.
+
 == Pattern matching
 
 TypeDB xref:typeql:ROOT:fundamentals/queries.adoc[queries] are written in xref:typeql::overview.adoc[TypeQL]
