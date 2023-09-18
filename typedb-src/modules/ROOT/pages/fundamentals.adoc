@@ -151,7 +151,7 @@ For more information on query types, read the xref:typeql::queries.adoc[] page.
 
 == Pattern matching
 
-TypeDB xref:typedb::fundamentals/queries.adoc[queries] are written in xref:typeql::overview.adoc[TypeQL]
+TypeDB xref:typeql:ROOT:fundamentals/queries.adoc[queries] are written in xref:typeql::overview.adoc[TypeQL]
 and use *patterns* to manipulate the schema and data of a database.
 
 A pattern is a set of statements.
