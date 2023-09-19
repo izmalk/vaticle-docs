@@ -472,6 +472,7 @@ transaction.close();
 =====
 ====
 
+//#todo Add Send query section to the page structure!
 .See querying example
 [%collapsible]
 ====

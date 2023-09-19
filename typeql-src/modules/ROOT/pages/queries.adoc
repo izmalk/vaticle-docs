@@ -126,7 +126,7 @@ For more information on the Undefine query, see the
 xref:typeql::schema/modify.adoc#_undefine_a_type[Modify existing schema,window=_blank] page.
 
 For examples of how to perform an Undefine query, see the
-xref:typedb::development/define-schema.adoc#_undefine[Defining schema] page.
+xref:typedb::development/define-schema.adoc#_typedb_undefine_query[Defining schema] page.
 
 [#_undefine_clause]
 === Undefine clause
@@ -276,7 +276,7 @@ If there are no matches for a `match` clause in an `insert` query, then there wi
 ====
 
 The `insert` clause can have a pattern with multiple statements to insert in one query. But it can't insert types
-(use xref:typedb::development/define-schema.adoc#_define_types[define] to insert new types) and can't have the following:
+(use xref:typedb::development/define-schema.adoc#_typedb_define_types[define] to insert new types) and can't have the following:
 
 - Conjunction
 - Disjunction

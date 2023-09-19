@@ -43,11 +43,11 @@ xref:typeql::data/get.adoc#_aggregation[aggregation,window=_blank]
 | Stream/Iterator of *ConceptMap*
 
 | 8
-| xref:typedb::development/define-schema.adoc#_define_types[Define]
+| xref:typedb::development/define-schema.adoc#_typedb_define_types[Define]
 | *Future* (of empty response)
 
 | 9
-| xref:typedb::development/define-schema.adoc#_undefine[Undefine]
+| xref:typedb::development/define-schema.adoc#_typedb_undefine_query[Undefine]
 | *Future* (of empty response)
 
 | 10
