@@ -1,0 +1,29 @@
+= Send queries
+:keywords: typedb, basics, connect, connection, session, database
+:longTailKeywords: basic concepts of typedb, typedb connection, typedb database, typedb session
+:pageTitle: Connecting
+:summary: Brief description of connection to TypeDB.
+:tabs-sync-option:
+:experimental:
+
+This page describes how to connect to a TypeDB, open a session to a database,
+and open a transaction for sending a query.
+
+xref:clients::studio.adoc[TypeDB Studio] automates session and transaction management,
+but most other TypeDB Clients require manual control over sessions and transactions.
+
+
+
+
+
+
+
+
+
+== Learn more
+
+With the essential knowledge of the *Fundamentals* section and the ability to connect to a TypeDB databases, described
+on this page, let's try defining our own xref:development/define-schema.adoc[schema].
+
+After that, try xref:development/write-data.adoc[writing] and xref:development/read-data.adoc[reading] data from
+a database with your schema.

@@ -659,7 +659,7 @@ delete $pe isa permission;
 
 After completing this guide, we recommend the following order of topics to continue exploring TypeDB:
 
-1. Explore the xref:./fundamentals.adoc[] page to learn essentials about using TypeDB.
+1. Explore the xref:development/learn-basics.adoc[] page to learn essentials about using TypeDB.
 2. Find out more about how to xref:development/connect.adoc[connect] to TypeDB, and use databases, sessions,
    and transactions.
 3. Learn how to define a xref:development/define-schema.adoc[schema] of a database.

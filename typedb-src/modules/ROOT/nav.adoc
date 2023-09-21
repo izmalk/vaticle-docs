@@ -3,10 +3,11 @@
 * xref:introduction.adoc[]
 * xref:install-and-run.adoc[]
 * xref:quickstart-guide.adoc[]
-* xref:fundamentals.adoc[]
 
 * Developing with TypeDB
+** xref:development/learn-basics.adoc[]
 ** xref:development/connect.adoc[]
+** xref:development/send-queries.adoc[]
 ** xref:development/define-schema.adoc[]
 ** xref:development/write-data.adoc[]
 ** xref:development/read-data.adoc[]
@@ -16,11 +17,14 @@
 
 * Managing TypeDB
 ** xref:managing-typedb/configuration.adoc[]
-** xref:managing-typedb/user-management.adoc[]
-** xref:managing-typedb/version-update.adoc[]
-** xref:managing-typedb/export-import.adoc[]
+** xref:managing-typedb/logs.adoc[]
+** xref:managing-typedb/users.adoc[]
+** xref:managing-typedb/upgrading.adoc[]
+//** xref:managing-typedb/export-import.adoc[]
 ** xref:managing-typedb/high-availability.adoc[]
 ** xref:managing-typedb/security.adoc[]
+** xref:install-and-run/enterprise/install-and-run.adoc[Enterprise deployments]
+** xref:install-and-run/enterprise/kubernetes.adoc[Kubernetes]
 
 * Tutorials
 ** xref:tutorials/iam-schema.adoc[]
@@ -46,7 +50,7 @@
 * Self-hosted deployments
 ** xref:self-hosted-deployments/configuration.adoc[]
 ** xref:self-hosted-deployments/export-import.adoc[]
-** xref:self-hosted-deployments/version-update.adoc[]
+** xref:self-hosted-deployments/upgrading.adoc[]
 ** xref:self-hosted-deployments/high-availability.adoc[]
 ** xref:self-hosted-deployments/security.adoc[]
 ////

@@ -13,7 +13,7 @@ We also have xref:typeql::overview.adoc[TypeQL] and xref:clients::clients.adoc[T
 * xref:introduction.adoc[] -- a brief description of TypeDB capabilities
 * xref:install-and-run.adoc[] -- install and run a local deployment or deploy in TypeDB Cloud
 * xref:quickstart-guide.adoc[] -- a step-by-step guide on setting up a working environment
-* xref:fundamentals.adoc[] -- essential knowledge, required to use TypeDB
+* xref:development/learn-basics.adoc[] -- essential knowledge, required to use TypeDB
 
 [#_developing_with_typedb]
 ==  Developing with TypeDB
@@ -30,8 +30,8 @@ We also have xref:typeql::overview.adoc[TypeQL] and xref:clients::clients.adoc[T
 == Managing TypeDB
 
 * xref:managing-typedb/configuration.adoc[] -- configuring a TypeDB server or cluster
-* xref:managing-typedb/user-management.adoc[] -- creation and management of users
-* xref:managing-typedb/version-update.adoc[] -- migrating to a newer version of TypeDB
+* xref:managing-typedb/users.adoc[] -- creation and management of users
+* xref:managing-typedb/upgrading.adoc[] -- migrating to a newer version of TypeDB
 * xref:managing-typedb/export-import.adoc[] -- exporting and importing database schema and data
 * xref:managing-typedb/high-availability.adoc[] -- replication, clustering, failover, and other high availability features
 * xref:managing-typedb/security.adoc[] -- encryption, authentication, and access control
@@ -60,7 +60,7 @@ We also have xref:typeql::overview.adoc[TypeQL] and xref:clients::clients.adoc[T
 * *Self-hosted deployments*
  ** xref:managing-typedb/self-hosted-deployments/configuration.adoc[] -- TypeDB server configuration parameters and host machine requirements
  ** xref:managing-typedb/self-hosted-deployments/export-import.adoc[] -- exporting and importing database schema and data
- ** xref:managing-typedb/self-hosted-deployments/version-update.adoc[] -- how to migrate to a newer version of TypeDB
+ ** xref:managing-typedb/self-hosted-deployments/upgrading.adoc[] -- how to migrate to a newer version of TypeDB
  ** xref:managing-typedb/self-hosted-deployments/high-availability.adoc[] -- description of TypeDB high availability features
  ** xref:managing-typedb/self-hosted-deployments/security.adoc[] -- description of TypeDB security features
 ////
@@ -99,7 +99,7 @@ for hands-on experience: create your first database and try some queries.
 
 Upon setting up a working TypeDB environment, we recommend to explore the following documentation subsections:
 
-* xref:fundamentals.adoc[] -- compressed essential knowledge about TypeDB;
+* xref:development/learn-basics.adoc[] -- compressed essential knowledge about TypeDB;
 * <<_developing_with_typedb,Developing with TypeDB>> section -- how-to guides to database connection, queries and best practice;
 * <<_managing_typedb,Managing TypeDB>> section -- configuring local and TypeDB Cloud deployments;
 * <<_tutorials,Tutorials>> section -- tutorials, how-to guides, and the xref:tutorials/iam-schema.adoc[].

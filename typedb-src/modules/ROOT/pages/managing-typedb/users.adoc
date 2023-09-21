@@ -1,4 +1,4 @@
-= User management
+= Users
 :keywords: typedb, security, auth, authentication, encryption, vulnerability
 :longTailKeywords: TypeDB security, user authentication, data encryption
 :pageTitle: User management
