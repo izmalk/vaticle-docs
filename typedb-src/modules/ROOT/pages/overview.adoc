@@ -22,8 +22,9 @@ We also have xref:typeql::overview.adoc[TypeQL] and xref:clients::clients.adoc[T
 * xref:development/define-schema.adoc[] -- Define & Undefine queries usage guide
 * xref:development/write-data.adoc[] -- Insert, Delete, and Update queries usage guide
 * xref:development/read-data.adoc[] -- Get query usage guide
-* xref:development/infer.adoc[] -- inference usage guide
-* xref:development/best.adoc[] -- schema and query designing tips, troubleshooting
+* xref:development/infer-data.adoc[] -- inference usage guide
+* xref:development/best-practices.adoc[] -- schema and query designing tips, troubleshooting
+* xref:development/acid-guarantees.adoc[] -- atomicity, consistency, isolation, and durability guarantees
 
 [#_managing_typedb]
 == Managing TypeDB

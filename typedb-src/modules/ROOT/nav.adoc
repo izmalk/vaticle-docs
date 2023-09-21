@@ -1,5 +1,4 @@
 // TypeDB
-
 * xref:overview.adoc[]
 * xref:introduction.adoc[]
 * xref:install-and-run.adoc[]
@@ -10,12 +9,10 @@
 ** xref:development/connect.adoc[]
 ** xref:development/define-schema.adoc[]
 ** xref:development/write-data.adoc[]
-//** xref:development/write-data.adoc[Insert data]
-//** xref:development/write-data.adoc[Delete data]
-//** xref:development/write-data.adoc[Update data]
 ** xref:development/read-data.adoc[]
-** xref:development/infer.adoc[]
-** xref:development/best.adoc[]
+** xref:development/infer-data.adoc[]
+** xref:development/best-practices.adoc[]
+** xref:development/acid-guarantees.adoc[]
 
 * Managing TypeDB
 ** xref:managing-typedb/configuration.adoc[]
@@ -24,6 +21,19 @@
 ** xref:managing-typedb/export-import.adoc[]
 ** xref:managing-typedb/high-availability.adoc[]
 ** xref:managing-typedb/security.adoc[]
+
+* Tutorials
+** xref:tutorials/iam-schema.adoc[]
+** xref:tutorials/sample-app.adoc[]
+** xref:tutorials/data-migration.adoc[]
+** xref:tutorials/new-driver-tutorial.adoc[]
+
+* xref:resources:releases.adoc[]
+
+.Resources
+* https://typedb.com/discord[Discord]
+* xref:typeql::overview.adoc[TypeQL]
+* xref:clients::clients.adoc[Clients]
 
 ////
 * Cloud deployments
@@ -41,17 +51,8 @@
 ** xref:self-hosted-deployments/security.adoc[]
 ////
 
-* Tutorials
-** xref:tutorials/iam-schema.adoc[]
-** xref:tutorials/sample-app.adoc[]
-** xref:tutorials/data-migration.adoc[]
-** xref:tutorials/new-driver-tutorial.adoc[]
-
 //* Deep dive
 //** xref:deep/deep-dive.adoc[Deep dive in Fundamentals]
 //*** xref:fun/types-dd.adoc[Deep dive in the type system]
 //*** xref:fun/queries-dd.adoc[Deep dive in the patterns]
 //*** xref:fun/inference-dd.adoc[Deep dive in the inference]
-
-//.Resources
-* xref:resources:releases.adoc[]

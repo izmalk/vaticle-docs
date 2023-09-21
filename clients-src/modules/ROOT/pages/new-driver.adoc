@@ -220,7 +220,7 @@ It collects all requests in a 1ms time window, bundles them into a single gRPC m
 
 === Exploring query answers
 
-See the xref:typedb::development/response.adoc[Response interpretation] page to find information of possible
+See the xref:typedb:ROOT:bin/response.adoc[Response interpretation] page to find information of possible
 response to different query types.
 
 The `ConceptMap` objects returned by a xref:typedb::development/read-data.adoc#_get[Get query] can contain

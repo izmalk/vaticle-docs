@@ -11,7 +11,7 @@ more detail on the topics.
 == TypeDB server and client
 
 //What is TypeDB
-TypeDB:: DBMS software with polymorphism, strong type system, fully declarative query language, and reasoning engine.
+TypeDB: :: DBMS software with polymorphism, strong type system, fully declarative query language, and reasoning engine.
 
 //TypeDB editions
 There are three editions of the software: Cloud, Enterprise, and Core.
@@ -25,9 +25,9 @@ see the https://typedb.com/deploy[Deploy] page of our website.
 TypeDB uses https://github.com/vaticle/typedb-protocol[TypeDB protocol], based on https://grpc.io/[gRPC],
 to communicate queries and responses.
 
-TypeDB Client:: Any software capable of communicating with TypeDB through TypeDB protocol.
+TypeDB Client: :: Any software capable of communicating with TypeDB through the TypeDB protocol.
 
-TypeDB Driver:: A language-specific library that implements TypeDB protocol and provides TypeDB Driver API.
+TypeDB Driver: :: A language-specific library that implements the TypeDB protocol and provides a TypeDB Driver API.
 TypeDB Drivers are usually used to create TypeDB Clients, including
 xref:clients::studio.adoc[TypeDB Studio,window=_blank] and xref:clients::console.adoc[TypeDB Console,window=_blank].
 
@@ -49,12 +49,12 @@ on the xref:development/connect.adoc[] page.
 === Schema
 //schema
 
-Schema:: A database schema is a full set of definitions for all types and rules, used in the database.
+Schema: :: A database schema is a full set of definitions for all types and rules, used in the database.
 
 Schema is like a blueprint of data in a database.
 
 //types
-Type:: A template for creating a data instance.
+Type: :: A template for creating a data instance.
 
 A type is also a category for classification of data instances.
 By defining a type, we define constraints for all instances of this type.
@@ -82,7 +82,7 @@ Rules represent logic embedded in a schema.
 Rules are used by reasoning engine to infer new data, based on patterns, found in existing data.
 
 For more information on rules, see the xref:typeql::fundamentals.adoc#_rules[] section on the
-xref:typeql::fundamentals.adoc#[] page.
+xref:typeql::fundamentals.adoc[] page.
 
 === Data
 //Instance of a type
@@ -95,7 +95,7 @@ Retrieving data from a database can result in getting values directly, but more 
 returned by a TypeDB Driver through Driver API.
 
 //Concept
-Concept:: Either a type or an instance of a type.
+Concept: :: Either a type or an instance of a type.
 
 TypeDB Driver API has methods to process concepts.
 
@@ -190,5 +190,5 @@ We recommend continuing your TypeDB journey by going through the *Developing wit
 * xref:development/write-data.adoc#_delete_query[Delete data]
 * xref:development/write-data.adoc#_update_query[Update data]
 * xref:development/read-data.adoc[]
-* xref:development/infer.adoc[]
-* xref:development/best.adoc[]
+* xref:development/infer-data.adoc[]
+* xref:development/best-practices.adoc[]

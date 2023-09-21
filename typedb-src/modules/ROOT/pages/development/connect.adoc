@@ -590,7 +590,7 @@ caused by transactions that will not be completed, and terminate unresponsive tr
 * Avoid long-running transactions which can result in conflicts and resource contention.
 * Transactions should group logically coherent queries.
 
-For more advice and *best practices*, visit the xref:development/best.adoc[Best practices] page.
+For more advice and *best practices*, visit the xref:development/best-practices.adoc[Best practices] page.
 
 == Learn more
 
