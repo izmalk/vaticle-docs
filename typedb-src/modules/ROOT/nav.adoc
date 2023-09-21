@@ -1,9 +1,11 @@
 // TypeDB
-* xref:overview.adoc[]
-* xref:introduction.adoc[]
-* xref:install-and-run.adoc[]
-* xref:quickstart-guide.adoc[]
-* xref:fundamentals.adoc[]
+.TypeDB
+* Get started
+** xref:overview.adoc[]
+** xref:introduction.adoc[]
+** xref:install-and-run.adoc[]
+** xref:quickstart-guide.adoc[]
+** xref:fundamentals.adoc[]
 
 * Developing with TypeDB
 ** xref:development/connect.adoc[]
@@ -30,29 +32,51 @@
 
 * xref:resources:releases.adoc[]
 
+.TypeQL
+* Get started
+** xref:typeql::overview.adoc[]
+** xref:typeql::fundamentals.adoc[]
+** xref:typeql::queries.adoc[]
+
+* Schema queries
+** xref:typeql::schema/define-types.adoc[]
+** xref:typeql::schema/define-rules.adoc[]
+** xref:typeql::schema/modify.adoc[]
+
+* Data queries
+** xref:typeql::data/basic-patterns.adoc[]
+** xref:typeql::data/insert.adoc[]
+** xref:typeql::data/delete.adoc[]
+** xref:typeql::data/update.adoc[]
+** xref:typeql::data/get.adoc[]
+** xref:typeql::data/advanced.adoc[]
+
+* xref:typeql::grammar.adoc[]
+
+.TypeDB Clients
+* xref:clients::clients.adoc[Clients overview]
+* xref:clients::studio.adoc[]
+* xref:clients::console.adoc[]
+* Java Driver
+** xref:clients::java/java-overview.adoc[]
+** xref:clients::java/java-install.adoc[]
+** xref:clients::java/java-tutorial.adoc[]
+** xref:clients::java/java-api-ref.adoc[]
+** xref:clients::java/java-query-builder.adoc[]
+* Python Driver
+** xref:clients::python/python-overview.adoc[]
+** xref:clients::python/python-install.adoc[]
+** xref:clients::python/python-tutorial.adoc[]
+** xref:clients::python/python-api-ref.adoc[]
+* Node.js
+** xref:clients::node-js/node-js-overview.adoc[]
+** xref:clients::node-js/node-js-install.adoc[]
+** xref:clients::node-js/node-js-tutorial.adoc[]
+** xref:clients::node-js/node-js-api-ref.adoc[]
+
+* xref:clients::other-languages.adoc[]
+* xref:clients::new-driver.adoc[]
+* xref:clients:resources:downloads.adoc[Clients Downloads]
+
 .Resources
 * https://typedb.com/discord[Discord]
-* xref:typeql::overview.adoc[TypeQL]
-* xref:clients::clients.adoc[Clients]
-
-////
-* Cloud deployments
-** xref:cloud-deployments/account.adoc[]
-** xref:cloud-deployments/connect.adoc[]
-** xref:cloud-deployments/deploy.adoc[]
-** xref:cloud-deployments/organization.adoc[]
-** xref:cloud-deployments/projects.adoc[]
-
-* Self-hosted deployments
-** xref:self-hosted-deployments/configuration.adoc[]
-** xref:self-hosted-deployments/export-import.adoc[]
-** xref:self-hosted-deployments/version-update.adoc[]
-** xref:self-hosted-deployments/high-availability.adoc[]
-** xref:self-hosted-deployments/security.adoc[]
-////
-
-//* Deep dive
-//** xref:deep/deep-dive.adoc[Deep dive in Fundamentals]
-//*** xref:fun/types-dd.adoc[Deep dive in the type system]
-//*** xref:fun/queries-dd.adoc[Deep dive in the patterns]
-//*** xref:fun/inference-dd.adoc[Deep dive in the inference]
