@@ -5,20 +5,26 @@
 :summary: Brief description of connection to TypeDB.
 :tabs-sync-option:
 
-This page consists of compressed essential knowledge about TypeDB and links to further sections of documentation with
-more detail on the topics.
+This page consists of carefully selected essential knowledge about TypeDB.
+For more details, please use links provided in each section.
 
-== TypeDB server and client
+== TypeDB server and clients
+
+=== Server
+
+TypeDB is a server-side software, used to manage databases and process queries written in TypeQL.
 
 //What is TypeDB
 TypeDB: :: DBMS software with polymorphism, strong type system, fully declarative query language, and reasoning engine.
 
 //TypeDB editions
-There are three editions of the software: Cloud, Enterprise, and Core.
-All editions support the same set of query types and TypeQL syntax.
+TypeDB has three editions: TypeDB Cloud, TypeDB Enterprise, and TypeDB Core.
+All editions support the same set of query types and the same TypeQL syntax.
 
 For more information on differences between TypeDB editions,
 see the https://typedb.com/deploy[Deploy] page of our website.
+
+=== Clients
 
 //client-server architecture
 //client role
@@ -28,10 +34,12 @@ to communicate queries and responses.
 TypeDB Client: :: Any software capable of communicating with TypeDB through the TypeDB protocol.
 
 TypeDB Driver: :: A language-specific library that implements the TypeDB protocol and provides a TypeDB Driver API.
-TypeDB Drivers are usually used to create TypeDB Clients, including
-xref:clients:ROOT:studio.adoc[TypeDB Studio,window=_blank] and xref:clients:ROOT:console.adoc[TypeDB Console,window=_blank].
 
-image::clients::client-server-comms.png[client-server]
+TypeDB Drivers are usually used to create other TypeDB Clients, including
+xref:clients:ROOT:studio.adoc[TypeDB Studio,window=_blank] and
+xref:clients:ROOT:console.adoc[TypeDB Console,window=_blank].
+
+image::clients::client-server-comms.png[client-server, width=50%, link=self]
 
 == Database
 
@@ -160,9 +168,8 @@ A pattern is a set of statements.
 By default, conjunction combines all statements.
 Disjunction and negation can be used explicitly.
 
-.See example
-[%collapsible]
-====
+=== Example
+
 image::example-pattern.png[Complex example]
 
 The pattern is a conjunction of five different pattern types:
@@ -178,7 +185,6 @@ The pattern is a conjunction of five different pattern types:
 In short, the above example finds pairs of people who both have permission to access the same file
 with a path of `README.md`. The pattern additionally specifies the access to be either `modify_file` or `view_file`,
 and neither people to have the full-name `Masako Holley`.
-====
 
 == Learn more
 
