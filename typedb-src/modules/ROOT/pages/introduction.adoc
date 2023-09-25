@@ -4,8 +4,10 @@
 :pageTitle: TypeDB introduction
 :summary: An intriduction for TypeDB's documentation
 
+// tag::typedb-poly-definition[]
 TypeDB is a polymorphic database with a conceptual data model, a strong subtyping system, a symbolic reasoning engine,
 and a beautiful and elegant type-theoretic language: TypeQL.
+// end::typedb-poly-definition[]
 
 == Short summary
 
