@@ -18,7 +18,7 @@ We also have xref:typeql::overview.adoc[TypeQL] and xref:clients::clients.adoc[T
 [#_developing_with_typedb]
 ==  Developing with TypeDB
 
-* xref:development/connect.adoc[] -- DB connection management, sessions, and transactions
+* xref:development/send-queries.adoc[] -- DB connection management, sessions, and transactions
 * xref:development/define-schema.adoc[] -- Define & Undefine queries usage guide
 * xref:development/write-data.adoc[] -- Insert, Delete, and Update queries usage guide
 * xref:development/read-data.adoc[] -- Get query usage guide
@@ -52,7 +52,7 @@ We also have xref:typeql::overview.adoc[TypeQL] and xref:clients::clients.adoc[T
 ////
 * *Cloud deployments*
 ** xref:managing-typedb/cloud-deployments/account.adoc[] -- register an account, log in/out, change password, and manage settings
-** xref:managing-typedb/cloud-deployments/connect.adoc[] -- connect to a TypeDB Enterprise cluster/deployment
+** xref:managing-typedb/cloud-deployments/send-queries.adoc[] -- connect to a TypeDB Enterprise cluster/deployment
 ** xref:managing-typedb/cloud-deployments/deploy.adoc[] -- create, destroy, suspend, and resume deployments of TypeDB
 ** xref:managing-typedb/cloud-deployments/organization.adoc[] -- group users
 ** xref:managing-typedb/cloud-deployments/projects.adoc[] -- group deployments

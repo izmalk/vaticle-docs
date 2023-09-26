@@ -65,8 +65,8 @@ Database: :: A named collection of data with a schema.
 
 Schema: :: A database schema is a full set of definitions for all types and rules used in the database.
 
-For more information on how to create a database, see the xref:development/connect.adoc#_databases[Databases] section
-on the xref:development/connect.adoc[] page.
+For more information on how to create a database, see the xref:development/send-queries.adoc#_databases[Databases] section
+on the xref:development/send-queries.adoc[] page.
 
 //storage
 //Physical persistent storage is implemented with https://www.speedb.io/[SpeedDB].
@@ -146,15 +146,15 @@ To establish a network connection, we need an address of a server or cluster, in
 To open a session, we need a database name and a session type: `schema` or `data`.
 You can open more than one session to a database, but there are some limitations for the
 xref:development/acid-guarantees.adoc#_schema_integrity[schema integrity].
-For more information on how to open a session, see the xref:development/connect.adoc#_sessions[sessions]
-section on the xref:development/connect.adoc[] page.
+For more information on how to open a session, see the xref:development/send-queries.adoc#_sessions[sessions]
+section on the xref:development/send-queries.adoc[] page.
 
 //transaction
 //Without a transaction we can
 To open a transaction, we need a transaction type: `read` or `write`.
 You can open more than one transaction in a session, but transactions have a time limit of 5 minutes by default.
-For more information on how to open a transaction, see the xref:development/connect.adoc#_transactions[transactions]
-section on the xref:development/connect.adoc[] page.
+For more information on how to open a transaction, see the xref:development/send-queries.adoc#_transactions[transactions]
+section on the xref:development/send-queries.adoc[] page.
 
 == Query
 
@@ -168,7 +168,7 @@ include::typeql:ROOT:queries.adoc[tag=queries_table]
 For more information on query types, read the xref:typeql:ROOT:queries.adoc[] page.
 
 //There are different ways to send a query to a TypeDB database, depending on what TypeDB Client is used.
-//For more information on how to send a query, see the xref:typedb::development/connect.adoc[] page.
+//For more information on how to send a query, see the xref:typedb::development/send-queries.adoc[] page.
 
 == Pattern matching
 
@@ -201,7 +201,7 @@ and neither people to have the full-name `Masako Holley`.
 
 We recommend continuing your TypeDB journey by going through the *Developing with TypeDB* section:
 
-* xref:development/connect.adoc[]
+* xref:development/send-queries.adoc[]
 * xref:development/define-schema.adoc[]
 * xref:development/write-data.adoc#_insert[Insert data]
 * xref:development/write-data.adoc#_delete_query[Delete data]

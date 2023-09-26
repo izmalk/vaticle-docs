@@ -61,7 +61,7 @@ This was the last page of the *Fundamentals* section.
 
 We recommend to continue exploring TypeDB by going through the *Development* section:
 
-* xref:typedb:ROOT:development/connect.adoc[]
+* xref:typedb:ROOT:development/send-queries.adoc[]
 * xref:typedb:ROOT:development/define-schema.adoc[]
 * xref:typedb:ROOT:development/write-data.adoc[]
 * xref:typedb:ROOT:development/read-data.adoc[]

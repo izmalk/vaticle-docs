@@ -6,7 +6,7 @@
 
 * Developing with TypeDB
 ** xref:development/learn-basics.adoc[]
-** xref:development/connect.adoc[]
+** xref:development/send-queries.adoc[]
 ** xref:development/send-queries.adoc[]
 ** xref:development/define-schema.adoc[]
 ** xref:development/write-data.adoc[]
@@ -42,7 +42,7 @@
 ////
 * Cloud deployments
 ** xref:cloud-deployments/account.adoc[]
-** xref:cloud-deployments/connect.adoc[]
+** xref:cloud-deployments/send-queries.adoc[]
 ** xref:cloud-deployments/deploy.adoc[]
 ** xref:cloud-deployments/organization.adoc[]
 ** xref:cloud-deployments/projects.adoc[]
