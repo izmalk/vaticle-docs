@@ -7,7 +7,6 @@
 * Developing with TypeDB
 ** xref:development/learn-basics.adoc[]
 ** xref:development/send-queries.adoc[]
-** xref:development/send-queries.adoc[]
 ** xref:development/define-schema.adoc[]
 ** xref:development/write-data.adoc[]
 ** xref:development/read-data.adoc[]
