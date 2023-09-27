@@ -1,4 +1,13 @@
 // TypeDB
+include::typedb::partial$nav-root.adoc[]
+
+include::typedb::partial$nav.adoc[]
+
+include::typeql::partial$nav.adoc[]
+
+include::clients::partial$nav.adoc[]
+////
+// TypeDB
 * xref:overview.adoc[]
 * xref:introduction.adoc[]
 * xref:install-and-run.adoc[]
@@ -37,7 +46,7 @@
 * https://typedb.com/discord[Discord]
 * xref:typeql::overview.adoc[TypeQL]
 * xref:clients::clients.adoc[Clients]
-
+////
 ////
 * Cloud deployments
 ** xref:cloud-deployments/account.adoc[]
