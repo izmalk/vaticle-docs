@@ -1,4 +1,14 @@
 // TypeDB
+include::typedb::partial$nav-root.adoc[]
+
+include::typedb::partial$nav.adoc[]
+
+include::typeql::partial$nav.adoc[]
+
+include::clients::partial$nav.adoc[]
+
+////
+// TypeDB
 * xref:documentation-overview.adoc[Documentation overview]
 * xref:introduction.adoc[What is TypeDB]
 * xref:quickstart-guide.adoc[]
@@ -116,3 +126,4 @@
 * https://typedb.com/discord[Discord]
 //* https://github.com/vaticle/typedb-examples[Studio sample projects]
 //* https://github.com/vaticle/typedb-driver-examples[Application examples]
+////
