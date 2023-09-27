@@ -125,7 +125,7 @@ TypeDB usually uses a single connection to a single TypeDB server or cluster.
 To open a session, we need a database name and a session type: `schema` or `data`.
 
 You can open more than one session to a database, but there are some limitations for the
-xref:development/acid-guarantees.adoc#_schema_integrity[schema integrity].
+xref:basics/acid-guarantees.adoc#_schema_integrity[schema integrity].
 
 For more information on how to open a session, see the xref:development/connect.adoc#_sessions[sessions]
 section on the xref:development/connect.adoc[] page.

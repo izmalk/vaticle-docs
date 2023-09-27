@@ -1,22 +1,37 @@
 // TypeDB
-.TypeDB
-* xref:overview.adoc[Get started]
-** xref:introduction.adoc[]
-** xref:install-and-run.adoc[]
-** xref:quickstart-guide.adoc[]
+* xref:documentation-overview.adoc[Documentation overview]
+* xref:introduction.adoc[What is TypeDB]
+* xref:quickstart-guide.adoc[]
+* xref:resources:releases.adoc[Downloads center]
 
-* xref:typeql::overview.adoc[Developing with TypeDB]
-** xref:fundamentals.adoc[Learn basics]
-** xref:development/connect.adoc[]
-** xref:development/connect.adoc[Send queries]
+.TypeDB
+* xref:overview.adoc[TypeDB overview]
+* xref:introduction.adoc[]
+* xref:install-and-run.adoc[]
+//* xref:typedb::basics.adoc[Basics]
+* Basics
+** xref:typedb::basics/client-server-architecture.adoc[Client-server architecture]
+** xref:typedb::basics/database.adoc[Database]
+** xref:typedb::basics/type-system.adoc[Type system]
+** xref:typedb::basics/transactions.adoc[Transactions]
+** xref:typedb::basics/query-types.adoc[Query types]
+** xref:typedb::basics/acid-guarantees.adoc[]
+//* xref:typedb::philosophy.adoc[Philosophy]
+* Philosophy
+** xref:typedb::philosophy/polymorhic-database.adoc[Polymorphic database]
+** xref:typedb::philosophy/polymorhic-database.adoc[Polymorphic database2]
+** xref:typedb::philosophy/polymorhic-database.adoc[Polymorphic database3]
+** xref:typedb::philosophy/polymorhic-database.adoc[Polymorphic database4]
+//* xref:typeql::overview.adoc[Developing with TypeDB]
+* Developing with TypeDB
+** xref:development/connect.adoc[Send query]
 ** xref:development/define-schema.adoc[]
 ** xref:development/write-data.adoc[]
 ** xref:development/read-data.adoc[]
 ** xref:development/infer-data.adoc[]
 ** xref:development/best-practices.adoc[]
-** xref:development/acid-guarantees.adoc[]
-
-* xref:typeql::overview.adoc[Managing TypeDB]
+//* xref:typeql::overview.adoc[Managing TypeDB]
+* Managing TypeDB
 ** xref:managing-typedb/configuration.adoc[]
 ** xref:managing-typedb/configuration.adoc[Logs]
 ** xref:managing-typedb/user-management.adoc[Users]
@@ -25,69 +40,77 @@
 ** xref:managing-typedb/high-availability.adoc[]
 ** xref:managing-typedb/security.adoc[]
 ** xref:managing-typedb/security.adoc[Cluster deployment]
-
-* xref:typeql::overview.adoc[Tutorials]
+//* xref:typeql::overview.adoc[Tutorials]
+* Tutorials
 ** xref:tutorials/iam-schema.adoc[]
 ** xref:tutorials/sample-app.adoc[]
 ** xref:tutorials/data-migration.adoc[]
 ** xref:tutorials/new-driver-tutorial.adoc[]
 
-* xref:resources:releases.adoc[]
-
 .TypeQL
-* xref:typeql::overview.adoc[Get started]
-** xref:typeql::overview.adoc[Introduction]
-** xref:typeql::fundamentals.adoc[Schema]
-** xref:typeql::queries.adoc[]
-
-* xref:typeql::overview.adoc[Patterns]
-** xref:typeql::schema/define-types.adoc[Patterns basics]
+* xref:typeql::overview.adoc[TypeQL overview]
+* xref:typeql::overview.adoc[Introduction]
+* xref:typeql::fundamentals.adoc[Schema]
+* xref:typeql::queries.adoc[]
+//* xref:typeql::schema/define-types.adoc[Match clause]
+* Match clause
+** xref:typeql::schema/define-types.adoc[Matching patterns]
 ** xref:typeql::schema/define-rules.adoc[Advanced patterns]
-
-* xref:typeql::overview.adoc[Schema queries]
+//* xref:typeql::overview.adoc[Schema queries]
+* Schema queries
 ** xref:typeql::schema/define-types.adoc[Define]
 ** xref:typeql::schema/define-rules.adoc[Undefine]
 //** xref:typeql::schema/modify.adoc[]
-
-* xref:typeql::overview.adoc[Data queries]
+//* xref:typeql::overview.adoc[Data queries]
+* Data queries
 //** xref:typeql::data/basic-patterns.adoc[]
 ** xref:typeql::data/insert.adoc[Insert]
 ** xref:typeql::data/delete.adoc[Delete]
 ** xref:typeql::data/update.adoc[Update]
 ** xref:typeql::data/advanced.adoc[Fetch]
 ** xref:typeql::data/get.adoc[Get]
-
 * xref:typeql::grammar.adoc[Keyword reference]
 
 .TypeDB Clients
 * xref:clients::clients.adoc[Clients overview]
-* xref:clients::console.adoc[]
-* xref:clients::studio.adoc[]
-* xref:clients::python/python-overview.adoc[Rust Driver]
+//* xref:clients::console.adoc[]
+* TypeDB Console
+** Install and run
+** Tutorial
+** Reference
+//* xref:clients::studio.adoc[]
+* TypeDB Studio
+** Install and run
+** Tutorial
+** Reference
+//* xref:clients::python/python-overview.adoc[Rust Driver]
+* Rust Driver
 //** xref:clients::python/python-overview.adoc[TypeDB Rust Driver overview]
-** xref:clients::python/python-install.adoc[Rust Driver installation]
-** xref:clients::python/python-tutorial.adoc[Rust Driver tutorial]
+** xref:clients::python/python-install.adoc[Install and run]
+** xref:clients::python/python-tutorial.adoc[Tutorial]
 ** xref:clients::python/python-api-ref.adoc[Rust Driver API reference]
-* xref:clients::python/python-overview.adoc[Python Driver]
+//* xref:clients::python/python-overview.adoc[Python Driver]
+* Python Driver
 //** xref:clients::python/python-overview.adoc[TypeDB Python Driver overview]
-** xref:clients::python/python-install.adoc[]
-** xref:clients::python/python-tutorial.adoc[]
-** xref:clients::python/python-api-ref.adoc[]
-* xref:clients::java/java-overview.adoc[Java Driver]
+** xref:clients::python/python-install.adoc[Install and run]
+** xref:clients::python/python-tutorial.adoc[Tutorial]
+** xref:clients::python/python-api-ref.adoc[Python Driver API reference]
+//* xref:clients::java/java-overview.adoc[Java Driver]
+* Java Driver
 //** xref:clients::java/java-overview.adoc[TypeDB Java Driver overview]
-** xref:clients::java/java-install.adoc[]
-** xref:clients::java/java-tutorial.adoc[]
-** xref:clients::java/java-api-ref.adoc[]
+** xref:clients::java/java-install.adoc[Install and run]
+** xref:clients::java/java-tutorial.adoc[Tutorial]
+** xref:clients::java/java-api-ref.adoc[Java Driver API reference]
 ** xref:clients::java/java-query-builder.adoc[]
-* xref:clients::node-js/node-js-overview.adoc[Node.js Driver]
+//* xref:clients::node-js/node-js-overview.adoc[Node.js Driver]
+* Node.js Driver
 //** xref:clients::node-js/node-js-overview.adoc[TypeDB Node.js Driver overview]
-** xref:clients::node-js/node-js-install.adoc[]
-** xref:clients::node-js/node-js-tutorial.adoc[]
-** xref:clients::node-js/node-js-api-ref.adoc[]
-
+** xref:clients::node-js/node-js-install.adoc[Install and run]
+** xref:clients::node-js/node-js-tutorial.adoc[Tutorial]
+** xref:clients::node-js/node-js-api-ref.adoc[Node.js Driver API reference]
 * xref:clients::other-languages.adoc[]
 * xref:clients::new-driver.adoc[]
-* xref:clients:resources:downloads.adoc[Clients downloads]
+//* xref:clients:resources:downloads.adoc[Clients downloads]
 
 .Resources
 * https://typedb.com/discord[Discord]
