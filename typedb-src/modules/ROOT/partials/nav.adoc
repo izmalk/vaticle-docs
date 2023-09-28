@@ -4,7 +4,7 @@
 * xref:typedb::install-and-run.adoc[]
 //* xref:typedb::basics.adoc[Basics]
 * Basics
-** xref:typedb::basics/client-server-architecture.adoc[Client-server architecture]
+** xref:typedb::basics/connection.adoc[Client-server architecture]
 ** xref:typedb::basics/database.adoc[Database]
 ** xref:typedb::basics/type-system.adoc[Type system]
 ** xref:typedb::basics/transactions.adoc[Transactions]
