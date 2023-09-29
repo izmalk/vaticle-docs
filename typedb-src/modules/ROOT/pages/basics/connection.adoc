@@ -118,12 +118,13 @@ xref:clients::console.adoc[TypeDB Console] provides CLI to manage databases and 
 
 Use the following command to start TypeDB Console and connect it to a TypeDB Core server:
 
+.TypeDB Core
 [,bash]
 ----
 typedb console --server=127.0.0.1:1729
 ----
 
-To connect to a TypeDB Cloud or a TypeDB Enterprise cluster, use the following command instead:
+.TypeDB Cloud or TypeDB Enterprise
 [,bash]
 ----
 typedb console --cluster=127.0.0.1:1729 --username=admin --password --tls-enabled=true --tls-root-ca=<path>
