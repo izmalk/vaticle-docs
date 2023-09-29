@@ -24,7 +24,7 @@ For the purpose of this Quickstart guide, use the following files:
 ====
 The IAM database schema and data from this Quickstart guide are widely used in examples throughout the documentation.
 
-For more information about the IAM schema, see the xref:typedb::tutorials/iam-schema.adoc[,window=_blank] page.
+For more information about the IAM schema, see the xref:tutorials/iam-schema.adoc[,window=_blank] page.
 ====
 
 === Install and run TypeDB
@@ -52,7 +52,7 @@ image::typedb::quickstart-console.png[TypeDB Console, width = 100%, link=self]
 
 TypeDB Console is usually installed together with TypeDB server and in the same directory.
 
-For more information on how to use it, see the xref:clients::console.adoc[,window=_blank] page.
+For more information on how to use it, see the xref:clients:ROOT:console.adoc[,window=_blank] page.
 --
 TypeDB Studio::
 +
@@ -65,7 +65,7 @@ TypeDB Studio needs to be
 xref:clients:ROOT:studio.adoc#_download_install[installed]
 and launched separately from TypeDB.
 
-For more information on how to use it, see the xref:clients::studio.adoc[,window=_blank] page.
+For more information on how to use it, see the xref:clients:ROOT:studio.adoc[,window=_blank] page.
 --
 ====
 
@@ -95,7 +95,7 @@ To exit TypeDB Console press kbd:[Ctrl+C].
 [NOTE]
 =====
 The fastest way to go through all the steps is to use
-xref:clients::console.adoc#_non_interactive_mode[non-interactive]
+xref:clients:ROOT:console.adoc#_non_interactive_mode[non-interactive]
 mode by issuing the following commands directly in a local terminal (not in a TypeDB Console prompt).
 =====
 --
@@ -113,7 +113,7 @@ Connect to TypeDB:
 3. Fill all other fields with appropriate information and click the btn:[Connect] button.
 
 Select the folder with the <<_download_sample_data,downloaded TypeQL files>> as
-xref:clients::studio.adoc#_open_a_project_directory[project directory,window=_blank] by using one of the following
+xref:clients:ROOT:studio.adoc#_open_a_project_directory[project directory,window=_blank] by using one of the following
 buttons:
 
 * btn:[Open Project] button in the *Project* panel (upper left);
@@ -212,7 +212,7 @@ The data is persisted in the database. The database is ready for some queries.
 
 Try sending some queries to the database. We have prepared a few examples below.
 
-For more TypeQL query examples, check the xref:typeql::overview.adoc[TypeQL] documentation.
+For more TypeQL query examples, check the xref:typeql:ROOT:overview.adoc[TypeQL] documentation.
 
 === Basic examples
 
@@ -632,7 +632,7 @@ delete $pe isa permission;
 
 After completing this guide, we recommend the following order of topics to continue exploring TypeDB:
 
-1. Explore the xref:development/learn-basics.adoc[] page to learn essentials about using TypeDB.
+1. Explore the xref:basics/learn-basics.adoc[] page to learn essentials about using TypeDB.
 2. Find out more about how to xref:development/send-queries.adoc[connect] to TypeDB, and use databases, sessions,
    and transactions.
 3. Learn how to define a xref:development/define-schema.adoc[schema] of a database.

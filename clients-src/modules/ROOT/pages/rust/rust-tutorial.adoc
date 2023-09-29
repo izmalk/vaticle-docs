@@ -1,21 +1,21 @@
-= Python Driver tutorial
-:Summary: Tutorial for TypeDB Python Driver.
-:keywords: typedb, client, python
-:longTailKeywords: typedb python client, typedb client python, client python, python client
-:pageTitle: Python Driver tutorial
+= Rust Driver tutorial
+:Summary: Tutorial for TypeDB Rust Driver.
+:keywords: typedb, client, rust
+:longTailKeywords: typedb rust client, typedb client rust, client rust, rust client
+:pageTitle: Rust Driver tutorial
 
 == Prerequisites
 
-Make sure to install the Python Driver as per xref:python/python-install.adoc[Installation] page.
+Make sure to install the Rust Driver as per xref:rust/rust-install.adoc[Installation] page.
 The TypeDB server is also needs to be installed and running.
 
 == Importing
 
 In the interpreter or in the source code, import everything from `typedb.client`.
 
-// test-example social_network_python_client_a.py
+// test-example social_network_rust_client_a.py
 
-[,python]
+[,rust]
 ----
 from typedb.client import *
 ----
@@ -35,7 +35,7 @@ The database should have the following schema loaded: xref:attachment$schema.tql
 The database should have the following data inserted: xref:attachment$data.tql[data.tql].
 ====
 
-[,python]
+[,rust]
 ----
 from typedb.client import *
 
@@ -51,9 +51,9 @@ with TypeDB.core_client("localhost:1729") as client:
 
 Create transactions to use for reading and writing data.
 
-// test-example social_network_python_client_c.py
+// test-example social_network_rust_client_c.py
 
-[,python]
+[,rust]
 ----
 from typedb.client import *
 
@@ -77,9 +77,9 @@ with TypeDB.core_client("localhost:1729") as client:
 
 Running basic retrieval and insertion queries.
 
-// test-example social_network_python_client_d.py
+// test-example social_network_rust_client_d.py
 
-[,python]
+[,rust]
 ----
 from typedb.client import *
 
@@ -122,13 +122,13 @@ at the end of the `with` block. Otherwise, remember to call `transaction.close()
 
 == Where to go next
 
-Check out the xref:python/python-api-ref.adoc#_response_section[Response] section of API reference page to learn
+Check out the xref:rust/rust-api-ref.adoc#_response_section[Response] section of API reference page to learn
 about the available methods on the concepts retrieved as the answers to queries.
 
 To view examples of various TypeQL queries, head over to
 xref:typedb::development/write-data.adoc[Writing data] and
 xref:typedb::development/read-data.adoc[Reading data] pages.
 
-For some more Python Driver examples -- see the
-xref:typedb:ROOT:tutorials/sample-app.adoc#_python_implementation[Python implementation] on the Sample application
+For some more Rust Driver examples -- see the
+xref:typedb:ROOT:tutorials/sample-app.adoc#_rust_implementation[Rust implementation] on the Sample application
 page.

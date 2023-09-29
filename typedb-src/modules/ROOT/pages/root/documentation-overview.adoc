@@ -4,9 +4,9 @@
 
 [cols=3, frame=none, grid=none]
 |===
-|image:docs-panels/111.png[xref=typedb::what-is-typedb.adoc]
-|image:docs-panels/112.png[xref=typedb::quickstart-guide.adoc]
-|image:docs-panels/113.png[xref=typedb:resources:downloads-center.adoc]
+|image:docs-panels/111.png[xref=root/what-is-typedb.adoc]
+|image:docs-panels/112.png[xref=root/quickstart-guide.adoc]
+|image:docs-panels/113.png[xref=resources:download-center.adoc]
 |===
 
 //image::docs-panels/1.png[1, width = 100%, xref=typedb::quickstart-guide.adoc]
@@ -18,22 +18,22 @@
 [cols=2, frame=none, grid=none]
 |===
 ^.^|image:docs-panels/211.png[link=https://cloud.typedb.com,window=_blank]
-^.^|image:docs-panels/214.png[xref=typedb::install-and-run.adoc]
+^.^|image:docs-panels/214.png[xref=install-and-run.adoc]
 |===
 
 === Learn
 
 [cols=2, frame=none, grid=none]
 |===
-^.^|image:docs-panels/212.png[xref=typedb::basics/connection.adoc]
-^.^|image:docs-panels/215.png[xref=typedb::philosophy/polymorphic-database.adoc]
+^.^|image:docs-panels/212.png[xref=basics/connection.adoc]
+^.^|image:docs-panels/215.png[xref=philosophy/polymorphic-database.adoc]
 |===
 
 === Use
 
 [cols=2, frame=none, grid=none]
 |===
-^.^|image:docs-panels/213.png[xref=typedb::development/send-queries.adoc]
+^.^|image:docs-panels/213.png[xref=development/send-queries.adoc]
 ^.^|image:docs-panels/216.png[xref=managing-typedb/configuration.adoc]
 |===
 
@@ -54,9 +54,9 @@
 
 [cols=3, frame=none, grid=none]
 |===
-|image:docs-panels/311.png[xref=typeql::fundamentals.adoc]
-|image:docs-panels/312.png[xref=typeql::data/basic-patterns.adoc]
-|image:docs-panels/313.png[xref=typeql::queries.adoc]
+|image:docs-panels/311.png[xref=typeql:ROOT:fundamentals.adoc]
+|image:docs-panels/312.png[xref=typeql:ROOT:data/basic-patterns.adoc]
+|image:docs-panels/313.png[xref=typeql:ROOT:queries.adoc]
 |===
 
 //image::docs-panels/3.png[3, width = 100%, xref=typeql::schema/define-types.adoc]
@@ -65,9 +65,9 @@
 
 [cols=3, frame=none, grid=none]
 |===
-|image:docs-panels/411.png[xref=clients::console.adoc]
-|image:docs-panels/412.png[xref=clients::studio.adoc]
-|image:docs-panels/413.png[xref=clients::clients.adoc]
+|image:docs-panels/411.png[xref=clients:ROOT:console.adoc]
+|image:docs-panels/412.png[xref=clients:ROOT:studio.adoc]
+|image:docs-panels/413.png[xref=clients:ROOT:clients.adoc]
 |===
 
 //image::docs-panels/4.png[4, width = 100%, xref=clients::console.adoc]
