@@ -6,8 +6,8 @@
 
 == Prerequisites
 
-Make sure to install the Python Driver as per xref:python/python-install.adoc[Installation] page.
-The TypeDB server is also needs to be installed and running.
+Make sure to install the TypeDB Python Driver as per xref:python/python-install.adoc[Installation] page.
+TypeDB needs to be installed and running.
 
 == Importing
 

@@ -6,7 +6,7 @@
 
 The TypeDB Rust Driver was developed by Vaticle to enable TypeDB support for Rust software and developers.
 
-For installation guide, see the xref:rust/rust-install.adoc[installation] page.
+For the TypeDB Rust Driver installation guide, see the xref:rust/rust-install.adoc[installation] page.
 
 The Tutorial and Driver API reference pages are under development. Coming soon.
 
@@ -17,5 +17,5 @@ The Tutorial and Driver API reference pages are under development. Coming soon.
 
 include::clients::java/java-overview.adoc[tag=questions]
 
-For more information on version compatibility with TypeDB and TypeDB Studio, see the
+For more information on version compatibility with TypeDB, see the
 xref:clients::rust/rust-install.adoc#_version_compatibility[Version compatibility] table.

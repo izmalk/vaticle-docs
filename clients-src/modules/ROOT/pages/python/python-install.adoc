@@ -6,13 +6,13 @@
 
 == Prerequisites
 
-To use the Python Driver, we need a compatible version of TypeDB server running. Please see the
+To use the TypeDB Python Driver, we need a compatible version of TypeDB server running. Please see the
 xref:python/python-install.adoc#_version_compatibility[Version compatibility table] to check what version do we need,
 depending on the TypeDB server version being used.
 
 == Install
 
-To install TypeDB Python Driver (or TypeDB Client for Python):
+To install TypeDB Python Driver:
 
 ----
 pip install typedb-client
@@ -26,8 +26,9 @@ If there is an error or multiple Python versions are installed, try to replace t
 == Additional resources
 
 * xref:python/python-install.adoc#_version_compatibility[Version compatibility]
-* https://github.com/vaticle/typedb-client-python[Python Driver on GitHub,window=_blank]
-* https://github.com/vaticle/typedb-client-python/releases[Releases,window=_blank]
+* https://github.com/vaticle/typedb-driver/tree/development/python[Python Driver on GitHub,window=_blank]
+* https://github.com/vaticle/typedb-driver/releases/[Releases,window=_blank]
+* https://github.com/vaticle/typedb-client-python/releases[Releases prior to 2.24.0,window=_blank]
 * https://github.com/vaticle/typedb-driver-examples[Examples,window=_blank]
 
 [#_version_compatibility]

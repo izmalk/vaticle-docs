@@ -6,7 +6,7 @@
 //:toc:
 :toclevels: 2
 
-Python Driver API reference consists of two sections:
+The Python Driver API consists of two top-level sections:
 
 * <<_query_section,Query>>
 * <<_response_section,Response>>
@@ -14,7 +14,7 @@ Python Driver API reference consists of two sections:
 [#_query_section]
 == Query section
 
-Query section consists of the following methods:
+The query section consists of the following sections:
 
 * <<_typedb_driver_methods,TypeDB Driver methods>>
 * <<_client_methods,Client methods>>
@@ -65,7 +65,7 @@ include::partial$python/options.adoc[leveloffset=+2]
 [#_response_section]
 == Response section
 
-Response section consists of the following methods:
+The response section consists of the following methods:
 
 * <<_answer_methods,Answer methods>>
 * <<_concept_methods,Concept methods>>
