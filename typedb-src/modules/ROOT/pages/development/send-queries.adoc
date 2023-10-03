@@ -568,7 +568,7 @@ caused by transactions that will not be completed, and terminate unresponsive tr
 //#todo Add Send query section to the page structure!
 
 The following examples are using IAM database schema, that we defined in the
-xref:root/quickstart-guide.adoc#_define_a_schema_from_a_file[Quickstart guide].
+xref:home/quickstart-guide.adoc#_define_a_schema_from_a_file[Quickstart guide].
 
 [tabs]
 ====

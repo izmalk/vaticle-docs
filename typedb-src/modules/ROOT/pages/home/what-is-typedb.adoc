@@ -1,4 +1,4 @@
-= What is TypeDB
+= What is TypeDB?
 
 TypeDB is a polymorphic database with a conceptual data model, a strong subtyping system, a symbolic reasoning engine,
 and a beautiful and elegant type-theoretic language: TypeQL.

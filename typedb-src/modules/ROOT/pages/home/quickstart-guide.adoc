@@ -206,13 +206,14 @@ Load the data into the database selected earlier, by executing the insert querie
 --
 ====
 
-The data is persisted in the database. The database is ready for some queries.
+The data is persisted in the database. The database is ready for queries.
 
 == Try some queries
 
 Try sending some queries to the database. We have prepared a few examples below.
 
 For more TypeQL query examples, check the xref:typeql:ROOT:overview.adoc[TypeQL] documentation.
+//#todo Add the TypeDB in 20 queries page
 
 === Basic examples
 
@@ -632,7 +633,7 @@ delete $pe isa permission;
 
 After completing this guide, we recommend the following order of topics to continue exploring TypeDB:
 
-1. Explore the xref:basics/learn-basics.adoc[] page to learn essentials about using TypeDB.
+1. Explore the xref:basics/basics.adoc[] page to learn essentials about using TypeDB.
 2. Find out more about how to xref:development/send-queries.adoc[connect] to TypeDB, and use databases, sessions,
    and transactions.
 3. Learn how to define a xref:development/define-schema.adoc[schema] of a database.

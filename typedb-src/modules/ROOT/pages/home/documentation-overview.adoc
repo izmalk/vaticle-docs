@@ -4,8 +4,8 @@
 
 [cols=3, frame=none, grid=none]
 |===
-|image:docs-panels/111.png[xref=root/what-is-typedb.adoc]
-|image:docs-panels/112.png[xref=root/quickstart-guide.adoc]
+|image:docs-panels/111.png[xref=home/what-is-typedb.adoc]
+|image:docs-panels/112.png[xref=home/quickstart-guide.adoc]
 |image:docs-panels/113.png[xref=resources:download-center.adoc]
 |===
 

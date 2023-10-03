@@ -1,4 +1,4 @@
-= Connect and send query
+= Connection
 :keywords: typedb, basics, connect, connection, session, database
 :longTailKeywords: typedb connection, typedb database, typedb session, typedb transaction, send query
 :pageTitle: Connection
@@ -6,20 +6,19 @@
 :tabs-sync-option:
 :experimental:
 
-This page describes how to connect to a TypeDB to send a query.
-For an examples with different TypeDB Clients, see the <<_examples,Examples>> section below.
+This page describes how to connect to a TypeDB.
+For examples with different TypeDB Clients, see the <<_examples,Examples>> section below.
 
-== Connect
+== Overview
 //client
 To send a query to TypeDB, we need to do the following:
 
 . Establish a <<_network_connection,network connection>> between a TypeDB Client and a TypeDB server or cluster.
-. Open a session to a database.
-. Open a transaction.
+. Open a <<_learn_session,session>> to a database.
+. Open a <<_learn_transaction,transaction>>.
 
-Every TypeDB Client instance supports a single network connection to a TypeDB server or cluster,
-but can support multiple sessions opened at the same time.
-Every session can support multiple transactions, and every transaction -- multiple queries.
+Every TypeDB Client can establish a network connection to a TypeDB server or cluster,
+open multiple sessions through the same network connection, and open multiple transactions through the same session.
 
 image::clients::concurrency-model.png[Session-transaction-query,link=self,width=100%]
 
@@ -28,6 +27,12 @@ image::clients::concurrency-model.png[Session-transaction-query,link=self,width=
 
 To establish a network connection to a TypeDB server or cluster,
 we need an address to connect to, including the port.
+The default port to connect to TypeDB is `1729`.
+
+[NOTE]
+====
+By default, TypeDB starts with settings to listen to any network interface.
+====
 
 Connecting to TypeDB Cloud or TypeDB Enterprise may require additional parameters,
 like user credentials, encryption parameters, etc.
@@ -103,6 +108,11 @@ Transactions have a time limit of 5 minutes by default.
 
 [#_examples]
 == Examples
+
+<<_examples,`concept`>>s
+
+`concept`.
+
 
 === Manage databases
 
@@ -373,7 +383,7 @@ transaction.commit();
 
 
 
-
+////
 
 // ---------------------------
 
@@ -433,6 +443,8 @@ TypeDBClient client = TypeDB.coreClient("127.0.0.1:1729");
 ----
 
 ////
+
+////
 .TypeDB Cloud and TypeDB Enterprise cluster connection example
 [,rust]
 ----
@@ -442,6 +454,7 @@ TypeDB.clusterClient("127.0.0.1:1729", TypeDBCredential credential, int parallel
 ////
 //#todo Create, test, and add here a proper cluster connection example
 
+////
 For more information on how to connect to a TypeDB Cloud or a TypeDB Enterprise cluster, see the
 xref:clients::rust/rust-api-ref.adoc#_instantiating_a_typedb_cluster_client[Cluster client] section in the
 xref:clients::rust/rust-api-ref.adoc[Rust Driver API] page.
@@ -485,6 +498,7 @@ methods to connect to TypeDB and send queries.
 ----
 TypeDBClient client = TypeDB.coreClient("127.0.0.1:1729");
 ----
+////
 
 ////
 .TypeDB Cloud and TypeDB Enterprise cluster connection example
@@ -496,6 +510,7 @@ TypeDB.clusterClient("127.0.0.1:1729", TypeDBCredential credential, int parallel
 ////
 //#todo Create, test, and add here a proper cluster connection example
 
+////
 For more information on how to connect to a TypeDB Cloud or a TypeDB Enterprise cluster, see the
 xref:clients::java/java-api-ref.adoc#_instantiating_a_typedb_cluster_client[Cluster client] section in the
 xref:clients::java/java-api-ref.adoc[] page.
@@ -542,6 +557,7 @@ In the `2.18.0` version of TypeDB, the TypeDB protocol has version number `1`.
 
 For backward compatibility protocol version control will allow TypeDB Clients versions prior to `2.18.0` (i.e., with
 protocol version `N/A` or `< 1`) to connect with a TypeDB server with protocol version `1`.
+////
 
 ////
 [NOTE]
@@ -551,6 +567,7 @@ produces an error due to the older server lacking the API to check the protocol 
 ====
 ////
 
+////
 To check the TypeDB protocol versions, see the Compatibility tables on the installation pages of TypeDB Clients:
 
 * xref:clients::studio.adoc#_version_compatibility[TypeDB Studio]
@@ -775,3 +792,4 @@ on this page, let's try defining our own xref:development/define-schema.adoc[sch
 
 After that, try xref:development/write-data.adoc[writing] and xref:development/read-data.adoc[reading] data from
 a database with your schema.
+////
