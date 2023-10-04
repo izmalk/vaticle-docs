@@ -5,7 +5,7 @@ include::typedb::partial$nav.adoc[]
 
 include::typeql::partial$nav.adoc[]
 
-include::clients::partial$nav.adoc[]
+include::2.x@clients::partial$nav.adoc[]
 ////
 // TypeDB
 * xref:overview.adoc[]

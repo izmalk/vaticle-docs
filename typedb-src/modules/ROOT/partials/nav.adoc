@@ -2,9 +2,9 @@
 * xref:typedb::overview.adoc[]
 //* xref:typedb::introduction.adoc[]
 * xref:typedb::install-and-run.adoc[]
-//* xref:typedb::basics.adoc[Basics]
-* Basics
-** xref:typedb::basics/basics.adoc[]
+//* Basics
+//** xref:typedb::basics/basics.adoc[]
+* xref:typedb::basics/basics.adoc[]
 // tag::basics[]
 ** xref:typedb::basics/connection.adoc[]
 //** xref:typedb::basics/database.adoc[Database]
@@ -13,14 +13,6 @@
 ** xref:typedb::basics/type-system.adoc[Type system]
 ** xref:typedb::basics/acid-guarantees.adoc[]
 // end::basics[]
-////
-//* xref:typedb::philosophy.adoc[Philosophy]
-* Philosophy
-** xref:typedb::philosophy/polymorphic-database.adoc[Polymorphic database]
-** xref:typedb::philosophy/polymorphic-database.adoc[Polymorphic database2]
-** xref:typedb::philosophy/polymorphic-database.adoc[Polymorphic database3]
-** xref:typedb::philosophy/polymorphic-database.adoc[Polymorphic database4]
-////
 //* xref:typeql::overview.adoc[Developing with TypeDB]
 * Developing with TypeDB
 ** xref:typedb::development/send-queries.adoc[]
