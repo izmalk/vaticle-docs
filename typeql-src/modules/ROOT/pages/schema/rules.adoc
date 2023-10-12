@@ -1,0 +1,85 @@
+= Define rules
+:Summary: Defining rules with TypeQL.
+:keywords: typeql, schema, rule, logic, inference
+:longTailKeywords: typeql schema, typeql rules, typeql logic
+:pageTitle: Define rules
+
+[#_rules]
+=== Rules
+// tag::rules_basics[]
+
+Rules are a part of schema and define embedded logic.
+
+The reasoning engine uses rules as a set of logic to infer new data.
+
+Rules can dramatically shorten complex queries, perform xref:typedb:ROOT:development/infer.adoc#_explain_query[explainable]
+knowledge discovery, and implement business logic at the database level.
+
+A rule consists of a *condition* and a *conclusion*.
+
+A *condition* is a pattern to look for in data.
+
+A *conclusion* is a pattern to insert virtual (inferred) data for every result matched with a pattern from the
+*condition*.
+
+[IMPORTANT]
+====
+Inference can only be used in a read transaction.
+
+Rules can't change persisted data in a database.
+
+All reasoning is done within a dataset of a transaction.
+====
+
+The rules syntax uses `when` and `then` keywords for condition and conclusion, respectively.
+
+.Rule syntax
+[,typeql]
+----
+rule rule-label:
+when {
+    ## The condition
+} then {
+    ## The conclusion
+};
+----
+
+The conclusion can be used to create a single virtual instance of data: a relation or ownership of an attribute.
+
+Queries use rules for xref:typedb:ROOT:development/infer.adoc[Inferring new data] only in read transactions and only if
+the inference option is *enabled*.
+
+// end::rules_basics[]
+
+.See an example of a rule
+[%collapsible]
+====
+[,typeql]
+----
+rule add-view-permission: when {
+    $modify isa action, has name "modify_file";
+    $view isa action, has name "view_file";
+    $ac_modify (object: $obj, action: $modify) isa access;
+    $ac_view (object: $obj, action: $view) isa access;
+    (subject: $subj, access: $ac_modify) isa permission;
+} then {
+    (subject: $subj, access: $ac_view) isa permission;
+};
+----
+
+See the xref:typedb:ROOT:tutorials/iam-schema.adoc#_add_view_permission_rule_explanation[explanation,window=_blank].
+====
+
+We can use xref:queries/match.adoc#_computation[computation] operations and functions in the condition pattern.
+And we can use value variables in the conclusion of a rule.
+
+// tag::recursive_logic[]
+[WARNING]
+====
+It is possible to create a recursive logic in the line of `n = n +1` by assigning attribute ownership with the value
+of a value variable. If triggered, such a rule can run indefinitely while the transaction lasts and can cause an
+out-of-memory error.
+====
+// end::recursive_logic[]
+
+For more information on how to create rules in a schema, see the xref:schema/rules.adoc[] page.

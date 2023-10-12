@@ -1,135 +1,12 @@
-= Fundamentals
-:keywords: typedb, typeql, documentation, overview, introduction
-:longTailKeywords: documentation overview, learn typedb, learn typeql, typedb schema, typedb data model
-:pageTitle: Fundamentals
-:summary: TypeQL essentials
-
-All queries to a TypeDB database are written in TypeQL.
-
-TypeQL is a *declarative* query language.
-Rather than writing an algorithm of how the data should be retrieved, we declare requirements, and the TypeDB query
-processor will take care of finding an optimal way to retrieve and process the data.
-
-[NOTE]
-====
-TypeQL is both a https://en.wikipedia.org/wiki/Data_definition_language[Data Definition Language,window=_blank] (DDL)
-and https://en.wikipedia.org/wiki/Data_manipulation_language[Data Manipulation Language,window=_blank] (DML).
-====
-
-As a DDL, it lets us define a <<_schema,schema>> of a database.
-
-As a DML, it lets us query (read&write) <<_data,data>> of a database.
-
-The complete set of the TypeQL grammar can be seen in the *ANTLR v.4* specification file:
-https://github.com/vaticle/typeql/blob/master/grammar/TypeQL.g4[TypeQL.g4,window=_blank].
-
-== Query structure
-
-A TypeQL xref:typeql::queries.adoc[query] consists of clauses (one, two or three).
-There are the following types of clauses:
-
-* `define`
-* `undefine`
-* `match`
-* `get`
-* `insert`
-* `delete`
-
-A clause contains a single pattern, or a list of variables:
-
-- The `get` clause starts with the `get` keyword, followed by a list of variables and optional modifiers at the end.
-- All other TypeQL clauses consist of the defining keyword (the same as the clause's name) and a pattern.
-
-A pattern consists of one or more statements.
-
-.TypeQL query structure
-* Query
-** Clause
-*** Pattern
-**** Statement
-
-.See a simple query example
-[%collapsible]
-====
-[,typeql]
-----
-match $p isa person;
-get $p;
-limit 1;
-----
-
-In the example above we can see a single xref:typeql::data/get.adoc[Get] query with two clauses: `match` and `get`.
-The query also has a modifier to xref:typeql::data/get.adoc#_limit_the_results[limit] the number of results returned
-to exactly one.
-====
-
-A string or a file with multiple TypeQL queries is a script.
-
-.See a TypeQL script example
-[%collapsible]
-====
-[,typeql]
-----
-insert
-$p isa person,
-    has full-name "Masako Holley",
-    has email "masako.holley@vaticle.com";
-
-insert
-$p isa person,
-    has full-name "Pearle Goodman",
-    has email "pearle.goodman@vaticle.com";
-
-insert
-$p isa person,
-    has full-name "Kevin Morrison",
-    has email "kevin.morrison@vaticle.com";
-----
-
-The above example contains three xref:typeql::data/insert.adoc[insert] queries without a match clause.
-
-To rewrite it as a single query we need to remove the second and third `insert` keyword and change variables, so that
-they are not overlapping (otherwise, we will insert a single person entity with three full-names and three emails):
-
-[,typeql]
-----
-insert
-$p1 isa person,
-    has full-name "Masako Holley",
-    has email "masako.holley@vaticle.com";
-
-$p2 isa person,
-    has full-name "Pearle Goodman",
-    has email "pearle.goodman@vaticle.com";
-
-$p3 isa person,
-    has full-name "Kevin Morrison",
-    has email "kevin.morrison@vaticle.com";
-----
-====
-
-For more information on patterns, see the xref:typeql::data/basic-patterns.adoc[]
-and the xref:typeql::data/advanced.adoc[] pages.
-
-[#_schema]
-== Schema
-
-TypeDB schema is like a blueprint of a database.
-
-A database schema contains all user-defined <<_types,types>> and <<_rules,rules>> used in a database.
-
-Every instance of data inserted in a TypeDB database must be assigned a type and be validated against constraints.
-
-[NOTE]
-====
-Database schemas written in TypeQL resemble logical data models of relational databases.
-TypeDB removes the need to create a separate physical data model and allows developers to create schemas that mirror
-their object model, simplifying design and development.
-
-As a result, TypeDB schemas look like entity-relationship (ER) diagrams with entities, relations, and attributes
-connected by roles of relations and ownerships of attributes, but also subtyping (see <<_inheritance,inheritance>>
-below).
-====
+[#_define_types]
+= Define types
+:Summary: Defining types with TypeQL.
+:keywords: typeql, schema, type, inheritance
+:longTailKeywords: typeql schema, typeql type hierarchy, typeql data model
+:pageTitle: Define types
+:toc: macro
+:toclevels: 5
+:experimental:
 
 [#_types]
 === Types
@@ -369,8 +246,8 @@ related data inserted.
 ====
 
 For more information on how to define an `entity` type, see the
-xref:typeql::schema/define-types.adoc#_define_entity_types[Define entity types] section on the
-xref:typeql::schema/define-types.adoc[] page.
+xref:schema/types.adoc#_define_entity_types[Define entity types] section on the
+xref:schema/types.adoc[] page.
 
 === Relation types
 // tag::relation_type_basics[]
@@ -480,7 +357,7 @@ Before version `2.22.0` of TypeDB, roles of abstract relations are also abstract
 It would make the role `member` abstract.
 //Even if it is inherited by a concrete relation, an abstract role continues to be abstract.
 //We can't use an abstract role to insert an instance of a relation type.
-We have to xref:typeql::schema/define-types.adoc#_overrides_a_role[override]
+We have to xref:schema/types.adoc#_overrides_a_role[override]
 an abstract role with a new concrete role to use it for data.
 
 ////
@@ -531,19 +408,19 @@ relation type via the Driver API methods:
 | Method | TypeDB Java Driver | TypeDB Python Driver | TypeDB Node.js Driver
 
 | Is `abstract`
-| xref:clients::java/java-api-ref.adoc#_check_if_type_is_abstract_local[isAbstract();]
-| xref:clients::python/python-api-ref.adoc#_check_if_type_is_abstract_local[is_abstract()]
-| xref:clients::node-js/node-js-api-ref.adoc#_check_if_type_is_abstract_local[abstract;]
+| xref:clients:ROOT:java/java-api-ref.adoc#_check_if_type_is_abstract_local[isAbstract();]
+| xref:clients:ROOT:python/python-api-ref.adoc#_check_if_type_is_abstract_local[is_abstract()]
+| xref:clients:ROOT:node-js/node-js-api-ref.adoc#_check_if_type_is_abstract_local[abstract;]
 
 | Set `abstract`
-| xref:clients::java/java-api-ref.adoc#_set_abstract[setAbstract();]
-| xref:clients::python/python-api-ref.adoc#_set_abstract[set_abstract()]
-| xref:clients::node-js/node-js-api-ref.adoc#_set_abstract[setAbstract();]
+| xref:clients:ROOT:java/java-api-ref.adoc#_set_abstract[setAbstract();]
+| xref:clients:ROOT:python/python-api-ref.adoc#_set_abstract[set_abstract()]
+| xref:clients:ROOT:node-js/node-js-api-ref.adoc#_set_abstract[setAbstract();]
 
 | Unset `abstract`
-| xref:clients::java/java-api-ref.adoc#_unset_abstract[unsetAbstract();]
-| xref:clients::python/python-api-ref.adoc#_unset_abstract[unset_abstract()]
-| xref:clients::node-js/node-js-api-ref.adoc#_unset_abstract[unsetAbstract();]
+| xref:clients:ROOT:java/java-api-ref.adoc#_unset_abstract[unsetAbstract();]
+| xref:clients:ROOT:python/python-api-ref.adoc#_unset_abstract[unset_abstract()]
+| xref:clients:ROOT:node-js/node-js-api-ref.adoc#_unset_abstract[unsetAbstract();]
 |===
 
 .Pseudocode example
@@ -588,8 +465,8 @@ It is impossible to imagine a marriage without considering its spouses.
 
 For more
 information on how to define a `relation` subtype, see the
-xref:typeql::schema/define-types.adoc#_define_relation_types[Define relation types] section on the
-xref:typeql::schema/define-types.adoc[] page.
+xref:schema/types.adoc#_define_relation_types[Define relation types] section on the
+xref:schema/types.adoc[] page.
 
 [#_attribute_types]
 === Attribute types
@@ -614,8 +491,8 @@ share ownership of the same attribute instance.
 // end::attribute_type_basics[]
 
 For more information on the types of values, attributes can have: see the
-xref:typeql::schema/define-types.adoc#_value_types[list of value types] on the
-xref:typeql::schema/define-types.adoc[] page.
+xref:schema/types.adoc#_value_types[list of value types] on the
+xref:schema/types.adoc[] page.
 
 // tag::attribute_type_example[]
 
@@ -652,265 +529,5 @@ deleted in TypeDB version 3.0.
 // end::attribute_type_own_depr[]
 
 For more information on how to define an `attribute` subtype, see the
-xref:typeql::schema/define-types.adoc#_define_attribute_types[Define attribute types] section on the
-xref:typeql::schema/define-types.adoc[] page.
-
-[#_rules]
-=== Rules
-// tag::rules_basics[]
-
-Rules are a part of schema and define embedded logic.
-
-The reasoning engine uses rules as a set of logic to infer new data.
-
-Rules can dramatically shorten complex queries, perform xref:typedb::development/infer.adoc#_explain_query[explainable]
-knowledge discovery, and implement business logic at the database level.
-
-A rule consists of a *condition* and a *conclusion*.
-
-A *condition* is a pattern to look for in data.
-
-A *conclusion* is a pattern to insert virtual (inferred) data for every result matched with a pattern from the
-*condition*.
-
-[IMPORTANT]
-====
-Inference can only be used in a read transaction.
-
-Rules can't change persisted data in a database.
-
-All reasoning is done within a dataset of a transaction.
-====
-
-The rules syntax uses `when` and `then` keywords for condition and conclusion, respectively.
-
-.Rule syntax
-[,typeql]
-----
-rule rule-label:
-when {
-    ## The condition
-} then {
-    ## The conclusion
-};
-----
-
-The conclusion can be used to create a single virtual instance of data: a relation or ownership of an attribute.
-
-Queries use rules for xref:typedb:ROOT:development/infer.adoc[Inferring new data] only in read transactions and only if
-the inference option is *enabled*.
-
-// end::rules_basics[]
-
-.See an example of a rule
-[%collapsible]
-====
-[,typeql]
-----
-rule add-view-permission: when {
-    $modify isa action, has name "modify_file";
-    $view isa action, has name "view_file";
-    $ac_modify (object: $obj, action: $modify) isa access;
-    $ac_view (object: $obj, action: $view) isa access;
-    (subject: $subj, access: $ac_modify) isa permission;
-} then {
-    (subject: $subj, access: $ac_view) isa permission;
-};
-----
-
-See the xref:typedb::tutorials/iam-schema.adoc#_add_view_permission_rule_explanation[explanation,window=_blank].
-====
-
-We can use xref:data/basic-patterns.adoc#_computation[computation] operations and functions in the condition pattern.
-And we can use value variables in the conclusion of a rule.
-
-// tag::recursive_logic[]
-[WARNING]
-====
-It is possible to create a recursive logic in the line of `n = n +1` by assigning attribute ownership with the value
-of a value variable. If triggered, such a rule can run indefinitely while the transaction lasts and can cause an
-out-of-memory error.
-====
-// end::recursive_logic[]
-
-For more information on how to create rules in a schema, see the xref:typeql::schema/define-rules.adoc[] page.
-
-[#_data]
-== Data
-
-Every piece of data stored in a TypeDB database must be an instance of a <<_types,type>>
-xref:typeql::schema/define-types.adoc[defined] in the schema of the database.
-
-In other words, to insert data into a TypeDB database, we must use the types defined in the schema of the database.
-
-The schema defines the vocabulary we use to query our data. See the <<_data_example,example>> below.
-
-For more information about reading and writing data, see the following pages:
-
-* Writing data:
-** xref:typeql::data/insert.adoc[]
-** xref:typeql::data/delete.adoc[]
-** xref:typeql::data/update.adoc[]
-* Reading data:
-** xref:typeql::data/get.adoc[]
-
-[#_data_example]
-=== Example
-
-Given the following schema:
-[,typeql]
-----
-define
-
-person sub entity,
-    owns name,
-    owns age,
-    owns certified-fortune-teller;
-
-name sub attribute, value string;
-age sub attribute, value long;
-certified-fortune-teller sub attribute, value boolean;
-----
-
-The simplest xref:typeql::data/insert.adoc[Insert query] can look like this:
-
-[,typeql]
-----
-insert $p isa person;
-----
-
-By inserting information, that some unbound variable `isa` *<type>* we create an instance of the type. The `person` is
-the type label in this example.
-
-But what is the use of an instance of an entity type without any attributes owned or roles played in relations?
-
-A more useful example of an insert query can look as the following:
-
-[,typeql]
-----
-insert
-$p isa person,
-    has name "Bob",
-    has age 31,
-    has certified-fortune-teller false;
-----
-
-That creates an entity and assigns an ownership of three attributes of different types to the newly created entity.
-
-If any of attributes with the given value didn't exist prior to this query -- TypeDB will create an instance of an
-attribute with the required value automatically.
-
-Now to read that data, we can use the xref:typeql::data/get.adoc[Get] query:
-
-[,typeql]
-----
-match $p isa person;
-----
-
-This should return to us all instances of the `person` type. But yet again -- what is the use for entities without their
-properties? Let's query for all attributes owned by the `person` type instances:
-
-[,typeql]
-----
-match
-$p isa person,
-    has $a;
-----
-
-The response should consist of pairs of the `person` type instance with an instance of an attribute type owned by it,
-including our `Bob` with the `age` of `31`.
-
-[NOTE]
-====
-The result of the above query will not return us the first instance of the `person` type we inserted.
-It has no attributes. Hence, it doesn't fit in the `match` clause pattern: it doesn't match the `has $a` part.
-====
-
-Let's query specifically for `Bob`, age `31`, and retrieve the value of the boolean attribute
-`certified-fortune-teller`:
-
-[,typeql]
-----
-match
-    $p isa person, has name `Bob`, has age 31, has certified-fortune-teller $cft;
-get $p, $cft;
-----
-
-The above query will find every `person` entity that has ownership over the instance of the attribute type `name` with
-the value of `Bob`, ownership of the `age` with the value of `31` and the ownership of the `certified-fortune-teller`
-attribute with any value.
-
-With the `get` clause, we filter the results to get the `person` instances and the corresponding
-`certified-fortune-teller` attribute (represented by the `$cft` variable in the pattern) for every matched result
-in a database.
-
-For more information why the `get` clause in the above example needs `$p` see the
-xref:typeql:ROOT:data/get.adoc#_number_of_answers[Get query] page or the
-xref:typeql:ROOT:data/get.adoc#_explanation_of_filter[example explanation].
-
-== Formatting
-
-=== Indentation
-
-Any indentation in TypeQL will be ignored and serves are only for visual aid.
-
-.See an example indentation
-[%collapsible]
-====
-The following three queries are identical in their result:
-
-[,typeql]
-----
-insert $p isa person, has full-name "Masako Holley", has email "masako.holley@vaticle.com";
-
-insert
-$p isa person,
-    has full-name "Masako Holley",
-    has email "masako.holley@vaticle.com";
-
-insert
-$p
-isa
-person
-,
-has
-full-name
-"Masako Holley"
-,
-has
-email
-"masako.holley@vaticle.com"
-;
-----
-====
-
-//#todo TypeQL Styleguide
-
-=== Comments
-
-TypeQL uses in-line comments only. To make a comment use the `#` symbol.
-
-.See a comment example
-[%collapsible]
-====
-[,typeql]
-----
-# This is the first query
-insert # this is the insert query without a match clause
-$p isa person; # this line inserts a person entity
-$p has full-name "Bob"; # we add a constraint to the $p variable used in a previous line
-
-# This is the second query
-insert
-$p isa person, has full-name "Alex"; # In this query we insert another person
-----
-====
-
-== Learn more
-
-Learn more essential information about different queries in TypeQL with the xref:typeql::queries.adoc[] page.
-
-Or skip it and go straight to the Schema and Data sections of this documentation for more in-depth look on every query
-type.
-
-Use the xref:typeql::grammar.adoc[] page for factual information about syntax of TypeQL.
+xref:schema/types.adoc#_define_attribute_types[Define attribute types] section on the
+xref:schema/types.adoc[] page.

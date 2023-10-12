@@ -1,4 +1,4 @@
-= Pattern matching essentials
+= Match
 :Summary: Pattern matching.
 :keywords: typeql, typedb, query, match, pattern, statement, variable
 :longTailKeywords: typeql match, query pattern, match clause, typeql variables, answers

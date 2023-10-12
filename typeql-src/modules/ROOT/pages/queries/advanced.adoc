@@ -6,7 +6,7 @@
 :toc: macro
 :toclevels: 5
 
-Explore the xref:typeql::data/basic-patterns.adoc[] page before continue reading this page.
+Explore the xref:typeql::queries/match.adoc[] page before continue reading this page.
 
 .See the full table of contents for this page
 [%collapsible]
@@ -20,9 +20,9 @@ toc::[]
 === Schema
 
 The statements below can be used as standalone patterns or
-xref:typeql::data/basic-patterns.adoc#_combining_statements[combined] with other statements
+xref:typeql::queries/match.adoc#_combining_statements[combined] with other statements
 to find types defined in a database's schema.
-Use the xref:schema/define-types.adoc[Define] query to try them.
+Use the xref:schema/types.adoc[Define] query to try them.
 
 [cols="^.^1,^.^2,^.^2"]
 |===
@@ -60,9 +60,9 @@ Use the xref:schema/define-types.adoc[Define] query to try them.
 === Data
 
 The statements below can be used as a standalone patterns or in a
-xref:typeql::data/basic-patterns.adoc#_combining_statements[combination] with other statements
+xref:typeql::queries/match.adoc#_combining_statements[combination] with other statements
 to find data in a database.
-Use the xref:data/get.adoc[Get] query to try them.
+Use the xref:queries/get.adoc[Get] query to try them.
 
 [cols="^.^1,^.^2,^.^2"]
 |===
@@ -100,10 +100,10 @@ a|
 | `$p isa person, has $a; $t isa entity; $t is $p; get $t;`
 |===
 
-For more information on xref:typeql::data/basic-patterns.adoc#_comparison_operators[comparison operators],
-xref:typeql::data/basic-patterns.adoc#_computation[computation], and
-xref:typeql::data/basic-patterns.adoc#_combining_statements[combining statements]
--- see the xref:typeql::data/basic-patterns.adoc[] page.
+For more information on xref:typeql::queries/match.adoc#_comparison_operators[comparison operators],
+xref:typeql::queries/match.adoc#_computation[computation], and
+xref:typeql::queries/match.adoc#_combining_statements[combining statements]
+-- see the xref:typeql::queries/match.adoc[] page.
 
 == Matching patterns examples
 
@@ -138,7 +138,7 @@ xref:typedb::attachment$iam-data.tql[dataset], but they can return any number of
 ===== All types
 
 Use a `subtype` pattern with the built-in type `thing` to find all types defined in a schema. For more information, see
-the xref:typeql::fundamentals.adoc#_thing_type[Thing type] section.
+the xref:schema/fundamentals.adoc#_thing_type[Thing type] section.
 
 [,typeql]
 ----
@@ -255,7 +255,7 @@ Use an `instance` pattern with type `thing` to find all entities, relations, and
 match $t isa thing;
 ----
 
-For more information on `thing` type see the xref:typeql::fundamentals.adoc#_thing_type[Thing type] section.
+For more information on `thing` type see the xref:schema/fundamentals.adoc#_thing_type[Thing type] section.
 
 include::typedb::partial$thing-warning.adoc[]
 
@@ -776,7 +776,7 @@ It should not be used for any logic as there are no guarantees provided regardin
 It may be deprecated in future versions of TypeDB.
 ====
 
-For more information on how to use the Get query please see the xref:typeql::data/get.adoc[] page.
+For more information on how to use the Get query please see the xref:typeql::queries/get.adoc[] page.
 
 === Insert query
 
@@ -807,7 +807,7 @@ with the value of `Bob`.
 Then it inserts the additional data that all matched instances of `person` have ownership over the `email`
 attribute type instance with the value `bob2@vaticle.com`.
 
-For more information on the Insert query please see the xref:typeql::data/insert.adoc[] page.
+For more information on the Insert query please see the xref:typeql::queries/insert.adoc[] page.
 
 === Delete query
 
@@ -830,7 +830,7 @@ For all matched results the query deletes the exact ownership of the `email` ins
 by the `$p`. The `person` instance in `$p` and the `email` instance in `$e` continue to exist in the database. Only the
 ownership between them gets deleted.
 
-For more information on how to delete data please see the xref:typeql::data/delete.adoc[] page.
+For more information on how to delete data please see the xref:typeql::queries/delete.adoc[] page.
 
 === Update
 
@@ -866,7 +866,7 @@ attribute instance can be owned only once by the same owner. Hence, all previous
 be deleted and only one inserted.
 ====
 
-For more information on how to use the Update query see the xref:typeql::data/update.adoc[] page.
+For more information on how to use the Update query see the xref:typeql::queries/update.adoc[] page.
 
 === Complex pattern query example
 

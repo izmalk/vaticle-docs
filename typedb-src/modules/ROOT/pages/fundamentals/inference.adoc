@@ -40,9 +40,9 @@ See the <<_rule_validation>> section for more information.
 [#_rules]
 == Rules
 
-include::typeql::fundamentals.adoc[tag=rules_basics]
+include::typeql:ROOT:schema/fundamentals.adoc[tag=rules_basics]
 
-include::typeql::fundamentals.adoc[tag=recursive_logic]
+include::typeql:ROOT:schema/fundamentals.adoc[tag=recursive_logic]
 
 Read more on how to create rules in a schema in the xref:typedb::development/schema.adoc#_define_rules[Define rules]
 section of the xref:typedb::development/schema.adoc[] page.
@@ -53,7 +53,7 @@ And we can use value variables in the conclusion of a rule.
 [#_rule_validation]
 === Rule validation
 
-include::typeql::schema/define-rules.adoc[tag=rule_validation]
+include::typeql::schema/rules.adoc[tag=rule_validation]
 
 == Learn more
 

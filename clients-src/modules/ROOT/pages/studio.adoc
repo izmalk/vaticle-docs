@@ -10,7 +10,7 @@
 image::studio/studio.png[TypeDB Studio, width = 70%, link=self]
 
 TypeDB Studio is an IDE specifically designed for TypeDB databases and
-TypeDB's query language -- xref:typeql::fundamentals.adoc[TypeQL,window=_blank].
+TypeDB's query language -- xref:typeql:ROOT:schema/fundamentals.adoc[TypeQL,window=_blank].
 
 It has unique set of functions and abilities to help with development using TypeDB:
 

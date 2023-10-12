@@ -18,16 +18,16 @@ see the table below for mapping of response format to a type of query that has b
 | Stream/Iterator of *ConceptMap*
 
 | 2
-| Get query with xref:typeql::data/get.adoc#_aggregation[aggregation,window=_blank]
+| Get query with xref:typeql::queries/get.adoc#_aggregation[aggregation,window=_blank]
 | *Future* of *Numeric*
 
 | 3
-| Get query with xref:typeql::data/get.adoc#_group[grouping,window=_blank]
+| Get query with xref:typeql::queries/get.adoc#_group[grouping,window=_blank]
 | Stream/Iterator of *ConceptMapGroup*
 
 | 4
-| Get query with xref:typeql::data/get.adoc#_group[grouping,window=_blank] and
-xref:typeql::data/get.adoc#_aggregation[aggregation,window=_blank]
+| Get query with xref:typeql::queries/get.adoc#_group[grouping,window=_blank] and
+xref:typeql::queries/get.adoc#_aggregation[aggregation,window=_blank]
 | Stream/Iterator of *NumericGroup*
 
 | 5

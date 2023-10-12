@@ -1,4 +1,4 @@
-= Get query
+= Get
 :Summary: Reading data from a TypeDB database with a Get query.
 :keywords: typeql, query, get, match, pattern, read, retrieve
 :longTailKeywords: typeql get, match get, typeql read, typedb read
@@ -7,10 +7,10 @@
 A get query retrieves data from a TypeDB database.
 
 It is the only type of query to be used in a read transaction.
-Hence, it’s the only query type that can use xref:typeql::schema/define-rules.adoc[rules]-based
+Hence, it’s the only query type that can use xref:typeql::schema/rules.adoc[rules]-based
 xref:typedb::fundamentals/inference.adoc[inference,window=_blank].
 
-A Get query triggers a search in a database based on the xref:typeql::data/basic-patterns.adoc[pattern] in the
+A Get query triggers a search in a database based on the xref:typeql::queries/match.adoc[pattern] in the
 `match` clause. It retrieves concepts and values from a database. The result of a get query can vary depending on the
 query. <<_modifiers,Modifiers>>, including <<_aggregation,aggregation>> and <<_group,grouping>>, can drastically change
 the response format. See the xref:typedb:ROOT:development/response.adoc[Response interpretation] page.
@@ -41,7 +41,7 @@ match <pattern>
 [NOTE]
 ====
 A pattern consists of variables and constraints for concepts. For more information, see the
-xref:data/basic-patterns.adoc#_patterns_overview[Pattern syntax] section.
+xref:queries/match.adoc#_patterns_overview[Pattern syntax] section.
 ====
 
 [IMPORTANT]
@@ -107,7 +107,7 @@ Every returned result should contain all three concepts.
 The number of answers returned by the Get query depends on:
 
 * The number of matched results by the match clause. See the <<_answers_example_1,example #1>> below and the
-xref:typeql::data/basic-patterns.adoc#_solutions[Pattern matching essentials] page.
+xref:typeql::queries/match.adoc#_solutions[Pattern matching essentials] page.
 * The number of results returned after filtering with the `get` clause. See the <<#_answers_example_2,example #2>>
 below.
 
@@ -141,7 +141,7 @@ TypeDB query processor will explore all possible solutions: each consisting of o
 and one `file` entity. There are only `3 * 10 = 30` possible combinations of person and file entities, so we will
 get *30* results.
 
-See the xref:data/basic-patterns.adoc#_patterns_overview[Patterns overview] section of the Matching patterns page for
+See the xref:queries/match.adoc#_patterns_overview[Patterns overview] section of the Matching patterns page for
 more information.
 
 [#_answers_example_2]
@@ -185,7 +185,7 @@ in a database.
 Why not filter for just the `$cft` variable instead?
 
 That can drastically alter the returned results as the returned results are deduplicated by design. See the
-xref:typeql:ROOT:data/basic-patterns.adoc#_solutions[Basic patterns] page for more information on the number of results
+xref:typeql:ROOT:queries/match.adoc#_solutions[Basic patterns] page for more information on the number of results
 for pattern matching.
 
 For example, let's say we have ten people with the name `Bob` and age `31` in our database. Five of them have
@@ -226,7 +226,7 @@ commit the changes in any client.
   insert $p isa person;
 ----
 
-For more information on how to insert data into a TypeDB database, see the xref:typeql::data/insert.adoc[] page.
+For more information on how to insert data into a TypeDB database, see the xref:typeql::queries/insert.adoc[] page.
 ====
 
 Those that don't have the attribute ownership won't be matched by the `match` clause at all. So we expect to get *six*
@@ -237,7 +237,7 @@ If we use `get $cft;` clause instead, we'll get only two results in response bec
 instance of the type with the `false` value.
 
 The five instances of `person` type all have ownership over the
-xref:typeql:ROOT:fundamentals.adoc#_attribute_types[same instance] of the `certified-fortune-teller` attribute type
+xref:schema/fundamentals.adoc#_attribute_types[same instance] of the `certified-fortune-teller` attribute type
 with the value `false`.
 
 To get all the results, we add the `person` type instances to the answer because those are unique.
@@ -450,7 +450,7 @@ sum $s;
 Omitting the variable `$f` in the `get` clause of the above query will result in missing all duplicated values
 of `$s` from the aggregation.
 
-For more information, see the xref:data/basic-patterns.adoc#_solutions[Matching patterns] page.
+For more information, see the xref:queries/match.adoc#_solutions[Matching patterns] page.
 ====
 
 [#_maximum]

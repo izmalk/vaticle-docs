@@ -17,7 +17,7 @@ added in this case. If we change the name (label) of the existing type or rule i
 as a define query, then the changed type or rule will be processed as a new one.
 //#todo Add examples. Step by step adding constraints.
 
-include::typeql::schema/define-types.adoc[tag=idempotence]
+include::typeql::schema/types.adoc[tag=idempotence]
 
 == Delete
 
@@ -125,5 +125,5 @@ xref:clients::node-js/node-js-api-ref.adoc#_rename_type_label[Node.js].
 
 == Modify a rule
 
-To modify a rule, xref:typeql::schema/define-rules.adoc[define a new rule] with the same label.
+To modify a rule, xref:typeql::schema/rules.adoc[define a new rule] with the same label.
 It will overwrite the existing rule upon commit.

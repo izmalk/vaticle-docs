@@ -1,4 +1,4 @@
-= TypeQL grammar reference
+= Keywords
 :keywords: typedb, typeql, documentation, reference
 :longTailKeywords: typeql reference, query reference
 :pageTitle: TypeQL grammar reference
