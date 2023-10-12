@@ -1,11 +1,10 @@
-= Define rules
+[#_rules]
+= Rules
 :Summary: Defining rules with TypeQL.
 :keywords: typeql, schema, rule, logic, inference
 :longTailKeywords: typeql schema, typeql rules, typeql logic
 :pageTitle: Define rules
 
-[#_rules]
-=== Rules
 // tag::rules_basics[]
 
 Rules are a part of schema and define embedded logic.
@@ -31,7 +30,7 @@ Rules can't change persisted data in a database.
 All reasoning is done within a dataset of a transaction.
 ====
 
-The rules syntax uses `when` and `then` keywords for condition and conclusion, respectively.
+The syntax of a rule uses `when` and `then` keywords for condition and conclusion, respectively.
 
 .Rule syntax
 [,typeql]

@@ -104,3 +104,59 @@ $p3 isa person,
 
 For more information on patterns, see the xref:queries/match.adoc[]
 and the xref:queries/advanced.adoc[] pages.
+
+== Formatting
+
+=== Indentation
+
+Any indentation in TypeQL will be ignored and serves are only for visual aid.
+
+.Indentation example
+====
+The following three queries are identical in their result:
+
+[,typeql]
+----
+insert $p isa person, has full-name "Masako Holley", has email "masako.holley@vaticle.com";
+
+insert
+$p isa person,
+    has full-name "Masako Holley",
+    has email "masako.holley@vaticle.com";
+
+insert
+$p
+isa
+person
+,
+has
+full-name
+"Masako Holley"
+,
+has
+email
+"masako.holley@vaticle.com"
+;
+----
+====
+
+//#todo TypeQL Styleguide
+
+=== Comments
+
+TypeQL uses in-line comments only. To make a comment use the `#` symbol.
+
+.Comment example
+====
+[,typeql]
+----
+# This is the first query
+insert # this is the insert query without a match clause
+$p isa person; # this line inserts a person entity
+$p has full-name "Bob"; # we add a constraint to the $p variable used in a previous line
+
+# This is the second query
+insert
+$p isa person, has full-name "Alex"; # In this query we insert another person
+----
+====

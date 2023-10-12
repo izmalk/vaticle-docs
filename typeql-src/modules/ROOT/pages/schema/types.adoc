@@ -1,5 +1,5 @@
-[#_define_types]
-= Define types
+[#_types]
+= Types
 :Summary: Defining types with TypeQL.
 :keywords: typeql, schema, type, inheritance
 :longTailKeywords: typeql schema, typeql type hierarchy, typeql data model
@@ -8,8 +8,6 @@
 :toclevels: 5
 :experimental:
 
-[#_types]
-=== Types
 // tag::types_basics[]
 A type represents a set of constraints on the interpretation of data.
 
@@ -67,7 +65,7 @@ we mean:
 ====
 
 [#_inheritance]
-=== Inheritance
+== Inheritance
 // tag::inheritance_basics[]
 
 A type can subtype another type. As a result, the subtype inherits all the attributes owned and roles played by its
@@ -82,8 +80,7 @@ Type can only have a single supertype.
 
 Types can be subtypes of other subtypes, resulting in a type hierarchy.
 
-.See simple example
-[%collapsible]
+.Simple example
 ====
 For example, `business-unit` subtypes `user-group`, which subtypes `subject`, which subtypes `entity` root type.
 Also, `person` subtypes `user`, that subtypes `subject`:
@@ -112,8 +109,7 @@ person sub user;
 There is a strict hierarchy of types, so the whole typing system of a TypeDB database can always be represented
 by three independent trees with one of the root types at the top of each tree.
 
-.See hierarchy trees example
-[%collapsible]
+.Hierarchy trees example
 ====
 For example, a schema with the following types:
 
@@ -143,7 +139,7 @@ image::root-types-trees.png[]
 // end::inheritance_basics[]
 
 [#_abstract_types]
-=== Abstract types
+== Abstract types
 // tag::abstract_basics[]
 
 An abstract type can't be instantiated (we can't insert an instance of data of this type). All we can do with an
@@ -157,7 +153,7 @@ All user-defined types are concrete types by default.
 // end::abstract_basics[]
 
 [#_thing_type]
-=== Thing type
+== Thing type
 // tag::thing_type_basics[]
 
 An internal type called `thing` can be used to address all types (both built-in and user-defined) or instances of all
@@ -173,7 +169,7 @@ include::typedb::partial$thing-warning.adoc[]
 // end::thing_type_basics[]
 
 [#_entity_types]
-=== Entity types
+== Entity types
 // tag::entity_type_basics[]
 
 *Entity types* (or subtypes of the `entity` root type) represent the classification of independent objects in the
@@ -246,10 +242,10 @@ related data inserted.
 ====
 
 For more information on how to define an `entity` type, see the
-xref:schema/types.adoc#_define_entity_types[Define entity types] section on the
-xref:schema/types.adoc[] page.
+xref:schema/define.adoc#_define_entity_types[Define entity types] section on the
+xref:schema/define.adoc[] page.
 
-=== Relation types
+== Relation types
 // tag::relation_type_basics[]
 
 Relation types (or subtypes of the `relation` root type) represent relationships between types.
@@ -294,7 +290,7 @@ a `subject` type and all its subtypes entities.
 ====
 // end::relation_type_examples[]
 
-==== Roles
+=== Roles
 
 Roles are special internal types used by relations. We can't create an instance of a role in a database.
 But we can set an instance of another type (role player) to play a role in a particular instance of a relation type.
@@ -357,7 +353,7 @@ Before version `2.22.0` of TypeDB, roles of abstract relations are also abstract
 It would make the role `member` abstract.
 //Even if it is inherited by a concrete relation, an abstract role continues to be abstract.
 //We can't use an abstract role to insert an instance of a relation type.
-We have to xref:schema/types.adoc#_overrides_a_role[override]
+We have to xref:schema/define.adoc#_overrides_a_role[override]
 an abstract role with a new concrete role to use it for data.
 
 ////
@@ -465,11 +461,11 @@ It is impossible to imagine a marriage without considering its spouses.
 
 For more
 information on how to define a `relation` subtype, see the
-xref:schema/types.adoc#_define_relation_types[Define relation types] section on the
-xref:schema/types.adoc[] page.
+xref:schema/define.adoc#_define_relation_types[Define relation types] section on the
+xref:schema/define.adoc[] page.
 
 [#_attribute_types]
-=== Attribute types
+== Attribute types
 // tag::attribute_type_basics[]
 
 Attribute types (or subtypes of the `attribute` root type) represent properties that other types can own.
@@ -491,8 +487,8 @@ share ownership of the same attribute instance.
 // end::attribute_type_basics[]
 
 For more information on the types of values, attributes can have: see the
-xref:schema/types.adoc#_value_types[list of value types] on the
-xref:schema/types.adoc[] page.
+xref:schema/define.adoc#_value_types[list of value types] on the
+xref:schema/define.adoc[] page.
 
 // tag::attribute_type_example[]
 
@@ -529,5 +525,5 @@ deleted in TypeDB version 3.0.
 // end::attribute_type_own_depr[]
 
 For more information on how to define an `attribute` subtype, see the
-xref:schema/types.adoc#_define_attribute_types[Define attribute types] section on the
-xref:schema/types.adoc[] page.
+xref:schema/define.adoc#_define_attribute_types[Define attribute types] section on the
+xref:schema/define.adoc[] page.

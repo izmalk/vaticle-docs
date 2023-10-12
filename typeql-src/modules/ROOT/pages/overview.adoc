@@ -6,36 +6,36 @@
 
 This is the TypeQL documentation portal. It has the following pages:
 
-* xref:schema/fundamentals.adoc[] -- essential knowledge and terminology
-* xref:queries.adoc[] -- querying with TypeQL
+//* xref:partial$fundamentals.adoc[] -- essential knowledge and terminology
+//* xref:queries.adoc[] -- querying with TypeQL
 
-[#_schema]
-* Schema -- How to define a schema with TypeQL (DDL).
-** xref:schema/types.adoc[]
-** xref:schema/rules.adoc[]
-** xref:schema/modify.adoc[]
+* xref:typeql::overview.adoc[]
+* xref:typeql::introduction.adoc[]
 
-[#_data]
-* Data -- How to read & write Data with TypeQL (DML).
-** xref:queries/match.adoc[]
-** xref:queries/insert.adoc[]
-** xref:queries/delete.adoc[]
-** xref:queries/update.adoc[]
-** xref:queries/get.adoc[]
-** xref:queries/advanced.adoc[]
+* xref:typeql::schema/schema.adoc[]
+** xref:typeql::schema/types.adoc[]
+** xref:typeql::schema/rules.adoc[]
+** xref:typeql::schema/define.adoc[]
+** xref:typeql::schema/undefine.adoc[]
 
-* xref:keywords.adoc[]
+* xref:typeql::queries/queries.adoc[]
+** xref:typeql::queries/match.adoc[]
+** xref:typeql::queries/insert.adoc[]
+** xref:typeql::queries/delete.adoc[]
+** xref:typeql::queries/update.adoc[]
+** xref:typeql::queries/get.adoc[]
+
+* xref:typeql::keywords.adoc[]
+* xref:typeql::cheat-sheet.adoc[]
 
 == Where to go from here?
 
-See the xref:schema/fundamentals.adoc[] page for essential knowledge about TypeQL and the xref:typeql::queries.adoc[]
+See the xref:typeql::introduction.adoc[] page for essential knowledge about TypeQL and the xref:typeql::queries.adoc[]
 page for an overview of all query types.
 
-Explore the <<_schema,Schema>> section for the in-detail documentation of the TypeQL as a Data definition language
-(DDL) -- how to define a TypeDB database schema.
+Explore how to define a database schema with TypeQL in the xref:typeql::schema/schema.adoc[] section.
 
-Check the <<_data,Data>> section for the documentation of TypeQL as a Data manipulation language (DML) --
-how to build queries to a TypeDB database.
+Check the xref:typeql::queries/queries.adoc[] section to learn about TypeQL queries.
 
 There are also separate documentation portal sections for:
 

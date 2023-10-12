@@ -138,7 +138,7 @@ xref:typedb::attachment$iam-data.tql[dataset], but they can return any number of
 ===== All types
 
 Use a `subtype` pattern with the built-in type `thing` to find all types defined in a schema. For more information, see
-the xref:schema/fundamentals.adoc#_thing_type[Thing type] section.
+the xref:partial$fundamentals.adoc#_thing_type[Thing type] section.
 
 [,typeql]
 ----
@@ -255,7 +255,7 @@ Use an `instance` pattern with type `thing` to find all entities, relations, and
 match $t isa thing;
 ----
 
-For more information on `thing` type see the xref:schema/fundamentals.adoc#_thing_type[Thing type] section.
+For more information on `thing` type see the xref:partial$fundamentals.adoc#_thing_type[Thing type] section.
 
 include::typedb::partial$thing-warning.adoc[]
 

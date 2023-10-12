@@ -1,13 +1,16 @@
 = Define
 
-See the xref:schema/fundamentals.adoc[] page for more information about xref:schema/fundamentals.adoc#_schema[schema]
-and xref:schema/fundamentals.adoc#_types[types].
+See the xref:typeql::schema/schema.adoc[] page for more information about
+xref:typeql::schema/schema.adoc#_schema[schema]
+and xref:typeql::schema/schema.adoc#_types[types].
 
+////
 .See the full table of contents for this page
 [%collapsible]
 ====
 toc::[]
 ====
+////
 
 To use a new TypeDB database, we need to define its schema first. We can do it with a <<#_define_query>>.
 
@@ -23,7 +26,7 @@ TypeDB Clients validate our schema definition requests before sending them to a 
 server. We will not be able to commit changes if the resulting schema isn't valid.
 
 // tag::idempotence[]
-[IMPORTANT]
+[NOTE]
 ====
 Define queries are idempotent.
 
@@ -1035,3 +1038,44 @@ rule from the permission to `modify_file` the same file.
 
 The xref:typedb:ROOT:development/infer.adoc#_example[Example] section of Inferring data page gives a full explanation
 of how this rule works.
+
+== Modify existing schema
+
+=== Add a type or a rule
+
+We can add types and rules to an existing schema by running new define statements to the same database as usual.
+
+The define statements are idempotent. By sending the same define query twice or more times, the resulting
+schema must be achieved as if we send it only once. So types and/or rules will not be duplicated.
+
+A separate define statement for a new type or a rule can be sent as a `define` query. Alternatively, the statement
+can be added to the define statement of the existing schema and sent together. Only new types and/or rules will be
+added in this case. If we change the name (label) of the existing type or rule in the existing schema and then send it
+as a define query, then the changed type or rule will be processed as a new one.
+//#todo Add examples. Step by step adding constraints.
+
+include::typeql::schema/define.adoc[tag=idempotence]
+
+=== Delete a type or a rule
+
+Use the `undefine` keyword to remove the definition of a type or its association with other types from the schema.
+
+[IMPORTANT]
+====
+Don't forget to `commit` after executing an `undefine` statement. Otherwise, any changes are NOT committed to a database.
+====
+
+=== Rename a type
+
+// tag::rename[]
+To rename a type (to change its label), use the xref:clients:ROOT:studio.adoc[TypeDB Studio] or
+xref:typedb:ROOT:development/api.adoc[TypeDB Driver API] rename method for a type class object:
+xref:clients::java/java-api-ref.adoc#_rename_type_label[Java],
+xref:clients::python/python-api-ref.adoc#_rename_type_label[Python],
+xref:clients::node-js/node-js-api-ref.adoc#_rename_type_label[Node.js].
+// end::rename[]
+
+=== Modify a rule
+
+To modify a rule, xref:typeql::schema/rules.adoc[define a new rule] with the same label.
+It will overwrite the existing rule upon commit.

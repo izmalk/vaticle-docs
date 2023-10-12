@@ -9,18 +9,17 @@
 ** xref:typeql::schema/define.adoc[]
 ** xref:typeql::schema/undefine.adoc[]
 
-//** xref:typeql::schema/modify.adoc[]
-
 * xref:typeql::queries/queries.adoc[]
 ** xref:typeql::queries/match.adoc[]
 ** xref:typeql::queries/insert.adoc[]
 ** xref:typeql::queries/delete.adoc[]
 ** xref:typeql::queries/update.adoc[]
 ** xref:typeql::queries/get.adoc[]
-// ** xref:typeql::queries/advanced.adoc[]
 
 * xref:typeql::keywords.adoc[]
 * xref:typeql::cheat-sheet.adoc[]
 
 //* xref:typeql::fundamentals.adoc[]
 //* xref:typeql::queries.adoc[]
+
+// ** xref:typeql::queries/advanced.adoc[]

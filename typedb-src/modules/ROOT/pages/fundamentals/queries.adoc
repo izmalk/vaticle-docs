@@ -273,7 +273,7 @@ If there are no matches for a `match` clause in an `insert` query, then there wi
 ====
 
 The `insert` clause can have a pattern with multiple statements to insert in one query. But it can't insert types
-(use xref:typedb::development/schema.adoc#_define_types[define] to insert new types) and can't have the following:
+(use xref:typedb::development/schema.adoc#_types[define] to insert new types) and can't have the following:
 
 - Conjunction
 - Disjunction

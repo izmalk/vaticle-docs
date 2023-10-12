@@ -237,7 +237,7 @@ If we use `get $cft;` clause instead, we'll get only two results in response bec
 instance of the type with the `false` value.
 
 The five instances of `person` type all have ownership over the
-xref:schema/fundamentals.adoc#_attribute_types[same instance] of the `certified-fortune-teller` attribute type
+xref:partial$fundamentals.adoc#_attribute_types[same instance] of the `certified-fortune-teller` attribute type
 with the value `false`.
 
 To get all the results, we add the `person` type instances to the answer because those are unique.

@@ -1,19 +1,25 @@
 = Schema
 [#_schema]
 
-TypeDB schema is like a blueprint of a database.
+A TypeDB database schema is like a blueprint of a database.
+It defines types that can be stored in a database, including hierarchy of types,
+ownership over attributes, possible roles in relations and other constraints, as well as rules, that can be used to
+infer new data.
 
-A database schema contains all user-defined <<_types,types>> and <<_rules,rules>> used in a database.
-
-Every instance of data inserted in a TypeDB database must be assigned a type and be validated against constraints.
-
-[NOTE]
+[IMPORTANT]
 ====
-Database schemas written in TypeQL resemble logical data models of relational databases.
+A database schema consists of user-defined xref:typeql::schema/types.adoc[types] and
+xref:typeql::schema/rules.adoc[rules] used in a database.
+====
+
+Any user-defined type is a subtype of either another user-defined type or a built-in type.
+
+Any data in a TypeDB database is an instance of a user-defined type.
+
+A TypeDB database schema is written in TypeQL and resemble a logical data models of relational databases.
 TypeDB removes the need to create a separate physical data model and allows developers to create schemas that mirror
 their object model, simplifying design and development.
 
 As a result, TypeDB schemas look like entity-relationship (ER) diagrams with entities, relations, and attributes
-connected by roles of relations and ownerships of attributes, but also subtyping (see <<_inheritance,inheritance>>
-below).
-====
+connected by roles in relations, ownerships of attributes, and subtyping
+(see xref:typeql::schema/types.adoc#_inheritance[inheritance]).
