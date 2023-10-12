@@ -31,7 +31,7 @@ Be sure to replace the `\{version}` placeholder tag with the version of Client J
 <dependencies>
 <dependency>
     <groupId>com.vaticle.typedb</groupId>
-    <artifactId>typedb-client</artifactId>
+    <artifactId>typedb-driver</artifactId>
     <version>{version}</version>
 </dependency>
 </dependencies>
@@ -91,10 +91,10 @@ use the following steps to set the minimum log level to `ERROR`:
 |===
 | Java Driver | Protocol encoding version | TypeDB Core | TypeDB Cloud & TypeDB Enterprise
 
-| 2.24.14
+| 2.24.15
 | 2
-| 2.24.14
-| 2.24.14
+| 2.24.17
+| 2.24.17
 
 | 2.18.0, 2.18.1
 | 1
