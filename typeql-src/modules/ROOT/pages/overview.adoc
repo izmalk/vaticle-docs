@@ -4,33 +4,38 @@
 :pageTitle: Documentation overview
 :summary: A birds-eye view of TypeQL and TypeDB
 
-This is the TypeQL documentation portal. It has the following pages:
+Welcome to the TypeQL technical documentation.
 
-//* xref:partial$fundamentals.adoc[] -- essential knowledge and terminology
-//* xref:queries.adoc[] -- querying with TypeQL
+xref:typeql::introduction.adoc[]
 
-* xref:typeql::overview.adoc[]
-* xref:typeql::introduction.adoc[]
+== Schema
 
-* xref:typeql::schema/schema.adoc[]
-** xref:typeql::schema/types.adoc[]
-** xref:typeql::schema/rules.adoc[]
-** xref:typeql::schema/define.adoc[]
-** xref:typeql::schema/undefine.adoc[]
+xref:typeql::schema/schema.adoc[]
 
-* xref:typeql::queries/queries.adoc[]
-** xref:typeql::queries/match.adoc[]
-** xref:typeql::queries/insert.adoc[]
-** xref:typeql::queries/delete.adoc[]
-** xref:typeql::queries/update.adoc[]
-** xref:typeql::queries/get.adoc[]
+* xref:typeql::schema/types.adoc[]
+* xref:typeql::schema/rules.adoc[]
+* xref:typeql::schema/define.adoc[]
+* xref:typeql::schema/undefine.adoc[]
+
+== Queries
+
+xref:typeql::queries/queries.adoc[]
+
+
+* xref:typeql::queries/match.adoc[]
+* xref:typeql::queries/insert.adoc[]
+* xref:typeql::queries/delete.adoc[]
+* xref:typeql::queries/update.adoc[]
+* xref:typeql::queries/get.adoc[]
+
+== Additional resources
 
 * xref:typeql::keywords.adoc[]
 * xref:typeql::cheat-sheet.adoc[]
 
 == Where to go from here?
 
-See the xref:typeql::introduction.adoc[] page for essential knowledge about TypeQL and the xref:typeql::queries.adoc[]
+See the xref:typeql::introduction.adoc[] page for essential knowledge about TypeQL and the xref:queries/queries.adoc[]
 page for an overview of all query types.
 
 Explore how to define a database schema with TypeQL in the xref:typeql::schema/schema.adoc[] section.

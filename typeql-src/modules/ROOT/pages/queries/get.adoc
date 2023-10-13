@@ -385,7 +385,7 @@ TypeDB supports the following types of aggregation:
 * <<_median>>
 * <<_standard_deviation>>
 
-To perform aggregation in TypeDB, we first write a xref:queries.adoc#_match[match clause] to describe the set of
+To perform aggregation in TypeDB, we first write a xref:queries/queries.adoc#_match[match clause] to describe the set of
 data, then follow that by get to retrieve a distinct set of answers based on the specified variables, and lastly, an
 aggregate function to perform aggregation on the variable of interest.
 

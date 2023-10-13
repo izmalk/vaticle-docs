@@ -25,7 +25,7 @@ https://github.com/vaticle/typeql/blob/master/grammar/TypeQL.g4[TypeQL.g4,window
 
 == Query structure
 
-A TypeQL xref:queries.adoc[query] consists of clauses (one, two or three).
+A TypeQL xref:queries/queries.adoc[query] consists of clauses (one, two or three).
 There are the following types of clauses:
 
 * `define`
@@ -908,7 +908,7 @@ $p isa person, has full-name "Alex"; # In this query we insert another person
 
 == Learn more
 
-Learn more essential information about different queries in TypeQL with the xref:queries.adoc[] page.
+Learn more essential information about different queries in TypeQL with the xref:queries/queries.adoc[] page.
 
 Or skip it and go straight to the Schema and Data sections of this documentation for more in-depth look on every query
 type.

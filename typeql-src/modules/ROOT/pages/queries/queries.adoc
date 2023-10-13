@@ -1,1 +1,18 @@
 = Queries
+:Summary: Querying with TypeQL.
+:keywords: typeql, typedb, query, match, get, insert, delete, update
+:longTailKeywords: typeql match, typeql query, typedb query, match clause
+:pageTitle: Queries
+
+include::typedb:ROOT:fundamentals/queries.adoc[tag=queries_body]
+
+== Learn more
+
+To find out more about the queries, see the
+xref:schema/types.adoc#_define_query[define query],
+xref:typeql::schema/modify.adoc#_undefine_a_type[undefine query],
+xref:queries/insert.adoc[],
+xref:queries/delete.adoc[], and
+xref:queries/update.adoc[] pages.
+
+For more information about practical aspects of using TypeDB, see the xref:typedb:ROOT:overview.adoc[TypeDB Documentation].
