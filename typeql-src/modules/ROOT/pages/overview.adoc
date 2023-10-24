@@ -39,5 +39,5 @@ how to build queries to a TypeDB database.
 
 There are also separate documentation portal sections for:
 
-* xref:typedb::overview.adoc[TypeDB]
+* xref:typedb:ROOT:home/overview.adoc[TypeDB]
 * xref:clients::clients.adoc[TypeDB Clients]

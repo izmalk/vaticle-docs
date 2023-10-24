@@ -144,7 +144,7 @@ For example, complete our xref:typedb::quickstart-guide.adoc[] with TypeDB Cloud
 
 For more information, see the following:
 
-* xref:typedb::overview.adoc[TypeDB documentation] for a general understanding of how to use TypeDB server,
+* xref:typedb:ROOT:home/overview.adoc[TypeDB documentation] for a general understanding of how to use TypeDB server,
 * xref:clients::clients.adoc[TypeDB Clients documentation] for information on how to use Driver API methods,
 TypeDB Studio GUI, or TypeDB Console CLI,
 * xref:typeql::overview.adoc[TypeQL documentation] for an advanced understanding of building a query and using patterns.

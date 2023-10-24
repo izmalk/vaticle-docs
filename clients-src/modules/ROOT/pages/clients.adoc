@@ -130,5 +130,5 @@ Choose a client from the <<_client_list,list>> above and explore its capabilitie
 
 There are separate documentation sections for:
 
-* xref:typedb::overview.adoc[TypeDB]
+* xref:typedb:ROOT:home/overview.adoc[TypeDB]
 * xref:typeql::overview.adoc[TypeQL]

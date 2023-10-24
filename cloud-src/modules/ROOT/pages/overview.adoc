@@ -61,6 +61,6 @@ See the xref:quickstart.adoc[] page to find out how to create an account and try
 
 There are also separate documentation portal sections for:
 
-* xref:typedb::overview.adoc[TypeDB] -- the main section about the TypeDB server.
+* xref:typedb:ROOT:home/overview.adoc[TypeDB] -- the main section about the TypeDB server.
 * xref:clients::clients.adoc[TypeDB Clients] -- all about TypeDB Studio, TypeDB Console, and TypeDB Drivers.
 * xref:typeql::overview.adoc[TypeQL] -- the query language used by TypeDB.

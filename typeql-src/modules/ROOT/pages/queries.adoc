@@ -15,4 +15,4 @@ xref:typeql::data/insert.adoc[],
 xref:typeql::data/delete.adoc[], and
 xref:typeql::data/update.adoc[] pages.
 
-For more information about practical aspects of using TypeDB, see the xref:typedb::overview.adoc[TypeDB Documentation].
+For more information about practical aspects of using TypeDB, see the xref:typedb:ROOT:home/overview.adoc[TypeDB Documentation].
