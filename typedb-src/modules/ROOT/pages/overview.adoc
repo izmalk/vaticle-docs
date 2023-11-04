@@ -1,6 +1,5 @@
-= Overview
-:keywords: typedb, typeql, documentation, overview, introduction
-:longTailKeywords: documentation overview, learn typedb, learn typeql, typedb schema, typedb data model
+= TypeDB overview
+:keywords: typedb, documentation, docs, overview, introduction, outline, structure
 :pageTitle: Documentation overview
 :summary: A birds-eye view of TypeQL and TypeDB
 
@@ -8,11 +7,7 @@ Welcome to the TypeDB technical documentation.
 
 Check the layout of the TypeDB documentation below.
 
-== Get started
-
-* xref:introduction.adoc[] -- a brief description of TypeDB and its capabilities
-* xref:installation.adoc[] -- TypeDB server installation manual
-* xref:quickstart-guide.adoc[] -- a guide to quickly set up a TypeDB database
+//* xref:introduction.adoc[] -- a brief description of TypeDB and its capabilities
 
 [#_fundamentals]
 == Fundamentals
@@ -22,8 +17,8 @@ Check the layout of the TypeDB documentation below.
 ** xref:fundamentals/patterns.adoc[] -- essential information on pattern matching
 ** xref:fundamentals/inference.adoc[] -- essential information on rules and reasoning (inference)
 
-[#_development]
-== Development
+[#_developing]
+== Developing with TypeDB
 
 ** xref:development/connect.adoc[] -- TypeDB server and database connections
 ** xref:development/schema.adoc[] -- database schema definition
@@ -31,12 +26,12 @@ Check the layout of the TypeDB documentation below.
 ** xref:development/read.adoc[] -- reading data queries
 ** xref:development/infer.adoc[] -- data inference queries
 ** xref:development/response.adoc[] -- query response formats
-** xref:development/api.adoc[] -- brief description of TypeDB Driver API and TypeDB Drivers
+//** xref:development/api.adoc[] -- brief description of TypeDB Driver API and TypeDB Drivers
 // #todo Consider moving API to Clients section with tabs
 ** xref:development/best.adoc[] -- schema and query design tips
 
-[#_operations]
-== Operations
+[#_managing]
+== Managing TypeDB
 
 ** xref:admin/configuration.adoc[] -- TypeDB server configuration parameters and host machine requirements
 ** xref:admin/export-import.adoc[] -- exporting and importing database schema and data
@@ -57,13 +52,13 @@ into a TypeDB database
 
 What is TypeDB? See the xref:introduction.adoc[] page.
 
-Then xref:installation.adoc[install] TypeDB and use xref:quickstart-guide.adoc[] to try it yourself.
+Then xref:home:ROOT:install.adoc[install] TypeDB and use xref:home::quickstart.adoc[] to try it yourself.
 
 To learn more about TypeDB, check the major sections of the documentation:
 
 * the <<_fundamentals,Fundamentals>> for essential knowledge about TypeDB,
-* the <<_development,Development>> for the in-detail documentation of the TypeDB development workflow,
-* the <<_operations,Operations>> for the instructions for setting up a production environment, or
+* the <<_developing,Developing with TypeDB>> for the in-detail documentation of the TypeDB development workflow,
+* the <<_managing,Managing TypeDB>> for the instructions for setting up a production environment, or
 * the <<_tutorials,Tutorials>> for how-to guides and the xref:tutorials/iam-schema.adoc[].
 
-Check our documentation for xref:typeql::overview.adoc[TypeQL] and xref:clients::clients.adoc[TypeDB Clients].
+Check our documentation for xref:typeql::overview.adoc[TypeQL] and xref:clients::overview.adoc[TypeDB Clients].
