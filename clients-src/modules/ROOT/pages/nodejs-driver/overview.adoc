@@ -1,4 +1,5 @@
 = Node.js Driver
+:page-aliases: nodejs-driver.adoc
 :Summary: Overview for TypeDB Node.js Driver.
 :keywords: typedb, client, driver, node.js
 :pageTitle: TypeDB Node.js Driver
@@ -40,7 +41,7 @@ Explore the Node.js Driver xref:nodejs-driver/tutorial.adoc[tutorial] with examp
 Use the xref:nodejs-driver/api-reference.adoc[API reference] page for documentation of the methods and objects used in
 the Driver.
 
-include::java-driver.adoc[tag=questions]
+include::../java-driver/overview.adoc[tag=questions]
 
 == Additional resources
 
@@ -52,9 +53,15 @@ include::java-driver.adoc[tag=questions]
 [#_version_compatibility]
 == Version Compatibility
 
-[cols="^.^2,^.^2,^.^2,^.^2,^.^1"]
+[cols="^.^3,^.^2,^.^3,^.^3,^.^1"]
 |===
-| Node.js Driver | Protocol encoding version | TypeDB | TypeDB Cloud & TypeDB Enterprise | Node
+| Node.js Driver | Protocol encoding version | TypeDB Core | TypeDB Cloud & TypeDB Enterprise | Node
+
+| 2.25.2
+| 3
+| 2.25.0
+| 2.25.0
+| >= 14.15
 
 | 2.24.15
 | 2
