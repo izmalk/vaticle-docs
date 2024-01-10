@@ -5,40 +5,163 @@
 :longTailKeywords: typeql insert, typeql write data, typeql delete, typeql update
 :pageTitle: Writing data
 
-There are multiple query types that can modify data in a TypeDB database:
+There are three types of queries that can modify data in a TypeDB database:
 
 * <<_insert>>
 * <<_delete_query>>
-* <<_update_query,Update>> (or match-delete-insert) query
+* <<_update_query>>
 
-To send a writing data query we need to use xref:connecting/overview.adoc#_transactions[Write transaction].
+To send a writing data query, make sure to read the following pages and complete relevant steps:
 
-[IMPORTANT]
-====
-All examples provided on this page are designed for the IAM database schema and data.
-To set the IAM database follow the xref:home::quickstart.adoc[].
-====
+* xref:typedb::connecting/overview.adoc[]
+* xref:typedb::developing/creating-database.adoc[]
+* xref:typedb::developing/defining-schema.adoc[]
+
+All examples provided on this page are designed for the xref:attachment$quickstart-schema.tql[simplified IAM schema].
 
 [#_insert]
 == Insert query
 
 An Insert query is used to add new data to a TypeDB database.
-
 Data can be inserted only as an instances of a type, existing in the database schema.
-
-=== Syntax
-
-Insert queries are written in TypeQL with the following syntax:
 
 [,typeql]
 ----
-[match <pattern>]
-insert <pattern>
+insert
+
+$p1 isa person,
+    has full-name "Masako Holley",
+    has email "masako.holley@vaticle.com";
+
+$modify isa operation, has name "modify_file";
+$view isa operation, has name "view_file";
+
+$f1 isa file,
+    has path "iopvu.java",
+    has size-kb 55;
+(object: $f1, action: $modify) isa access;
+(object: $f1, action: $view) isa access;
+$permission1 (subject: $p3, access: $a1) isa permission;
 ----
 
-=== Behavior
+For ore information on syntax and behavior of an Insert query,
+see the xref:typeql::data/insert.adoc#_behavior[Insert query] page in TypeQL documentation.
 
-See the xref:typeql::data/insert.adoc#_behavior[Insert query] page.
+=== How to run an insert query
+
+[tabs]
+====
+Console::
++
+--
+. Connect to TypeDB.
+. Open a `schema` session and `write` transaction to a new/empty database, for example:
++
+[,bash]
+----
+transaction db1 schema write
+----
+. Copy-paste the <<_example,query example>> above and push btn:[Enter] *twice*.
+. Commit the changes made in the transaction:
++
+[,bash]
+----
+commit
+----
+--
+
+Studio::
++
+--
+. xref:typedb::connecting/studio.adoc#_connect_to_typedb[Connect to TypeDB] and
+xref:typedb::connecting/studio.adoc#_select_a_project_directory[select a project directory].
+. Select a new/empty database from a drop-down list in the top toolbar next to the database icon
+image:home::studio-icons/database.png[].
+. Switch to the `schema` and `write` in the top toolbar's session and transaction type selectors.
+. Create a new tab in TypeDB Studio text editor, copy-paste the <<_example,query example>> above.
+. Execute the query by clicking on the btn:[Run Query] (image:home::studio-icons/run.png[]) button.
+. Commit the changes with the btn:[Commit transaction] (image:home::studio-icons/commit.png[]) button.
+--
+
+Rust::
++
+--
+.Define schema query
+[,rust]
+----
+let typeql_define_query = "define
+                        credential sub attribute, value string;
+                        full-name sub attribute, value string;
+                        subject sub entity,
+                            abstract,
+                            owns credential;
+                        user sub subject;
+                        person sub user, owns full-name;";
+tx.query().define(&typeql_define_query).resolve()?;
+tx.commit().resolve()?;
+----
+--
+
+Python::
++
+--
+.Define schema query
+[,python]
+----
+typeql_define_query = "define" \
+                    "credential sub attribute, value string; " \
+                    "full-name sub attribute, value string; " \
+                    "subject sub entity," \
+                    "    abstract," \
+                    "    owns credential;" \
+                    "user sub subject;" \
+                    "person sub user, owns full-name;"
+transaction.query.define(typeql_define_query)
+transaction.commit()
+----
+--
+
+Java::
++
+--
+.Define schema query
+[,java]
+----
+String typeqlDefineQuery = """
+                        define
+                        credential sub attribute, value string;
+                        full-name sub attribute, value string;
+                        subject sub entity,
+                            abstract,
+                            owns credential;
+                        user sub subject;
+                        person sub user, owns full-name;
+                        """;
+writeTransaction.query().define(typeqlDefineQuery);
+writeTransaction.commit();
+----
+--
+
+Node.js::
++
+--
+.Define schema query
+[,js]
+----
+const typeql_define_query = `define
+                            credential sub attribute, value string;
+                            full-name sub attribute, value string;
+                            subject sub entity,
+                                abstract,
+                                owns credential;
+                            user sub subject;
+                            person sub user, owns full-name;
+                            `;
+await transaction.query.define(typeql_define_query);
+await transaction.commit();
+----
+--
+====
 
 === Examples
 
