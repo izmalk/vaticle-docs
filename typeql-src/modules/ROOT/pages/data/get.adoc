@@ -4,15 +4,16 @@
 :pageTitle: Get query
 
 A get query retrieves concepts from a TypeDB database that you can further process with the
-xref:clients::overview.adoc#_driver_api[Driver API].
+xref:drivers::overview.adoc#_driver_api[driver API].
 
 Get queries do not modify data, so they can be used in both read and write transactions.
-In read transactions, Get queries can use rule-based xref:typedb::fundamentals/inference.adoc[inference].
+In read transactions, Get queries can use rule-based xref:typedb::basics/inference.adoc[inference].
 
+[#_behavior]
 == Behavior
 
 A Get query projects concepts matched from a database to language-specific programmatic objects
-that can be used via Driver API methods.
+that can be used via the driver API methods.
 
 A simple Get query returns a lazy stream/iterator of ConceptMap objects.
 For every matched result, ConceptMap maps every query variable, mentioned in a `get` clause,
@@ -50,15 +51,11 @@ Variables mentioned in a `get` clause must be bound (set) in a `match` clause of
 A `match` clause is mandatory in a Get query.
 You can use a declarative and composable TypeQL pattern in a `match` clause and TypeDB will find data that matches
 the pattern.
-After a `match` clause goes another clause (`insert`, `delete`, `fetch`, or `get`)
-to specify what operation to perform on the matched data.
 
-For more information on a `match` clause, see the
-//#todo update the link after introducing the Match clause page!
-xref:typeql::queries.adoc#_match[Match clause] description on the Queries page.
+For more information on a `match` clause, see the xref:data/match.adoc[] page.
 
 For more information on patterns used in a `match` clause, see the
-xref:data/basic-patterns.adoc#_patterns_overview[Pattern syntax] section.
+xref:data/match.adoc#_patterns_overview[Patterns overview] section.
 
 [#_get_clause]
 == Get clause
@@ -80,9 +77,9 @@ The `get;` clause is used to get all variables mentioned in a `match` clause pat
 
 To get q ConceptMap simply iterate on lazy stream or iterator returned in a response to a Get query.
 
-To retrieve a database concept from a ConceptMap, use Driver API `ConceptMap.get(variable)` method,
+To retrieve a database concept from a ConceptMap, use the driver API `ConceptMap.get(variable)` method,
 that takes input of variable label and returns a Concept.
-Further processing of a Concept is done via Driver API methods
+Further processing of a Concept is done via methods of the driver API.
 //#todo Add an example in all 4 languages (with tabs) - from sending a query to getting a value out of an attribute
 
 [#_number_of_results]
@@ -513,7 +510,7 @@ So the TypeDB query processor will explore all possible solutions: each consisti
 and one `file` entity.
 There are only `3 * 10 = 30` possible combinations of `person` and `file` entities, so we will get *30* results.
 
-See the xref:data/basic-patterns.adoc#_patterns_overview[Patterns overview] section of the Matching patterns page for
+See the xref:data/match.adoc#_patterns_overview[Patterns overview] section of the Matching patterns page for
 more information.
 
 [#_results_example_2]
@@ -559,7 +556,7 @@ in a database.
 _Why not filter for just the `$cft` variable instead?_
 
 That can drastically alter the returned results as the returned results are deduplicated by design. See the
-xref:typeql:ROOT:data/basic-patterns.adoc#_solutions[Basic patterns] page for more information on the number of results
+xref:typeql:ROOT:data/match.adoc#_solutions[Basic patterns] page for more information on the number of results
 for pattern matching.
 
 For example, let's say we have ten people with the name `Bob` and age `31` in our database.
@@ -570,7 +567,7 @@ and the rest don't have an ownership of the attribute.
 .See how to load such a dataset in a database
 [%collapsible]
 ====
-In xref:clients::studio.adoc[TypeDB Studio], we can paste the following TypeQL in the text editor
+In xref:typedb:ROOT:connecting/studio.adoc[TypeDB Studio], we can paste the following TypeQL in the text editor
 and send all the queries by a single click in a data/write mode.
 Make sure to commit the changes.
 
@@ -599,7 +596,7 @@ insert $p isa person, has name "Alice", has age 31, has certified-fortune-teller
 insert $p isa person;
 ----
 
-To insert this dataset with any xref:clients::overview.adoc[other] client --
+To insert this dataset with any xref:drivers::overview.adoc[other] client --
 make sure to send every line, except from comments, as a separate insert query.
 
 For more information on an Insert query, see the xref:typeql::data/insert.adoc[] page.

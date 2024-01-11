@@ -6,7 +6,7 @@
 A Fetch query retrieves values from a TypeDB database and returns them as JSON objects.
 
 Fetch queries do not modify data, so can be used in Read or Write transactions.
-In read transactions, Fetch queries can use rule-based xref:typedb::fundamentals/inference.adoc[inference].
+In read transactions, Fetch queries can use rule-based xref:typedb::basics/inference.adoc[inference].
 
 == Behavior
 
@@ -73,15 +73,11 @@ Variables mentioned in a `fetch` clause must be bound (set) in a `match` clause 
 A `match` clause is mandatory in a Fetch query.
 You can use a declarative and composable TypeQL pattern in a `match` clause and TypeDB will find data that matches
 the pattern.
-After a `match` clause goes another clause (`insert`, `delete`, `fetch`, or `get`)
-to specify what operation to perform on the matched data.
 
-For more information on a `match` clause, see the
-//#todo update the link after introducing the Match clause page!
-xref:typeql::queries.adoc#_match[Match clause] description on the Queries page.
+For more information on a `match` clause, see the xref:data/match.adoc[] page.
 
 For more information on patterns used in a `match` clause, see the
-xref:data/basic-patterns.adoc#_patterns_overview[Pattern syntax] section.
+xref:data/match.adoc#_patterns_overview[Patterns overview] section.
 
 [#_fetch_clause]
 == Fetch clause
@@ -171,7 +167,7 @@ but many nested levels can break technical limitations of gRPC messaging.
 For an example of nested subqueries, see the <<_grouping_results>> section below.
 
 [#_number_of_results]
-=== Number of answers
+=== Number of results
 
 A Fetch query can return fewer results, than it was matched by its `match` clause.
 Excluding the usage of <<_modifiers,modifiers>>, that can happen due to natural deduplication of results.
@@ -463,7 +459,7 @@ fetch $fp;
 Using the
 https://github.com/vaticle/typedb-docs/blob/master/typedb-src/modules/ROOT/attachments/iam-data.tql[IAM sample data,window=_blank]
 the above query shows any results only if inference is
-xref:typedb::development/infer.adoc#_how_to_use_inference[enabled].
+xref:typedb::developing/infer.adoc#_how_to_use_inference[enabled].
 
 .Result example with inference enabled
 [,js]

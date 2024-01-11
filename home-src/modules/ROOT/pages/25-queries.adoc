@@ -81,16 +81,13 @@ Let's insert two users, two files, and set permissions:
 [,typeql]
 ----
 insert
-$p isa person,
-    has name "Charlie";
+$p isa person, has name "Charlie";
 $u1 isa user,
     has name "Bob",
     has username "bob_93",
     has email "bob@vaticle.com";
-$u2 isa user,
-    has username "al-capucino";
-$f1 isa file,
-    has path "README.md";
+$u2 isa user, has username "al-capucino";
+$f1 isa file, has path "README.md";
 $f2 isa file,
     has path "docs/quickstart-guide.adoc",
     has size-kb 3458761;
@@ -117,11 +114,11 @@ To retrieve usernames of all users that have permission for the file with the pa
 [,typeql]
 ----
 match
-$f isa file,
-    has path "README.md";
+$f isa file, has path "README.md";
 $u isa user;
 ($u, $f) isa permission;
-fetch $u: username;
+fetch
+$u: username;
 ----
 
 The above xref:typeql:ROOT:data/fetch.adoc[Fetch] query matches the `file` entity by the `path` attribute
@@ -188,8 +185,7 @@ Now let's do a match insert by adding a new file and a relevant permission for a
 ----
 match
 $u isa user;
-$f isa file,
-    has path "README.md";
+$f isa file, has path "README.md";
 not { ($u, $f) isa permission; };
 insert
 ($u, $f) isa permission;
@@ -211,8 +207,7 @@ Deleting data requires matching the data to delete first:
 [,typeql]
 ----
 match
-$u isa user,
-    has username "al-capucino";
+$u isa user, has username "al-capucino";
 $p(subject:$u) isa permission;
 delete
 $p isa permission;
@@ -307,7 +302,7 @@ You can use polymorphic queries, including:
 * <<_inheritance_polymorphism,Inheritance polymorphism>>
 * <<_interface_polymorphism,Interface polymorphism>>
 
-Parametric polymorphism lets us retrieve results of different types for the same variable in a query.
+Parametric polymorphism lets us look for a value of an attribute regardless of its type.
 Querying without constraining a type can return any type that matches a pattern.
 //When we don't bound a variable to a specific type, so it can be solved as multiple different ones.
 
@@ -332,8 +327,8 @@ The number of results should match the number of instances the database has afte
 == #{counter:query}: Inheritance polymorphism
 _Run this query after <<_schema,query #1>> and <<_data,query #2>>._
 
-Inheritance polymorphism lets us get more results using type hierarchy.
-Match a supertype can match its subtypes.
+Inheritance polymorphism lets us query for subtypes of a type used in a query.
+By using a supertype in a pattern, we can get results for the supertype itself, as well as results for all its subtypes.
 //When we can solve for type and its subtypes
 
 .Inheritance polymorphism query example
@@ -349,14 +344,14 @@ This query should return all entities in a database.
 Since `entity` is a root type, it's an <<_abstract,abstract>> type and can't be directly instantiated.
 So the query returns instances of every subtype of the `entity` type.
 
-You can easily avoid inheritance polymorphism
-by restricting subtypes to be used in the query by using `isa!` (with an exclamation mark).
+You can easily avoid inheritance polymorphism by using the `isa!` keyword instead.
 
 [#_interface_polymorphism]
 == #{counter:query}: Interface polymorphism
 _Run this query after <<_schema,query #1>> and <<_data,query #2>>._
 
-Interface polymorphism lets us query for everything with a specific property, for example, owning an attribute.
+Interface polymorphism lets us query for any types that implement a given interface.
+By implementing a given interface, we mean owning an attribute type or playing a role in a relation type.
 
 .Interface polymorphism query example
 [,typeql]
@@ -382,9 +377,9 @@ Like in the following example:
 [,typeql]
 ----
 match
-$u isa user,
-    has name "Bob";
-fetch $u as Bob: attribute;
+$u isa user, has name "Bob";
+fetch
+$u as Bob: attribute;
 ----
 
 The above query matches the user with name `Bob`.
@@ -472,14 +467,11 @@ Now let's add a role player for this role for a relation, that was inserted befo
 [,typeql]
 ----
 match
-$u isa user,
-    has name "Bob";
-$f isa file,
-    has path "README.md";
+$u isa user, has name "Bob";
+$f isa file, has path "README.md";
 $p($u, $f) isa permission;
 insert
-$a isa action,
-    has name "edit";
+$a isa action, has name "edit";
 $p(permitted-action:$a);
 ----
 
@@ -560,10 +552,9 @@ Now let's see what will happen, if we'll try to violate these annotations by usi
 [,typeql]
 ----
 insert
-$u isa user;
-$u isa user,
-    has username "Bob";
-$u isa user,
+$u1 isa user;
+$u2 isa user, has username "Bob";
+$u3 isa user,
     has username "Totally-not-Bob",
     has email "bob@vaticle.com";
 ----
@@ -573,9 +564,9 @@ The above query fails as it violates the following annotation constraints:
 * the first inserted `user` doesn't have a `username`, which violates the `@key` constraint from the schema;
 * the second `user` has `username` of the value `Bob`, which happens to be non-unique,
   as there is another `user` owning the same attribute in the database already;
-* the second `user` has correct username, but also has non-unique email, which is forbidden by the `@unique` constraint.
+* the third `user` has correct username, but also has non-unique email, which is forbidden by the `@unique` constraint.
 
-As a result we have the following error:
+As a result, we have the following error:
 
 .Error message
 ----
@@ -610,7 +601,7 @@ Error> [THW11] Invalid Thing Write: Attempted to put an instance of 'status' wit
 ----
 
 //For more information on how to use regular expressions to limit attribute values,
-//see the xref:typeql::data/advanced.adoc[] section.
+//see the xref:typeql::data/examples.adoc[] section.
 
 == #{counter:query}: Matching values with regex
 _Run this query after <<_schema,query #1>> and <<_data,query #2>>._
@@ -657,7 +648,7 @@ _Run this query after <<_schema,query #1>> and <<_data,query #2>>._
 
 Arithmetic expressions let you perform basic math operations on any value in a `match` clause.
 
-See the list of available xref:typedb::fundamentals/patterns.adoc#_arithmetic_operations[arithmetic operations].
+See the list of available xref:typeql::data/match.adoc#_arithmetic_operations[arithmetic operations].
 
 Let's insert a few files with different sizes, that are calculated:
 
@@ -685,7 +676,7 @@ _Run this query after <<_schema,query #1>> and <<_data,query #2>>._
 
 TypeDB reasoning engine can perform rule-based inference when you read data.
 To use inference, we need to xref:typeql:ROOT:schema/define-types.adoc[Define] rules in the schema,
-open a `read` transaction with the `infer` option xref:typedb::development/infer.adoc#_how_to_use_inference[enabled],
+open a `read` transaction with the `infer` option xref:typedb::developing/infer.adoc#_how_to_use_inference[enabled],
 and send a xref:typeql:ROOT:data/get.adoc[Get] or a xref:typeql::data/fetch.adoc[Fetch] query.
 
 .Schema with a rule
@@ -723,7 +714,7 @@ get $p, $p-name;
 ----
 
 The above query produces the following result with inference
-xref:typedb::development/infer.adoc#_how_to_use_inference[enabled]:
+xref:typedb::developing/infer.adoc#_how_to_use_inference[enabled]:
 
 image::typedb-in-25-queries/inference.png[Inference, role=framed, width = 75%, link=self]
 
@@ -786,7 +777,7 @@ get $f, $g, $p;
 ----
 
 The above query produces the following result with inference
-xref:typedb::development/infer.adoc#_how_to_use_inference[enabled]:
+xref:typedb::developing/infer.adoc#_how_to_use_inference[enabled]:
 
 image::typedb-in-25-queries/rule-chain.png[Inference with rule chaining, role=framed, width = 75%, link=self]
 
