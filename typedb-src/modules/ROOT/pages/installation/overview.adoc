@@ -1,2 +1,53 @@
 = Installation
 
+include::home::overview.adoc[tag=rust-rewrite]
+
+== TypeDB
+
+Server-side database management software.
+
+[cols-3]
+--
+.xref:typedb::installation/core.adoc[TypeDB Core]
+[.clickable]
+****
+The open-source edition of TypeDB.
+****
+
+.xref:typedb::installation/cloud.adoc[]
+[.clickable]
+****
+Cloud service by Vaticle.
+****
+
+.xref:typedb::installation/cloud-self-deployment.adoc[TypeDB Cloud (on premise)]
+[.clickable]
+****
+On premise solution for TypeDB Cloud.
+****
+--
+
+== TypeDB clients
+
+Client-side software able to connect to TypeDB.
+
+[cols-1]
+--
+.xref:typedb::installation/studio.adoc[]
+[.clickable]
+****
+An Integrated Development Environment (IDE) that facilitates the development process for TypeDB databases.
+****
+
+.xref:typedb::installation/console.adoc[]
+[.clickable]
+****
+A powerful CLI tool able to work in interactive(REPL) and non-interactive (script) modes.
+****
+
+.xref:typedb::installation/drivers.adoc[]
+[.clickable]
+****
+Libraries that implement TypeDB protocol and provide native driver API for programmatic access to TypeDB.
+****
+--

@@ -4,7 +4,8 @@
 
 * xref:typedb::installation/overview.adoc[]
 ** xref:typedb::installation/cloud.adoc[]
-** xref:typedb::installation/core.adoc[]
+** xref:typedb::installation/cloud-self-deployment.adoc[TypeDB Cloud (on premises)]
+** xref:typedb::installation/core.adoc[TypeDB Core]
 ** xref:typedb::installation/studio.adoc[]
 ** xref:typedb::installation/console.adoc[]
 ** xref:typedb::installation/drivers.adoc[]
