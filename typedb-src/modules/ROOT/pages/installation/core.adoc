@@ -4,18 +4,17 @@
 
 TypeDB Core can be installed in multiple ways:
 
-* <<_via_docker,Docker>>
+* <<_docker,Docker>>
 * <<_package,Package manager>>
 * <<_manual,Manual install>>
 
-[#_via_docker]
-== Via Docker
+[#_docker]
+== Docker
 
 include::home::partial$docker.adoc[tag=install]
 
-[#_install]
 [#_package]
-== Via package manager
+== Package manager
 
 [tabs]
 ====
@@ -43,8 +42,7 @@ No package manager option is available for Windows. See the <<_manual>> section 
 [#_manual]
 == Manual install
 
-Download the latest version of TypeDB Core from the table below
-or go to the xref:typedb:resources:releases.adoc[] page for past versions.
+Download the latest version of TypeDB Core from the table below.
 
 [cols="^.^1,^.^1,^.^1,^.^1",caption="",options="header"]
 |===
@@ -52,6 +50,8 @@ or go to the xref:typedb:resources:releases.adoc[] page for past versions.
 
 include::typedb:resources:partial$latest-version.adoc[]
 |===
+
+For all versions, see the xref:typedb:resources:releases.adoc[] page.
 
 [tabs]
 ====
