@@ -132,14 +132,14 @@ docker exec -ti typedb-cloud bash -c '/opt/typedb-cloud-all-linux-x86_64/typedb 
 While it's possible to run TypeDB Cloud in a single-server mode, a highly available and fault-tolerant
 production-grade setup includes setting up multiple servers to connect and form a cluster.
 At any given point in time, one of those servers acts as a
-xref:typedb::managing/ha.adoc#_primary_replica_failover[leader] and the others are followers.
+xref:typedb::managing/ha.adoc#_primary_replica_failover[leader,] and the others are followers.
 Increasing the number of servers increases the
 cluster's tolerance to failure: to tolerate N servers failing, a cluster needs to consist of `2N + 1` servers.
 This section describes how you can set up a 3-server cluster (in this case,
 one server can fail with no data loss).
 
 Each TypeDB Cloud server in a cluster binds to three ports:
-a client port which TypeDB drivers connect to (`1729` by default), and two server ports
+a client port that TypeDB drivers connect to (`1729` by default) and two server ports
 (`1730` and `1731`) for server-to-server communication.
 
 For this tutorial, it's assumed that all three servers are on the same virtual network, have the relevant ports open,

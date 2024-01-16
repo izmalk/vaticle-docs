@@ -8,22 +8,22 @@ Server-side database management software.
 
 [cols-3]
 --
-.xref:guides::installation/core.adoc[TypeDB Core]
-[.clickable]
-****
-The open-source edition of TypeDB.
-****
-
-.xref:guides::installation/cloud.adoc[]
+.xref:guides::installation/cloud.adoc[TypeDB Cloud (DBaaS)]
 [.clickable]
 ****
 Cloud service by Vaticle.
 ****
 
-.xref:guides::installation/cloud-self-deployment.adoc[TypeDB Cloud (on premise)]
+.xref:guides::installation/cloud-self-deployment.adoc[Self-deployed TypeDB Cloud (on premise)]
 [.clickable]
 ****
 On premise solution for TypeDB Cloud.
+****
+
+.xref:guides::installation/core.adoc[TypeDB Core]
+[.clickable]
+****
+The open-source edition of TypeDB.
 ****
 --
 

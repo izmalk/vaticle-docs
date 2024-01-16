@@ -3,12 +3,12 @@
 * xref:guides::overview.adoc[Overview]
 
 * xref:guides::installation/overview.adoc[]
-** xref:guides::installation/cloud.adoc[]
-** xref:guides::installation/cloud-self-deployment.adoc[TypeDB Cloud (on premises)]
+** xref:guides::installation/cloud.adoc[TypeDB Cloud (DBaaS)]
+** xref:guides::installation/cloud-self-deployment.adoc[Self-deployed TypeDB Cloud (on premise)]
 ** xref:guides::installation/core.adoc[TypeDB Core]
-** xref:guides::installation/studio.adoc[]
-** xref:guides::installation/console.adoc[]
-** xref:guides::installation/drivers.adoc[]
+** xref:guides::installation/studio.adoc[TypeDB Studio]
+** xref:guides::installation/console.adoc[TypeDB Console]
+** xref:guides::installation/drivers.adoc[TypeDB driver]
 
 * xref:guides::connection/overview.adoc[]
 ** xref:guides::connection/studio.adoc[]
