@@ -1,0 +1,58 @@
+= Guides overview
+:keywords: typedb, documentation, docs, overview, introduction, outline, structure
+:pageTitle: Documentation overview
+:summary: A birds-eye view of TypeQL and TypeDB
+
+Welcome to the TypeDB technical documentation.
+
+[cols-2]
+--
+.xref:guides::installation/overview.adoc[]
+[.clickable]
+****
+* xref:guides::installation/cloud.adoc[TypeDB Cloud (DBaaS)]
+* xref:guides::installation/cloud-self-deployment.adoc[TypeDB Cloud (on premise)]
+* xref:guides::installation/core.adoc[TypeDB Core]
+* xref:guides::installation/studio.adoc[TypeDB Studio]
+* xref:guides::installation/console.adoc[TypeDB Console]
+* xref:guides::installation/drivers.adoc[TypeDB drivers]
+****
+
+.xref:guides::connection/overview.adoc[]
+[.clickable]
+****
+TypeQL query types and basic syntax.
+****
+
+.xref:guides::schema/overview.adoc[]
+[.clickable]
+****
+Pattern matching and polymorphism.
+****
+
+.xref:guides::data/overview.adoc[]
+[.clickable]
+****
+Transaction safety and schema integrity.
+****
+
+.xref:guides::reasoning/overview.adoc[]
+[.clickable]
+****
+Pattern matching and polymorphism.
+****
+
+.xref:guides::configuration/overview.adoc[]
+[.clickable]
+****
+Transaction safety and schema integrity.
+****
+--
+
+== Where to go from here?
+
+//What is TypeDB? See the xref:introduction.adoc[] page.
+
+xref:home:ROOT:install.adoc[Install] TypeDB and use xref:home::quickstart.adoc[] to try it yourself.
+
+Check the xref:home::25-queries.adoc[] page for more interesting queries.

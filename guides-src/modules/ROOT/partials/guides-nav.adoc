@@ -1,0 +1,43 @@
+// TypeDB - Guides
+.Guides
+* xref:guides::overview.adoc[Overview]
+
+* xref:guides::installation/overview.adoc[]
+** xref:guides::installation/cloud.adoc[]
+** xref:guides::installation/cloud-self-deployment.adoc[TypeDB Cloud (on premises)]
+** xref:guides::installation/core.adoc[TypeDB Core]
+** xref:guides::installation/studio.adoc[]
+** xref:guides::installation/console.adoc[]
+** xref:guides::installation/drivers.adoc[]
+
+* xref:guides::connection/overview.adoc[]
+** xref:guides::connection/studio.adoc[]
+** xref:guides::connection/console.adoc[]
+** xref:guides::connection/drivers-cloud.adoc[]
+** xref:guides::connection/drivers-core.adoc[]
+
+* xref:guides::schema/overview.adoc[]
+** xref:guides::schema/define.adoc[]
+** xref:guides::schema/undefine.adoc[]
+** xref:guides::schema/modify-studio.adoc[]
+** xref:guides::schema/modify-drivers.adoc[]
+
+* xref:guides::data/overview.adoc[]
+** xref:guides::data/insert.adoc[]
+** xref:guides::data/delete.adoc[]
+** xref:guides::data/update.adoc[]
+** xref:guides::data/fetch.adoc[]
+** xref:guides::data/get.adoc[]
+** xref:guides::data/api.adoc[]
+
+* xref:guides::reasoning/overview.adoc[]
+** xref:guides::reasoning/rules.adoc[]
+** xref:guides::reasoning/reasoning.adoc[]
+
+* xref:guides::configuration/overview.adoc[]
+** xref:guides::configuration/config.adoc[]
+** xref:guides::configuration/arguments.adoc[]
+** xref:guides::configuration/logs.adoc[]
+** xref:guides::configuration/export.adoc[]
+** xref:guides::configuration/upgrades.adoc[]
+** xref:guides::configuration/users.adoc[]
