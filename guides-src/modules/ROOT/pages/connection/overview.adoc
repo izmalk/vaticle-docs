@@ -1,7 +1,16 @@
 = Connection
 
-To connect to TypeDB, you can use any TypeDB client.
-See below guides on how to connect with different clients and drivers.
+//To connect to TypeDB, you can use any TypeDB client or driver.
+See below practical guides on how to connect to TypeDB with different clients and drivers.
+
+////
+TypeDB clients are able to connect to TypeDB via gRPC based TypeDB protocol and provide an interface for using them.
+Among TypeDB clients, there are libraries called TypeDB drivers,
+that provide driver API for native programmatic access to TypeDB.
+
+All TypeDB clients are able to connect to TypeDB, use encryption and authentication, manage sessions and transactions,
+use high availability and load-balancing features, send any valid TypeQL queries, and stream responses.
+////
 
 [cols-1]
 --
