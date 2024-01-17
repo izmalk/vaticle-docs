@@ -1,11 +1,12 @@
 = TypeDB Studio connection guide
 :experimental:
 
-TypeDB Studio is an IDE designed specifically for TypeDB.
+This guide covers connecting to a TypeDB deployment with TypeDB Studio.
+Make sure TypeDB Studio is xref:guides::installation/studio.adoc[installed].
 
 == Run
 
-TypeDB Studio is a standalone TypeDB client with GUI that needs to be launched separately from a TypeDB server.
+TypeDB Studio is an IDE and a standalone TypeDB client with GUI that needs to be launched separately from a TypeDB server.
 To launch TypeDB Studio, locate its binary file and run it.
 
 [#_connect_to_typedb]

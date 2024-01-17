@@ -1,5 +1,7 @@
 = TypeDB Console connection guide
 
+This guide covers connecting to a TypeDB deployment with TypeDB Console.
+
 == Run
 
 To run TypeDB Console, use the following command:
@@ -12,15 +14,14 @@ typedb console
 
 By default, TypeDB Console tries to connect to a TypeDB Core server located at `localhost:1729`.
 
-If a path to TypeDB Console binary is not set in your system, you can run it manually,
-by navigating to its directory and using the following command:
+To run a specific TypeDB Console binary or without installing it into your system,
+navigate to a directory with extracted TypeDB Console files and run:
 
 .Run TypeDB Console from current directory
 [,bash]
 ----
 ./typedb console
 ----
-
 
 == Connect to TypeDB
 

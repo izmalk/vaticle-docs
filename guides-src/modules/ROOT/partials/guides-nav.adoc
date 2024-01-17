@@ -11,10 +11,10 @@
 ** xref:guides::installation/drivers.adoc[TypeDB driver]
 
 * xref:guides::connection/overview.adoc[]
-** xref:guides::connection/studio.adoc[]
-** xref:guides::connection/console.adoc[]
-** xref:guides::connection/drivers-cloud.adoc[]
-** xref:guides::connection/drivers-core.adoc[]
+** xref:guides::connection/studio.adoc[Studio]
+** xref:guides::connection/console.adoc[Console]
+//** xref:guides::connection/drivers-cloud.adoc[]
+** xref:guides::connection/drivers.adoc[Drivers]
 
 * xref:guides::schema/overview.adoc[]
 ** xref:guides::schema/define.adoc[]

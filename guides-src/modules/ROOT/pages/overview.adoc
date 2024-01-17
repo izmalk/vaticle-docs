@@ -24,8 +24,8 @@ See the full selection of our how-to guides below.
 ****
 * xref:guides::connection/studio.adoc[TypeDB Studio]
 * xref:guides::connection/console.adoc[TypeDB Console]
-* xref:guides::connection/drivers-cloud.adoc[Drivers to TypeDB Cloud]
-* xref:guides::connection/drivers-core.adoc[Drivers to TypeDB Core]
+//* xref:guides::connection/drivers-cloud.adoc[Drivers to TypeDB Cloud]
+* xref:guides::connection/drivers.adoc[Drivers]
 ****
 
 .xref:guides::schema/overview.adoc[]
