@@ -1,4 +1,4 @@
-= Connection
+= Connection guides
 
 //To connect to TypeDB, you can use any TypeDB client or driver.
 See below practical guides on how to connect to TypeDB with different clients and drivers.
@@ -12,28 +12,28 @@ All TypeDB clients are able to connect to TypeDB, use encryption and authenticat
 use high availability and load-balancing features, send any valid TypeQL queries, and stream responses.
 ////
 
-[cols-1]
+[cols-2]
 --
-.xref:guides::connection/studio.adoc[TypeDB Studio connection guide]
+.xref:guides::connection/studio.adoc[TypeDB Studio]
 [.clickable]
 ****
 A step-by-step guide on how to run and connect TypeDB Studio to TypeDB Cloud or Core.
 ****
 //Integrated developer environment (IDE) with database manager, type browser, type editor, text editor, and file browser.
 
-.xref:connection/console.adoc[TypeDB Console connection guide]
+.xref:connection/console.adoc[TypeDB Console]
 [.clickable]
 ****
 A step-by-step guide on how to run and connect TypeDB Console to TypeDB Cloud or Core.
 ****
 
-.xref:guides::connection/drivers-cloud.adoc[TypeDB driver to TypeDB Cloud connection guide]
+.xref:guides::connection/drivers-cloud.adoc[TypeDB drivers to TypeDB Cloud]
 [.clickable]
 ****
 A step-by-step guide on how to use TypeDB drivers to connect to TypeDB Cloud.
 ****
 
-.xref:guides::connection/drivers-core.adoc[TypeDB driver to TypeDB Core connection guide]
+.xref:guides::connection/drivers-core.adoc[TypeDB drivers to TypeDB Core]
 [.clickable]
 ****
 A step-by-step guide on how to use TypeDB drivers to connect to TypeDB Core.

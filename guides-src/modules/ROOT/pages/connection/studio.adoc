@@ -50,9 +50,8 @@ image::home::studio-connect-core.png[TypeDB Studio connect window, width = 75%, 
 [#_select_database]
 == Select a database
 
-Select a database to work with the dropdown menu on the right from the database icon
-(image:home::studio-icons/database.png[])
-in the top toolbar or xref:typedb::connecting/studio.adoc#_create_a_database[create] a new one.
+To select a database to work with, use the dropdown menu on the right from the database icon
+(image:home::studio-icons/database.png[]) in the top toolbar.
 
 If the dropdown menu is greyed out and unresponsive, then check your <<_connect_to_typedb,connection>> to TypeDB.
 
