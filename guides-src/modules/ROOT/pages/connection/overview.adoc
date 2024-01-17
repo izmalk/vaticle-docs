@@ -1,7 +1,7 @@
 = Connection
 
-To connect to TypeDB you can use any TypeDB client.
-See below guides on connecting with different clients and drivers.
+To connect to TypeDB, you can use any TypeDB client.
+See below guides on how to connect with different clients and drivers.
 
 [cols-1]
 --
