@@ -24,6 +24,7 @@ For more information on how to create a new database, see the xref:guides::datab
 The following instructions are written with the assumption that a connection to TypeDB is already established.
 For a connection guide, see the xref:guides::connection/overview.adoc[] section.
 
+//#todo Consider removing TypeQL query and query method from examples
 [tabs]
 ====
 Studio::
@@ -32,7 +33,20 @@ Studio::
 . Select a database from a drop-down list in the top toolbar next to the database icon
 image:home::studio-icons/database.png[].
 . Switch to the `schema` session and `write` transaction types in the top toolbar.
-. Open a `.tql` file with a schema query to run or copy-paste a Define query to a new tab of the text editor panel.
+. Copy-paste the following Define query to a new tab of the text editor panel:
++
+.Define schema query
+[,typeql]
+----
+define
+credential sub attribute, value string;
+full-name sub attribute, value string;
+subject sub entity,
+    abstract,
+    owns credential;
+user sub subject;
+person sub user, owns full-name;
+----
 . Execute the query by clicking on the btn:[Run Query] (image:home::studio-icons/run.png[]) button.
 . Commit the changes with the btn:[Commit transaction] (image:home::studio-icons/commit.png[]) button.
 --
@@ -48,7 +62,20 @@ transaction db1 schema write
 ----
 +
 Where `db1` is the name of the database selected.
-. Copy-paste a Define query to the terminal and push btn:[Enter] *twice*.
+. Copy-paste the following Define query to the terminal and push btn:[Enter] *twice*:
++
+.Define schema query
+[,typeql]
+----
+define
+credential sub attribute, value string;
+full-name sub attribute, value string;
+subject sub entity,
+    abstract,
+    owns credential;
+user sub subject;
+person sub user, owns full-name;
+----
 . Commit the changes made in the transaction:
 +
 [,bash]
@@ -63,19 +90,21 @@ Rust::
 .Define schema query
 [,rust]
 ----
-
-let typeql_define_query = "define
-                        credential sub attribute, value string;
-                        full-name sub attribute, value string;
-                        subject sub entity,
-                            abstract,
-                            owns credential;
-                        user sub subject;
-                        person sub user, owns full-name;";
-tx.query().define(&typeql_define_query).resolve()?;
+let query = "define
+    credential sub attribute, value string;
+    full-name sub attribute, value string;
+    subject sub entity,
+        abstract,
+        owns credential;
+    user sub subject;
+    person sub user, owns full-name;";
+let databases = DatabaseManager::new(driver);
+let db = databases.get("db1")?;
+let session = Session::new(db, SessionType::Schema)?;
+let tx = session.transaction(TransactionType::Write)?;
+tx.query().define(&query).resolve()?;
 tx.commit().resolve()?;
 ----
-//#todo Add session and transaction management?
 --
 
 Python::
@@ -84,16 +113,18 @@ Python::
 .Define schema query
 [,python]
 ----
-typeql_define_query = "define" \
-                    "credential sub attribute, value string; " \
-                    "full-name sub attribute, value string; " \
-                    "subject sub entity," \
-                    "    abstract," \
-                    "    owns credential;" \
-                    "user sub subject;" \
-                    "person sub user, owns full-name;"
-transaction.query.define(typeql_define_query)
-transaction.commit()
+query = "define" \
+        "credential sub attribute, value string; " \
+        "full-name sub attribute, value string; " \
+        "subject sub entity," \
+        "    abstract," \
+        "    owns credential;" \
+        "user sub subject;" \
+        "person sub user, owns full-name;"
+with driver.session("db1", SessionType.SCHEMA) as session:
+    with session.transaction(TransactionType.WRITE) as transaction:
+        transaction.query.define(query)
+        transaction.commit()
 ----
 --
 
@@ -103,18 +134,22 @@ Java::
 .Define schema query
 [,java]
 ----
-String typeqlDefineQuery = """
-                        define
-                        credential sub attribute, value string;
-                        full-name sub attribute, value string;
-                        subject sub entity,
-                            abstract,
-                            owns credential;
-                        user sub subject;
-                        person sub user, owns full-name;
-                        """;
-writeTransaction.query().define(typeqlDefineQuery);
-writeTransaction.commit();
+String query = """
+                define
+                credential sub attribute, value string;
+                full-name sub attribute, value string;
+                subject sub entity,
+                    abstract,
+                    owns credential;
+                user sub subject;
+                person sub user, owns full-name;
+                """;
+try (TypeDBSession session = driver.session("db1", TypeDBSession.Type.SCHEMA)) {
+    try (TypeDBTransaction writeTransaction = session.transaction(TypeDBTransaction.Type.WRITE)) {
+        writeTransaction.query().define(query);
+        writeTransaction.commit();
+    }
+}
 ----
 --
 
@@ -124,30 +159,62 @@ Node.js::
 .Define schema query
 [,js]
 ----
-const typeql_define_query = `define
-                            credential sub attribute, value string;
-                            full-name sub attribute, value string;
-                            subject sub entity,
-                                abstract,
-                                owns credential;
-                            user sub subject;
-                            person sub user, owns full-name;
-                            `;
-await transaction.query.define(typeql_define_query);
-await transaction.commit();
+const query = `define
+                credential sub attribute, value string;
+                full-name sub attribute, value string;
+                subject sub entity,
+                    abstract,
+                    owns credential;
+                user sub subject;
+                person sub user, owns full-name;
+                `;
+try {
+    session = await driver.session("db1", SessionType.SCHEMA);
+    try {
+        transaction = await session.transaction(TransactionType.WRITE);
+        await transaction.query.define(query);
+        await transaction.commit();
+    }
+    finally {
+        if (transaction.isOpen()) {await transaction.close()};
+    }
+}
+finally {
+    await session?.close();
+}
+----
+--
+
+C++::
++
+--
+.Define schema query
+[,js]
+----
+std::string query ="define\n"
+                    "\n"
+                    "id sub attribute, value long;\n"
+                    "email sub attribute, value string;\n"
+                    "full-name sub attribute, value string;\n"
+                    "user sub entity,\n"
+                    "    owns id @key,\n"
+                    "    owns email,\n"
+                    "    abstract;\n"
+                    "person sub user, owns full-name;";
+TypeDB::Options options;
+{
+    auto session = driver.session("db1", TypeDB::SessionType::SCHEMA, options);
+    auto tx = session.transaction(TypeDB::TransactionType::WRITE, options);
+    tx.query.define(query, options).get();
+    tx.commit();
+}
 ----
 --
 ====
 
-== Transaction control
-
-
-
-
 == Learn more
 
-After you have defined a schema, you can use
-xref:guides::data/overview.adoc[] queries.
+Send more queries: xref:guides::schema/define.adoc[Define] and xref:guides::schema/undefine.adoc[Undefine].
 
 If you don't have your own schema ready yet, feel free to use the
 https://github.com/vaticle/typedb-docs/blob/master/typedb-src/modules/ROOT/attachments/iam-schema.tql[IAM schema,window=_blank].
