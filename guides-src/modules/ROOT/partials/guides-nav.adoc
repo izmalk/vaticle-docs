@@ -17,9 +17,9 @@
 ** xref:guides::connection/drivers.adoc[Drivers]
 
 * xref:guides::database/overview.adoc[]
-** xref:guides::database/studio.adoc[]
-** xref:guides::database/console.adoc[]
-** xref:guides::database/drivers.adoc[]
+** xref:guides::database/studio.adoc[Studio]
+** xref:guides::database/console.adoc[Console]
+** xref:guides::database/drivers.adoc[Drivers]
 
 * xref:guides::schema/overview.adoc[]
 ** xref:guides::schema/sending-query.adoc[]
