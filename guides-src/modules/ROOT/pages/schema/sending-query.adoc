@@ -1,58 +1,54 @@
-= Define query guide
-:Summary: How to define a schema for a TypeDB database.
-:keywords: typedb, typeql, schema, define, query, send, run, execute
-:pageTitle: Define query guide
+= Sending a schema query
 :experimental:
 
-This guide covers defining a schema of a TypeDB database.
-Before proceeding,
-make sure you have xref:guides::installation/overview.adoc[installed] TypeDB and one of the TypeDB clients
-and have read xref:guides::connection/overview.adoc[how to connect] with the chosen client.
+This guide covers sending a query in a schema session and write transaction with TypeDB Studio, Console, or drivers.
+Make sure the selected client is xref:guides::installation/overview.adoc[installed].
 
-== Define query
+== Query execution workflow
 
-To define a schema of a database, use a xref:typeql::schema/define.adoc[Define query] written in TypeQL.
+To send a schema query, we need to open a `schema` session to an existing database, and then open a `write` transaction.
+After successful execution of the query, the transaction must be committed to persist the changes made to the schema.
+See the full process outline below.
 
-[#_example]
-.Define query example
-[,typeql]
-----
-define
+. Establish network connection to TypeDB. See the xref:guides::connection/overview.adoc[] section.
+. Open a `schema` session.
+. Open a `write` transaction.
+. Send a query for execution.
+. Commit changes.
+. Close the session.
 
-credential sub attribute, value string;
-full-name sub attribute, value string;
+For more information on how to create a new database, see the xref:guides::database/overview.adoc[] section.
 
-subject sub entity,
-    abstract,
-    owns credential;
-user sub subject;
-person sub user, owns full-name;
-----
+== How to send a schema query
 
-The above example creates two attribute types and three entity types.
-To be able to insert data with these types in mind,
-you need to send this Define query to TypeDB and commit the transaction.
-A Define query is validated for syntax, and the resulted schema is validated for consistency.
-
-== How to send a Define query
-[#_send_define_query]
-
-To send a query to TypeDB, use any TypeDB client: TypeDB Studio, TypeDB Console, or language-specific drivers.
-Select a TypeDB client, and send the above query example, using the instructions provided below.
+The following instructions are written with the assumption that a connection to TypeDB is already established.
+For a connection guide, see the xref:guides::connection/overview.adoc[] section.
 
 [tabs]
 ====
+Studio::
++
+--
+. Select a database from a drop-down list in the top toolbar next to the database icon
+image:home::studio-icons/database.png[].
+. Switch to the `schema` session and `write` transaction types in the top toolbar.
+. Open a `.tql` file with a schema query to run or copy-paste a Define query to a new tab of the text editor panel.
+. Execute the query by clicking on the btn:[Run Query] (image:home::studio-icons/run.png[]) button.
+. Commit the changes with the btn:[Commit transaction] (image:home::studio-icons/commit.png[]) button.
+--
+
 Console::
 +
 --
-. xref:typedb::connecting/console.adoc#_connect_to_typedb[Connect to TypeDB].
-. Open a `schema` session and `write` transaction to a new/empty database, for example:
+. Open a `schema` session and `write` transaction to a database, for example:
 +
 [,bash]
 ----
 transaction db1 schema write
 ----
-. Copy-paste the <<_example,query example>> above and push btn:[Enter] *twice*.
++
+Where `db1` is the name of the database selected.
+. Copy-paste a Define query to the terminal and push btn:[Enter] *twice*.
 . Commit the changes made in the transaction:
 +
 [,bash]
@@ -61,25 +57,13 @@ commit
 ----
 --
 
-Studio::
-+
---
-. xref:guides::connection/studio.adoc[Connect to TypeDB] and
-xref:guides::connection/studio.adoc#_select_a_project_directory[select a project directory].
-. Select a new/empty database from a drop-down list in the top toolbar next to the database icon
-image:home::studio-icons/database.png[].
-. Switch to the `schema` session and `write` transaction types in the top toolbar.
-. Create a new tab in TypeDB Studio text editor, copy-paste the <<_example,query example>> above.
-. Execute the query by clicking on the btn:[Run Query] (image:home::studio-icons/run.png[]) button.
-. Commit the changes with the btn:[Commit transaction] (image:home::studio-icons/commit.png[]) button.
---
-
 Rust::
 +
 --
 .Define schema query
 [,rust]
 ----
+
 let typeql_define_query = "define
                         credential sub attribute, value string;
                         full-name sub attribute, value string;
@@ -154,6 +138,11 @@ await transaction.commit();
 ----
 --
 ====
+
+== Transaction control
+
+
+
 
 == Learn more
 

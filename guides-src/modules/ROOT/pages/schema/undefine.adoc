@@ -1,1 +1,1 @@
-= Undefine query
+= Undefine query guide
