@@ -1,4 +1,4 @@
-= Drivers
+= Database management with Drivers
 :tabs-sync-option:
 
 This guide covers database management operations, like creating, listing, and deleting databases with Drivers.
