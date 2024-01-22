@@ -27,14 +27,6 @@ A step-by-step guide on how to run and connect TypeDB Studio to TypeDB Cloud or 
 A step-by-step guide on how to run and connect TypeDB Console to TypeDB Cloud or Core.
 ****
 
-////
-.xref:guides::connection/drivers-cloud.adoc[TypeDB drivers to TypeDB Cloud]
-[.clickable]
-****
-A step-by-step guide on how to use TypeDB drivers to connect to TypeDB Cloud.
-****
-////
-
 .xref:guides::connection/drivers.adoc[Drivers]
 [.clickable]
 ****
