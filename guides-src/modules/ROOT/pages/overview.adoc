@@ -97,19 +97,19 @@ See the full selection of our how-to guides below.
 
 [cols-3]
 --
-.xref:guides::database/studio.adoc[TypeDB Studio]
+.xref:guides::queries/studio.adoc[TypeDB Studio]
 [.clickable]
 ****
 
 ****
 
-.xref:guides::database/console.adoc[TypeDB Console]
+.xref:guides::queries/console.adoc[TypeDB Console]
 [.clickable]
 ****
 
 ****
 
-.xref:guides::database/drivers.adoc[Drivers]
+.xref:guides::queries/drivers.adoc[Drivers]
 [.clickable]
 ****
 
@@ -120,19 +120,19 @@ See the full selection of our how-to guides below.
 
 [cols-3]
 --
-.xref:guides::database/studio.adoc[TypeDB Studio]
+.xref:guides::reasoning/studio.adoc[TypeDB Studio]
 [.clickable]
 ****
 
 ****
 
-.xref:guides::database/console.adoc[TypeDB Console]
+.xref:guides::reasoning/console.adoc[TypeDB Console]
 [.clickable]
 ****
 
 ****
 
-.xref:guides::database/drivers.adoc[Drivers]
+.xref:guides::reasoning/drivers.adoc[Drivers]
 [.clickable]
 ****
 

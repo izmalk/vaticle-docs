@@ -26,8 +26,11 @@
 ** xref:guides::queries/drivers.adoc[Drivers]
 
 * xref:guides::reasoning/overview.adoc[]
-** xref:guides::reasoning/rules.adoc[]
-** xref:guides::reasoning/reasoning.adoc[]
+//** xref:guides::reasoning/rules.adoc[]
+//** xref:guides::reasoning/reasoning.adoc[]
+** xref:guides::reasoning/studio.adoc[Studio]
+** xref:guides::reasoning/console.adoc[Console]
+** xref:guides::reasoning/drivers.adoc[Drivers]
 
 * xref:guides::configuration/overview.adoc[]
 ** xref:guides::configuration/config.adoc[]
