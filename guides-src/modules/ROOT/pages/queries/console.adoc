@@ -1,30 +1,62 @@
 = Running queries with TypeDB Console
+:experimental:
 
-. Open a `schema` session and `write` transaction to a database, for example:
+This guide covers sending queries to TypeDB with TypeDB Console.
+TypeDB Console should be xref:guides::installation/console.adoc[installed] and
+xref:guides::connection/console.adoc[connected] to TypeDB Cloud/Core already.
+
+To send a query with TypeDB Console, use the following steps:
+
+. Use the `transaction` keyword with the database name, schema type, and transaction type, for example:
 +
 [,bash]
 ----
 transaction db1 schema write
 ----
 +
-Where `db1` is the name of the database selected.
-. Copy-paste the following Define query to the terminal and push btn:[Enter] *twice*:
+Where `db1` is the name of the database,
+`schema` is the session type,
+`write` is the transaction type.
+. Type in or copy and paste a TypeQL query.
+. Press btn:[Enter] to start a new line.
+. Press btn:[Enter] again to send the query.
+. Either commit the changes or close the transaction:
 +
-.Define schema query
-[,typeql]
-----
-define
-credential sub attribute, value string;
-full-name sub attribute, value string;
-subject sub entity,
-    abstract,
-    owns credential;
-user sub subject;
-person sub user, owns full-name;
-----
-. Commit the changes made in the transaction:
-+
+.Commit changes
 [,bash]
 ----
 commit
 ----
++
+.Close transaction
+[,bash]
+----
+close
+----
+
+[#_using_inference]
+== Using inference
+
+To use inference in a query with TypeDB Console use `--infer true` option when opening a transaction:
+
+[,bash]
+----
+transaction db1 data read --infer true
+----
+
+Where `db1` is the name of the database,
+`data` is the session type,
+`read` is the transaction type (rule-based inference only works in `read` transactions).
+//#todo add inference details and examples links
+
+== Using explanations
+
+Explanations can only be enabled when <<_using_inference,inference>> is on.
+
+To use explanations in a query with TypeDB Console use `--explain true` option when opening a transaction:
+
+[,bash]
+----
+transaction db1 data read --infer true --explain true
+----
+//#todo Add how to use explanations in Console

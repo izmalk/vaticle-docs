@@ -1,7 +1,7 @@
 = Running queries with TypeDB Studio
 :experimental:
 
-This guide covers running queries with TypeDB Studio.
+This guide covers sending queries to TypeDB with TypeDB Studio.
 TypeDB Studio should be xref:guides::installation/studio.adoc[installed] and
 xref:guides::connection/studio.adoc[connected] to TypeDB Cloud/Core already.
 
@@ -23,23 +23,29 @@ For TypeQL query examples, see the xref:home::25-queries.adoc[] page.
 For more information on TypeQL query design and syntax, see the xref:typeql::schema/overview.adoc[] and
 xref:typeql::data/overview.adoc[] pages in the TypeQL documentation.
 
-[#_enable_inference]
-== Enable inference
+[#_using_inference]
+== Using inference
 
-To use inference in a query with TypeDB Studio:
+To use rule-based inference with TypeDB Studio, follow the steps below:
+//#todo add inference details and examples links
 
 . Make sure xref:typeql::schema/overview.adoc[rules are defined] in the schema.
 . Switch to `data` session and `read` transaction types.
 . Toggle on the `infer` button in the top toolbar.
 . Run a query.
 
-//#todo add inference details and examples links
+For a *Get query*, Studio visualizes results in the Graph output tab.
+Results obtained by rule-based inference are highlighted with green color in Studio's graph visualizer.
+To be able to explain inferred results, you need to enable <<_using_explanations,explanations>> first.
 
-== Enable explanations
+[#_using_explanations]
+== Using explanations
 
 Explanations can only be enabled when inference is on.
 
 To use explanations with TypeDB Studio:
 
-1. Enable inference (<<_enable_inference,See above>>).
-2. Toggle on the `snapshot` and then `explain` buttons in the top toolbar.
+. Enable inference (<<_using_inference,See above>>).
+. Toggle on the `snapshot` and then `explain` buttons in the top toolbar.
+. Run a *Get query* that uses inference.
+. Double-click on any inferred result (they are highlighted with green outline).
