@@ -39,7 +39,7 @@ Results obtained by rule-based inference are highlighted with green color in Stu
 To be able to explain inferred results, you need to enable <<_using_explanations,explanations>> first.
 
 [#_using_explanations]
-== Using explanations
+=== Using explanations
 
 Explanations can only be enabled when inference is on.
 

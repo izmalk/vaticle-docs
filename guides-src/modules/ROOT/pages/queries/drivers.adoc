@@ -1,1 +1,261 @@
 = Running queries with TypeDB drivers
+:tabs-sync-option:
+
+This guide covers sending queries to TypeDB with TypeDB drivers.
+TypeDB drivers should be xref:guides::installation/drivers.adoc[installed] and
+xref:guides::connection/drivers.adoc[connected] to TypeDB Cloud/Core already.
+
+Select a TypeDB driver below and see an example of how to send a query:
+
+[tabs]
+====
+Rust::
++
+--
+.Define schema query
+[,rust]
+----
+let query = "define
+    credential sub attribute, value string;
+    full-name sub attribute, value string;
+    subject sub entity,
+        abstract,
+        owns credential;
+    user sub subject;
+    person sub user, owns full-name;";
+let databases = DatabaseManager::new(driver);
+let db = databases.get("db1")?;
+let session = Session::new(db, SessionType::Schema)?;
+let tx = session.transaction(TransactionType::Write)?;
+tx.query().define(&query).resolve()?;
+tx.commit().resolve()?;
+----
+--
+
+Python::
++
+--
+.Define schema query
+[,python]
+----
+query = "define" \
+        "credential sub attribute, value string; " \
+        "full-name sub attribute, value string; " \
+        "subject sub entity," \
+        "    abstract," \
+        "    owns credential;" \
+        "user sub subject;" \
+        "person sub user, owns full-name;"
+with driver.session("db1", SessionType.SCHEMA) as session:
+    with session.transaction(TransactionType.WRITE) as transaction:
+        transaction.query.define(query)
+        transaction.commit()
+----
+--
+
+Java::
++
+--
+.Define schema query
+[,java]
+----
+String query = """
+                define
+                credential sub attribute, value string;
+                full-name sub attribute, value string;
+                subject sub entity,
+                    abstract,
+                    owns credential;
+                user sub subject;
+                person sub user, owns full-name;
+                """;
+try (TypeDBSession session = driver.session("db1", TypeDBSession.Type.SCHEMA)) {
+    try (TypeDBTransaction writeTransaction = session.transaction(TypeDBTransaction.Type.WRITE)) {
+        writeTransaction.query().define(query);
+        writeTransaction.commit();
+    }
+}
+----
+--
+
+Node.js::
++
+--
+.Define schema query
+[,js]
+----
+const query = `define
+                credential sub attribute, value string;
+                full-name sub attribute, value string;
+                subject sub entity,
+                    abstract,
+                    owns credential;
+                user sub subject;
+                person sub user, owns full-name;
+                `;
+try {
+    session = await driver.session("db1", SessionType.SCHEMA);
+    try {
+        transaction = await session.transaction(TransactionType.WRITE);
+        await transaction.query.define(query);
+        await transaction.commit();
+    }
+    finally {
+        if (transaction.isOpen()) {await transaction.close()};
+    }
+}
+finally {
+    await session?.close();
+}
+----
+--
+
+C++::
++
+--
+.Define schema query
+[,cpp]
+----
+std::string query ="define\n"
+                    "\n"
+                    "id sub attribute, value long;\n"
+                    "email sub attribute, value string;\n"
+                    "full-name sub attribute, value string;\n"
+                    "user sub entity,\n"
+                    "    owns id @key,\n"
+                    "    owns email,\n"
+                    "    abstract;\n"
+                    "person sub user, owns full-name;";
+TypeDB::Options options;
+{
+    auto session = driver.session("db1", TypeDB::SessionType::SCHEMA, options);
+    auto tx = session.transaction(TypeDB::TransactionType::WRITE, options);
+    tx.query.define(query, options).get();
+    tx.commit();
+}
+----
+--
+====
+
+[#_using_inference]
+== Using inference
+
+To use inference in a query with TypeDB drivers set the `infer` option to `true` when opening a read transaction:
+
+[tabs]
+====
+Rust::
++
+--
+.Read transaction with inference
+[,rust]
+----
+let tx = session.transaction_with_options(TransactionType::Read, Options::new().infer(true))?;
+----
+--
+
+Python::
++
+--
+.Read transaction with inference
+[,python]
+----
+with session.transaction(TransactionType.READ, TypeDBOptions(infer=True)) as transaction:
+----
+--
+
+Java::
++
+--
+.Read transaction with inference
+[,java]
+----
+try (TypeDBTransaction readTransaction = session.transaction(TypeDBTransaction.Type.READ, new TypeDBOptions().infer(true))) {...}
+----
+--
+
+Node.js::
++
+--
+.Read transaction with inference
+[,js]
+----
+let options = new TypeDBOptions();
+options.infer = true;
+transaction = await session.transaction(TransactionType.READ, options);
+----
+--
+
+C++::
++
+--
+.Read transaction with inference
+[,cpp]
+----
+auto tx = session.transaction(TypeDB::TransactionType::READ, options.infer(true));
+----
+--
+====
+
+=== Using explanations
+
+Explanations can only be enabled when <<_using_inference,inference>> is on.
+
+To use explanations in a query with TypeDB Console use `--explain true` option when opening a transaction:
+
+[tabs]
+====
+Rust::
++
+--
+.Read transaction with inference
+[,rust]
+----
+let tx = session.transaction_with_options(TransactionType::Read, Options::new().infer(true).explain(true))?;
+----
+--
+
+Python::
++
+--
+.Read transaction with inference
+[,python]
+----
+with session.transaction(TransactionType.READ, TypeDBOptions(infer=True,explain=True)) as transaction:
+----
+--
+//#todo (WIP)
+
+Java::
++
+--
+.Read transaction with inference
+[,java]
+----
+try (TypeDBTransaction readTransaction = session.transaction(TypeDBTransaction.Type.READ, new TypeDBOptions().infer(true))) {...}
+----
+--
+
+Node.js::
++
+--
+.Read transaction with inference
+[,js]
+----
+let options = new TypeDBOptions();
+options.infer = true;
+transaction = await session.transaction(TransactionType.READ, options);
+----
+--
+
+C++::
++
+--
+.Read transaction with inference
+[,cpp]
+----
+auto tx = session.transaction(TypeDB::TransactionType::READ, options.infer(true));
+----
+--
+====
+//#todo Add how to use explanations in Console

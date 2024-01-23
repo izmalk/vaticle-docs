@@ -49,7 +49,7 @@ Where `db1` is the name of the database,
 `read` is the transaction type (rule-based inference only works in `read` transactions).
 //#todo add inference details and examples links
 
-== Using explanations
+=== Using explanations
 
 Explanations can only be enabled when <<_using_inference,inference>> is on.
 
