@@ -6,6 +6,182 @@
 Welcome to the Guides category of the TypeDB documentation.
 See the full selection of our how-to guides below.
 
+== Installation guides
+
+[cols-3]
+--
+.xref:guides::installation/cloud.adoc[TypeDB Cloud (DBaaS)]
+[.clickable]
+****
+
+****
+
+.xref:guides::installation/cloud-self-deployment.adoc[TypeDB Cloud (on premise)]
+[.clickable]
+****
+
+****
+
+.xref:guides::installation/core.adoc[TypeDB Core]
+[.clickable]
+****
+
+****
+
+.xref:guides::installation/studio.adoc[TypeDB Studio]
+[.clickable]
+****
+
+****
+
+.xref:guides::installation/console.adoc[TypeDB Console]
+[.clickable]
+****
+
+****
+
+.xref:guides::installation/drivers.adoc[TypeDB drivers]
+[.clickable]
+****
+
+****
+--
+
+== Connection guides
+
+[cols-3]
+--
+.xref:guides::connection/studio.adoc[TypeDB Studio]
+[.clickable]
+****
+
+****
+
+.xref:guides::connection/console.adoc[TypeDB Console]
+[.clickable]
+****
+
+****
+
+.xref:guides::connection/drivers.adoc[Drivers]
+[.clickable]
+****
+
+****
+--
+
+== Database management
+
+[cols-3]
+--
+.xref:guides::database/studio.adoc[TypeDB Studio]
+[.clickable]
+****
+
+****
+
+.xref:guides::database/console.adoc[TypeDB Console]
+[.clickable]
+****
+
+****
+
+.xref:guides::database/drivers.adoc[Drivers]
+[.clickable]
+****
+
+****
+--
+
+== Running queries
+
+[cols-3]
+--
+.xref:guides::database/studio.adoc[TypeDB Studio]
+[.clickable]
+****
+
+****
+
+.xref:guides::database/console.adoc[TypeDB Console]
+[.clickable]
+****
+
+****
+
+.xref:guides::database/drivers.adoc[Drivers]
+[.clickable]
+****
+
+****
+--
+
+== Rules and reasoning
+
+[cols-3]
+--
+.xref:guides::database/studio.adoc[TypeDB Studio]
+[.clickable]
+****
+
+****
+
+.xref:guides::database/console.adoc[TypeDB Console]
+[.clickable]
+****
+
+****
+
+.xref:guides::database/drivers.adoc[Drivers]
+[.clickable]
+****
+
+****
+--
+
+== Configuration
+
+[cols-3]
+--
+.xref:guides::configuration/config.adoc[]
+[.clickable]
+****
+
+****
+
+.xref:guides::configuration/arguments.adoc[]
+[.clickable]
+****
+
+****
+
+.xref:guides::configuration/logs.adoc[]
+[.clickable]
+****
+
+****
+
+.xref:guides::configuration/export.adoc[]
+[.clickable]
+****
+
+****
+
+.xref:guides::configuration/upgrades.adoc[]
+[.clickable]
+****
+
+****
+
+.xref:guides::configuration/users.adoc[]
+[.clickable]
+****
+
+****
+--
+
+////
+
 [cols-2]
 --
 .xref:guides::installation/overview.adoc[]
@@ -66,10 +242,4 @@ See the full selection of our how-to guides below.
 ****
 --
 
-== Where to go from here?
-
-//What is TypeDB? See the xref:introduction.adoc[] page.
-
-xref:home:ROOT:install.adoc[Install] TypeDB and use xref:home::quickstart.adoc[] to try it yourself.
-
-Check the xref:home::25-queries.adoc[] page for more interesting queries.
+////
