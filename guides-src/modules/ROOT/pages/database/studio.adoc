@@ -32,7 +32,3 @@ A full list of databases on a server can be observer in two ways:
 
 * Open Studio's Database manager window by clicking on the database icon image:home::studio-icons/database.png[] in the top toolbar.
 * Open the drop-down list in the top toolbar next to the database icon image:home::studio-icons/database.png[].
-
-== Learn more
-
-After creating a database, see how to define a xref:guides::schema/define.adoc[schema] for it.

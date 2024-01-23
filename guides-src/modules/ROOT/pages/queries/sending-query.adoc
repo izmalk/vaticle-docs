@@ -27,30 +27,6 @@ For a connection guide, see the xref:guides::connection/overview.adoc[] section.
 //#todo Consider removing TypeQL query and query method from examples
 [tabs]
 ====
-Studio::
-+
---
-. Select a database from a drop-down list in the top toolbar next to the database icon
-image:home::studio-icons/database.png[].
-. Switch to the `schema` session and `write` transaction types in the top toolbar.
-. Copy-paste the following Define query to a new tab of the text editor panel:
-+
-.Define schema query
-[,typeql]
-----
-define
-credential sub attribute, value string;
-full-name sub attribute, value string;
-subject sub entity,
-    abstract,
-    owns credential;
-user sub subject;
-person sub user, owns full-name;
-----
-. Execute the query by clicking on the btn:[Run Query] (image:home::studio-icons/run.png[]) button.
-. Commit the changes with the btn:[Commit transaction] (image:home::studio-icons/commit.png[]) button.
---
-
 Console::
 +
 --
@@ -213,8 +189,6 @@ TypeDB::Options options;
 ====
 
 == Learn more
-
-Send more queries: xref:guides::schema/define.adoc[Define] and xref:guides::schema/undefine.adoc[Undefine].
 
 If you don't have your own schema ready yet, feel free to use the
 https://github.com/vaticle/typedb-docs/blob/master/typedb-src/modules/ROOT/attachments/iam-schema.tql[IAM schema,window=_blank].

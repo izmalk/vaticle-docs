@@ -1,1 +1,72 @@
 = Running queries
+
+All queries are validated and then sent by TypeDB clients to TypeDB Cloud/Core via gRPC based protocol.
+To send a query, a client needs to open a session and a transaction first.
+
+== Query execution workflow
+
+The overall process of sending a query is the same with all clients:
+establish a network xref:guides::connection/overview.adoc[connection] to a TypeDB Cloud/Core deployment,
+open a session to a database,
+open a transaction,
+send a query for execution,
+(optional) process the response,
+commit the changes or close the transaction,
+close the session.
+
+The main difference between clients is their session and transaction control,
+as well as an interface used (GUI, CLI, or API).
+For specific guides on how to send a query with a particular TypeDB client,
+see the <<_client_specific_guides_to_running_queries>> section below.
+
+[#_client_specific_guides_to_running_queries]
+== Client-specific guides to running queries
+
+[cols-3]
+--
+.xref:guides::database/studio.adoc[TypeDB Studio]
+[.clickable]
+****
+How to run a query in Studio.
+****
+
+.xref:database/console.adoc[TypeDB Console]
+[.clickable]
+****
+How to run a query in Console.
+****
+
+.xref:guides::database/drivers.adoc[Drivers]
+[.clickable]
+****
+How to run a query with driver API.
+****
+--
+
+== Session and transaction types
+
+To select a session type and a transaction type, see the table below.
+
+.Session and transaction types requirements
+[cols="^.^2,^.^2,^.^2"]
+[options="header"]
+|===
+|Transaction types |Possible query types +
+for a `schema` session |Possible query types +
+for a `data` session
+| `write` transaction
+| xref:typeql::schema/define.adoc[Define] +
+xref:typeql::schema/undefine.adoc[Undefine]
+| xref:typeql::data/insert.adoc[Insert] +
+xref:typeql::data/delete.adoc[Delete] +
+xref:typeql::data/update.adoc[Update]
+| `read` transaction
+| xref:typeql::data/fetch.adoc[Fetch] +
+xref:typeql::data/get.adoc[Get]
+| xref:typeql::data/fetch.adoc[Fetch] +
+xref:typeql::data/get.adoc[Get]
+|===
+
+For specific guides on how to send a query with a particular TypeDB client,
+see the <<_client_specific_guides_to_running_queries>> section above.
+//For more information on how to create a new database, see the xref:guides::database/overview.adoc[] section.

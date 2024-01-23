@@ -40,6 +40,4 @@ To list all databases on a server, run:
 database list
 ----
 
-== Learn more
-
-After creating a database, see how to define a xref:guides::schema/define.adoc[schema] for it.
+//== Learn more

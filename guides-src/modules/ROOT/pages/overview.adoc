@@ -116,29 +116,6 @@ See the full selection of our how-to guides below.
 ****
 --
 
-== Rules and reasoning
-
-[cols-3]
---
-.xref:guides::reasoning/studio.adoc[TypeDB Studio]
-[.clickable]
-****
-
-****
-
-.xref:guides::reasoning/console.adoc[TypeDB Console]
-[.clickable]
-****
-
-****
-
-.xref:guides::reasoning/drivers.adoc[Drivers]
-[.clickable]
-****
-
-****
---
-
 == Configuration
 
 [cols-3]

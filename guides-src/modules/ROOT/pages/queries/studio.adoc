@@ -1,1 +1,45 @@
 = Running queries with TypeDB Studio
+:experimental:
+
+This guide covers running queries with TypeDB Studio.
+TypeDB Studio should be xref:guides::installation/studio.adoc[installed] and
+xref:guides::connection/studio.adoc[connected] to TypeDB Cloud/Core already.
+
+To run a query with TypeDB Studio, use the following steps:
+
+. Select a database from a drop-down list in the top toolbar next to the database icon
+image:home::studio-icons/database.png[].
+. Select the session (`schema`/`data`) and the transaction (`write`/`read`) types in the top toolbar.
+. Open a query file or create a new tab in the text-editor panel and insert/type in a new TypeQL query.
+. Execute a query by clicking on the btn:[Run Query] (image:home::studio-icons/run.png[]) button.
+. For `write` transactions, commit the changes with the
+btn:[Commit Transaction] (image:home::studio-icons/commit.png[]) button,
+or close transaction without persisting changes with the btn:[Close Transaction]
+(image:home::studio-icons/close.png[]).
+
+The response from a query should appear at the bottom of the Studio window.
+
+For TypeQL query examples, see the xref:home::25-queries.adoc[] page.
+For more information on TypeQL query design and syntax, see the xref:typeql::schema/overview.adoc[] and
+xref:typeql::data/overview.adoc[] pages in the TypeQL documentation.
+
+[#_enable_inference]
+== Enable inference
+
+To use inference in a query with TypeDB Studio:
+
+. Make sure xref:typeql::schema/overview.adoc[rules are defined] in the schema.
+. Switch to `data` session and `read` transaction types.
+. Toggle on the `infer` button in the top toolbar.
+. Run a query.
+
+//#todo add inference details and examples links
+
+== Enable explanations
+
+Explanations can only be enabled when inference is on.
+
+To use explanations with TypeDB Studio:
+
+1. Enable inference (<<_enable_inference,See above>>).
+2. Toggle on the `snapshot` and then `explain` buttons in the top toolbar.
