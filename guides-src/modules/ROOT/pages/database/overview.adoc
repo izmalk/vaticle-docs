@@ -10,19 +10,19 @@ See below practical guides on how to manage databases in TypeDB with different c
 .xref:guides::database/studio.adoc[TypeDB Studio]
 [.clickable]
 ****
-A step-by-step guide on how to run and connect TypeDB Studio to TypeDB Cloud or Core.
+A step-by-step guide on how to manage databases with TypeDB Studio.
 ****
 //Integrated developer environment (IDE) with database manager, type browser, type editor, text editor, and file browser.
 
 .xref:database/console.adoc[TypeDB Console]
 [.clickable]
 ****
-A step-by-step guide on how to run and connect TypeDB Console to TypeDB Cloud or Core.
+A guide on how to manage databases with TypeDB Console.
 ****
 
 .xref:guides::database/drivers.adoc[Drivers]
 [.clickable]
 ****
-A step-by-step guide on how to use TypeDB drivers to connect to TypeDB Core.
+A guide on how to manage databases with TypeDB drivers using API.
 ****
 --
