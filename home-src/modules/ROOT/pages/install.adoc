@@ -7,6 +7,8 @@
 :experimental:
 
 // tag::body[]
+This page contains installation instructions for TypeDB Core, Studio, Console, and drivers.
+
 include::home::overview.adoc[tag=rust-rewrite]
 
 == TypeDB Cloud
