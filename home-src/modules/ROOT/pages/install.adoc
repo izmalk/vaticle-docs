@@ -138,6 +138,105 @@ For a Docker container:
 
 include::home::partial$docker.adoc[tag=stop]
 
+[#_studio]
+== TypeDB Studio
+
+TypeDB Studio is an IDE for TypeDB.
+If you are not sure which version of TypeDB Studio you need,
+check the xref:typedb:ROOT:connecting/studio.adoc#_version_compatibility[compatibility table].
+
+[discrete]
+=== Install with a package manager
+
+[tabs]
+====
+macOS::
++
+--
+You can use the following commands:
+
+[,bash]
+----
+brew tap vaticle/tap
+brew install --cask vaticle/tap/typedb-studio
+----
+--
+
+Linux::
++
+--
+No package manager available for Linux, use the <<_studio_manual>> section below.
+--
+
+Windows::
++
+--
+No package manager available for Windows, use the <<_studio_manual>> section below.
+--
+====
+
+//To learn how to run TypeDB Studio, see the xref:home::quickstart.adoc[Quickstart] guide.
+
+[discrete]
+[#_studio_manual]
+=== Download and install manually
+
+[tabs]
+====
+macOS::
++
+--
+. Navigate to the https://github.com/vaticle/typedb-studio/releases[Releases,window=_blank] page,
+select a required version, download the `typedb-studio-mac` artifact depending on your architecture.
+
+. Open the `.dmg` file, agree with the license agreement.
+
+. Drag and drop the TypeDB Studio executable to the Application folder.
+--
+
+Linux::
++
+--
+. Navigate to the https://github.com/vaticle/typedb-studio/releases[Releases,window=_blank] page,
+select a required version, download the `typedb-studio-linux` artifact depending on your architecture.
+
+. Extract the archive with TypeDB Studio into a new directory:
++
+[,bash,subs=attributes+]
+----
+mkdir /opt/typedb-studio
+tar -xzf ~/Downloads/typedb-studio-linux-x86_64-2.24.15.tar.gz -C /opt/typedb-studio
+----
+
+. Add a symlink to the TypeDB Studio executable in the `/usr/local/bin` directory:
++
+[,bash,subs=attributes+]
+----
+ln -s /opt/typedb-studio/typedb-studio-linux-x86_64-2.24.15/typedb-studio /usr/local/bin/typedb-studio
+----
+--
+
+Windows::
++
+--
+. Navigate to the https://github.com/vaticle/typedb-studio/releases[Releases,window=_blank] page,
+select a required version, download the `typedb-studio-windows` artifact for the selected version.
+
+. Run the downloaded `.exe` file and follow the installation wizard.
+--
+====
+
+=== Run TypeDB Studio
+
+TypeDB Studio is a standalone TypeDB Client with GUI that needs to be launched separately from a TypeDB server.
+To launch TypeDB Studio, locate its binary file and run it.
+
+[NOTE]
+====
+To learn more on how to use TypeDB Studio, see the xref:home::quickstart.adoc[] guide and the
+xref:typedb::connecting/studio.adoc[] page.
+====
+
 [#_console]
 == TypeDB Console
 
@@ -259,105 +358,6 @@ To start TypeDB Console from its binary, navigate into the directory with unpack
 ====
 To learn how to use TypeDB Console, see the xref:home::quickstart.adoc#_console_connect[Quickstart] guide and the
 xref:typedb::connecting/console.adoc[] page.
-====
-
-[#_studio]
-== TypeDB Studio
-
-TypeDB Studio is an IDE for TypeDB.
-If you are not sure which version of TypeDB Studio you need,
-check the xref:typedb:ROOT:connecting/studio.adoc#_version_compatibility[compatibility table].
-
-[discrete]
-=== Install with a package manager
-
-[tabs]
-====
-macOS::
-+
---
-You can use the following commands:
-
-[,bash]
-----
-brew tap vaticle/tap
-brew install --cask vaticle/tap/typedb-studio
-----
---
-
-Linux::
-+
---
-No package manager available for Linux, use the <<_studio_manual>> section below.
---
-
-Windows::
-+
---
-No package manager available for Windows, use the <<_studio_manual>> section below.
---
-====
-
-//To learn how to run TypeDB Studio, see the xref:home::quickstart.adoc[Quickstart] guide.
-
-[discrete]
-[#_studio_manual]
-=== Download and install manually
-
-[tabs]
-====
-macOS::
-+
---
-. Navigate to the https://github.com/vaticle/typedb-studio/releases[Releases,window=_blank] page,
-select a required version, download the `typedb-studio-mac` artifact depending on your architecture.
-
-. Open the `.dmg` file, agree with the license agreement.
-
-. Drag and drop the TypeDB Studio executable to the Application folder.
---
-
-Linux::
-+
---
-. Navigate to the https://github.com/vaticle/typedb-studio/releases[Releases,window=_blank] page,
-select a required version, download the `typedb-studio-linux` artifact depending on your architecture.
-
-. Extract the archive with TypeDB Studio into a new directory:
-+
-[,bash,subs=attributes+]
-----
-mkdir /opt/typedb-studio
-tar -xzf ~/Downloads/typedb-studio-linux-x86_64-2.24.15.tar.gz -C /opt/typedb-studio
-----
-
-. Add a symlink to the TypeDB Studio executable in the `/usr/local/bin` directory:
-+
-[,bash,subs=attributes+]
-----
-ln -s /opt/typedb-studio/typedb-studio-linux-x86_64-2.24.15/typedb-studio /usr/local/bin/typedb-studio
-----
---
-
-Windows::
-+
---
-. Navigate to the https://github.com/vaticle/typedb-studio/releases[Releases,window=_blank] page,
-select a required version, download the `typedb-studio-windows` artifact for the selected version.
-
-. Run the downloaded `.exe` file and follow the installation wizard.
---
-====
-
-=== Run TypeDB Studio
-
-TypeDB Studio is a standalone TypeDB Client with GUI that needs to be launched separately from a TypeDB server.
-To launch TypeDB Studio, locate its binary file and run it.
-
-[NOTE]
-====
-To learn more on how to use TypeDB Studio, see the xref:home::quickstart.adoc[] guide and the
-xref:typedb::connecting/studio.adoc[] page.
 ====
 
 [#_drivers]
