@@ -94,6 +94,7 @@ Restart the terminal window for the changes to environment variables to take eff
 --
 ====
 
+////
 == Run
 
 To run TypeDB Console:
@@ -121,7 +122,7 @@ To start TypeDB Console from its binary, navigate into the directory with unpack
 To learn how to use TypeDB Console, see the xref:home::quickstart.adoc#_console_connect[Quickstart] guide and the
 xref:guides::connection/console.adoc[] page.
 ====
-
+////
 
 [#_version_compatibility]
 == Version Compatibility

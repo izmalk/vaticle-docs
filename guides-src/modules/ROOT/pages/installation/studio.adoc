@@ -66,6 +66,7 @@ Run the downloaded `.exe` file and follow the installation wizard.
 --
 ====
 
+////
 == Run TypeDB Studio
 
 To launch TypeDB Studio, locate its binary file and run it.
@@ -73,6 +74,7 @@ To launch TypeDB Studio, locate its binary file and run it.
 For more information on how to use TypeDB Studio, see the xref:home::quickstart.adoc[] guide.
 // and the xref:typedb::connecting/studio.adoc[] page
 //#todo Insert the Studio page link
+////
 
 [#_version_compatibility]
 == Version Compatibility

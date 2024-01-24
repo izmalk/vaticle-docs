@@ -13,84 +13,55 @@ For Linux OS: the minimum version of `glibc` is `2.25.0`.
 
 include::guides::partial$questions2discord.adoc[]
 
+To use any TypeDB driver, you need a compatible version of TypeDB running.
+See the <<_version_compatibility>> table below to check what versions are compatible.
+
 [#_rust_driver]
-== Rust driver
-
-=== Prerequisites
-
-To use the TypeDB Rust driver, you need a compatible version of TypeDB running.
-See the
-<<_version_compatibility>> table to check what version you need, depending on the TypeDB version being used.
-
-=== Installation
-
-Use `cargo` to install TypeDB Rust driver:
+[#_python_driver]
+[#_java_driver]
+[#_node_js_driver]
+[#_cpp_driver]
+== Driver installation
 
 [tabs]
 ====
-async::
+Rust::
 +
 --
+Use `cargo` to install TypeDB Rust driver:
+
+.async
 [,bash]
 ----
 cargo add typedb-driver
 ----
---
 
-sync::
-+
---
+By default, the Rust driver works for asynchronous code only. +
+To run synchronous code, enable the `sync` feature:
+
+.sync
 [,bash]
 ----
 cargo add typedb-driver -F sync
 ----
 --
-====
 
-[#_python_driver]
-== Python driver
-
-=== Prerequisites
-
-A compatible version of TypeDB.
-See the
-<<_version_compatibility>> table to check what version you need, depending on the TypeDB version being used.
-
-=== Installation
-
+Python::
++
+--
 Use `pip` to install TypeDB Python driver:
 
 [,bash]
 ----
 pip install typedb-driver
 ----
+--
 
-.See command for older versions (<2.24.0)
-[%collapsible]
-====
-[,bash]
-----
-pip install typedb-client
-----
-====
-
-[#_java_driver]
-== Java driver
-
-=== Prerequisites
-
-A compatible version of TypeDB.
-See the
-<<_version_compatibility>> table to check what version you need, depending on the TypeDB version being used.
-
-=== Add a repository with TypeDB Java driver to Maven
-
+Java::
++
+--
 Add the code below to the `pom.xml` file in the Maven project.
-
-[IMPORTANT]
-====
-Be sure to replace the `\{version}` placeholder tag with the version of the Java driver we want to install.
-====
+Make sure to replace the `\{version}` placeholder tag with the version of the Java driver you want to install.
 
 [,xml]
 ----
@@ -102,97 +73,36 @@ Be sure to replace the `\{version}` placeholder tag with the version of the Java
     </repository>
 </repositories>
 <dependencies>
-<dependency>
-    <groupId>com.vaticle.typedb</groupId>
-    <artifactId>typedb-driver</artifactId>
-    <version>{version}</version>
-</dependency>
+    <dependency>
+        <groupId>com.vaticle.typedb</groupId>
+        <artifactId>typedb-driver</artifactId>
+        <version>{version}</version>
+    </dependency>
 </dependencies>
 ----
+--
 
-If we want to depend on snapshot versions of Client Java, by referring to the GitHub commit `sha`, we can add our
-snapshot repository to our list of Maven repositories.
-
-[,xml]
-----
-
-<repositories>
-    <repository>
-        <id>repo.vaticle.com.snapshot</id>
-        <name>repo.vaticle.comai</name>
-        <url>https://repo.vaticle.com/repository/maven-snapshot/</url>
-    </repository>
-</repositories>
-----
-
-=== (Optional) Logging setup
-
-By default, the Java driver uses Logback to print errors and debugging info to standard output. As it is quite verbose,
-use the following steps to set the minimum log level to `ERROR`:
-
-. Create a file in the `resources` path (`src/main/resources` by default in a Maven project) named `logback.xml`.
-. Copy the following document into the `logback.xml`:
-
-[,xml]
-----
-
-<configuration>
-    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
-        </encoder>
-    </appender>
-
-    <root level="ERROR">
-        <appender-ref ref="STDOUT"/>
-    </root>
-
-</configuration>
-----
-
-[#_node_js_driver]
-== Node.js driver
-
-=== Prerequisites
-
-A compatible version of TypeDB.
-See the
-<<_version_compatibility>> table to check what version you need, depending on the TypeDB version being used.
-
-=== Installation
-
+Node.js::
++
+--
 Use `npm` to install TypeDB Node.js driver:
 
 [,bash]
 ----
 npm install typedb-driver
 ----
+--
 
-.See command for older versions (<2.24.0)
-[%collapsible]
-====
-[,bash]
-----
-npm install typedb-client
-----
-====
-
-[#_cpp_driver]
-== C++ driver
-
-=== Prerequisites
-
-A compatible version of TypeDB.
-See the
-<<_version_compatibility>> table to check what version you need, depending on the TypeDB version being used.
-
-=== Installation
+C++::
++
+--
 
 To install TypeDB C++ driver:
 
-1. https://github.com/vaticle/typedb-driver/releases[Download] the latest release of `typedb-driver-cpp-*`
+. https://github.com/vaticle/typedb-driver/releases[Download] and extract the latest release of `typedb-driver-cpp-*`
 for you OS (`linux`/`mac`/`windows`) and architecture (`x86_64`/`arm64`).
-2. Include the header file `typedb_driver.hpp` from the `include` directory. See an example of `CMakeLists.txt` below.
+. Include the header file `typedb_driver.hpp` from the `include` directory.
+See an example of `CMakeLists.txt` below:
 +
 .CMakeLists.txt example
 [,source]
@@ -211,6 +121,8 @@ ELSE()
     target_link_libraries(cpp_driver_test typedb-driver-cpp)
 ENDIF()
 ----
+--
+====
 
 [#_version_compatibility]
 == Version compatibility
