@@ -8,7 +8,7 @@ Installation guides for the server-side database management software.
 
 [cols-1]
 --
-.xref:guides::installation/cloud.adoc[TypeDB Cloud (DBaaS)]
+.xref:guides::installation/cloud.adoc[TypeDB Cloud]
 [.clickable]
 ****
 Fully-featured managed cloud offering.

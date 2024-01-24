@@ -3,8 +3,7 @@
 * xref:guides::overview.adoc[Overview]
 
 * xref:guides::installation/overview.adoc[]
-** xref:guides::installation/cloud.adoc[Cloud (DBaaS)]
-** xref:guides::installation/cloud-self-deployment.adoc[Cloud (Self-deployed)]
+** xref:guides::installation/cloud.adoc[Cloud]
 ** xref:guides::installation/core.adoc[Core]
 ** xref:guides::installation/studio.adoc[Studio]
 ** xref:guides::installation/console.adoc[Console]

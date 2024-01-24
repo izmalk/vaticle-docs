@@ -1,22 +1,124 @@
 = Guides overview
 :keywords: typedb, documentation, docs, overview, introduction, outline, structure
-:pageTitle: Documentation overview
-:summary: A birds-eye view of TypeQL and TypeDB
+:pageTitle: Guides overview
+:summary: How to guides and tutorials
 
 Welcome to the Guides category of the TypeDB documentation.
 See the full selection of our how-to guides below.
 
+== TypeDB installation guides
+
+TypeDB is available in two editions: Cloud and Core.
+
+[cols-2]
+--
+.https://cloud.typedb.com/[TypeDB Cloud]
+[.clickable]
+****
+Production-ready and scalable version of TypeDB with advanced security and high-availability features.
+
+* https://cloud.typedb.com/[Deploy in a managed cloud]
+* xref:guides::installation/cloud2.adoc[Self-hosted installation]
+****
+
+.xref:guides::installation/core.adoc[TypeDB Core]
+[.clickable]
+****
+100% open source version of TypeDB with everything developers need to start building on TypeDB.
+
+* xref:guides::installation/core.adoc#_docker[Use with Docker]
+* xref:guides::installation/core.adoc#_package[Install via package manager]
+* xref:guides::installation/core.adoc#_manual[Manual installation]
+****
+--
+
+== Basic guides
+
+[cols-3]
+--
+.xref:guides::installation/studio.adoc[TypeDB Studio]
+[.clickable]
+****
+* xref:guides::installation/studio.adoc[Installation]
+* xref:guides::connection/studio.adoc[Connection]
+* xref:guides::database/studio.adoc[DB management]
+* xref:guides::queries/studio.adoc[Running queries]
+****
+
+.xref:guides::installation/console.adoc[TypeDB Console]
+[.clickable]
+****
+* xref:guides::installation/console.adoc[Installation]
+* xref:guides::connection/console.adoc[Connection]
+* xref:guides::database/console.adoc[DB management]
+* xref:guides::queries/console.adoc[Running queries]
+****
+
+.xref:guides::installation/drivers.adoc[TypeDB drivers]
+[.clickable]
+****
+* xref:guides::installation/drivers.adoc[Installation]
+* xref:guides::connection/drivers.adoc[Connection]
+* xref:guides::database/drivers.adoc[DB management]
+* xref:guides::queries/drivers.adoc[Running queries]
+****
+--
+
+== Tutorials
+
+[cols-3]
+--
+.xref:guides::installation/studio.adoc[Defining schema]
+[.clickable]
+****
+* xref:guides::installation/studio.adoc[Basic schema tutorial]
+* xref:guides::connection/studio.adoc[Extending schema]
+* xref:guides::database/studio.adoc[Truncating schema]
+* xref:guides::queries/studio.adoc[Advanced schema tutorial]
+****
+
+.xref:guides::installation/console.adoc[Manipulating data]
+[.clickable]
+****
+* xref:guides::installation/console.adoc[Inserting data]
+* xref:guides::connection/console.adoc[Deleting data]
+* xref:guides::database/console.adoc[Updating data]
+* xref:guides::queries/console.adoc[Fetching values]
+* xref:guides::queries/console.adoc[Retrieving data]
+* xref:guides::queries/console.adoc[Advanced patterns]
+****
+
+.xref:guides::installation/drivers.adoc[Inferring data]
+[.clickable]
+****
+* xref:guides::installation/drivers.adoc[Rules]
+* xref:guides::connection/drivers.adoc[Rule-based inference]
+* xref:guides::database/drivers.adoc[Transitivity]
+* xref:guides::queries/drivers.adoc[Advanced rules]
+****
+
+.xref:guides::installation/drivers.adoc[Migration]
+[.clickable]
+****
+* xref:guides::installation/drivers.adoc[From SQL]
+* xref:guides::connection/drivers.adoc[From Graph]
+* xref:guides::database/drivers.adoc[From document]
+* xref:guides::queries/drivers.adoc[From CSV/XML/JSON]
+****
+--
+
+////
 == Installation guides
 
 [cols-3]
 --
-.xref:guides::installation/cloud.adoc[TypeDB Cloud (DBaaS)]
+.xref:guides::installation/cloud2.adoc[TypeDB Cloud (DBaaS)]
 [.clickable]
 ****
 
 ****
 
-.xref:guides::installation/cloud-self-deployment.adoc[TypeDB Cloud (on premise)]
+.xref:guides::installation/cloud.adoc[TypeDB Cloud (on premise)]
 [.clickable]
 ****
 
@@ -159,13 +261,15 @@ See the full selection of our how-to guides below.
 
 ////
 
+////
+
 [cols-2]
 --
 .xref:guides::installation/overview.adoc[]
 [.clickable]
 ****
-* xref:guides::installation/cloud.adoc[TypeDB Cloud (DBaaS)]
-* xref:guides::installation/cloud-self-deployment.adoc[TypeDB Cloud (on premise)]
+* xref:guides::installation/cloud2.adoc[TypeDB Cloud (DBaaS)]
+* xref:guides::installation/cloud.adoc[TypeDB Cloud (on premise)]
 * xref:guides::installation/core.adoc[TypeDB Core]
 * xref:guides::installation/studio.adoc[TypeDB Studio]
 * xref:guides::installation/console.adoc[TypeDB Console]
