@@ -6,7 +6,7 @@
 Welcome to the Guides category of the TypeDB documentation.
 See the full selection of our how-to guides below.
 
-== TypeDB installation guides
+== TypeDB installation
 
 TypeDB is available in two editions: Cloud and Core.
 
@@ -26,9 +26,35 @@ Production-ready and scalable version of TypeDB with advanced security and high-
 ****
 100% open source version of TypeDB with everything developers need to start building on TypeDB.
 
-* xref:guides::installation/core.adoc#_docker[Use with Docker]
-* xref:guides::installation/core.adoc#_package[Install via package manager]
-* xref:guides::installation/core.adoc#_manual[Manual installation]
+* xref:guides::installation/overview.adoc#_via_docker[Use with Docker]
+* xref:guides::installation/overview.adoc#_package[Install via package manager]
+* xref:guides::installation/overview.adoc#_manual[Manual installation]
+****
+--
+
+== TypeDB clients
+
+[cols-2]
+--
+.xref:guides::installation/overview.adoc#_studio[TypeDB Studio]
+[.clickable]
+****
+
+****
+
+.xref:guides::installation/overview.adoc#_console[TypeDB Console]
+[.clickable]
+****
+
+****
+--
+
+[cols-1]
+--
+.xref:guides::installation/overview.adoc#_studio[TypeDB drivers]
+[.clickable]
+****
+
 ****
 --
 

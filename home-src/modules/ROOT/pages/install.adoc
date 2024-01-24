@@ -6,11 +6,12 @@
 :tabs-sync-option:
 :experimental:
 
+// tag::body[]
 include::home::overview.adoc[tag=rust-rewrite]
 
 == TypeDB Cloud
 
-image::cloud-hero.png[TypeDB Cloud hero image, role=framed, width = 75%, window=_blank, link=https://cloud.typedb.com/]
+image::home::cloud-hero.png[TypeDB Cloud hero image, role=framed, width = 75%, window=_blank, link=https://cloud.typedb.com/]
 
 // tag::cloud-run[]
 Log in to https://cloud.typedb.com/[TypeDB Cloud,window=_blank] and create a new deployment on the Deployments page.
@@ -18,7 +19,7 @@ Log in to https://cloud.typedb.com/[TypeDB Cloud,window=_blank] and create a new
 
 // tag::self-hosted-run[]
 For self-hosted TypeDB Cloud installation and setup,
-see the xref:typedb::managing/self-hosted-deployment.adoc[Self-hosted deployment] page.
+see the xref:guides::installation/cloud.adoc[Self-hosted TypeDB Cloud] page.
 // end::self-hosted-run[]
 
 [#_core]
@@ -34,6 +35,7 @@ TypeDB Core also supports all TypeDB Clients, including:
 <<_studio>>, and
 <<_drivers>>.
 
+[#_via_docker]
 === Via Docker
 
 include::partial$docker.adoc[tag=install]
@@ -361,4 +363,105 @@ xref:typedb::connecting/studio.adoc[] page.
 [#_drivers]
 == TypeDB Drivers
 
-include::drivers:resources:downloads.adoc[tag=drivers-download, leveloffset=+1]
+[tabs]
+====
+Rust::
++
+--
+Use `cargo` to install TypeDB Rust driver:
+
+.async
+[,bash]
+----
+cargo add typedb-driver
+----
+
+By default, the Rust driver works for asynchronous code only. +
+To run synchronous code, enable the `sync` feature:
+
+.sync
+[,bash]
+----
+cargo add typedb-driver -F sync
+----
+--
+
+Python::
++
+--
+Use `pip` to install TypeDB Python driver:
+
+[,bash]
+----
+pip install typedb-driver
+----
+--
+
+Java::
++
+--
+Add the code below to the `pom.xml` file in the Maven project.
+Make sure to replace the `\{version}` placeholder tag with the version of the Java driver you want to install.
+
+[,xml]
+----
+
+<repositories>
+    <repository>
+        <id>repo.vaticle.com</id>
+        <url>https://repo.vaticle.com/repository/maven/</url>
+    </repository>
+</repositories>
+<dependencies>
+    <dependency>
+        <groupId>com.vaticle.typedb</groupId>
+        <artifactId>typedb-driver</artifactId>
+        <version>{version}</version>
+    </dependency>
+</dependencies>
+----
+--
+
+Node.js::
++
+--
+Use `npm` to install TypeDB Node.js driver:
+
+[,bash]
+----
+npm install typedb-driver
+----
+--
+
+C++::
++
+--
+
+To install TypeDB C++ driver:
+
+. https://github.com/vaticle/typedb-driver/releases[Download] and extract the latest release of `typedb-driver-cpp-*`
+for you OS (`linux`/`mac`/`windows`) and architecture (`x86_64`/`arm64`).
+. Include the header file `typedb_driver.hpp` from the `include` directory.
+See an example of `CMakeLists.txt` below:
++
+.CMakeLists.txt example
+[,source]
+----
+cmake_minimum_required(VERSION 3.27)
+project(cpp_driver_test)
+
+set(CMAKE_CXX_STANDARD 17)
+link_directories(${PROJECT_SOURCE_DIR}/lib)
+include_directories(${PROJECT_SOURCE_DIR}/include)
+
+add_executable(cpp_driver_test typedb_test.cpp)
+IF (WIN32)
+    target_link_libraries(cpp_driver_test ${PROJECT_SOURCE_DIR}/lib/typedb-driver-cpp.if.lib)
+ELSE()
+    target_link_libraries(cpp_driver_test typedb-driver-cpp)
+ENDIF()
+----
+--
+====
+// end::body[]
+//include::drivers:resources:downloads.adoc[tag=drivers-download, leveloffset=+1]
