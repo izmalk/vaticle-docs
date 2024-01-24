@@ -39,22 +39,30 @@ Production-ready and scalable version of TypeDB with advanced security and high-
 .xref:guides::installation/overview.adoc#_studio[TypeDB Studio]
 [.clickable]
 ****
-
+An IDE that facilitates the development process for TypeDB databases.
 ****
 
 .xref:guides::installation/overview.adoc#_console[TypeDB Console]
 [.clickable]
 ****
-
+A powerful CLI client for TypeDB.
 ****
 --
 
 [cols-1]
 --
-.xref:guides::installation/overview.adoc#_studio[TypeDB drivers]
+.xref:guides::installation/overview.adoc#_drivers[TypeDB drivers]
 [.clickable]
 ****
+Libraries with a native API for Rust, Python, Java, Node.js, and C++.
 
+////
+xref:guides::installation/drivers.adoc#_rust_driver[Rust]
+| xref:guides::installation/drivers.adoc#_python_driver[Python]
+| xref:guides::installation/drivers.adoc#_java_driver[Java]
+| xref:guides::installation/drivers.adoc#_node_js_driver[Node.js]
+| xref:guides::installation/drivers.adoc#_cpp_driver[C++]
+////
 ****
 --
 
