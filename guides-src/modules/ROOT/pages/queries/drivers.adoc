@@ -208,7 +208,7 @@ To use explanations in a query with TypeDB Console use `--explain true` option w
 Rust::
 +
 --
-.Read transaction with inference
+.Explanations usage example
 [,rust]
 ----
 let tx = session.transaction_with_options(TransactionType::Read, Options::new().infer(true).explain(true))?;
@@ -218,10 +218,12 @@ let tx = session.transaction_with_options(TransactionType::Read, Options::new().
 Python::
 +
 --
-.Read transaction with inference
+.Explanations usage example
 [,python]
 ----
 with session.transaction(TransactionType.READ, TypeDBOptions(infer=True,explain=True)) as transaction:
+
+
 ----
 --
 //#todo (WIP)
@@ -229,7 +231,7 @@ with session.transaction(TransactionType.READ, TypeDBOptions(infer=True,explain=
 Java::
 +
 --
-.Read transaction with inference
+.Explanations usage example
 [,java]
 ----
 try (TypeDBTransaction readTransaction = session.transaction(TypeDBTransaction.Type.READ, new TypeDBOptions().infer(true))) {...}
@@ -239,7 +241,7 @@ try (TypeDBTransaction readTransaction = session.transaction(TypeDBTransaction.T
 Node.js::
 +
 --
-.Read transaction with inference
+.Explanations usage example
 [,js]
 ----
 let options = new TypeDBOptions();
@@ -251,7 +253,7 @@ transaction = await session.transaction(TransactionType.READ, options);
 C++::
 +
 --
-.Read transaction with inference
+.Explanations usage example
 [,cpp]
 ----
 auto tx = session.transaction(TypeDB::TransactionType::READ, options.infer(true));
