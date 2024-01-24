@@ -13,6 +13,7 @@ For Linux OS: the minimum version of `glibc` is `2.25.0`.
 
 include::guides::partial$questions2discord.adoc[]
 
+[#_rust_driver]
 == Rust driver
 
 === Prerequisites
@@ -46,6 +47,7 @@ cargo add typedb-driver -F sync
 --
 ====
 
+[#_python_driver]
 == Python driver
 
 === Prerequisites
@@ -72,6 +74,7 @@ pip install typedb-client
 ----
 ====
 
+[#_java_driver]
 == Java driver
 
 === Prerequisites
@@ -147,6 +150,7 @@ use the following steps to set the minimum log level to `ERROR`:
 </configuration>
 ----
 
+[#_node_js_driver]
 == Node.js driver
 
 === Prerequisites
@@ -173,6 +177,7 @@ npm install typedb-client
 ----
 ====
 
+[#_cpp_driver]
 == C++ driver
 
 === Prerequisites
