@@ -1,18 +1,123 @@
-= TypeDB drivers installation guides
+= TypeDB drivers installation guide
 
 Most drivers are implemented as thin wrappers of the Rust driver.
 But every driver is unique in its installation process.
 Find installation guides for every driver below.
 
-Additional resources:
-
-* https://github.com/vaticle/typedb-driver/tree/development/rust[GitHub repository,window=_blank]
-* https://github.com/vaticle/typedb-driver/releases[Releases page,window=_blank]
-
 For Linux OS: the minimum version of `glibc` is `2.25.0`.
 
 include::guides::partial$questions2discord.adoc[]
 
+== Installation
+
+[tabs]
+====
+Rust::
++
+--
+Use `cargo` to install TypeDB Rust driver:
+
+.async
+[,bash]
+----
+cargo add typedb-driver
+----
+
+By default, the Rust driver works for asynchronous code only. +
+To run synchronous code, enable the `sync` feature:
+
+.sync
+[,bash]
+----
+cargo add typedb-driver -F sync
+----
+--
+
+Python::
++
+--
+Use `pip` to install TypeDB Python driver:
+
+[,bash]
+----
+pip install typedb-driver
+----
+--
+
+Java::
++
+--
+Add the code below to the `pom.xml` file in the Maven project.
+Make sure to replace the `\{version}` placeholder tag with the version of the Java driver you want to install.
+
+[,xml]
+----
+
+<repositories>
+    <repository>
+        <id>repo.vaticle.com</id>
+        <url>https://repo.vaticle.com/repository/maven/</url>
+    </repository>
+</repositories>
+<dependencies>
+    <dependency>
+        <groupId>com.vaticle.typedb</groupId>
+        <artifactId>typedb-driver</artifactId>
+        <version>{version}</version>
+    </dependency>
+</dependencies>
+----
+--
+
+Node.js::
++
+--
+Use `npm` to install TypeDB Node.js driver:
+
+[,bash]
+----
+npm install typedb-driver
+----
+--
+
+C++::
++
+--
+
+To install TypeDB C++ driver:
+
+. https://github.com/vaticle/typedb-driver/releases[Download] and extract the latest release of `typedb-driver-cpp-*`
+for you OS (`linux`/`mac`/`windows`) and architecture (`x86_64`/`arm64`).
+. Include the header file `typedb_driver.hpp` from the `include` directory.
+See an example of `CMakeLists.txt` below:
++
+.CMakeLists.txt example
+[,source]
+----
+cmake_minimum_required(VERSION 3.27)
+project(cpp_driver_test)
+
+set(CMAKE_CXX_STANDARD 17)
+link_directories(${PROJECT_SOURCE_DIR}/lib)
+include_directories(${PROJECT_SOURCE_DIR}/include)
+
+add_executable(cpp_driver_test typedb_test.cpp)
+IF (WIN32)
+    target_link_libraries(cpp_driver_test ${PROJECT_SOURCE_DIR}/lib/typedb-driver-cpp.if.lib)
+ELSE()
+    target_link_libraries(cpp_driver_test typedb-driver-cpp)
+ENDIF()
+----
+--
+====
+
+== Additional resources
+
+See our https://github.com/vaticle/typedb-driver/tree/development/rust[GitHub repository,window=_blank]
+for drivers' source code and issues.
+For downloadable artifacts, see the https://github.com/vaticle/typedb-driver/releases[Releases page,window=_blank].
+
+////
 [#_rust_driver]
 == Rust driver
 
@@ -211,6 +316,7 @@ ELSE()
     target_link_libraries(cpp_driver_test typedb-driver-cpp)
 ENDIF()
 ----
+////
 
 [#_version_compatibility]
 == Version compatibility
