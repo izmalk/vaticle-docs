@@ -11,7 +11,7 @@
 
 * xref:guides::connection.adoc[Connection]
 * xref:guides::databases.adoc[DB management]
-* xref:guides::queries.adoc[Queries]
+* xref:guides::queries.adoc[Running queries]
 
 * xref:guides::configuration/overview.adoc[]
 ** xref:guides::configuration/config.adoc[]

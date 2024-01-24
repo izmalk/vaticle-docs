@@ -30,5 +30,5 @@ To delete a database with all its data and schema, follow the steps below:
 
 A full list of databases on a server can be observer in two ways:
 
-* Open Studio's Database manager window by clicking on the database icon image:home::studio-icons/database.png[] in the top toolbar.
-* Open the drop-down list in the top toolbar next to the database icon image:home::studio-icons/database.png[].
+. Open Studio's Database manager window by clicking on the database icon image:home::studio-icons/database.png[] in the top toolbar.
+. Open the drop-down list in the top toolbar next to the database icon image:home::studio-icons/database.png[].

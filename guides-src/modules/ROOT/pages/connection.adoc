@@ -87,7 +87,7 @@ C++::
 +
 --
 .Connect to TypeDB Core
-[,js]
+[,cpp]
 ----
 TypeDB::Driver driver = TypeDB::Driver::coreDriver("127.0.0.1:1729");
 ----
@@ -190,7 +190,7 @@ C++::
 +
 --
 .Connect to TypeDB Cloud
-[,js]
+[,cpp]
 ----
 TypeDB::Driver driver = TypeDB::Driver::cloudDriver({"127.0.0.1:1729"}, TypeDB::Credential("admin", "password", true));
 ----
