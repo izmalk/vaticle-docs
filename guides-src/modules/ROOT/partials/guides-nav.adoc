@@ -9,6 +9,19 @@
 ** xref:guides::installation/console.adoc[Console]
 ** xref:guides::installation/drivers.adoc[Drivers]
 
+* xref:guides::connection.adoc[Connection]
+* xref:guides::databases.adoc[DB management]
+* xref:guides::queries.adoc[Queries]
+
+* xref:guides::configuration/overview.adoc[]
+** xref:guides::configuration/config.adoc[]
+** xref:guides::configuration/arguments.adoc[]
+** xref:guides::configuration/logs.adoc[]
+** xref:guides::configuration/export.adoc[]
+** xref:guides::configuration/upgrades.adoc[]
+** xref:guides::configuration/users.adoc[]
+
+////
 * xref:guides::connection/overview.adoc[]
 ** xref:guides::connection/studio.adoc[Studio]
 ** xref:guides::connection/console.adoc[Console]
@@ -23,11 +36,4 @@
 ** xref:guides::queries/studio.adoc[Studio]
 ** xref:guides::queries/console.adoc[Console]
 ** xref:guides::queries/drivers.adoc[Drivers]
-
-* xref:guides::configuration/overview.adoc[]
-** xref:guides::configuration/config.adoc[]
-** xref:guides::configuration/arguments.adoc[]
-** xref:guides::configuration/logs.adoc[]
-** xref:guides::configuration/export.adoc[]
-** xref:guides::configuration/upgrades.adoc[]
-** xref:guides::configuration/users.adoc[]
+////
