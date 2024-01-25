@@ -2,19 +2,23 @@
 
 include::home::overview.adoc[tag=rust-rewrite]
 
-== TypeDB
+== Deploy to cloud
+
+Log in to https://cloud.typedb.com/[TypeDB Cloud] and create a new deployment on the Deployments page.
+
+== Install TypeDB manually
 
 TypeDB is available in two editions: Cloud and Core.
 
-[cols-1]
+[cols-2]
 --
-.xref:guides::installation/cloud.adoc[TypeDB Cloud]
+.xref:guides::installing/cloud.adoc[TypeDB Cloud]
 [.clickable]
 ****
 Install a production-ready and scalable version of TypeDB with advanced security and high-availability features.
 ****
 
-.xref:guides::installation/core.adoc[TypeDB Core]
+.xref:guides::installing/core.adoc[TypeDB Core]
 [.clickable]
 ****
 Install a 100% open source version of TypeDB with everything developers need to start building on TypeDB.
@@ -27,35 +31,37 @@ There are three types of clients available for TypeDB: Studio, Console, and lang
 
 [cols-1]
 --
-.xref:guides::installation/studio.adoc[Studio]
+.xref:guides::installing/studio.adoc[Studio]
 [.clickable]
 ****
 Install an IDE that facilitates the development process for TypeDB databases.
 ****
 
-.xref:guides::installation/console.adoc[Console]
+.xref:guides::installing/console.adoc[Console]
 [.clickable]
 ****
 Install a powerful CLI tool able to work in interactive(REPL) and non-interactive (script) modes.
 ****
 
-.xref:guides::installation/drivers.adoc[Drivers]
+.xref:guides::installing/drivers.adoc[Drivers]
 [.clickable]
 ****
-Install libraries that implement TypeDB protocol and provide a native API for programmatic access to TypeDB:
+Install a library that provides programmatic access to TypeDB with a native API in Rust, Python, Java, Node.js, and C++.
 
 ////
-* image:home::rust.png[rust, width=20, xref=guides::installation/drivers.adoc] xref:guides::installation/drivers.adoc#_rust_driver[Rust]
-* image:home::python.png[python, width=20, xref=guides::installation/drivers.adoc] xref:guides::installation/drivers.adoc#_python_driver[Python]
-* image:home::java.png[java, width=20, xref=guides::installation/drivers.adoc] xref:guides::installation/drivers.adoc#_java_driver[Java]
-* image:home::nodejs.png[nodejs, width=20, xref=guides::installation/drivers.adoc] xref:guides::installation/drivers.adoc#_node_js_driver[Node.js]
-* image:home::cpp.png[cpp, width=20, xref=guides::installation/drivers.adoc] xref:guides::installation/drivers.adoc#_cpp_driver[C++]
+* image:home::rust.png[rust, width=20, xref=guides::installing/drivers.adoc] xref:guides::installing/drivers.adoc#_rust_driver[Rust]
+* image:home::python.png[python, width=20, xref=guides::installing/drivers.adoc] xref:guides::installing/drivers.adoc#_python_driver[Python]
+* image:home::java.png[java, width=20, xref=guides::installing/drivers.adoc] xref:guides::installing/drivers.adoc#_java_driver[Java]
+* image:home::nodejs.png[nodejs, width=20, xref=guides::installing/drivers.adoc] xref:guides::installing/drivers.adoc#_node_js_driver[Node.js]
+* image:home::cpp.png[cpp, width=20, xref=guides::installing/drivers.adoc] xref:guides::installing/drivers.adoc#_cpp_driver[C++]
 ////
 
+////
 * xref:guides::installing/drivers.adoc#_rust_driver[Rust]
 * xref:guides::installing/drivers.adoc#_python_driver[Python]
 * xref:guides::installing/drivers.adoc#_java_driver[Java]
 * xref:guides::installing/drivers.adoc#_node_js_driver[Node.js]
 * xref:guides::installing/drivers.adoc#_cpp_driver[C++]
+////
 ****
 --

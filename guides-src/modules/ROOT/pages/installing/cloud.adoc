@@ -1,4 +1,4 @@
-= TypeDB Cloud installation guide
+= TypeDB Cloud Self-hosted
 :experimental:
 
 This page is an installation guide for a self-hosted deployment of TypeDB Cloud.
@@ -8,7 +8,7 @@ https://typedb.com/deploy?dialog=contact[contact form,window=_blank].
 
 [IMPORTANT]
 ====
-TypeDB Cloud is available as a hosted fully managed cloud service  with no installation required at
+TypeDB Cloud is available as a fully managed cloud service with no installation required at
 https://cloud.typedb.com/[cloud.typedb.com].
 ====
 
