@@ -2,7 +2,7 @@
 :experimental:
 
 This guide covers sending queries to TypeDB with TypeDB Studio.
-TypeDB Studio should be xref:guides::installation/studio.adoc[installed] and
+TypeDB Studio should be xref:guides::installing/studio.adoc[installed] and
 xref:guides::connection/studio.adoc[connected] to TypeDB Cloud/Core already.
 
 To run a query with TypeDB Studio, use the following steps:

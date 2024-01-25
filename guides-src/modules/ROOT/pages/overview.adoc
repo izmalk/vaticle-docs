@@ -18,7 +18,7 @@ TypeDB is available in two editions: Cloud and Core.
 Production-ready and scalable version of TypeDB with advanced security and high-availability features.
 
 * https://cloud.typedb.com/[Deploy in a managed cloud]
-* xref:guides::installation/cloud.adoc[Self-hosted installation]
+* xref:guides::installing/cloud.adoc[Self-hosted installation]
 ****
 
 .xref:guides::installation/core.adoc[TypeDB Core]
@@ -26,9 +26,9 @@ Production-ready and scalable version of TypeDB with advanced security and high-
 ****
 100% open source version of TypeDB with everything developers need to start building on TypeDB.
 
-* xref:guides::installation/core.adoc#_docker[Use with Docker]
-* xref:guides::installation/core.adoc#_package[Install via package manager]
-* xref:guides::installation/core.adoc#_manual[Manual installation]
+* xref:guides::installing/core.adoc#_docker[Use with Docker]
+* xref:guides::installing/core.adoc#_package[Install via package manager]
+* xref:guides::installing/core.adoc#_manual[Manual installation]
 ****
 --
 
@@ -41,7 +41,7 @@ Production-ready and scalable version of TypeDB with advanced security and high-
 ****
 An IDE that facilitates the development process for TypeDB databases.
 
-* xref:guides::installation/studio.adoc[Installation]
+* xref:guides::installing/studio.adoc[Installation]
 * xref:guides::connection/studio.adoc[Connection]
 * xref:guides::database/studio.adoc[DB management]
 * xref:guides::queries/studio.adoc[Running queries]
@@ -52,7 +52,7 @@ An IDE that facilitates the development process for TypeDB databases.
 ****
 A powerful CLI client for TypeDB.
 
-* xref:guides::installation/console.adoc[Installation]
+* xref:guides::installing/console.adoc[Installation]
 * xref:guides::connection/console.adoc[Connection]
 * xref:guides::database/console.adoc[DB management]
 * xref:guides::queries/console.adoc[Running queries]
@@ -63,7 +63,7 @@ A powerful CLI client for TypeDB.
 ****
 Libraries with a native API for programmatic access to TypeDB.
 
-* xref:guides::installation/drivers.adoc[Installation]
+* xref:guides::installing/drivers.adoc[Installation]
 * xref:guides::connection/drivers.adoc[Connection]
 * xref:guides::database/drivers.adoc[DB management]
 * xref:guides::queries/drivers.adoc[Running queries]

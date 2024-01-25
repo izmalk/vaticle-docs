@@ -2,7 +2,7 @@
 :experimental:
 
 This guide covers sending queries to TypeDB with TypeDB Console.
-TypeDB Console should be xref:guides::installation/console.adoc[installed] and
+TypeDB Console should be xref:guides::installing/console.adoc[installed] and
 xref:guides::connection/console.adoc[connected] to TypeDB Cloud/Core already.
 
 To send a query with TypeDB Console, use the following steps:

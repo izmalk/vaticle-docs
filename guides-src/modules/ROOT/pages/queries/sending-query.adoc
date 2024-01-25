@@ -2,7 +2,7 @@
 :experimental:
 
 This guide covers sending a query in a schema session and write transaction with TypeDB Studio, Console, or drivers.
-Make sure the selected client is xref:guides::installation/overview.adoc[installed].
+Make sure the selected client is xref:guides::installing/overview.adoc[installed].
 
 == Query execution workflow
 

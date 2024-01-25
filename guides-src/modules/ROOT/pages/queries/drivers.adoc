@@ -2,7 +2,7 @@
 :tabs-sync-option:
 
 This guide covers sending queries to TypeDB with TypeDB drivers.
-TypeDB drivers should be xref:guides::installation/drivers.adoc[installed] and
+TypeDB drivers should be xref:guides::installing/drivers.adoc[installed] and
 xref:guides::connection/drivers.adoc[connected] to TypeDB Cloud/Core already.
 
 Select a TypeDB driver below and see an example of how to send a query:

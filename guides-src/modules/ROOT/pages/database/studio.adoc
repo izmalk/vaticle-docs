@@ -5,7 +5,7 @@
 :experimental:
 
 This guide covers database management operations, like creating, listing, and deleting databases with Studio.
-Make sure to xref:guides::installation/studio.adoc[install]
+Make sure to xref:guides::installing/studio.adoc[install]
 and xref:guides::connection/studio.adoc[connect] Studio to TypeDB before proceeding.
 
 == Create

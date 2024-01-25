@@ -6,7 +6,7 @@
 :tabs-sync-option:
 
 This guide covers database management operations, like creating, listing, and deleting databases with Console.
-Make sure to xref:guides::installation/console.adoc[install]
+Make sure to xref:guides::installing/console.adoc[install]
 and xref:guides::connection/console.adoc[connect] Console to TypeDB before proceeding.
 
 == Create

@@ -2,7 +2,7 @@
 :tabs-sync-option:
 
 This guide covers database management operations, like creating, listing, and deleting databases with Drivers.
-Make sure to xref:guides::installation/drivers.adoc[install]
+Make sure to xref:guides::installing/drivers.adoc[install]
 and try to xref:guides::connection/drivers.adoc[connect] a chosen TypeDB driver to TypeDB before proceeding.
 
 == Create

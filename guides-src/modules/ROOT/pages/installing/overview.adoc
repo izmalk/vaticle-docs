@@ -1,4 +1,4 @@
-= Installation
+= Installing TypeDB
 
 include::home::overview.adoc[tag=rust-rewrite]
 
@@ -52,10 +52,10 @@ Install libraries that implement TypeDB protocol and provide a native API for pr
 * image:home::cpp.png[cpp, width=20, xref=guides::installation/drivers.adoc] xref:guides::installation/drivers.adoc#_cpp_driver[C++]
 ////
 
-* xref:guides::installation/drivers.adoc#_rust_driver[Rust]
-* xref:guides::installation/drivers.adoc#_python_driver[Python]
-* xref:guides::installation/drivers.adoc#_java_driver[Java]
-* xref:guides::installation/drivers.adoc#_node_js_driver[Node.js]
-* xref:guides::installation/drivers.adoc#_cpp_driver[C++]
+* xref:guides::installing/drivers.adoc#_rust_driver[Rust]
+* xref:guides::installing/drivers.adoc#_python_driver[Python]
+* xref:guides::installing/drivers.adoc#_java_driver[Java]
+* xref:guides::installing/drivers.adoc#_node_js_driver[Node.js]
+* xref:guides::installing/drivers.adoc#_cpp_driver[C++]
 ****
 --

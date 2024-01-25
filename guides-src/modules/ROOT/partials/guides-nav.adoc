@@ -2,12 +2,12 @@
 .Guides
 * xref:guides::overview.adoc[Overview]
 
-* xref:guides::installation/overview.adoc[]
-** xref:guides::installation/cloud.adoc[TypeDB Cloud]
-** xref:guides::installation/core.adoc[TypeDB Core]
-** xref:guides::installation/studio.adoc[Studio]
-** xref:guides::installation/console.adoc[Console]
-** xref:guides::installation/drivers.adoc[Drivers]
+* xref:guides::installing/overview.adoc[]
+** xref:guides::installing/cloud.adoc[TypeDB Cloud]
+** xref:guides::installing/core.adoc[TypeDB Core]
+** xref:guides::installing/studio.adoc[Studio]
+** xref:guides::installing/console.adoc[Console]
+** xref:guides::installing/drivers.adoc[Drivers]
 
 * xref:guides::connection/overview.adoc[]
 ** xref:guides::connection/studio.adoc[Studio]
