@@ -2,11 +2,9 @@
 :tabs-sync-option:
 // Goal - Install TypeDB Core
 
-TypeDB Core can be installed in multiple ways:
-
-* <<_docker,Docker>>
-* <<_package,Package manager>>
-* <<_manual,Manual install>>
+This page is an installation guide for TypeDB Core.
+TypeDB Core can be installed in multiple ways: using <<_docker,Docker>>, via <<_package,package manager>>, or by
+<<_manual,manual installation>>.
 
 [#_docker]
 == Docker

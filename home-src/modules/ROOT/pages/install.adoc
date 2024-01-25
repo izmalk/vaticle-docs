@@ -10,14 +10,18 @@ include::home::overview.adoc[tag=rust-rewrite]
 
 == TypeDB Cloud
 
-image::cloud-hero.png[TypeDB Cloud hero image, role=framed, width = 75%, window=_blank, link=https://cloud.typedb.com/]
+image::cloud-hero.png[TypeDB Cloud hero image, role="framed right", width = 50%, window=_blank, link=https://cloud.typedb.com/]
+
+TypeDB Cloud is a production-ready and scalable version of TypeDB with advanced security and high-availability features.
 
 // tag::cloud-run[]
-Log in to https://cloud.typedb.com/[TypeDB Cloud,window=_blank] and create a new deployment on the Deployments page.
+Available without installation with our fully managed cloud service:
+log in to the https://cloud.typedb.com/[cloud.typedb.com,window=_blank]
+and create a new deployment on the Deployments page.
 // end::cloud-run[]
 
 // tag::self-hosted-run[]
-For self-hosted TypeDB Cloud installation and setup,
+For TypeDB Cloud Self-hosted installation and setup,
 see the xref:typedb::managing/self-hosted-deployment.adoc[Self-hosted deployment] page.
 // end::self-hosted-run[]
 
