@@ -36,4 +36,12 @@
 ** xref:learn::6-building-applications/6.4-executing-queries.adoc[Executing queries]
 ** xref:learn::6-building-applications/6.5-processing-results.adoc[Processing results]
 
+* xref:learn::7-understanding-query-patterns/7-understanding-query-patterns.adoc[Understanding query patterns]
+** xref:learn::7-understanding-query-patterns/7.1-patterns-as-constraints.adoc[Patterns as constraints]
+** xref:learn::7-understanding-query-patterns/7.2-relation-patterns.adoc[Relation patterns]
+** xref:learn::7-understanding-query-patterns/7.3-disjunctions-and-negations.adoc[Disjunctions and negations]
+** xref:learn::7-understanding-query-patterns/7.4-value-predicates.adoc[Value predicates]
+** xref:learn::7-understanding-query-patterns/7.5-arithmetic-expressions.adoc[Arithmetic expressions]
+** xref:learn::7-understanding-query-patterns/7.6-solution-set-semantics.adoc[Solution set semantics]
+
 * xref:learn::course-summary.adoc[]
