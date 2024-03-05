@@ -27,7 +27,7 @@ book sub entity,
     owns price,
     plays contribution:work,
     plays publishing:published,
-    plays promotion-inclusion:included,
+    plays promotion-inclusion:item,
     plays order-line:item,
     plays rating:rated,
     plays recommendation:recommended;
@@ -132,7 +132,7 @@ publishing sub relation,
 
 promotion-inclusion sub relation,
     relates promotion,
-    relates included,
+    relates item,
     owns discount;
 
 order-line sub relation,
