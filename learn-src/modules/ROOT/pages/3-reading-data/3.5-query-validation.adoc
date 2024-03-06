@@ -42,13 +42,13 @@ The second query is invalid because users do not have ISBN attributes. The third
 [,typeql]
 ----
 match
-(located: $user, location: $user-location) isa locating;
+(located: $user, location: $user-city) isa locating;
 (action: $order, executor: $user) isa action-execution;
 (delivered: $order, destination: $destination) isa delivery;
-(located: $destination, location: $destination-location) isa locating;
-$user-location isa city;
-$destination-location isa city;
-not { $destination-location is $user-location; };
+(located: $destination, location: $destination-city) isa locating;
+$user-city isa city;
+$destination-city isa city;
+not { $destination-city is $user-city; };
 fetch
 $order: id;
 ----

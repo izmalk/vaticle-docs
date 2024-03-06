@@ -125,13 +125,13 @@ We encountered the following Fetch query in xref:learn::3-reading-data/3.5-query
 [,typeql]
 ----
 match
-($user, $user-location) isa locating;
+($user, $user-city) isa locating;
 ($order, $user) isa action-execution;
 ($order, $destination) isa delivery;
-($destination, $destination-location) isa locating;
-$user-location isa city;
-$destination-location isa city;
-not { $destination-location is $user-location; };
+($destination, $destination-city) isa locating;
+$user-city isa city;
+$destination-city isa city;
+not { $destination-city is $user-city; };
 fetch
 $order: id;
 ----

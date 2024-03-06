@@ -107,7 +107,9 @@ $execution: timestamp;
 .Exercise
 [caption=""]
 ====
-Write a Fetch query to retrieve the titles of all books that have been ordered at least once and have also been included in at least one promotion, without using more than a single variable. You may find it useful to refer to the bookstore's schema.
+Write a Fetch query to retrieve the titles of all books that have been ordered at least once and have also been included in at least one promotion, without using more than a single variable.
+
+You may find it useful to refer to the bookstore's schema.
 
 .Schema
 [%collapsible]
