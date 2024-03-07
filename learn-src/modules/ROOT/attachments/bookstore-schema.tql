@@ -292,7 +292,7 @@ rule order-line-total-discounted-price:
                 has end-timestamp >= $order-time;
         };
         $item has price $retail-price;
-        ?discounted-price = $retail-price * (1 - $best-discount);
+        ?discounted-price = round(100 * $retail-price * (1 - $best-discount)) / 100;
         $line has quantity $quantity;
         ?line-total = $quantity * ?discounted-price;
     } then {
