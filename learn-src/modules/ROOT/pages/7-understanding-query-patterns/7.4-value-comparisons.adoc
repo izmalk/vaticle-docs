@@ -136,7 +136,8 @@ include::learn::attachment$bookstore-schema.tql[lines=18..]
 ----
 match
 $holiday-order isa order;
-($holiday-order) isa action-execution, has timestamp $order-time;
+($holiday-order) isa action-execution,
+    has timestamp $order-time;
 $holiday-sale isa promotion,
     has code "HOL23",
     has start-timestamp <= $order-time,
