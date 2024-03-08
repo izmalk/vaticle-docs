@@ -2,6 +2,8 @@
 
 == Value variables
 
+=== Declaration
+
 TypeQL allows the use of value expressions in queries through *value variables*. The following Fetch query shows how we might fetch the line totals for a particular order.
 
 [,typeql]
@@ -17,6 +19,33 @@ fetch
 ----
 
 Value variables are declared using a `?` prefix, like `?line-total` in this example. They are distinct from *concept variables*, which are declared with a `$` prefix as we saw in xref:learn::3-reading-data/3.1-fetching-simple-data.adoc[Lesson 3.1]. Concept variables represent specific data instances or types within the databases, while value variables represent temporary values that exist only within the scope of a query.
+
+=== Writing values
+
+In addition to retrieving value variables in Fetch queries, we can also use them for data writes. In the following query, we modify the previous example to write the line total as an attribute to the order line instead of retrieving it.
+
+[,typeql]
+----
+match
+$order isa order, has id "o0014";
+$book isa book, has price $retail-price;
+$line ($order, $book) isa order-line,
+    has quantity $quantity;
+?line-total = $quantity * $retail-price;
+insert
+$line has price ?line-total;
+----
+
+Unlike concept variables, value variables do not have schema types, only value types. If we use a write query to insert a value variable as an attribute, we must declare the attribute type, the same way we do when inserting a literal value as an attribute. If we changed the insert clause in the above query to the following, the query would not be valid.
+
+[,typeql]
+----
+...
+insert
+$line has ?line-total;
+----
+
+=== Assignment
 
 Value variables are defined using the assignment operator `=`, as we have done above, and can hold values of any value type. The assigned value is described by a *value expression*, which can take any of the following forms:
 
@@ -124,4 +153,26 @@ $retail-price;
 ?discounted-price;
 ----
 =====
+
+Write an Update query to decrease the stock of _Pride and Prejudice_ by one in a single query. The entity representing this book has the ISBN-13 "9780553212150". Ensure that the stock does not drop below zero.
+
+.Sample solution
+[%collapsible]
+=====
+[,typeql]
+----
+match
+$pride-prejudice isa book,
+    has isbn "9780553212150",
+    has stock $current-stock;
+$current-stock > 0;
+?new-stock = $current-stock - 1;
+delete
+$pride-prejudice has $current-stock;
+insert
+$pride-prejudice has stock ?new-stock;
+----
+image:learn::studio-icons/run-query.png[]image:learn::studio-icons/commit-transaction.png[] *_Run and commit_*
+=====
+
 ====
