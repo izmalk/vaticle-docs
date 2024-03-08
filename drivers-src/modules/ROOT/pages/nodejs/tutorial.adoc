@@ -1,169 +1,332 @@
 = Node.js driver tutorial
-:Summary: Tutorial for TypeDB Node.js driver.
-:page-aliases: clients::nodejs-driver/tutorial.adoc
-:keywords: typedb, driver, node.js, javascript, tutorial
+:keywords: typedb, typeql, tutorial, node.js, quickstart, start, sample, example, application, app
 :pageTitle: Node.js driver tutorial
+:summary: A simple example with an application using TypeDB Node.js driver.
+:tabs-sync-option:
 
-== Prerequisites
+In this tutorial, we'll build a sample application with the Node.js driver capable of basic interaction with TypeDB:
 
-Make sure to install the Node.js driver as per the xref:nodejs/overview.adoc#_install_nodejs[Installation] guide.
-The TypeDB server also needs to be installed and running.
+* Connect to a TypeDB server (Core or Cloud),
+* Manage databases, sessions, and transactions,
+* Send different types of queries.
 
-== Importing
+Follow the steps below or see the
+https://github.com/vaticle/typedb-docs/tree/master/drivers-src/modules/ROOT/partials/tutorials/nodejs/sample.js[full source code,window=_blank].
 
-Use the `require` keyword with the `typedb-driver`.
+== Environment setup
 
-// test-example socialNetworkNodejsDriverA.js
+To run this sample application, you'll need:
 
-[,javascript]
+. TypeDB: either a https://cloud.typedb.com/[TypeDB Cloud] deployment or a TypeDB Core server.
+For TypeDB Core installation instructions, see the xref:home::install/core.adoc[] page.
+. Node.js and https://www.npmjs.com/package/typedb-driver[TypeDB Node.js driver].
+For the driver installation instructions, see the xref:drivers::nodejs/overview.adoc[] page.
+
+//#todo Consider adding virtualenv step-by-step guide
+== Imported modules
+
+To be able to use the TypeDB Node.js driver API in the Sample application, use the following import statements:
+
+[,js,indent=0]
 ----
-const { TypeDB } = require("typedb-driver");
+include::drivers::partial$tutorials/nodejs/sample.js[tag=import]
 ----
 
-== Connecting
+== Default values
 
-Instantiate a TypeDB Core driver and open a xref:typedb:ROOT:connecting/overview.adoc#_sessions[session] to a
-xref:typedb:ROOT:connecting/overview.adoc#_databases[database].
+We store default values as constants in the source code:
+
+[,js,indent=0]
+----
+include::drivers::partial$tutorials/nodejs/sample.js[tag=constants]
+----
+
+Where `DB_NAME` -- the name of the database to use;
+`SERVER_ADDR` -- address of the TypeDB server to connect to;
+`TYPEDB_EDITION` -- TypeDB Core or Cloud edition selector;
+`CLOUD_USERNAME`/`CLOUD_PASSWORD` -- credentials to connect to TypeDB Cloud.
+
+== Program structure
+
+The main workflow of this sample application includes establishing a connection to TypeDB,
+a new database setup, and querying.
+
+[,js,indent=0]
+----
+include::drivers::partial$tutorials/nodejs/sample.js[tag=main]
+----
+
+The entire `main()` function code is executed in the context of the network connection
+established by the `connectToTypedb()` function.
+The network connection is represented by the `driver` object that is returned by the function.
+
+== TypeDB connection
+
+The `connectToTypedb()` function takes `edition` and `addr` as input parameters.
+
+[,js,indent=0]
+----
+include::drivers::partial$tutorials/nodejs/sample.js[tag=connection]
+----
+
+The `edition` is expected to be a String value of either `core` or `cloud` for selecting a TypeDB edition.
+Depending on the TypeDB edition selected, this function initializes either a TypeDB Core or TypeDB Cloud connection.
+Both require server address, passed in the `addr` parameter.
+
+TypeDB Cloud connection also requires an object of the `TypeDBCredential` class
+that is initialized with a username and password.
+For our sample application, we have the default credentials for the `admin` account set in the code of the
+`connectToTypedb` function.
+
+include::partial$tutorials/change-psw.adoc[]
+
+== Database setup
+
+To set up a TypeDB database, we need to <<_creating_a_database,create a database>> on the TypeDB server,
+<<_defining_a_schema,define its schema>> and <<_loading_initial_data,load initial data>> into it.
+Additionally, we test it to make sure that the setup process is completed successfully.
+
+[,js,indent=0]
+----
+include::drivers::partial$tutorials/nodejs/sample.js[tag=db-setup]
+----
+
+Notice, that the `dbSchemaSetup()` and `dbDatasetSetup()` are called only if the `tryCreateDatabase()` function
+returns `true`.
+That prevents us from modifying an existing database.
+
+[#_creating_a_database]
+=== Creating a database
+
+For this sample application we create a new database of the default name `sample_app_db`
+in the `tryCreateDatabase()` function.
+But first, we check whether a database with such a name already exists.
+
+[,js,indent=0]
+----
+include::drivers::partial$tutorials/nodejs/sample.js[tag=create_new_db]
+----
+
+If there is no such database, we just create a new database.
+But if there is one, we ask user's confirmation on how to proceed.
 
 [NOTE]
 ====
-Find out how to create a database in TypeDB on the
-xref:home::quickstart.adoc#_create_a_database[Quickstart guide] page.
-
-The name for the database should be `social_network`. +
-The database should have the following schema loaded: xref:attachment$schema.tql[schema.tql]. +
-The database should have the following data inserted: xref:attachment$data.tql[data.tql].
+Avoid deleting an existing database without confirmation from a user to prevent loss of the existing data.
 ====
 
-Instantiate a driver and open a session.
+By default, the `reset` is set to `false` (the default behavior).
+In combination with a pre-existing database,
+that leads to requesting the user's input on whether to replace the existing database with a new one.
 
-// test-example socialNetworkNodejsDriverB.js
+If a user gives confirmation for the replacement, we delete the existing database (with all of its schema and data)
+by restarting the `tryCreateDatabase()` function with the `reset` parameter set to `true`.
 
-[,javascript]
+If a user doesn't want to delete the existing database,
+we proceed further without modification of the existing database.
+This will most likely lead to failing the database testing,
+but it prevents user from losing the existing data.
+
+[#_defining_a_schema]
+=== Defining a schema
+
+After the new database is created,
+we use a xref:typeql::schema/define.adoc[Define query] to define a schema for that database.
+See the `dbSchemaSetup()` function:
+
+[,js,indent=0]
 ----
-const { TypeDB, SessionType } = require("typedb-driver");
-
-async function openSession (database) {
-	const driver = await TypeDB.coreDriver("localhost:1729");
-	const session = await driver.session(database, SessionType.DATA);
-	// session is open
-	await session.close();
-	//session is closed
-	driver.close();
-};
-
-openSession("social_network");
-----
-
-== Creating transactions
-
-Create transactions to use for reading and writing data.
-
-// test-example socialNetworkNodejsDriverC.js
-
-[,javascript]
-----
-const { TypeDB, SessionType, TransactionType } = require("typedb-driver");
-
-async function createTransactions (database) {
-	const driver = await TypeDB.coreDriver("localhost:1729");
-	const session = await driver.session(database, SessionType.DATA);
-
-	// creating a write transaction
-	const writeTransaction = await session.transaction(TransactionType.WRITE); // write transaction is open
-	// to persist changes, write transaction must always be committed/closed
-	await writeTransaction.commit();
-
-	// creating a read transaction
-	const readTransaction = await session.transaction(TransactionType.READ); // read transaction is open
-	// read transaction must always be closed
-	await readTransaction.close();
-	// a session must always be closed
-	await session.close();
-	// a driver must always be closed
-	driver.close();
-}
-
-createTransactions("social_network");
+include::drivers::partial$tutorials/nodejs/sample.js[tag=db-schema-setup]
 ----
 
-== Querying
+The schema for the sample application is stored in the file
+https://github.com/vaticle/typedb-docs/tree/master/drivers-src/modules/ROOT/partials/tutorials/iam-schema.tql[iam-schema.tql,window=_blank],
+so we read the file first.
 
-Running basic retrieval and insertion queries.
-
-// test-example socialNetworkNodejsDriverD.js
-
-[,javascript]
-----
-const { TypeDB, SessionType, TransactionType } = require("typedb-driver");
-
-async function runBasicQueries(database) {
-	const driver = await TypeDB.coreDriver("localhost:1729");
-	const session = await driver.session(database, SessionType.DATA);
-
-	// Insert a person using a WRITE transaction
-	const writeTransaction = await session.transaction(TransactionType.WRITE);
-	const insertStream = await writeTransaction.query.insert('insert $x isa person, has email "x@email.com";');
-	const conceptMaps = await insertStream.collect();
-	console.log("Inserted a person with ID: " + conceptMaps[0].get("x").iid);
-	// to persist changes, a write transaction must always be committed (closed)
-	await writeTransaction.commit();
-
-	// Retrieve persons using a READ only transaction
-	const readTransaction = await session.transaction(TransactionType.READ);
-
-	// We can either query and consume the iterator lazily
-	let answerStream = await readTransaction.query.get("match $x isa person; get $x; limit 10;");
-	for await (const aConceptMapAnswer of answerStream) {
-		const person = aConceptMapAnswer.get("x");
-		console.log("Retrieved person with id " + person.iid);
-	}
-
-	// Or query and consume the iterator immediately collecting all the results
-	answerStream = await readTransaction.query.get("match $x isa person; get $x; limit 10;");
-	const persons = await answerStream.collect();
-	persons.forEach(conceptMap => {
-        person = conceptMap.get("x");
-        console.log("Retrieved person with id " + person.iid);
-    });
-
-	// a read transaction must always be closed
-	await readTransaction.close();
-	// a session must always be closed
-	await session.close();
-	// a driver must always be closed
-	driver.close();
-}
-
-runBasicQueries("social_network");
-----
-
-[IMPORTANT]
+.See the full schema
+[%collapsible]
 ====
-Remember that transactions always need to be closed. Committing a write transaction closes it. A read transaction,
-however, must be explicitly closed by calling the `close()` method on it.
+[,typeql]
+----
+include::drivers::partial$tutorials/iam-schema.tql[lines=17..]
+----
 ====
 
-Check out the xref:nodejs/api-reference.adoc[API Reference] to learn about the available methods on the concepts retrieved as the answers to TypeQL queries.
+We use a session object passed as a parameter to open a transaction.
+Then we send the contents of the file as a TypeQL Define query and commit the changes made by the transaction.
 
-To view examples of running various queries using TypeQL, head over to their dedicated documentation pages
-as listed below:
+[#_loading_initial_data]
+=== Loading initial data
 
-* xref:typedb::developing/write.adoc#_insert[Insert]
-* xref:typedb::developing/write.adoc#_delete_query[Delete]
-* xref:typedb::developing/write.adoc#_update_query[Update]
-* xref:typedb::developing/read.adoc#_get[Get]
-//#todo update to TypeQL full examples
+With the schema defined, we can load initial data into our database with the xref:typeql::data/insert.adoc[Insert query]
+in the `dbDatasetSetup()` function:
 
-== Where to go next
+[,js,indent=0]
+----
+include::drivers::partial$tutorials/nodejs/sample.js[tag=db-dataset-setup]
+----
 
-Check out the xref:nodejs/api-reference.adoc#_answer_header[Answer] section of API reference page to learn
-about the available methods on the concepts retrieved as the answers to queries.
+We do it the very same way: read the file
+https://github.com/vaticle/typedb-docs/tree/master/drivers-src/modules/ROOT/partials/tutorials/iam-data-single-query.tql[iam-data-single-query.tql,window=_blank],
+send it as a single query, and then commit the changes.
 
-To view examples of various TypeQL queries, head over to
-xref:typedb::developing/write.adoc[Writing data] and
-xref:typedb::developing/read.adoc[Reading data] pages.
+.See the full TypeQL Insert query
+[%collapsible]
+====
+[,typeql]
+----
+include::drivers::partial$tutorials/iam-data-single-query.tql[lines=17..]
+----
+====
 
-For some more Python driver examples -- see the
-xref:typedb:ROOT:tutorials/sample-app.adoc#_node_js_implementation[Python implementation] on the Sample application
-page.
+=== Testing a database
+
+With the schema defined and data loaded, we test our database to make sure it's ready.
+To test the database, we send a query to count the number of users in the database.
+
+[,js,indent=0]
+----
+include::drivers::partial$tutorials/nodejs/sample.js[tag=test-db]
+----
+
+== Query examples
+
+After database setup is complete, we proceed with querying our database with different types of queries in the
+`queries()` function:
+
+[,js,indent=0]
+----
+include::drivers::partial$tutorials/nodejs/sample.js[tag=queries]
+----
+
+The queries are as follows:
+
+. <<_fetch,Fetch query>> -- to get attribute values as JSON
+. <<_insert,Insert query>> -- to add new data
+. <<_get,Get query>> -- to get stateful objects
+. <<_get_infer,Get query with inference>> -- to get stateful objects with inference
+. <<_update,Update query>> -- to replace data
+. <<_delete,Delete query>> -- to delete data
+
+Every query is implemented as a function that includes visualization of the query response
+and returns some meaningful data from the response.
+
+[#_fetch]
+=== Fetch query
+
+The main way to retrieve data from a TypeDB database is to use fetching to get values of attributes,
+matched by a pattern.
+
+Let's use a xref:typeql::data/fetch.adoc[Fetch query] to fetch names and emails for all users in the database:
+
+[,js,indent=0]
+----
+include::drivers::partial$tutorials/nodejs/sample.js[tag=fetch]
+----
+
+We get the response as a stream of results, containing JSON,
+collect it to the `users` variable, and iterate through them to print the value of the first `full-name` attribute
+from each JSON.
+
+//#todo Add printing Names and E-mail from a JSON, add multiple names/e-mails implementation
+
+[#_insert]
+=== Insert query
+
+Let's insert a new user with a `full-name` and `email` attributes to the database:
+
+[,js,indent=0]
+----
+include::drivers::partial$tutorials/nodejs/sample.js[tag=insert]
+----
+
+The Insert query returns a stream of ConceptMaps: one for every `insert` clause execution.
+We collect the stream to a list of values in the `result` variable.
+Then we print name and email by iterating though the list, commit the changes,
+and return the stored list.
+
+Since the Insert query has no `match` clause, the `insert` clause is executed exactly once.
+But the Insert query always returns a list of ConceptMap objects, where every ConceptMap represents an inserted result.
+
+[#_get]
+=== Get query
+
+Let's retrieve all files available for a user with a `getFilesByUser()` function:
+
+[,js,indent=0]
+----
+include::drivers::partial$tutorials/nodejs/sample.js[tag=get]
+----
+
+We call the function with the inference disabled (`false`) and expect it to return no results (an empty stream),
+as the query pattern matches only files available for `view_file` action,
+and there are no such files initially in the database.
+
+The `getFilesByUser()` function checks
+that there is only one user matched with the name provided by an input parameter.
+It then executes the query to find the files, collect the results, and
+iterates through them to print a value of every matched `path` attribute.
+
+[NOTE]
+====
+For bigger numbers of results, it might be faster to iterate through a stream,
+rather than collect and store the results first.
+====
+
+[#_get_infer]
+=== Get query with inference
+
+To get query results with inferred data, let's enable the `infer` parameter of the TypeDB transaction options.
+We use the same `getFilesByUser()` function, but set the `inference` parameter to `true` when we call it again.
+The `add-view-permission` rule provides us with some inferred results this time.
+
+[#_update]
+=== Update query
+
+Let's replace a path for one of the files with a new path.
+We can do that by deleting ownership of the old path attribute from the file entity
+and assigning it with ownership of the new path attribute with the xref:typeql::data/update.adoc[Update query]:
+
+[,js,indent=0]
+----
+include::drivers::partial$tutorials/nodejs/sample.js[tag=update]
+----
+
+We collect the response of the Update query and check the length of it to determine
+the number of times the `delete` and `insert` clauses are executed.
+We then commit the changes only if the number meets our expectation.
+
+[#_delete]
+=== Delete query
+
+Finally, let's delete the same file we updated the path for.
+First, we match the file in a Get (or Fetch) query to check how many files get matched to prevent unplanned deletes.
+If the number (or any other relevant parameters) of matched results is as expected,
+we proceed with a xref:typeql::data/delete.adoc[Delete query] with the same match clause.
+
+By using the same `write` transaction we employ snapshot isolation
+to prevent any other transactions from changing the expected results.
+If any other transaction makes a conflicting change before we commit this transaction,
+then our transaction fails upon a commit.
+
+[,js,indent=0]
+----
+include::drivers::partial$tutorials/nodejs/sample.js[tag=delete]
+----
+
+== Learn more
+
+[cols-2]
+--
+.link:https://github.com/vaticle/typedb-docs/tree/master/drivers-src/modules/ROOT/partials/tutorials/nodejs/sample.js[Source code,window=_blank]
+[.clickable]
+****
+The full source code of this sample application.
+****
+
+.xref:drivers::nodejs/api-reference.adoc[]
+[.clickable]
+****
+The full API reference for the TypeDB Node.js driver.
+****
+--

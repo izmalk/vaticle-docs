@@ -3,6 +3,7 @@
 :keywords: typedb, client, driver, c++, cpp, api, refernce
 :pageTitle: C++ driver API reference
 :tabs-sync-option:
+:page-toclevels: 2
 //:toc: macro
 //:toclevels: 4
 
@@ -69,6 +70,14 @@ include::drivers::partial$cpp/answer/Explainables.adoc[]
 include::drivers::partial$cpp/answer/Explainable.adoc[]
 
 include::drivers::partial$cpp/answer/Explanation.adoc[]
+
+include::drivers::partial$cpp/answer/Future.adoc[]
+
+include::drivers::partial$cpp/answer/Iterable.adoc[]
+
+include::drivers::partial$cpp/answer/Iterator.adoc[]
+
+include::drivers::partial$cpp/answer/typedefs.adoc[]
 
 [#_concept_header]
 == Concept

@@ -6,12 +6,6 @@ To install TypeDB via `brew`:
 brew tap vaticle/tap
 brew install vaticle/tap/typedb
 ----
-
-For `arm64` architecture (e.g., a MacBook with `M1` processor),
-we don't recommend installing TypeDB versions prior to `2.19.0` via Homebrew; see the
-https://forum.vaticle.com/t/running-typedb-on-an-m1-macbook/[Running TypeDB on an M1 MacBook,window=_blank] and
-use the <<_manual,manual>> installation instead.
-
 // end::install-homebrew[]
 
 // tag::manual-install[]
@@ -32,17 +26,18 @@ https://en.wikipedia.org/wiki/Rosetta_(software)[Rosetta].
 
 . Extract the archive with TypeDB into a new directory:
 +
-[,bash,subs=attributes+]
+[,bash]
 ----
 sudo mkdir /opt/typedb
-unzip ~/Downloads/typedb-all-mac-{latest-version}.zip -d /opt/typedb
+unzip ~/Downloads/<filename>.zip -d /opt/typedb
 ----
-
++
+Where `<filename>` is the name of the archive.
 . Add a symlink to the TypeDB executable in the `/usr/local/bin` directory:
 +
-[,bash,subs=attributes+]
+[,bash]
 ----
-ln -s /opt/typedb/typedb-all-mac-{latest-version}/typedb /usr/local/bin/typedb
+ln -s /opt/typedb/<filename>/typedb /usr/local/bin/typedb
 ----
 
 // end::manual-install[]
