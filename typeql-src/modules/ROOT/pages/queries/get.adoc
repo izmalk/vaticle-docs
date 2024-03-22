@@ -41,7 +41,7 @@ xref:typeql::modifiers/aggregation.adoc[aggregation], xref:typeql::modifiers/gro
 See the <<_response>> section below.
 
 You can use xref:typeql::modifiers/sorting.adoc[sorting] and
-xref:typeql::modifiers/pagination.adoc[pagination] with a Fetch query.
+xref:typeql::modifiers/pagination.adoc[pagination] with a Get query.
 
 [#_match_clause]
 === Match clause
