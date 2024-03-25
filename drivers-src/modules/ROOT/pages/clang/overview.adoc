@@ -3,7 +3,7 @@
 :keywords: typedb, client, driver, c, cpp, clang
 :pageTitle: TypeDB C driver
 
-The C\++ driver was developed by Vaticle to enable TypeDB support for C software and developers.
+The C language driver was developed by Vaticle to enable TypeDB support for C language software and developers.
 
 [cols-2]
 --
