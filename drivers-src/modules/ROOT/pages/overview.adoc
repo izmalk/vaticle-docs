@@ -8,9 +8,6 @@
 TypeDB accepts client connections via gRPC based
 https://github.com/vaticle/typedb-protocol[TypeDB driver RPC,window=_blank] protocol.
 
-To build an application capable of connecting to TypeDB, we can use one of the
-existing libraries implementing it, called TypeDB drivers, or we can implement it ourselves as a new driver.
-
 [#_typedb_drivers]
 A TypeDB driver is a library that implements *TypeDB driver RPC* protocol and provides a language-specific native API.
 TypeDB drivers are available for some of the most popular programming languages: Rust, Python, Java, Node.js, and C++.
