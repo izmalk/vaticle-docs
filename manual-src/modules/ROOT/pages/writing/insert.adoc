@@ -2,17 +2,19 @@
 :experimental:
 :tabs-sync-option:
 
+In this guide, you'll see how to insert data in a database using Studio, Console, or one of the drivers.
+
+== Understanding Insert queries
+
 An Insert query is used to insert data into a TypeDB database.
 An `insert` clause is executed once per every result matched by the `match` clause of the same query.
-If the `match` clause is omitted, then the `insert` clause is executed exactly once.
-
-This page assumes you've already followed instructions from the xref:manual::defining/overview.adoc[] section.
-Here, you'll see how to insert data in a database using Studio, Console, or one of the drivers.
+If the `match` clause is omitted, then the `insert` clause is executed exactly once. 
+For a detailed explanation of the query see the xref:typeql::queries/delete.adoc[] page.
 
 [#_how_to_send_an_insert_query]
-== How to send an Insert query
+== Sending Insert queries
 
-The easiest way to send an Insert query is to use Studio or Console:
+Before you start, make sure you followed the instructions from the xref:manual::defining/overview.adoc[] section. The easiest way to send an Insert query is to use Studio or Console:
 
 [tabs]
 ====
@@ -31,8 +33,8 @@ Then use the steps below:
 [,typeql]
 ----
 insert
-$user1 isa user, has name "Alice", has email "alice@vaticle.com";
-$user2 isa user, has name "Bob", has email "bob@vaticle.com";
+$user1 isa user, has name "Alice", has email "alice@typedb.com";
+$user2 isa user, has name "Bob", has email "bob@typedb.com";
 $friendship (friend:$user1, friend: $user2) isa friendship;
 ----
 . Run the query by clicking the btn:[Run query] button (image:home::studio-icons/run.png[run]).
@@ -53,8 +55,8 @@ transaction sample_db data write
 [,typeql]
 ----
 insert
-$user1 isa user, has name "Alice", has email "alice@vaticle.com";
-$user2 isa user, has name "Bob", has email "bob@vaticle.com";
+$user1 isa user, has name "Alice", has email "alice@typedb.com";
+$user2 isa user, has name "Bob", has email "bob@typedb.com";
 $friendship (friend:$user1, friend: $user2) isa friendship;
 ----
 +
@@ -187,7 +189,7 @@ Let's say we send the following Insert query with a `match` clause:
 match
 $u isa user, has name "Bob";
 insert
-$new-u isa user, has name "Charlie", has email "charlie@vaticle.com";
+$new-u isa user, has name "Charlie", has email "charlie@typedb.com";
 $f($u,$new-u) isa friendship;
 ----
 
@@ -347,7 +349,7 @@ The most direct approach is to send an aggregated Get query to count the number 
 .Checking the number of matched results
 [,typeql]
 ----
-match $bob isa user, has email "bob@vaticle.com";
+match $bob isa user, has email "bob@typedb.com";
 get; count;
 ----
 
@@ -360,10 +362,10 @@ The response should be a single number.
 
 [cols-2]
 --
-.More about an xref:typeql::data/insert.adoc[]
+.More about an xref:typeql::queries/insert.adoc[]
 [.clickable]
 ****
-Learn more about Insert queries in TypeQL: syntax, behaviour, and query examples.
+Learn more about Insert queries in TypeQL: syntax, behavior, and query examples.
 ****
 
 .xref:manual::writing/delete.adoc[]

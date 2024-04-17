@@ -38,17 +38,17 @@ For Linux: the minimum version of `glibc` is `2.25.0`.
 
 To install TypeDB Python driver:
 
-[,bash]
+[source,console]
 ----
-pip install typedb-driver
+$ pip install typedb-driver
 ----
 
 .See the command for older versions (<2.24.0)
 [%collapsible]
 ====
-[,bash]
+[source,console]
 ----
-pip install typedb-client
+$ pip install typedb-client
 ----
 ====
 
@@ -138,10 +138,16 @@ include::drivers::partial$drivers2discord.adoc[]
 |===
 | Python driver | Protocol encoding version | TypeDB Core | TypeDB Cloud | Python
 
-| 2.26.5
+| 2.27.0
 | 3
-| 2.26.3
-| 2.26.0
+| 2.27.0
+| 2.27.0
+| 3.8 to 3.11
+
+| 2.26.6
+| 3
+| 2.26.6
+| 2.26.6
 | 3.8 to 3.11
 
 | 2.25.8

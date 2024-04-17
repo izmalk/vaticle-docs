@@ -1,6 +1,6 @@
 .Learn
 
-* xref:learn::course-overview.adoc[Course Overview]
+* xref:learn::overview.adoc[Overview]
 
 * xref:learn::1-why-typedb/1-why-typedb.adoc[Why TypeDB]
 
@@ -36,4 +36,42 @@
 ** xref:learn::6-building-applications/6.4-executing-queries.adoc[Executing queries]
 ** xref:learn::6-building-applications/6.5-processing-results.adoc[Processing results]
 
-* xref:learn::course-summary.adoc[]
+* xref:learn::7-understanding-query-patterns/7-understanding-query-patterns.adoc[Understanding query patterns]
+** xref:learn::7-understanding-query-patterns/7.1-patterns-as-constraints.adoc[Patterns as constraints]
+** xref:learn::7-understanding-query-patterns/7.2-relation-patterns.adoc[Relation patterns]
+** xref:learn::7-understanding-query-patterns/7.3-logical-operators.adoc[Logical operators]
+** xref:learn::7-understanding-query-patterns/7.4-value-comparisons.adoc[Value comparisons]
+** xref:learn::7-understanding-query-patterns/7.5-value-expressions.adoc[Value expressions]
+** xref:learn::7-understanding-query-patterns/7.6-solution-set-semantics.adoc[Solution set semantics]
+
+* xref:learn::8-structuring-query-results/8-structuring-query-results.adoc[Structuring query results]
+** xref:learn::8-structuring-query-results/8.1-fetching-attributes.adoc[Fetching attributes]
+** xref:learn::8-structuring-query-results/8.2-subqueries.adoc[Subqueries]
+** xref:learn::8-structuring-query-results/8.3-aggregations.adoc[Aggregations]
+** xref:learn::8-structuring-query-results/8.4-sorting-and-pagination.adoc[Sorting and pagination]
+
+* xref:learn::9-modeling-schemas/9-modeling-schemas.adoc[Modeling schemas]
+** xref:learn::9-modeling-schemas/9.1-the-pera-model.adoc[The PERA model]
+** xref:learn::9-modeling-schemas/9.2-determining-object-types.adoc[Determining object types]
+** xref:learn::9-modeling-schemas/9.3-avoiding-data-redundancies.adoc[Avoiding data redundancies]
+** xref:learn::9-modeling-schemas/9.4-using-type-hierarchies.adoc[Using type hierarchies]
+** xref:learn::9-modeling-schemas/9.5-composition-over-inheritance.adoc[Composition over inheritance]
+** xref:learn::9-modeling-schemas/9.6-using-interface-hierarchies.adoc[Using interface hierarchies]
+** xref:learn::9-modeling-schemas/9.7-avoiding-interface-redundancies.adoc[Avoiding interface redundancies]
+
+* xref:learn::10-using-inference/10-using-inference.adoc[Using inference]
+** xref:learn::10-using-inference/10.1-rules-as-views.adoc[Rules as views]
+** xref:learn::10-using-inference/10.2-rule-chaining.adoc[Rule chaining]
+** xref:learn::10-using-inference/10.3-rule-branching.adoc[Rule branching]
+
+* xref:learn::11-manipulating-stateful-objects/11-manipulating-stateful-objects.adoc[Manipulating stateful objects]
+** xref:learn::11-manipulating-stateful-objects/11.1-retrieving-objects.adoc[Retrieving objects]
+** xref:learn::11-manipulating-stateful-objects/11.2-operating-on-objects.adoc[Operating on objects]
+
+* xref:learn::12-advanced-modeling/12-advanced-modeling.adoc[Advanced modeling]
+** xref:learn::12-advanced-modeling/12.1-using-dependent-types.adoc[Using dependent types]
+** xref:learn::12-advanced-modeling/12.2-using-type-theoretic-relations.adoc[Using type-theoretic relations]
+** xref:learn::12-advanced-modeling/12.3-reifying-interfaces.adoc[Reifying interfaces]
+** xref:learn::12-advanced-modeling/12.4-using-interface-contracts.adoc[Using interface contracts]
+
+* xref:learn::summary.adoc[Summary]

@@ -2,18 +2,20 @@
 :experimental:
 :tabs-sync-option:
 
+In this guide, you'll see how to update data in a database using Studio, Console, or one of the drivers.
+
+== Understanding Update queries
+
 An Update query is used to update data in a TypeDB database by matching existing data, deleting some of it,
 and then inserting some other data instead.
 A `delete` and `insert` clauses are executed once per every result
 matched by the `match` clause of the same Update query.
-
-This page assumes you've already followed instructions from the xref:manual::writing/delete.adoc[] page.
-Here, you'll see how to update data in a database using Studio, Console, or one of the drivers.
+For a detailed explanation of the query see the xref:typeql::queries/update.adoc[] page.
 
 [#_how_to_send_an_update_query]
-== How to send an Update query
+== Sending Update queries
 
-The easiest way to send an Update query is to use Studio or Console:
+Before you start, make sure you followed instructions from the xref:manual::writing/delete.adoc[] page. The easiest way to send an Update query is to use Studio or Console:
 
 [tabs]
 ====
@@ -36,7 +38,7 @@ $u isa user, has name 'Charlie', has email $e;
 delete
 $u has $e;
 insert
-$u has email 'charles@vaticle.com';
+$u has email 'charles@typedb.com';
 ----
 . Run the query by clicking the btn:[Run query] button (image:home::studio-icons/run.png[run]).
 . Commit the changes by clicking the btn:[Commit query] button (image:home::studio-icons/commit.png[Commit]).
@@ -60,7 +62,7 @@ $u isa user, has name 'Charlie', has email $e;
 delete
 $u has $e;
 insert
-$u has email 'charles@vaticle.com';
+$u has email 'charles@typedb.com';
 ----
 +
 Push btn:[Enter] twice to send the query.
@@ -207,9 +209,9 @@ Both Studio and Console should produce similar results:
 [,typeql]
 ----
 {
-    $e the-bob@vaticle.com isa email;
+    $e the-bob@typedb.com isa email;
     $u iid 0x826e80018000000000000001 isa user;
-    $_0 the-bob@vaticle.com isa email;
+    $_0 the-bob@typedb.com isa email;
 }
 ----
 
@@ -248,10 +250,10 @@ of a Delete query with the same `match` clause in the same `write` transaction w
 
 [cols-2]
 --
-.More about an xref:typeql::data/update.adoc[]
+.More about an xref:typeql::queries/update.adoc[]
 [.clickable]
 ****
-Learn more about Update queries in TypeQL: syntax, behaviour, and query examples.
+Learn more about Update queries in TypeQL: syntax, behavior, and query examples.
 ****
 
 .xref:manual::reading/overview.adoc[]

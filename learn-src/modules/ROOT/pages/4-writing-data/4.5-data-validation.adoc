@@ -1,6 +1,8 @@
 = Lesson 4.5: Data validation
+:page-no-toc: 1
 
-== Valid and invalid data
+[#_blank_heading]
+== {blank}
 
 In xref:learn::3-reading-data/3.5-query-validation.adoc[Lesson 3.5], we saw that TypeDB validates all read queries against the schema to ensure semantic correctness. Likewise, all write queries are also validated to ensure data integrity. We've already seen an example of an invalid query in xref:learn::4-writing-data/4.2-inserting-polymorphic-data.adoc[Lesson 4.2]
 
@@ -19,7 +21,7 @@ In this case, the query was invalid because TypeDB cannot infer the roles that `
 [,typeql]
 ----
 match
-$odyssey isa book, has isbn "9780393634563";
+$odyssey isa ebook, has isbn "9780393634563";
 insert
 $odyssey has stock 20;
 ----
@@ -61,4 +63,4 @@ Examine the three queries above and the error messages returned to determine the
 =====
 ====
 
-We'll see how we can use the schema to constrain inserted data in xref:learn::5-defining-schemas/5-defining-schemas.adoc[Lesson 5], and then explore how TypeDB validates data against the schema in Lesson 7.1 (coming soon).
+We'll see how we can use the schema to constrain inserted data in xref:learn::5-defining-schemas/5-defining-schemas.adoc[Lesson 5], and then explore how TypeDB validates data against the schema in xref:learn::7-understanding-query-patterns/7.1-patterns-as-constraints.adoc[Lesson 7.1].

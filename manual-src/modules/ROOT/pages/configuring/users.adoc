@@ -2,19 +2,24 @@
 :keywords: typedb, users, access, username, password
 :pageTitle: Users
 :summary: TypeDB user management.
+:page-aliases: typedb::managing/user-management.adoc
+
+In this guide, you'll learn how to manage users in your TypeDB cloud application.
 
 [NOTE]
 ====
 User management features are available in TypeDB Cloud only.
 ====
 
-You can use TypeDB Console or TypeDB driver API for user management.
+== Management tools
+
+You can use TypeDB Console or TypeDB driver API for managing users remotely.
 
 Assuming TypeDB Console is xref:home::install/console.adoc[installed], to connect to TypeDB Cloud:
 
-[,bash]
+[source,console]
 ----
-typedb console --cloud=<server-address> --username=<username> --password --tls-enabled=true
+$ typedb console --cloud=<server-address> --username=<username> --password --tls-enabled=true
 ----
 
 For more information on how to use TypeDB Console, see the xref:manual::console.adoc[] page.
