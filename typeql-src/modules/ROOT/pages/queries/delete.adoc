@@ -68,7 +68,7 @@ A Delete query returns a Promise of an empty response.
 [#_deleting_data_instances]
 == Delete data instances 
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 To delete an entity, attribute, or relation,
 match it in a `match` clause, then
@@ -127,7 +127,7 @@ Notice that we didn't specify all roles of a `permission` relation, e.g., the `o
 
 == Delete with type inheritance
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 A data instance can be deleted by using not only its exact type in a `delete` clause pattern,
 but also any of its supertypes.
@@ -146,7 +146,7 @@ The above query matches and deletes all attributes with the value of `Bob`, rega
 
 == Delete ownerships
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 To delete an ownership of an attribute, match both the attribute and its owner and use a
 xref:2.x@typeql::statements/has.adoc[] pattern in the `delete` clause of the same query:
@@ -175,7 +175,7 @@ Only ownership of one by another.
 [#_orphaned_attributes]
 === Orphaned attributes
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 If an attribute is not owned by any other data instance, then such an attribute is called orphaned.
 Orphaned attributes are not deleted automatically, but quite often they are useless.
@@ -225,7 +225,7 @@ We didn't specify all roles of a `permission` relation, e.g., the `object` role.
 [#_deleting_role_players_from_a_relation]
 == Delete role players
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 To delete a role player from a relation, match both the relation and data instance
 that needs to stop playing a role in it, then use xref:2.x@typeql::statements/role-assignment.adoc[] statement in the

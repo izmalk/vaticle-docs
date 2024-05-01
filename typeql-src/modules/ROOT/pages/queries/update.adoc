@@ -63,7 +63,7 @@ An Update query returns a lazy Stream/Iterator of ConceptMap with the inserted d
 
 == Update ownerships
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 In many cases, the desired effect is to change the value of an owned attribute.
 Attributes are immutable, and we can't change a value of an attribute.
@@ -107,7 +107,7 @@ for some of its attribute ownerships.
 [#_delete_attribute]
 == Update attributes
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 Deleting an attribute deletes ownership of it from all its owners.
 We can insert a new attribute instead of a deleted one without a problem,
@@ -139,7 +139,7 @@ Any `full-name` attributes which contained the substring `inappropriate word` wi
 
 == Update role players
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 To replace a role player, we combine the steps for deleting a role player with extending the relation:
 

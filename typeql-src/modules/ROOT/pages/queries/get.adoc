@@ -120,7 +120,7 @@ see the xref:manual::objects/schema.adoc[] and xref:manual::objects/data.adoc[] 
 [#_simple_example]
 == Get concepts
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 A simple Get query example:
 
@@ -147,7 +147,7 @@ Every ConceptMap bounds the variable `$e` to an attribute of the `email` type, t
 [#_complex_get_query_example]
 == Get with modifiers
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 For the next example, let's try a bit more complex pattern and some modifiers:
 
@@ -186,7 +186,7 @@ The response is the number of results for every `$o-fp`: number of pairs `$x-n` 
 [#_number_of_results]
 == Effects of filtering
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 A Get query can return fewer results, than matched by its `match` clause,
 due to filtering with a `get` clause or using modifiers.
@@ -194,7 +194,7 @@ due to filtering with a `get` clause or using modifiers.
 [#_get_clause_filtering]
 === Get clause filtering
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 Filtering variables with a `get` clause can reduce the number of results.
 Due to set semantics, some results might lose their uniqueness and made redundant.

@@ -8,7 +8,7 @@ In the previous lesson, we improved the type hierarchies in our book data model 
 ====
 [%header,format=csv]
 |===
-include::attachment$books.csv[]
+include::2.x@attachment$books.csv[]
 |===
 ====
 

@@ -166,7 +166,7 @@ Driver API reference for the C# language.
 ****
 --
 
-include::drivers::partial$drivers2discord.adoc[]
+include::2.x@drivers::partial$drivers2discord.adoc[]
 
 [#_version_compatibility]
 == Version Compatibility

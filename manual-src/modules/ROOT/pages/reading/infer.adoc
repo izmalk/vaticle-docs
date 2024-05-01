@@ -145,8 +145,8 @@ method to retrieve data with inference:
 
 [,rust,indent=0]
 ----
-include::manual::partial$rust-manual-code.rs[tags=databases,indent=8]
-include::manual::partial$rust-manual-code.rs[tags=infer-fetch]
+include::2.x@manual::partial$rust-manual-code.rs[tags=databases,indent=8]
+include::2.x@manual::partial$rust-manual-code.rs[tags=infer-fetch]
 ----
 --
 
@@ -166,7 +166,7 @@ method to retrieve data with inference:
 
 [,python,indent=0]
 ----
-include::manual::partial$python-manual-code.py[tags=infer-fetch]
+include::2.x@manual::partial$python-manual-code.py[tags=infer-fetch]
 ----
 --
 
@@ -186,7 +186,7 @@ method to retrieve data with inference:
 
 [,js,indent=0]
 ----
-include::manual::partial$nodejs-manual-code.js[tags=infer-fetch]
+include::2.x@manual::partial$nodejs-manual-code.js[tags=infer-fetch]
 ----
 --
 
@@ -206,7 +206,7 @@ method to retrieve data with inference:
 
 [,java,indent=0]
 ----
-include::manual::partial$java-manual-code.java[tags=infer-fetch]
+include::2.x@manual::partial$java-manual-code.java[tags=infer-fetch]
 ----
 --
 
@@ -226,7 +226,7 @@ method to retrieve data with inference:
 
 [,csharp,indent=0]
 ----
-include::manual::partial$csharp-manual-code.cs[tags=infer-fetch]
+include::2.x@manual::partial$csharp-manual-code.cs[tags=infer-fetch]
 ----
 --
 
@@ -246,7 +246,7 @@ method to retrieve data with inference:
 
 [,cpp,indent=0]
 ----
-include::manual::partial$cpp-manual-code.cpp[tags=infer-fetch,indent=0]
+include::2.x@manual::partial$cpp-manual-code.cpp[tags=infer-fetch,indent=0]
 ----
 --
 
@@ -266,7 +266,7 @@ method to retrieve data with inference:
 
 [,c,indent=0]
 ----
-include::manual::partial$c-manual-code.c[tags=infer-fetch]
+include::2.x@manual::partial$c-manual-code.c[tags=infer-fetch]
 ----
 --
 ====

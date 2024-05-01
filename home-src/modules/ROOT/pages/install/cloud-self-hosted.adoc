@@ -285,4 +285,4 @@ All nodes must be shut down independently in the same way.
 
 To deploy a TypeDB Cloud cluster with Kubernetes, we can use https://helm.sh/[Helm] package manager.
 
-include::manual::partial$kubernetes.adoc[leveloffset=+1]
+include::2.x@manual::partial$kubernetes.adoc[leveloffset=+1]

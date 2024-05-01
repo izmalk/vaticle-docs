@@ -97,4 +97,4 @@ For more information on how to use TypeDB Studio, see the xref:manual::studio.ad
 [#_version_compatibility]
 == Version Compatibility
 
-include::manual::studio.adoc[tags="latest-compatibility,older-compatibility"]
+include::2.x@manual::studio.adoc[tags="latest-compatibility,older-compatibility"]

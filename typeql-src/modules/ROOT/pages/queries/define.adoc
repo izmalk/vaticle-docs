@@ -104,7 +104,7 @@ The above example defines four attribute types, three entity types, and a single
 
 == Define rules
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 Use a xref:2.x@typeql::statements/rule.adoc[rule] statement to define a new rule or replace an existing one:
 

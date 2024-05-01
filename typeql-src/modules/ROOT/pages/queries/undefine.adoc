@@ -63,7 +63,7 @@ Undefine queries return a promise of an empty response.
 
 == Undefine types
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 Use a schema statement to delete from a schema in an Undefine query:
 
@@ -81,7 +81,7 @@ entity type `database`.
 
 == Undefine rules
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 To delete a rule, use the `rule` keyword with rule's label:
 

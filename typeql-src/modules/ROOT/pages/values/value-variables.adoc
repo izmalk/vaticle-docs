@@ -15,7 +15,7 @@ To address a value variable in a query, use the variable's label with a question
 
 == Usage
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 To assign a value for a value variable, use the equal sign (`=`) operator:
 

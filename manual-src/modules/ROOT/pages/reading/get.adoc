@@ -107,8 +107,8 @@ method:
 
 [,rust,indent=0]
 ----
-include::manual::partial$rust-manual-code.rs[tags=databases,indent=8]
-include::manual::partial$rust-manual-code.rs[tags=get]
+include::2.x@manual::partial$rust-manual-code.rs[tags=databases,indent=8]
+include::2.x@manual::partial$rust-manual-code.rs[tags=get]
 ----
 --
 
@@ -128,7 +128,7 @@ method:
 
 [,python,indent=0]
 ----
-include::manual::partial$python-manual-code.py[tags=get]
+include::2.x@manual::partial$python-manual-code.py[tags=get]
 ----
 --
 
@@ -148,7 +148,7 @@ method:
 
 [,js,indent=0]
 ----
-include::manual::partial$nodejs-manual-code.js[tags=get]
+include::2.x@manual::partial$nodejs-manual-code.js[tags=get]
 ----
 --
 
@@ -168,7 +168,7 @@ method:
 
 [,java,indent=0]
 ----
-include::manual::partial$java-manual-code.java[tags=get]
+include::2.x@manual::partial$java-manual-code.java[tags=get]
 ----
 --
 
@@ -188,7 +188,7 @@ method:
 
 [,csharp,indent=0]
 ----
-include::manual::partial$csharp-manual-code.cs[tags=get]
+include::2.x@manual::partial$csharp-manual-code.cs[tags=get]
 ----
 --
 
@@ -208,8 +208,8 @@ method:
 
 [,cpp,indent=0]
 ----
-include::manual::partial$cpp-manual-code.cpp[tags=options,indent=0]
-include::manual::partial$cpp-manual-code.cpp[tags=get,indent=0]
+include::2.x@manual::partial$cpp-manual-code.cpp[tags=options,indent=0]
+include::2.x@manual::partial$cpp-manual-code.cpp[tags=get,indent=0]
 ----
 --
 
@@ -229,8 +229,8 @@ function:
 
 [,c,indent=0]
 ----
-include::manual::partial$c-manual-code.c[tags=options,indent=0]
-include::manual::partial$c-manual-code.c[tags=get,indent=0]
+include::2.x@manual::partial$c-manual-code.c[tags=options,indent=0]
+include::2.x@manual::partial$c-manual-code.c[tags=get,indent=0]
 ----
 --
 ====

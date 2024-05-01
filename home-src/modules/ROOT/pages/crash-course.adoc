@@ -148,7 +148,7 @@ For example, let's match a user by its username and fetch its name:
 
 [,typeql]
 ----
-include::home::partial$cc-queries/subquery.tql[lines=1..4]
+include::2.x@home::partial$cc-queries/subquery.tql[lines=1..4]
 ----
 
 The above example uses xref:2.x@typeql::queries/fetch.adoc#_customize_output[customized output labels] for the JSON output.
@@ -158,7 +158,7 @@ For example, let's add a subquery to fetch paths for all files that the user has
 
 [,typeql]
 ----
-include::home::partial$cc-queries/subquery.tql[]
+include::2.x@home::partial$cc-queries/subquery.tql[]
 ----
 
 [#_get_queries]
@@ -170,7 +170,7 @@ For example, you can send the following Get query to get all file entities from 
 
 [,typeql]
 ----
-include::home::partial$cc-queries/get-count-files.tql[lines=1..3]
+include::2.x@home::partial$cc-queries/get-count-files.tql[lines=1..3]
 ----
 
 Then, you can use ConceptMap returned for every matched result to retrieve concepts and manipulate them with driver API.
@@ -194,7 +194,7 @@ that is not related to existing data. For example:
 
 [,typeql]
 ----
-include::home::partial$cc-queries/insert.tql[]
+include::2.x@home::partial$cc-queries/insert.tql[]
 ----
 
 The above example inserts a new `user` entity, with `username`, `name`, and `email` attributes owned.
@@ -205,7 +205,7 @@ For example, to match a user from a database and insert a new email for this use
 
 [,typeql]
 ----
-include::home::partial$cc-queries/match-insert.tql[]
+include::2.x@home::partial$cc-queries/match-insert.tql[]
 ----
 
 It is important to note that an `insert` clause is executed _once for every tuple of results_ from the `match` clause, and inserts data using the context of these results.
@@ -218,7 +218,7 @@ In a Delete query we first retrieve data using a `match` clause, and then, based
 
 [,typeql]
 ----
-include::home::partial$cc-queries/delete.tql[]
+include::2.x@home::partial$cc-queries/delete.tql[]
 ----
 
 In the `delete` clause, we specify a pattern of data that is to be deleted: the ownership of an email of a user. This does _not_ delete the user or the attribute itself, however! 
@@ -235,7 +235,7 @@ For example, let's match a user with the username `bob_93` that has some email t
 
 [,typeql]
 ----
-include::home::partial$cc-queries/update.tql[]
+include::2.x@home::partial$cc-queries/update.tql[]
 ----
 
 Note, that if the user doesn't have any email, then there will be no deletes or inserts.
@@ -307,7 +307,7 @@ for every matched instance, retrieves all their names and emails:
 .TypeQL query example
 [,typeql]
 ----
-include::home::partial$cc-queries/list-users.tql[]
+include::2.x@home::partial$cc-queries/list-users.tql[]
 ----
 
 The above is a xref:2.x@typeql::queries/fetch.adoc[Fetch query],
@@ -343,7 +343,7 @@ Let's modify the previous query's pattern to retrieve a specific user who has na
 .Composable pattern example
 [,typeql]
 ----
-include::home::partial$cc-queries/fetch-all-bob-emails.tql[]
+include::2.x@home::partial$cc-queries/fetch-all-bob-emails.tql[]
 ----
 
 The first line of the pattern inside the `match` clause now specifies that user must have a name,
@@ -420,7 +420,7 @@ For example, what files does the user with name "Bob" has full access to?
 
 [,typeql]
 ----
-include::home::partial$cc-queries/n-relations.tql[]
+include::2.x@home::partial$cc-queries/n-relations.tql[]
 ----
 
 === Attribute patterns
@@ -456,7 +456,7 @@ For example, let's insert a new person that owns two names: `Bob` and `Another B
 
 [,typeql]
 ----
-include::home::partial$cc-queries/attributes.tql[lines=6..7]
+include::2.x@home::partial$cc-queries/attributes.tql[lines=6..7]
 ----
 
 You can limit behavior this by using the xref:2.x@typeql::statements/key.adoc[key statement],
@@ -470,7 +470,7 @@ Storage space and memory consumption are optimized in this way as data is natura
 
 [,typeql]
 ----
-include::home::partial$cc-queries/attributes.tql[lines=9..12]
+include::2.x@home::partial$cc-queries/attributes.tql[lines=9..12]
 ----
 For example, if multiple people have the same name, they have ownership of the same attribute:
 
@@ -498,7 +498,7 @@ For a simple example, let's match all entities in a database and fetch all their
 
 [,typeql]
 ----
-include::home::partial$cc-queries/inheritance-polymorphism.tql[]
+include::2.x@home::partial$cc-queries/inheritance-polymorphism.tql[]
 ----
 
 The output of such a query includes all entities in a database,
@@ -517,7 +517,7 @@ For example, let's match all data instances that have a name, without specifying
 
 [,typeql]
 ----
-include::home::partial$cc-queries/interface-polymorphism.tql[]
+include::2.x@home::partial$cc-queries/interface-polymorphism.tql[]
 ----
 
 The above example can match any type, as long as it's data instance owns a `name` attribute.
@@ -576,7 +576,7 @@ if a permission with actions `write` or `full` already exist in the database for
 
 [,typeql]
 ----
-include::home::partial$cc-queries/inference-rule.tql[]
+include::2.x@home::partial$cc-queries/inference-rule.tql[]
 ----
 
 To use the inference, xref:manual::reading/infer.adoc[enable the `infer` transaction option]
@@ -584,7 +584,7 @@ and use the following fetch query:
 
 [,typeql]
 ----
-include::home::partial$cc-queries/inference-fetch.tql[]
+include::2.x@home::partial$cc-queries/inference-fetch.tql[]
 ----
 
 The above query matches all files and people that participate in a `permission` relation

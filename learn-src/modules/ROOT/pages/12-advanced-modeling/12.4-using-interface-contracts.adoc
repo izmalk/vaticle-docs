@@ -170,5 +170,5 @@ Below is a complete implementation of the bookstore schema using the type-theore
 
 [,typeql]
 ----
-include::learn::attachment$type-theoretic-schema.tql[lines=18..]
+include::2.x@learn::attachment$type-theoretic-schema.tql[lines=18..]
 ----

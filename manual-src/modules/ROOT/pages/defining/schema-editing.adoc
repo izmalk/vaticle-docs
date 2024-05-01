@@ -15,7 +15,7 @@ To learn more about Define queries, see the xref:manual::defining/define.adoc[] 
 [#_modify_with_type_editor]
 == TypeDB Studio's Type Editor
 
-include::manual::studio.adoc[tag=type-editor]
+include::2.x@manual::studio.adoc[tag=type-editor]
 
 [#_modify_with_driver_api]
 == Schema edits with driver API
@@ -38,7 +38,7 @@ Rust::
 .{code-caption}
 [,rust, indent=0]
 ----
-include::manual::partial$rust-manual-code.rs[tags=types-editing]
+include::2.x@manual::partial$rust-manual-code.rs[tags=types-editing]
 ----
 
 For more details about these and other API methods, see the xref:drivers::rust/api-reference.adoc[API reference].
@@ -50,7 +50,7 @@ Python::
 .{code-caption}
 [,python, indent=0]
 ----
-include::manual::partial$python-manual-code.py[tags=types-editing]
+include::2.x@manual::partial$python-manual-code.py[tags=types-editing]
 ----
 
 For more details about these and other API methods, see the xref:drivers::python/api-reference.adoc[API reference].
@@ -62,7 +62,7 @@ Node.js::
 .{code-caption}
 [,js,indent=0]
 ----
-include::manual::partial$nodejs-manual-code.js[tags=types-editing]
+include::2.x@manual::partial$nodejs-manual-code.js[tags=types-editing]
 ----
 
 For more details about these and other API methods, see the xref:drivers::nodejs/api-reference.adoc[API reference].
@@ -74,7 +74,7 @@ Java::
 .{code-caption}
 [,java, indent=0]
 ----
-include::manual::partial$java-manual-code.java[tags=types-editing]
+include::2.x@manual::partial$java-manual-code.java[tags=types-editing]
 ----
 
 For more details about these and other API methods, see the xref:drivers::java/api-reference.adoc[API reference].
@@ -86,7 +86,7 @@ C#::
 .{code-caption}
 [,csharp,indent=0]
 ----
-include::manual::partial$csharp-manual-code.cs[tags=types-editing]
+include::2.x@manual::partial$csharp-manual-code.cs[tags=types-editing]
 ----
 
 For more details about these and other API methods, see the xref:drivers::csharp/api-reference.adoc[API reference].
@@ -98,7 +98,7 @@ C++::
 .{code-caption}
 [,cpp,indent=0]
 ----
-include::manual::partial$cpp-manual-code.cpp[tags=types-editing]
+include::2.x@manual::partial$cpp-manual-code.cpp[tags=types-editing]
 ----
 
 For more details about these and other API methods, see the xref:drivers::cpp/api-reference.adoc[API reference].
@@ -110,7 +110,7 @@ C::
 .{code-caption}
 [,c,indent=0]
 ----
-include::manual::partial$c-manual-code.c[tags=types-editing]
+include::2.x@manual::partial$c-manual-code.c[tags=types-editing]
 ----
 
 For more details about these and other API methods, see the xref:drivers::c/api-reference.adoc[API reference].

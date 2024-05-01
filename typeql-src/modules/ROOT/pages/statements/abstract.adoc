@@ -23,7 +23,7 @@ but can be used to create a subtype or to query (for its subtypes).
 
 == Usage in a schema definition
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 Since in Define queries you can't use variables, the `abstract` keyword can be used only with a type label.
 It can be a part of a composite statement.

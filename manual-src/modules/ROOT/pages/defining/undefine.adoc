@@ -84,8 +84,8 @@ method:
 
 [,rust,indent=0]
 ----
-include::manual::partial$rust-manual-code.rs[tags=databases,indent=8]
-include::manual::partial$rust-manual-code.rs[tags=undefine]
+include::2.x@manual::partial$rust-manual-code.rs[tags=databases,indent=8]
+include::2.x@manual::partial$rust-manual-code.rs[tags=undefine]
 ----
 --
 
@@ -100,7 +100,7 @@ method:
 
 [,python,indent=0]
 ----
-include::manual::partial$python-manual-code.py[tags=undefine]
+include::2.x@manual::partial$python-manual-code.py[tags=undefine]
 ----
 --
 
@@ -115,7 +115,7 @@ method:
 
 [,js,indent=0]
 ----
-include::manual::partial$nodejs-manual-code.js[tags=undefine]
+include::2.x@manual::partial$nodejs-manual-code.js[tags=undefine]
 ----
 --
 
@@ -130,7 +130,7 @@ method:
 
 [,java,indent=0]
 ----
-include::manual::partial$java-manual-code.java[tags=undefine]
+include::2.x@manual::partial$java-manual-code.java[tags=undefine]
 ----
 --
 
@@ -145,8 +145,8 @@ method:
 
 [,csharp,indent=0]
 ----
-include::manual::partial$csharp-manual-code.cs[tags=options]
-include::manual::partial$csharp-manual-code.cs[tags=undefine]
+include::2.x@manual::partial$csharp-manual-code.cs[tags=options]
+include::2.x@manual::partial$csharp-manual-code.cs[tags=undefine]
 ----
 --
 
@@ -161,8 +161,8 @@ method:
 
 [,cpp,indent=0]
 ----
-include::manual::partial$cpp-manual-code.cpp[tags=options]
-include::manual::partial$cpp-manual-code.cpp[tags=undefine]
+include::2.x@manual::partial$cpp-manual-code.cpp[tags=options]
+include::2.x@manual::partial$cpp-manual-code.cpp[tags=undefine]
 ----
 --
 
@@ -177,8 +177,8 @@ function:
 
 [,cpp,indent=0]
 ----
-include::manual::partial$c-manual-code.c[tags=options]
-include::manual::partial$c-manual-code.c[tags=undefine]
+include::2.x@manual::partial$c-manual-code.c[tags=options]
+include::2.x@manual::partial$c-manual-code.c[tags=undefine]
 ----
 --
 ====

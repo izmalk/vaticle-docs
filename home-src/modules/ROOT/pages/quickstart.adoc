@@ -9,7 +9,7 @@
 This Quickstart guide shows how to set up a TypeDB database and run queries using
 xref:manual::studio.adoc[TypeDB Studio].
 
-include::home::overview.adoc[tag=rust-rewrite]
+include::2.x@home::overview.adoc[tag=rust-rewrite]
 
 == Run TypeDB
 
@@ -35,9 +35,9 @@ Core::
 --
 TypeDB Core needs to be xref:home::install/core.adoc[installed] first.
 
-include::home::install/core.adoc[tag=core-run]
+include::2.x@home::install/core.adoc[tag=core-run]
 
-include::home::partial$docker.adoc[tags=run]
+include::2.x@home::partial$docker.adoc[tags=run]
 --
 ====
 
@@ -50,7 +50,7 @@ xref:home::install/studio.adoc[installed] and launched separately from a TypeDB 
 Find the TypeDB Studio binary and run it.
 Click btn:[Connect to TypeDB] on the right side of the top toolbar.
 // end::run_studio[]
-include::manual::studio.adoc[tag=connect_studio]
+include::2.x@manual::studio.adoc[tag=connect_studio]
 
 === Select a project folder
 
@@ -78,7 +78,7 @@ A new database needs a schema before we can load any data:
 +
 [,typeql]
 ----
-include::attachment$crash-course-schema.tql[]
+include::2.x@attachment$crash-course-schema.tql[]
 ----
 . Click the image:home::studio-icons/run.png[Run query,width=9 query,width=9] btn:[Run Query] button.
 . When the query has completed, click btn:[Commit Transaction] (image:home::studio-icons/commit.png[]).
@@ -95,7 +95,7 @@ Now let's insert some sample data into the newly created database to be able to 
 +
 [,typeql]
 ----
-include::attachment$crash-course-data.tql[]
+include::2.x@attachment$crash-course-data.tql[]
 ----
 . Execute all queries in the file by clicking the image:home::studio-icons/svg/play-solid-green.svg[Run query,width=9]
 btn:[Run Query] button.

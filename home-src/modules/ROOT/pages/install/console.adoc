@@ -41,7 +41,7 @@ macOS::
 +
 --
 . Download the latest package for your system architecture:
-include::manual:resources:partial$typedb-console-latest-links.adoc[tag=mac]
+include::2.x@manual:resources:partial$typedb-console-latest-links.adoc[tag=mac]
 +
 For other versions, see the
 https://cloudsmith.io/~typedb/repos/public-release/packages/?q=format%3Araw+name%3A%5Etypedb-console-mac&sort=-version[Downloads repository] page.
@@ -66,7 +66,7 @@ Linux::
 +
 --
 . Download the latest package for your system architecture:
-include::manual:resources:partial$typedb-console-latest-links.adoc[tag=linux]
+include::2.x@manual:resources:partial$typedb-console-latest-links.adoc[tag=linux]
 +
 For other versions, see the
 https://cloudsmith.io/~typedb/repos/public-release/packages/?q=format%3Araw+name%3A%5Etypedb-console-linux&sort=-version[Downloads repository] page.
@@ -91,7 +91,7 @@ Windows::
 +
 --
 . Download the latest package for your system architecture:
-include::manual:resources:partial$typedb-console-latest-links.adoc[tag=windows]
+include::2.x@manual:resources:partial$typedb-console-latest-links.adoc[tag=windows]
 +
 For other versions, see the
 https://cloudsmith.io/~typedb/repos/public-release/packages/?q=format%3Araw+name%3A%5Etypedb-console-win&sort=-version[Downloads repository] page.
@@ -130,4 +130,4 @@ For more information on how to use TypeDB Console, see the xref:manual::console.
 [#_version_compatibility]
 == Version Compatibility
 
-include::manual::console.adoc[tags="latest-compatibility,older-compatibility"]
+include::2.x@manual::console.adoc[tags="latest-compatibility,older-compatibility"]

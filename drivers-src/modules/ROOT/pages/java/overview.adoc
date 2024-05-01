@@ -170,7 +170,7 @@ Learn to use native Java syntax to build TypeQL queries.
 ****
 --
 
-include::drivers::partial$drivers2discord.adoc[]
+include::2.x@drivers::partial$drivers2discord.adoc[]
 
 //Use the xref:java/api-reference.adoc[API reference] page for the documentation of the methods and objects used in the driver.
 

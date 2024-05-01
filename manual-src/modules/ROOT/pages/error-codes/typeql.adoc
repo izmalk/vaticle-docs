@@ -1,6 +1,6 @@
 = TypeQL error codes
 
-include::manual:resources:partial$error-messages/adoc/typeql.java.adoc[]
+include::2.x@manual:resources:partial$error-messages/adoc/typeql.java.adoc[]
 
 == Learn more
 

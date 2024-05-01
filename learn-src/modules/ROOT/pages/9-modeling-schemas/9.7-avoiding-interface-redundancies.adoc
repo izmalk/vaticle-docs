@@ -8,7 +8,7 @@ In the previous lesson, we learned how to use interface hierarchies in our schem
 ====
 [%header,format=csv]
 |===
-include::attachment$books.csv[]
+include::2.x@attachment$books.csv[]
 |===
 ====
 

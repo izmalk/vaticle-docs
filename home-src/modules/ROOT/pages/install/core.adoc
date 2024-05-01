@@ -13,17 +13,17 @@ see the xref:home::install/cloud-self-hosted.adoc[Self-hosted deployment] page.
 [#_docker]
 == Docker
 
-include::home::partial$docker.adoc[tag=install]
+include::2.x@home::partial$docker.adoc[tag=install]
 
 === Run
 
-include::home::partial$docker.adoc[tags=run]
+include::2.x@home::partial$docker.adoc[tags=run]
 
-include::home::partial$docker.adoc[tags=run-info]
+include::2.x@home::partial$docker.adoc[tags=run-info]
 
-include::home::partial$docker.adoc[tag=stop]
+include::2.x@home::partial$docker.adoc[tag=stop]
 
-include::home::partial$docker.adoc[tag=start]
+include::2.x@home::partial$docker.adoc[tag=start]
 
 [#_package]
 == Package manager
@@ -33,13 +33,13 @@ include::home::partial$docker.adoc[tag=start]
 macOS::
 +
 --
-include::home::partial$macos.adoc[tag=install-homebrew]
+include::2.x@home::partial$macos.adoc[tag=install-homebrew]
 --
 
 Linux::
 +
 --
-include::home::partial$linux.adoc[tag=install-apt]
+include::2.x@home::partial$linux.adoc[tag=install-apt]
 --
 
 Windows::
@@ -72,7 +72,7 @@ Download the latest version of TypeDB Core from the table below.
 |===
 |Release notes |macOS |Linux |Windows
 
-include::manual:resources:partial$typedb-all-latest-links.adoc[]
+include::2.x@manual:resources:partial$typedb-all-latest-links.adoc[]
 |===
 
 For all versions,
@@ -83,25 +83,25 @@ see the link:https://cloudsmith.io/~typedb/repos/public-release/packages/?q=type
 macOS::
 +
 --
-include::home::partial$macos.adoc[tag=manual-install]
+include::2.x@home::partial$macos.adoc[tag=manual-install]
 --
 
 Linux::
 +
 --
-include::home::partial$linux.adoc[tag=manual-install]
+include::2.x@home::partial$linux.adoc[tag=manual-install]
 --
 
 Windows::
 +
 --
-include::home::partial$win.adoc[tag=manual-install]
+include::2.x@home::partial$win.adoc[tag=manual-install]
 --
 ====
 
 === Run
 
-include::home::install/core.adoc[tags="core-run,core-stop"]
+include::2.x@home::install/core.adoc[tags="core-run,core-stop"]
 
 == Learn more
 

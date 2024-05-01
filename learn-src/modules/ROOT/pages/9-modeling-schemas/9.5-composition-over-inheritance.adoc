@@ -11,7 +11,7 @@ In the previous lesson, we introduced type hierarchies into the data model for o
 ====
 [%header,format=csv]
 |===
-include::attachment$books.csv[]
+include::2.x@attachment$books.csv[]
 |===
 ====
 

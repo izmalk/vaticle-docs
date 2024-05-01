@@ -83,7 +83,7 @@ Types and values can be projected directly into a JSON.
 [#_fetch_an_value]
 === Fetch a value
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 To fetch a value, you can either fetch a xref:2.x@typeql::concepts/concept-variables.adoc[concept variable]
 with an attribute, or fetch a xref:2.x@typeql::values/value-variables.adoc[value variable].
@@ -110,7 +110,7 @@ $p;
 [#_fetch_a_type_or_a_value_variable]
 === Fetch a type
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 To fetch a type from a database, use a concept variable that is matched to a type by an
 xref:2.x@typeql::statements/isa.adoc[isa] or xref:2.x@typeql::statements/sub.adoc[sub] statement.
@@ -139,7 +139,7 @@ Finally, we bound the value variable `?size` to some value, based on the value o
 [#_ownership_projection]
 == Fetch owned attributes
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 Entities and relations can be used in a `fetch` clause only by extracting values of attributes they own.
 
@@ -223,7 +223,7 @@ and then fetches all attributes for every file.
 [#_customize_output]
 == Fetch with custom labels
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 A Fetch query supports output customization (or relabeling) of the top level keys in the resulting JSON.
 <<_subqueries,Subqueries>> always use labels set in the query for their output.
@@ -265,7 +265,7 @@ $f as file: attribute;
 
 === Ownership projection customization
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 You can also customize (relabel) keys for attribute types used in <<_ownership_projection,ownership projection>>
 by using the same keyword `as` after the attribute type.
@@ -307,7 +307,7 @@ The above query is equal to the previous one, but it uses the `all attribute str
 [#_subqueries]
 == Fetch with subqueries
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 A Fetch query can include a subquery in a `fetch` clause.
 A subquery is another Fetch query that returns a JSON for the key or a
@@ -374,7 +374,7 @@ but using a big number of nested levels can break technical limitations of gRPC 
 [#_grouping_results]
 === Grouping results
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 Subqueries can be used to group query results, reduce the size of a response, or simplify further processing.
 For example, let's find all files that a user has a permission to access with the `modify_file` action.
@@ -602,7 +602,7 @@ average-file-size: {
 [#_number_of_results]
 == Number of results
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 A Fetch query can return fewer results, than it was matched by its `match` clause.
 Due to set semantics, if fetch clause projects not every variable from the `match` clause,

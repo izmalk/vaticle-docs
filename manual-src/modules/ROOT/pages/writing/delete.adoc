@@ -92,7 +92,7 @@ method:
 
 [,rust,indent=0]
 ----
-include::manual::partial$rust-manual-code.rs[tags=delete]
+include::2.x@manual::partial$rust-manual-code.rs[tags=delete]
 ----
 --
 
@@ -112,7 +112,7 @@ method:
 
 [,python,indent=0]
 ----
-include::manual::partial$python-manual-code.py[tags=delete]
+include::2.x@manual::partial$python-manual-code.py[tags=delete]
 ----
 --
 
@@ -132,7 +132,7 @@ method:
 
 [,js, indent=0]
 ----
-include::manual::partial$nodejs-manual-code.js[tags=delete]
+include::2.x@manual::partial$nodejs-manual-code.js[tags=delete]
 ----
 --
 
@@ -152,7 +152,7 @@ method:
 
 [,java,indent=0]
 ----
-include::manual::partial$java-manual-code.java[tags=delete]
+include::2.x@manual::partial$java-manual-code.java[tags=delete]
 ----
 --
 
@@ -172,7 +172,7 @@ method:
 
 [,csharp,indent=0]
 ----
-include::manual::partial$csharp-manual-code.cs[tags=delete]
+include::2.x@manual::partial$csharp-manual-code.cs[tags=delete]
 ----
 --
 
@@ -192,8 +192,8 @@ method:
 
 [,cpp,indent=0]
 ----
-include::manual::partial$cpp-manual-code.cpp[tags=options,indent=0]
-include::manual::partial$cpp-manual-code.cpp[tags=delete,indent=0]
+include::2.x@manual::partial$cpp-manual-code.cpp[tags=options,indent=0]
+include::2.x@manual::partial$cpp-manual-code.cpp[tags=delete,indent=0]
 ----
 --
 
@@ -213,8 +213,8 @@ method:
 
 [,c,indent=0]
 ----
-include::manual::partial$c-manual-code.c[tags=options,indent=0]
-include::manual::partial$c-manual-code.c[tags=delete,indent=0]
+include::2.x@manual::partial$c-manual-code.c[tags=options,indent=0]
+include::2.x@manual::partial$c-manual-code.c[tags=delete,indent=0]
 ----
 --
 ====

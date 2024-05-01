@@ -24,7 +24,7 @@ That makes two concept variables equal both by type and value, so we could repla
 
 == Usage for equality
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 Let's match different concept variables that are set to be equal and fetch values of the same attribute type:
 
@@ -51,7 +51,7 @@ It can be used for simplifying patterns or combining two different patterns into
 
 == Usage with negation
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 The most common use of an `is` statement is to exclude some results.
 

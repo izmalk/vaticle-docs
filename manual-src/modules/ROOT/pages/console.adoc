@@ -391,7 +391,7 @@ database delete iam_sample_db
 .iam-schema.tql
 [,typeql]
 ----
-include::drivers::partial$tutorials/iam-schema.tql[lines=17..]
+include::2.x@drivers::partial$tutorials/iam-schema.tql[lines=17..]
 ----
 ====
 
@@ -401,7 +401,7 @@ include::drivers::partial$tutorials/iam-schema.tql[lines=17..]
 .iam-data.tql
 [,typeql]
 ----
-include::drivers::partial$tutorials/iam-data.tql[lines=17..]
+include::2.x@drivers::partial$tutorials/iam-data.tql[lines=17..]
 ----
 ====
 

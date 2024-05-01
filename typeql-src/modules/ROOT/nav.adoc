@@ -1,3 +1,3 @@
 // TypeQL
 
-include::home::partial$nav-full.adoc[]
+include::2.x@home::partial$nav-full.adoc[]

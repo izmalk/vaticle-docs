@@ -23,7 +23,7 @@ to set a constraint of owning a particular attribute.
 
 == Usage in a match pattern
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 To match a particular person by the value of the full-name it owns and return an email it owns:
 
@@ -47,7 +47,7 @@ fetch $e;
 
 == Usage in an insert pattern
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 Let's insert a new email for an existing person:
 
@@ -64,7 +64,7 @@ By inserting ownership of an attribute that doesn't exist in the database yet, w
 
 == Usage in a delete pattern
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 Let's delete an ownership of the new email from the same person:
 

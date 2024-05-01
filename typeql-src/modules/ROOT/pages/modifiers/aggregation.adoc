@@ -26,7 +26,7 @@ Aggregation can be used alongside grouping and in subqueries, which affects the 
 [#_count]
 == Usage for counting results
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 For any Get query, to count the number of results returned,
 add the `count` keyword at the end of the query with a semicolon.
@@ -47,7 +47,7 @@ See the next example below.
 
 == Usage for numeric values
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 For `long` or `double` values represented by a value variable or by a concept variable mapped to an attribute,
 we can use aggregation to compute an output based on all returned values.

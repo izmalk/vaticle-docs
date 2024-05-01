@@ -22,7 +22,7 @@ Matching one of the branches is enough for the solution to be returned.
 
 == Disjunction of statements
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 One of the uses of a disjunction is to retrieve instances of different types.
 As a simple and one of the most common examples,
@@ -71,7 +71,7 @@ $name;
 
 == Disjunction in rules
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 Disjunction can be used in a rule condition in the same way as it can be used in a `match` clause.
 

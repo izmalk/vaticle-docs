@@ -31,7 +31,7 @@ xref:2.x@typeql::statements/isa.adoc[isa statement].
 
 == Usage in a match pattern
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 For example, let's find all relations for a user with full-name of `Kevin Morrison`:
 

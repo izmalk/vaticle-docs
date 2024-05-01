@@ -27,7 +27,7 @@ xref:2.x@typeql::statements/isa.adoc[isa statement].
 
 == Usage in a match pattern
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 For example, let's find all attributes of any type in a database with the value equal to the `Kevin Morrison` string:
 
@@ -51,7 +51,7 @@ fetch $a;
 
 == Usage in an insert pattern
 
-include::2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
 
 To explicitly insert an attribute, use a value assignment to set its value,
 and an xref:2.x@typeql::statements/isa.adoc[isa] statement to set its type:
