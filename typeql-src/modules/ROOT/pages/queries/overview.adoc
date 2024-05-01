@@ -2,7 +2,7 @@
 :Summary: TypeQL queries section overview.
 :keywords: typeql, typedb, queries, schema, data, overview
 :pageTitle: Queries overview
-:page-aliases: typeql::data/overview.adoc, typeql::schema/overview.adoc, typeql::queries.adoc
+:page-aliases: 3.x@typeql::data/overview.adoc, 3.x@typeql::schema/overview.adoc, 3.x@typeql::queries.adoc
 
 A TypeQL query uses from one to three clauses with fully declarative patterns
 to manipulate the schema or data of a database.
@@ -16,13 +16,13 @@ they are used to define and undefine types and rules in a schema.
 
 [cols-2]
 --
-.xref:typeql::queries/define.adoc[]
+.xref:3.x@typeql::queries/define.adoc[]
 [.clickable]
 ****
 Define new types and rules in a schema.
 ****
 
-.xref:typeql::queries/undefine.adoc[]
+.xref:3.x@typeql::queries/undefine.adoc[]
 [.clickable]
 ****
 Delete types and rules from a schema.
@@ -38,31 +38,31 @@ they are used to manipulate data in a database with pattern matching.
 
 [cols-2]
 --
-.xref:typeql::queries/insert.adoc[]
+.xref:3.x@typeql::queries/insert.adoc[]
 [.clickable]
 ****
 Insert new data into a database.
 ****
 
-.xref:typeql::queries/delete.adoc[]
+.xref:3.x@typeql::queries/delete.adoc[]
 [.clickable]
 ****
 Delete existing data from a database.
 ****
 
-.xref:typeql::queries/update.adoc[]
+.xref:3.x@typeql::queries/update.adoc[]
 [.clickable]
 ****
 Replace existing data in a database.
 ****
 
-.xref:typeql::queries/fetch.adoc[]
+.xref:3.x@typeql::queries/fetch.adoc[]
 [.clickable]
 ****
 Fetch values and types as JSONs.
 ****
 
-.xref:typeql::queries/get.adoc[]
+.xref:3.x@typeql::queries/get.adoc[]
 [.clickable]
 ****
 Get concepts from a database as ConceptMaps or aggregated values.

@@ -2,7 +2,7 @@
 :Summary: Define schema types and rules with TypeQL.
 :keywords: typeql, schema, model, define, modify, extend, type, rule, annotations
 :pageTitle: Define query
-:page-aliases: typeql::schema/define.adoc, typeql::type-definitions.adoc, typeql::rule-definitions.adoc
+:page-aliases: 3.x@typeql::schema/define.adoc, 3.x@typeql::type-definitions.adoc, 3.x@typeql::rule-definitions.adoc
 
 A Define query extends the schema of a database with new schema statements. 
 For a practical guide on how to send a Define query to TypeDB,
@@ -25,21 +25,21 @@ define <schema_definitions>
 ----
 
 where `<schema_definitions>` are valid schema-specific TypeQL statements:
-xref:typeql::statements/sub.adoc[],
-xref:typeql::statements/abstract.adoc[],
-xref:typeql::statements/owns.adoc[],
-xref:typeql::statements/value.adoc[],
-xref:typeql::statements/regex.adoc[],
-xref:typeql::statements/relates.adoc[],
-xref:typeql::statements/plays.adoc[],
-xref:typeql::statements/rule.adoc[],
-and annotations: xref:typeql::statements/key.adoc[] and xref:typeql::statements/unique.adoc[].
+xref:3.x@typeql::statements/sub.adoc[],
+xref:3.x@typeql::statements/abstract.adoc[],
+xref:3.x@typeql::statements/owns.adoc[],
+xref:3.x@typeql::statements/value.adoc[],
+xref:3.x@typeql::statements/regex.adoc[],
+xref:3.x@typeql::statements/relates.adoc[],
+xref:3.x@typeql::statements/plays.adoc[],
+xref:3.x@typeql::statements/rule.adoc[],
+and annotations: xref:3.x@typeql::statements/key.adoc[] and xref:3.x@typeql::statements/unique.adoc[].
 Schema statements in a `define` clause can't use any variables or values, except for xref:statements/rule.adoc[rules].
 // end::syntax[]
 
 // For more information on defining rules, see the xref:schema/rule-definitions.adoc[] page.
 // For more information on defining types, ownerships, and roleplayers,
-// see below and the xref:typeql::schema/type-definitions.adoc[].
+// see below and the xref:3.x@typeql::schema/type-definitions.adoc[].
 
 == Behavior
 
@@ -48,7 +48,7 @@ A Define query adds schema statements to an existing schema.
 These statements can add new types and rules,
 or they can add new properties to existing types and replace existing rules.
 Define queries can't change schema statements already existing in a schema, except for
-xref:typeql::statements/overview.adoc#_annotation_statements[annotations] and
+xref:3.x@typeql::statements/overview.adoc#_annotation_statements[annotations] and
 xref:statements/rule.adoc[rules].
 
 === Query execution
@@ -67,14 +67,14 @@ A successful Define query returns a promise of an empty response.
 
 == Define types
 
-To define a new type, subtype an existing type with a xref:typeql::statements/sub.adoc[sub] statement.
-Use xref:typeql::statements/owns.adoc[owns] statements to assign an ability to own attribute types.
+To define a new type, subtype an existing type with a xref:3.x@typeql::statements/sub.adoc[sub] statement.
+Use xref:3.x@typeql::statements/owns.adoc[owns] statements to assign an ability to own attribute types.
 
-For roles on relations, use xref:typeql::statements/relates.adoc[relates] and
-xref:typeql::statements/plays.adoc[plays] statements.
+For roles on relations, use xref:3.x@typeql::statements/relates.adoc[relates] and
+xref:3.x@typeql::statements/plays.adoc[plays] statements.
 
 Simple statements about the same subject can be combined in a
-xref:typeql::statements/overview.adoc#_composite_statements[composite statement].
+xref:3.x@typeql::statements/overview.adoc#_composite_statements[composite statement].
 
 .Defining types example
 [,typeql]
@@ -104,9 +104,9 @@ The above example defines four attribute types, three entity types, and a single
 
 == Define rules
 
-include::typeql::partial$iam-database-links.adoc[]
+include::3.x@typeql::partial$iam-database-links.adoc[]
 
-Use a xref:typeql::statements/rule.adoc[rule] statement to define a new rule or replace an existing one:
+Use a xref:3.x@typeql::statements/rule.adoc[rule] statement to define a new rule or replace an existing one:
 
 .Defining a rule example
 [,typeql]
