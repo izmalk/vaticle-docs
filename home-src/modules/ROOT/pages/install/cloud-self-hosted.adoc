@@ -1,5 +1,5 @@
 = TypeDB Cloud Self-hosted
-:page-aliases: 2.x@typedb::managing/self-hosted-deployment.adoc, typedb::admin/enterprise-deployment.adoc
+:page-aliases: 2.x@typedb::managing/self-hosted-deployment.adoc, 2.x@typedb::admin/enterprise-deployment.adoc
 :experimental:
 
 This page is an installation guide for a self-hosted deployment of TypeDB Cloud.
