@@ -1,6 +1,6 @@
 = TypeDB Studio
 :keywords: typedb, client, studio, visualizer, IDE, editor, purple
-:page-aliases: 2.x@clients::studio.adoc, typedb::connecting/studio.adoc
+:page-aliases: 2.x@clients::studio.adoc, 2.x@typedb::connecting/studio.adoc
 :pageTitle: TypeDB Studio
 :summary: TypeDB Studio documentation.
 :experimental:
