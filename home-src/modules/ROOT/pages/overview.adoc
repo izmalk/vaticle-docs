@@ -234,7 +234,7 @@ TypeQL is a modern, beautiful and elegant type-theoretic query language, support
 
 [cols-1]
 --
-.xref:3.x@typeql::introduction.adoc[]
+.xref:typeql::introduction.adoc[]
 [.clickable]
 ****
 A high-level description of TypeQL query language and its features.
@@ -243,37 +243,37 @@ A high-level description of TypeQL query language and its features.
 
 [cols-3]
 --
-.xref:3.x@typeql::queries/overview.adoc[Queries]
+.xref:typeql::queries/overview.adoc[Queries]
 [.clickable]
 ****
 TypeQL queries to define schema and manipulate data.
 ****
 
-.xref:3.x@typeql::patterns/overview.adoc[Patterns]
+.xref:typeql::patterns/overview.adoc[Patterns]
 [.clickable]
 ****
 TypeQL patterns used in queries.
 ****
 
-.xref:3.x@typeql::statements/overview.adoc[Statements]
+.xref:typeql::statements/overview.adoc[Statements]
 [.clickable]
 ****
 TypeQL statements used in patterns.
 ****
 
-.xref:3.x@typeql::modifiers/overview.adoc[Modifiers]
+.xref:typeql::modifiers/overview.adoc[Modifiers]
 [.clickable]
 ****
 TypeQL modifiers used with queries.
 ****
 
-.xref:3.x@typeql::concepts/overview.adoc[Concepts]
+.xref:typeql::concepts/overview.adoc[Concepts]
 [.clickable]
 ****
 TypeQL concepts stored in a database.
 ****
 
-.xref:3.x@typeql::values/overview.adoc[Values]
+.xref:typeql::values/overview.adoc[Values]
 [.clickable]
 ****
 Values and value variables used in TypeQL.
@@ -282,7 +282,7 @@ Values and value variables used in TypeQL.
 
 [cols-1]
 --
-.xref:3.x@typeql::keywords.adoc[]
+.xref:typeql::keywords.adoc[]
 [.clickable]
 ****
 TypeQL keywords and terminology glossary.

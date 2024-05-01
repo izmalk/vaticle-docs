@@ -6,4 +6,4 @@ include::manual::partial$manual-nav.adoc[]
 
 include::drivers::partial$drivers-nav.adoc[]
 
-include::3.x@typeql::partial$typeql-nav.adoc[]
+include::typeql::partial$typeql-nav.adoc[]

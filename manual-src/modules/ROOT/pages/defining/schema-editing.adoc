@@ -121,7 +121,7 @@ For more details about these and other API methods, see the xref:drivers::c/api-
 
 [cols-2]
 --
-.xref:3.x@typeql::queries/define.adoc[]
+.xref:typeql::queries/define.adoc[]
 [.clickable]
 ****
 Learn more about Define queries in TypeQL: syntax, behavior, and query examples.
