@@ -4,7 +4,7 @@
 :pageTitle: Introduction
 :page-preamble-card: 1
 
-TypeQL is the query language of TypeDB. It is designed based on TypeDB's expressive type system and inspired by natural language. It enables users to write concise and declarative queries, which can be used to:
+TypeQL11111211 is the query language of TypeDB. It is designed based on TypeDB's expressive type system and inspired by natural language. It enables users to write concise and declarative queries, which can be used to:
 
 * Define and modify the schema of your database, using *Define* and *Undefine* queries,
 * Write and modify the data in your database, using *Insert*, *Delete*, and *Update* queries,
