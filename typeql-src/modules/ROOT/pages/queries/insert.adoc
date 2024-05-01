@@ -57,7 +57,7 @@ An Insert query returns a lazy Stream/Iterator of ConceptMap objects with the in
 [#_inserting_data_with_no_matching]
 == Insert without matching
 
-include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@typeql::partial$iam-database-links.adoc[]
 
 To insert new data with no connection to existing database data, we can use an Insert query without a `match` clause:
 
@@ -76,7 +76,7 @@ If there is no such attribute in a database, then it will be created by this que
 
 == Insert with matching
 
-include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@typeql::partial$iam-database-links.adoc[]
 
 To be able to insert new data that is connected to existing concepts,
 use a `match` clause in an Insert query to match the existing data from a database first:
@@ -100,7 +100,7 @@ email attribute.
 [#_insert_entity_example]
 == Insert entities
 
-include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@typeql::partial$iam-database-links.adoc[]
 
 To insert an entity, use a concept variable followed by an xref:2.x@typeql::statements/isa.adoc[isa]
 statement with the entity's type (label or variable).
@@ -137,7 +137,7 @@ The above query inserts a `person` entity with the following attributes:
 [#_inserting_attributes]
 == Insert attributes
 
-include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@typeql::partial$iam-database-links.adoc[]
 
 Inserting an attribute requires setting both type and value of a new attribute.
 You can specify the value with a xref:2.x@typeql::values/comparators.adoc[comparator] or
@@ -246,7 +246,7 @@ As a result, the matched entity should own six attributes, four of which are of 
 [#_inserting_relations]
 == Insert relations
 
-include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@typeql::partial$iam-database-links.adoc[]
 
 Inserting a relation requires specifying at least one role player.
 
@@ -277,7 +277,7 @@ between them with roles `object` and `action` played by the file and operation r
 [#_adding_role_players_to_a_relation]
 == Insert role players
 
-include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@typeql::partial$iam-database-links.adoc[]
 
 To add a new role player for an existing relation,
 match the relation from a database and use a xref:2.x@typeql::statements/role-assignment.adoc[] statement

@@ -1,9 +1,9 @@
-include::2.x@2.x@home::partial$nav-root.adoc[]
+include::2.x@home::partial$nav-root.adoc[]
 
-include::2.x@2.x@learn::partial$learn-nav.adoc[]
+include::2.x@learn::partial$learn-nav.adoc[]
 
-include::2.x@2.x@manual::partial$manual-nav.adoc[]
+include::2.x@manual::partial$manual-nav.adoc[]
 
-include::2.x@2.x@drivers::partial$drivers-nav.adoc[]
+include::2.x@drivers::partial$drivers-nav.adoc[]
 
-include::2.x@2.x@typeql::partial$typeql-nav.adoc[]
+include::2.x@typeql::partial$typeql-nav.adoc[]

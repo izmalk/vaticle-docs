@@ -16,7 +16,7 @@ Pagination relies on sorting to traverse the full set of results.
 [#_offset_the_results]
 === Offset the results
 
-include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@typeql::partial$iam-database-links.adoc[]
 
 Use the `offset` keyword followed by the number of results to skip.
 
@@ -36,7 +36,7 @@ skips the first two results, and returns the rest of results.
 [#_limit_the_results]
 === Limit the number of results
 
-include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@typeql::partial$iam-database-links.adoc[]
 
 Use the `limit` keyword followed by the number of results to return.
 
@@ -54,7 +54,7 @@ so it returns only two almost random names owned by entities of the `person` typ
 
 == Usage
 
-include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@typeql::partial$iam-database-links.adoc[]
 
 Combine `offset` and `limit` to paginate the results of a query.
 By knowing the limit amount, we can use offset to get the full set of results in batches.

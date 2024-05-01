@@ -23,7 +23,7 @@ The `type` keyword adds a constraint for a concept variable to be of a specified
 
 == Usage in a match pattern
 
-include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@typeql::partial$iam-database-links.adoc[]
 
 Let's fetch the `user` entity type:
 

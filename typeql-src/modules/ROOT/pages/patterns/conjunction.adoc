@@ -25,7 +25,7 @@ The ordering of statements in a conjunction is irrelevant, as every statement is
 
 == Usage in a match clause
 
-include::2.x@2.x@typeql::partial$iam-database-links.adoc[]
+include::2.x@typeql::partial$iam-database-links.adoc[]
 
 Let's fetch a `path` attribute for every file that a user with full-name "Kevin Morrison" has a permission to modify.
 There are multiple statements we need to combine with a conjunction for them all to be matched by every solution:
