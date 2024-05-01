@@ -1,6 +1,6 @@
 = TypeDB Drivers
 :Summary: TypeDB drivers overview.
-:page-aliases: clients::overview.adoc
+:page-aliases: 3.x@clients::overview.adoc
 :keywords: typedb, driver, api, RPC, library, FFI
 :pageTitle: Drivers overview
 

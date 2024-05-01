@@ -127,8 +127,6 @@ The resulted Log output should look like this:
 
 To send a fetch query with inference programmatically, use xref:drivers::overview.adoc[drivers]:
 
-xref:3.x@home::overview.adoc[]
-
 [tabs]
 ====
 Rust::
