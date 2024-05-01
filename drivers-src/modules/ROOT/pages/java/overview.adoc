@@ -1,5 +1,5 @@
 = Java driver
-:page-aliases: 2.x@clients::java-driver.adoc, clients::java-driver/overview.adoc
+:page-aliases: 2.x@clients::java-driver.adoc, 2.x@clients::java-driver/overview.adoc
 :Summary: Overview for TypeDB Java driver.
 :keywords: typedb, driver, java
 :pageTitle: TypeDB Java driver
