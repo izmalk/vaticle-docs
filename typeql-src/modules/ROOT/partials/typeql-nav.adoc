@@ -1,7 +1,8 @@
 // TypeQL
-.TypeQL
+.TypeQL 3.0
 * xref:typeql::overview.adoc[Overview]
 * xref:typeql::introduction.adoc[]
+* Migration from 2.x
 
 * xref:typeql::queries/overview.adoc[Queries]
 ** xref:typeql::queries/define.adoc[Define]
