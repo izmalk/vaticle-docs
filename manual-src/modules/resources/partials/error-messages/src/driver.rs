@@ -20,7 +20,7 @@
 use std::{collections::HashSet, error::Error as StdError, fmt};
 
 use tonic::{Code, Status};
-use typeql::error_messages;
+use 3.x@typeql::error_messages;
 
 use super::RequestID;
 
@@ -97,7 +97,7 @@ error_messages! { InternalError
 pub enum Error {
     Connection(ConnectionError),
     Internal(InternalError),
-    TypeQL(typeql::common::Error),
+    TypeQL(3.x@typeql::common::Error),
     Other(String),
 }
 
@@ -182,8 +182,8 @@ impl From<InternalError> for Error {
     }
 }
 
-impl From<typeql::common::Error> for Error {
-    fn from(err: typeql::common::Error) -> Self {
+impl From<3.x@typeql::common::Error> for Error {
+    fn from(err: 3.x@typeql::common::Error) -> Self {
         Self::TypeQL(err)
     }
 }
