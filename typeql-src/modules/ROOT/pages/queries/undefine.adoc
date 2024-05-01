@@ -2,7 +2,7 @@
 :Summary: Undefine schema types and rules with TypeQL.
 :keywords: typeql, schema, model, undefine, delete, remove, truncate, type, rule
 :pageTitle: Undefine query
-:page-aliases: typeql::schema/undefine.adoc
+:page-aliases: 2.x@typeql::schema/undefine.adoc
 
 An Undefine query removes type and rule definition from a schema.
 For a practical guide on how to send an Undefine query to TypeDB,
@@ -25,20 +25,20 @@ undefine <schema_definitions>
 ----
 
 Where `<schema_definitions>` are valid TypeQL schema-specific statements:
-xref:typeql::statements/sub.adoc[],
-xref:typeql::statements/abstract.adoc[],
-xref:typeql::statements/owns.adoc[],
-xref:typeql::statements/value.adoc[],
-xref:typeql::statements/regex.adoc[],
-xref:typeql::statements/relates.adoc[],
-xref:typeql::statements/plays.adoc[],
-xref:typeql::statements/rule.adoc[],
-and annotations: xref:typeql::statements/key.adoc[] and xref:typeql::statements/unique.adoc[]. Schema statements in a `undefine` clause can't use any variables or values, except for xref:statements/rule.adoc[rules].
+xref:2.x@typeql::statements/sub.adoc[],
+xref:2.x@typeql::statements/abstract.adoc[],
+xref:2.x@typeql::statements/owns.adoc[],
+xref:2.x@typeql::statements/value.adoc[],
+xref:2.x@typeql::statements/regex.adoc[],
+xref:2.x@typeql::statements/relates.adoc[],
+xref:2.x@typeql::statements/plays.adoc[],
+xref:2.x@typeql::statements/rule.adoc[],
+and annotations: xref:2.x@typeql::statements/key.adoc[] and xref:2.x@typeql::statements/unique.adoc[]. Schema statements in a `undefine` clause can't use any variables or values, except for xref:statements/rule.adoc[rules].
 // end::syntax[]
 
 // For more information on defining rules, see the xref:schema/rule-definitions.adoc[] page.
 // For more information on defining types, ownerships, and roleplayers,
-// see below and the xref:typeql::schema/type-definitions.adoc[].
+// see below and the xref:2.x@typeql::schema/type-definitions.adoc[].
 
 == Behavior
 
@@ -63,7 +63,7 @@ Undefine queries return a promise of an empty response.
 
 == Undefine types
 
-include::typeql::partial$iam-database-links.adoc[]
+include::2.x@typeql::partial$iam-database-links.adoc[]
 
 Use a schema statement to delete from a schema in an Undefine query:
 
@@ -81,7 +81,7 @@ entity type `database`.
 
 == Undefine rules
 
-include::typeql::partial$iam-database-links.adoc[]
+include::2.x@typeql::partial$iam-database-links.adoc[]
 
 To delete a rule, use the `rule` keyword with rule's label:
 

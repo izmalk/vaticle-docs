@@ -389,9 +389,9 @@ fn main() -> Result<(), Box<dyn Error>> {
                     println!("{}", rule.clone()?.when.to_string());
                     println!("{}", rule.clone()?.then.to_string());
                 }
-                let condition = typeql::parse_pattern("{$u isa user, has email $e; $e contains '@typedb.com';}")?
+                let condition = 2.x@typeql::parse_pattern("{$u isa user, has email $e; $e contains '@typedb.com';}")?
                     .into_conjunction();
-                let conclusion = typeql::parse_pattern("$u has name 'Employee'")?.into_statement();
+                let conclusion = 2.x@typeql::parse_pattern("$u has name 'Employee'")?.into_statement();
                 let mut new_rule = tx.logic().put_rule("Employee".to_string(), condition, conclusion).resolve()?;
                 let _ = new_rule.delete(&tx).resolve();
                 let old_rule = tx.logic().get_rule("users".to_owned()).resolve()?.ok_or("Rule not found.")?;
@@ -410,9 +410,9 @@ fn main() -> Result<(), Box<dyn Error>> {
                 let old_rule = tx.logic().get_rule("users".to_owned()).resolve()?.ok_or("Rule not found.")?;
                 // end::get_rule[]
                 // tag::put_rule[]
-                let condition = typeql::parse_pattern("{$u isa user, has email $e; $e contains '@typedb.com';}")?
+                let condition = 2.x@typeql::parse_pattern("{$u isa user, has email $e; $e contains '@typedb.com';}")?
                     .into_conjunction();
-                let conclusion = typeql::parse_pattern("$u has name 'Employee'")?.into_statement();
+                let conclusion = 2.x@typeql::parse_pattern("$u has name 'Employee'")?.into_statement();
                 let mut new_rule = tx.logic().put_rule("Employee".to_string(), condition, conclusion).resolve()?;
                 // end::put_rule[]
                 // tag::get_rules[]

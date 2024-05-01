@@ -1,6 +1,6 @@
 name: typeql
 title: TypeQL
-version: ~
+version: 2.x
 nav:
 - modules/ROOT/nav.adoc
-start_page: typeql::overview.adoc
+start_page: 2.x@typeql::overview.adoc
