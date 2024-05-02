@@ -114,7 +114,7 @@ For more code examples, see the Tutorial and API reference links below.
 
 [cols-2]
 --
-.xref:drivers::python/tutorial.adoc[Tutorial]
+.xref:2.x@drivers::python/tutorial.adoc[Tutorial]
 [.clickable]
 ****
 This tutorial will help you learn how to use the Python driver.
