@@ -32,7 +32,7 @@ fetch
 $attribute;
 ----
 
-Let's modify the previous query to retrieve the order price along with the line total in each of these two ways. First, by retrieving the price via the book.
+Let's modify the previous query to retrieve the book price along with the line total in each of these two ways. First, by retrieving the price via the book.
 
 [,typeql]
 ----
@@ -43,7 +43,7 @@ $book isa book, has price $retail-price;
     has quantity $quantity;
 ?line-total = $quantity * $retail-price;
 fetch
-$order: price;
+$book: price;
 ?line-total;
 ----
 
@@ -62,7 +62,7 @@ $retail-price;
 ?line-total;
 ----
 
-Try *running* image:learn::studio-icons/run-query.png[] these queries to see the difference. In addition to having two different output formats, these queries act differently on the data. In this lesson, we'll examine the difference between these two methods and learn when to apply each one.
+Try *running* image:home::studio-icons/svg/studio_run.svg[width=24] these queries to see the difference. In addition to having two different output formats, these queries act differently on the data. In this lesson, we'll examine the difference between these two methods and learn when to apply each one.
 
 == Retrieval via the owner
 

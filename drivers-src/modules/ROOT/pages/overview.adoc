@@ -65,6 +65,29 @@ The full API reference for the TypeDB Python driver.
 ****
 --
 
+== Node.js driver
+
+[cols-3]
+--
+.xref:drivers::nodejs/overview.adoc[Overview]
+[.clickable]
+****
+Basic information, Installation instructions, and version compatibility.
+****
+
+.xref:drivers::nodejs/tutorial.adoc[Tutorial]
+[.clickable]
+****
+The sample application tutorial for the Node.js driver.
+****
+
+.xref:drivers::nodejs/api-reference.adoc[API reference]
+[.clickable]
+****
+The full API reference for the TypeDB Node.js driver.
+****
+--
+
 == Java driver
 
 [cols-3]
@@ -88,26 +111,26 @@ The full API reference for the TypeDB Java driver.
 ****
 --
 
-== Node.js driver
+== C# driver
 
 [cols-3]
 --
-.xref:drivers::nodejs/overview.adoc[Overview]
+.xref:drivers::csharp/overview.adoc[Overview]
 [.clickable]
 ****
 Basic information, Installation instructions, and version compatibility.
 ****
 
-.xref:drivers::nodejs/tutorial.adoc[Tutorial]
+.xref:drivers::csharp/tutorial.adoc[Tutorial]
 [.clickable]
 ****
-The sample application tutorial for the Node.js driver.
+The sample application tutorial for the C# driver.
 ****
 
-.xref:drivers::nodejs/api-reference.adoc[API reference]
+.xref:drivers::csharp/api-reference.adoc[API reference]
 [.clickable]
 ****
-The full API reference for the TypeDB Node.js driver.
+The full API reference for the TypeDB C# driver.
 ****
 --
 
@@ -144,11 +167,11 @@ The full API reference for the TypeDB C++ driver.
 Basic information, Installation instructions, and version compatibility.
 ****
 
-// .xref:drivers::cpp/tutorial.adoc[Tutorial]
-// [.clickable]
-// ****
-// The sample application tutorial for the C++ driver.
-// ****
+.xref:drivers::c/tutorial.adoc[Tutorial]
+[.clickable]
+****
+The sample application tutorial for the C driver.
+****
 
 .xref:drivers::c/api-reference.adoc[API reference]
 [.clickable]
@@ -180,6 +203,7 @@ database, execute queries, and process responses.
 
 [NOTE]
 ====
-As of version `2.24.x` the Java, Python,
-and C/C++ drivers are re-implemented as wrappers on top of the Rust driver via an FFI interface.
+The Java, Python, and C/C++/C# drivers are implemented as wrappers on top of the Rust driver via an FFI interface.
+The Node.js driver is implemented independently.
+Prior to version `2.24.0` all drivers were implemented independently.
 ====
